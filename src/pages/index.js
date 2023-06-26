@@ -8,7 +8,7 @@ const IndexPage = () => {
       <h1 >
         Congratulations
         <br />
-        <span >— you just made a Gatsby site! 🎉🎉🎉</span>
+        <span >— you just made a Gatsby site! 🎉🎉🎉</span> .   
         </h1>  
       
     </main>
