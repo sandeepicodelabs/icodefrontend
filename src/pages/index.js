@@ -12,8 +12,8 @@ import covercode from '../assets/images/cover-code.png';
 import meanstack from '../assets/images/meanstack.png';
 // import webimg from '../assets/images/web.png';
 // import messageimg from '../assets/images/message.png';
-
-import '../assets/css/custom.css';
+import '../assets/css/custom.css'
+// import '../assets/css/custom.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 const IndexPage = () => {
