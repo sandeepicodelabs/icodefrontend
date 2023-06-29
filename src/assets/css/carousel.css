@@ -1,0 +1,231 @@
+.gallery {
+    position: relative;
+    width: 100%;
+  }
+  
+  .gallery-container {
+    align-items: center;
+    display: flex;
+    height: 600px;
+    margin: 0 auto;
+    max-width: 1000px;
+    position: relative;
+  }
+  
+  .gallery-item {
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    width: auto;
+    z-index: 0;
+  }
+  
+  .gallery-item-1 {
+  display: none;
+  }
+  
+  .gallery-item-2,
+  .gallery-item-4 {
+    height: 500px;
+    opacity: 1;
+    width: auto;
+    z-index: 1;
+  }
+  
+  .gallery-item-2 {
+    left: -7%;
+    transform: rotate(350deg);
+    top: 9%;
+  }
+  
+  .gallery-item-3 {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    height: 600px;
+    opacity: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 2;
+  }
+  
+  .gallery-item-4 {
+    left: 66%;
+    transform: rotate(11deg);
+    top: 9%;
+  }
+  
+  .gallery-item-5 {
+   display: none;
+  }
+  button.gallery-controls-previous {
+    position: absolute;
+    top: 50%;
+    left: -70px;
+}
+  
+  .gallery-controls button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+    padding: 0 12px;
+    text-transform: capitalize;
+    color: #fff0;
+    /* display: none; */
+    /* opacity: 0; */
+  }
+  button.gallery-controls-next {
+    top: 50%;
+    right: -70px;
+    position: absolute;
+}
+  .gallery-controls .gallery-controls-previous:before {
+    content: "";
+    position: absolute;
+    background-image: url(../images/tabpreviousbtn.png);
+    height: 70px;
+    width: 70px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: 50%;
+    left: 0;
+  }
+  .gallery-controls .gallery-controls-next:after{
+    content: "";
+    position: absolute;
+    background-image: url(../images/tabnextbtn.png);
+    height: 70px;
+    width: 70px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: 50%;
+    right: 0;
+  }
+  
+  .gallery-controls button:focus {
+    outline: none;
+  }
+  
+  
+  .gallery-nav {
+    bottom: -15px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .gallery-nav li {
+    background: #ccc;
+    border-radius: 50%;
+    height: 10px;
+    margin: 0 16px;
+    width: 10px;
+  }
+  
+  .gallery-nav li.gallery-item-selected {
+    background: #555;
+  }
+  button.gallery-controls-add {
+    display: none;
+}
+
+@media(max-width: 1300px){
+  .gallery-item-3 {
+    height: 500px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    height: 400px;
+  }
+  .gallery-item-4 {
+    left: 63%;
+    top: 19%;
+  } 
+  .gallery-item-2 {
+    left: 6%;
+    top: 19%; 
+  }
+}
+
+@media(max-width: 1150px){
+  .gallery-item-3 {
+    height: 400px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    height: 300px;
+  }
+  .gallery-item-4 {
+    left: 61%;
+    top: 26%;
+  } 
+  .gallery-item-2 {
+    left: 15%;
+    top: 26%;
+  }
+  .work-slider {
+    margin: 0 auto 0 auto;
+  }
+}
+@media(max-width: 1024px){
+  .gallery-container {
+    height: 400px !important;
+  }
+}
+@media(max-width: 920px){
+  .gallery-item-3 {
+    height: 300px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    height: 200px;
+  }
+  .gallery-item-4 {
+    left: 61%;
+    top: 33%;
+  } 
+  .gallery-item-2 {
+    left: 15%;
+    top: 33%;
+  } 
+  .gallery-container {
+    height: 350px !important;
+  }
+}
+@media(max-width: 768px){
+  .gallery-controls .gallery-controls-next:after{
+    height: 50px;
+    width: 50px;
+  }
+  .gallery-controls .gallery-controls-previous:before{
+    height: 50px;
+    width: 50px;
+  }
+  button.gallery-controls-previous {
+    left: 0;
+  }
+  button.gallery-controls-next {
+    right: 0;
+  }
+}
+@media(max-width: 560px){
+  .gallery-item-3 {
+    height: 300px;
+  }
+  .gallery-item-2, .gallery-item-4 {
+    height: 200px;
+  }
+  .gallery-item-4 {
+   display: none;
+  } 
+  .gallery-item-2 {
+    display: none;
+  }
+  .gallery-controls .gallery-controls-previous:before {
+    height: 50px;
+    width: 50px;
+  }
+  
+}
