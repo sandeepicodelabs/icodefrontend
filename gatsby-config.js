@@ -13,11 +13,12 @@ require("dotenv").config({
 const strapiConfig = { 
   apiURL:"http://localhost:1337",
   accessToken: process.env.STRAPI_TOKEN, 
-  collectionTypes: [ 
-    "book",
-    "product",
+  collectionTypes: [  
     "article",
-    "company-logo" 
+    "company-logo" , 
+    "experiences-processe",
+    "technology-partner" 
+    
   ], 
   queryLimit: 1000, 
 }; 
@@ -26,14 +27,17 @@ const strapiConfig = {
 module.exports = { 
   plugins: [ 
     "gatsby-plugin-image",
+     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-strapi",
       options: {
         ...strapiConfig
+      
       },
+      
     },  
-     
+    
       // { 
       //   resolve: `gatsby-source-filesystem`,
       //   options: {
