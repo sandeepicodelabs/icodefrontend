@@ -3,14 +3,14 @@ import * as React from "react"
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
 
-import Creativeteam from '../assets/images/creative-team.png';
-import TeamIdea from '../assets/images/team-idea.png';
-import Teamresult from '../assets/images/teamresult.png';
-import ProjectManage from '../assets/images/project-management.png';
-import ClientSatisfy from '../assets/images/client-satisfy.png';
-import LatestStack from '../assets/images/latest-stack.png';
-import CompleteTranspancy from '../assets/images/complete-transpancy.png';
-import ScalableSolution from '../assets/images/scalable-solution.png';
+//import Creativeteam from '../assets/images/creative-team.png';
+//import TeamIdea from '../assets/images/team-idea.png';
+//import Teamresult from '../assets/images/teamresult.png';
+//import ProjectManage from '../assets/images/project-management.png';
+//import ClientSatisfy from '../assets/images/client-satisfy.png';
+//import LatestStack from '../assets/images/latest-stack.png';
+//import CompleteTranspancy from '../assets/images/complete-transpancy.png';
+// ScalableSolution from '../assets/images/scalable-solution.png';
 
 // import TestimonialCard from '../components/testimonialcard';
 // import InputBox from '../components/input';
@@ -27,6 +27,7 @@ import meanstack from '../assets/images/meanstack.png';
 // import 'bootstrap/dist/css/bootstrap.min.css'; 
 import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
+import ExpertiseCard from "../components/Cards/expertisecard";
 import Slider from "react-slick";
 import '../assets/css/custom.css';
 import '../assets/css/bootstrap.min.css';
@@ -35,7 +36,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const IndexPage = ({ data }) => { 
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes
   const technologyPartners = data?.allStrapiTechnologyPartner?.nodes
-  console.log('technology', technologyPartners)
+  const expertTech= data?.allStrapiExpertise?.edges
+  const process=data?.allStrapiProcess.edges
+  //console.log('process', process)
   
   const settings = {
     dots: false,
@@ -219,17 +222,66 @@ const IndexPage = ({ data }) => {
 								<h1>We expertise in </h1>
 								<p>trending technologies the world is looking at</p>
 								<div className="our-expertise-tech">
-									{/* {expertTech && expertTech.map((item, i) => (
-										<Link to={"/trendingtechnologies/" + item.node.slug}>
+									{expertTech && expertTech.map((item, i) => (
+										// <Link to={"/trendingtechnologies/" + item.node.slug}>
 											<ExpertiseCard
-												expertisetitle={item.node?.title}
-												img={item.node?.image.publicURL}
+												expertisetitle={item.node?.Title}
+												img={item.node?.Image.url}
 											/>
-										</Link>
-									))} */}
+										// </Link>
+									))} 
 								</div>
 							</div>
 						</section>
+
+            <section id="process">
+							<div className="how-do-we-do">
+								<div className="inner-timeline-box">
+									<div className="timeline-heading">
+										<h1>How do we do?</h1>
+										<p>Process in 4 easy step</p>
+									</div>
+									<div className="timeline-content">
+										<div className="timeline">
+											{process && process.map((item, i) => (
+												<div className="container-wrap-box steps">
+													<div className="content">
+														<h3>{item.node?.Title}</h3>
+														<p>{item.node?.Description.data.Description}</p>
+													</div>
+													<div className="date-month-box border-steps">
+														<div className="month">step</div>
+														<div className="month-date">{i+1}</div>
+													</div>
+												</div>
+											))}
+										</div>
+									</div>
+								</div>
+								{/* <div className="our-approach">
+									<div className="company-approach-card">
+										{ourApproaches && ourApproaches.map((item, i) => (
+											<CompanyApproachCard
+												approachheading={item.node?.title}
+												img={item.node?.image.publicURL} 
+												approachsubheading={item.node?.description}
+											/>
+										))}
+									</div>
+									<div className="approach-button">
+										<ButtonBox
+											type="button"
+											buttonname="know more about our approach"
+											className="approach-button-box"
+										/>
+									</div>
+								</div> */}
+							</div>
+						</section>
+
+
+
+
     </div>
   )
 };
@@ -269,6 +321,30 @@ export const query = graphql`
               }
               Image {
                 url
+              }
+            }
+          }
+
+          allStrapiExpertise {
+            edges {
+              node {
+                Title
+                Image {
+                  url
+                }
+              }
+            }
+          }
+
+          allStrapiProcess {
+            edges {
+              node {
+                Title
+                Description {
+                  data {
+                    Description
+                  }
+                }
               }
             }
           }

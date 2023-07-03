@@ -3,7 +3,8 @@ import '../../assets/css/custom.css';
  
 const ExpertiseCard = (props) => {
      
-    //const { img, expertisetitle } = props;    
+    const { img, expertisetitle } = props;  
+    //console.log("card",expertisetitle)  
   return (
     <>
       <div className="expertise-box">

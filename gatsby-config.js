@@ -11,14 +11,16 @@ require("dotenv").config({
 }); 
 
 const strapiConfig = { 
-  apiURL:"http://localhost:1337",
+  apiURL:"http://127.0.0.1:1337",
   accessToken: process.env.STRAPI_TOKEN, 
   collectionTypes: [  
-    "article",
-    "company-logo" , 
-    "experiences-processe",
-    "technology-partner" 
-    
+     "article",
+    "company-logo", 
+     "experiences-processe",
+     "technology-partner",
+     "expert-technologie",
+     "expertise",
+     "process" 
   ], 
   queryLimit: 1000, 
 }; 
