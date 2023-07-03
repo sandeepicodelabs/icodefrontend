@@ -1,0 +1,71 @@
+Arguments: 
+  /Users/icodelabs/.nvm/versions/node/v14.21.3/bin/node /Users/icodelabs/.nvm/versions/node/v14.21.3/bin/yarn start
+
+PATH: 
+  /Users/icodelabs/.nvm/versions/node/v14.21.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/icodelabs/.nvm/versions/node/v14.21.3/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  14.21.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/icodelabs/Desktop/code-web/icodelabfrontend/package.json: Unexpected token < in JSON at position 384
+      at JSON.parse (<anonymous>)
+      at /Users/icodelabs/.nvm/versions/node/v14.21.3/lib/node_modules/yarn/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/Users/icodelabs/.nvm/versions/node/v14.21.3/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/icodelabs/.nvm/versions/node/v14.21.3/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "my-gatsby-site",
+    "version": "1.0.0",
+    "private": true,
+    "description": "my-gatsby-site",
+    "keywords": [
+      "gatsby"
+    ],
+    "scripts": {
+      "develop": "gatsby develop",
+      "start": "gatsby develop", 
+      "build": "gatsby build",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean"
+    }, 
+    "dependencies": {
+      "bootstrap": "^5.3.0",
+      "gatsby": "^5.11.0",
+  <<<<<<< HEAD
+      "gatsby-source-strapi": "^3.2.0",
+      "node-sass": "^9.0.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-helmet": "^6.1.0",
+  =======
+      "gatsby-image": "^3.11.0",
+      "gatsby-plugin-image": "^3.11.0",
+      "gatsby-source-filesystem": "^5.11.0",
+      "gatsby-source-strapi": "^3.2.0",
+      "gatsby-transformer-sharp": "^5.11.0",
+      "i": "^0.3.7",
+      "npm": "^9.7.2",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-helmet": "^6.1.0",
+      "react-slick": "^0.29.0",
+  >>>>>>> 582587eaba5f864dbd4d7adc0fcb4a532ccc2e94
+      "reactstrap": "^9.2.0",
+      "sass": "^1.63.6"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
