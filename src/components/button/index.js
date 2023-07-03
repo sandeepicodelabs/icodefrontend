@@ -9,7 +9,7 @@ const ButtonBox = (props) => {
         <button
           type={type}
           className={className}
-        >
+        > 
           {buttonname}
         </button>
       </div>
