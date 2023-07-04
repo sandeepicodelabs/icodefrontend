@@ -1,0 +1,31 @@
+.blog-header{
+    padding: 0 10em;
+}
+@media(max-width: 1024px) {
+    .blog-header{
+        padding: 0;
+    }
+    .blog-header h1{
+        font-size: 30px !important;
+        line-height: 63px !important;
+    }
+}
+@media(max-width: 920px){
+    .blog-header h1 {
+        font-size: 32px !important;
+        line-height: 42px !important;
+    }
+}
+
+@media(max-width: 768px){
+    .blog-header h1 {
+        font-size: 28px !important;
+        padding: 0 30px;
+    }
+}
+@media (max-width: 460px){
+    .blog-header h1 {
+        font-size: 26px !important;
+        line-height: 35px !important;
+    }
+}

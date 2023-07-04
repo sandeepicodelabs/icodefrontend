@@ -28,18 +28,30 @@ import meanstack from '../assets/images/meanstack.png';
 import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
+import CompanyApproachCard from "../components/Cards/companyapproachecard";
+import TestimonialCard from "../components/Cards/testimonialcard"
+
+import testimonialPicture from '../assets/images/testimonialPic.png';
+import commaimage from '../assets/images/comma.png';
+import webimg from '../assets/images/web.png'
+import userImg from '../assets/images/user.png';
+import Emailicon from '../assets/images/email.png';
+import messageimg from '../assets/images/message.png'
+import InputBox from "../components/input";
 import Slider from "react-slick";
 import '../assets/css/custom.css';
 import '../assets/css/bootstrap.min.css';
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Footer from "../components/Footer/Footer";
+//import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const IndexPage = ({ data }) => { 
+const IndexPage = ({ data }) => {
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes
   const technologyPartners = data?.allStrapiTechnologyPartner?.nodes
-  const expertTech= data?.allStrapiExpertise?.edges
-  const process=data?.allStrapiProcess.edges
-  //console.log('process', process)
-  
+  const expertTech = data?.allStrapiExpertise?.edges
+  const process = data?.allStrapiProcess.edges
+  const ourApproaches = data?.allStrapiOurapproache.edges
+  // console.log('ourApproaches', ourApproaches)
+
   const settings = {
     dots: false,
     centerMode: true,
@@ -105,6 +117,37 @@ const IndexPage = ({ data }) => {
       },
     ]
   };
+
+  const testimonialCard = [
+    {
+      testimonialmessage: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      img: testimonialPicture,
+      clientname: "Sophia",
+      clientaddress: "Raver fans,uk",
+      commaimage: commaimage,
+    }
+  ]
+
+  const testimonialslide = {
+    dots: false,
+    centerMode: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 2,
+    speed: 1000,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          speed: 1000,
+          // centerMode: true,
+        }
+      },
+    ]
+  }
 
   return (
     <div>
@@ -208,7 +251,7 @@ const IndexPage = ({ data }) => {
                 <TechnologyCard
                   key={i}
                   technologyheading={item.Title}
-                    img={item?.Image?.url}
+                  img={item?.Image?.url}
                   technologydescription={item.Description.data.Description}
                 />
               ))}
@@ -218,67 +261,174 @@ const IndexPage = ({ data }) => {
       </section>
 
       <section id="technologies">
-							<div className="our-expertise">
-								<h1>We expertise in </h1>
-								<p>trending technologies the world is looking at</p>
-								<div className="our-expertise-tech">
-									{expertTech && expertTech.map((item, i) => (
-										// <Link to={"/trendingtechnologies/" + item.node.slug}>
-											<ExpertiseCard
-												expertisetitle={item.node?.Title}
-												img={item.node?.Image.url}
-											/>
-										// </Link>
-									))} 
-								</div>
-							</div>
-						</section>
+        <div className="our-expertise">
+          <h1>We expertise in </h1>
+          <p>trending technologies the world is looking at</p>
+          <div className="our-expertise-tech">
+            {expertTech && expertTech.map((item, i) => (
+              // <Link to={"/trendingtechnologies/" + item.node.slug}>
+              <ExpertiseCard
+                expertisetitle={item.node?.Title}
+                img={item.node?.Image.url}
+              />
+              // </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <section id="process">
-							<div className="how-do-we-do">
-								<div className="inner-timeline-box">
-									<div className="timeline-heading">
-										<h1>How do we do?</h1>
-										<p>Process in 4 easy step</p>
-									</div>
-									<div className="timeline-content">
-										<div className="timeline">
-											{process && process.map((item, i) => (
-												<div className="container-wrap-box steps">
-													<div className="content">
-														<h3>{item.node?.Title}</h3>
-														<p>{item.node?.Description.data.Description}</p>
-													</div>
-													<div className="date-month-box border-steps">
-														<div className="month">step</div>
-														<div className="month-date">{i+1}</div>
-													</div>
-												</div>
-											))}
-										</div>
-									</div>
-								</div>
-								{/* <div className="our-approach">
-									<div className="company-approach-card">
-										{ourApproaches && ourApproaches.map((item, i) => (
-											<CompanyApproachCard
-												approachheading={item.node?.title}
-												img={item.node?.image.publicURL} 
-												approachsubheading={item.node?.description}
-											/>
-										))}
-									</div>
-									<div className="approach-button">
-										<ButtonBox
-											type="button"
-											buttonname="know more about our approach"
-											className="approach-button-box"
-										/>
-									</div>
-								</div> */}
-							</div>
-						</section>
+      <section id="process">
+        <div className="how-do-we-do">
+          <div className="inner-timeline-box">
+            <div className="timeline-heading">
+              <h1>How do we do?</h1>
+              <p>Process in 4 easy step</p>
+            </div>
+            <div className="timeline-content">
+              <div className="timeline">
+                {process && process.map((item, i) => (
+                  <div className="container-wrap-box steps">
+                    <div className="content">
+                      <h3>{item.node?.Title}</h3>
+                      <p>{item.node?.Description.data.Description}</p>
+                    </div>
+                    <div className="date-month-box border-steps">
+                      <div className="month">step</div>
+                      <div className="month-date">{i + 1}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="our-approach">
+            <div className="company-approach-card">
+              {ourApproaches && ourApproaches.map((item, i) => (
+                <CompanyApproachCard
+                  approachheading={item.node?.Title}
+                  img={item.node?.Image.url}
+                  approachsubheading={item.node?.Description.data.Description}
+                />
+              ))}
+            </div>
+            <div className="approach-button">
+              <ButtonBox
+                type="button"
+                buttonname="know more about our approach"
+                className="approach-button-box"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="about-client-box">
+          <div className="about-client">
+            <h1 className="client-heading">What clients say about us</h1>
+            <ButtonBox
+              type="button"
+              buttonname="Reade more reviews"
+            />
+          </div>
+          <div className="about-slide">
+            <Slider {...testimonialslide}>
+              {testimonialCard.map((item, i) => (
+                <TestimonialCard
+                  key={i}
+                  testimonialmessage={item.testimonialmessage}
+                  img={item.img}
+                  clientname={item.clientname}
+                  clientaddress={item.clientaddress}
+                  commaimage={item.commaimage}
+                />
+              ))}
+            </Slider>
+          </div>
+        </div>
+      </section>
 
+      <section>
+        <div className="recent-work">
+          <div className="work-box">
+            <h1>our recent work</h1>
+            <div className="work-slider">
+              <div className="gallery">
+                <div className="gallery-container">
+                  <img className="gallery-item gallery-item-1" src={webimg} data-index="1" />
+                  <img className="gallery-item gallery-item-2" src={webimg} data-index="2" />
+                  <img className="gallery-item gallery-item-3" src={webimg} data-index="3" />
+                  <img className="gallery-item gallery-item-4" src={webimg} data-index="4" />
+                  <img className="gallery-item gallery-item-5" src={webimg} data-index="5" />
+                </div>
+                <div className="gallery-controls"></div>
+              </div>
+            </div>
+            <div className="view-work">
+              <a href="/projectlist">
+                <ButtonBox
+                  type="button"
+                  buttonname="View all work"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="contact-wrap">
+          <div className="contact-us-box">
+            <div className='contact-left'>
+              <h1 className="contact-heading">Have a Question?</h1>
+              <p className="contact-Subheading">Write Us, we will contact you shortly!</p>
+            </div>
+            <div className="contact-right">
+              <div className="contact-form">
+                <div className="input-wrap">
+                  <InputBox
+                    type="text"
+                    value=""
+                    placeholder={"Full Name"}
+                    className="contact-inputs"
+                    img={userImg}
+                  />
+                </div>
+                <div className="input-wrap">
+                  {/* <input type="text" placeholder='Email'  />
+									<span className="input-icon">
+										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
+									</span> */}
+                  <InputBox
+                    type="email"
+                    value=""
+                    placeholder={"Email"}
+                    className="contact-inputs"
+                    img={Emailicon}
+                  />
+                </div>
+                <div className="input-wrap">
+                  <textarea placeholder="Write a message here" rows={5}></textarea>
+                  <span className="input-icon">
+                    <img src={messageimg} alt="St Logo" />
+                  </span>
+                </div>
+                <div className="term-policy">
+                  <input type="checkbox" name="vehicle1" value="Bike" />
+                  <label> By clicking "submit" you agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <div className="send-button">
+                  <ButtonBox
+                    type="submit"
+                    buttonname="SEND MESSAGE"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
 
 
 
@@ -344,6 +494,22 @@ export const query = graphql`
                   data {
                     Description
                   }
+                }
+              }
+            }
+          }
+
+          allStrapiOurapproache {
+            edges {
+              node {
+                Title
+                Description {
+                  data {
+                    Description
+                  }
+                }
+                Image {
+                  url
                 }
               }
             }

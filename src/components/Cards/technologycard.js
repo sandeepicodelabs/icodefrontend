@@ -1,5 +1,5 @@
 import React from "react"
-import {graphql } from "gatsby"
+//import {graphql } from "gatsby"
 import '../../assets/css/custom.css';
 // import Subtract from '../images/Subtract.png';
 

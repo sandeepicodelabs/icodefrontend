@@ -1,0 +1,24 @@
+.form-box input {
+    background: #FFFFFF;
+    border: 1px solid #3E4348;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #101820;
+    padding: 12px 12px 12px 55px;
+  }
+
+
+  .form-box {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  .contact-form span.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 13px;
+    height: 24px;
+    width: 24px;
+  }
