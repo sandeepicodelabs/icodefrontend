@@ -20,7 +20,7 @@ const strapiConfig = {
      "technology-partner",
      "expert-technologie",
      "expertise",
-     "process",
+     "processe",
      "ourapproache"
   ], 
   queryLimit: 1000, 

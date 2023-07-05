@@ -48,7 +48,7 @@ const IndexPage = ({ data }) => {
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes
   const technologyPartners = data?.allStrapiTechnologyPartner?.nodes
   const expertTech = data?.allStrapiExpertise?.edges
-  const process = data?.allStrapiProcess.edges
+  //const process = data?.allStrapiProcess.edges
   const ourApproaches = data?.allStrapiOurapproache.edges
   // console.log('ourApproaches', ourApproaches)
 
@@ -286,7 +286,7 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="timeline-content">
               <div className="timeline">
-                {process && process.map((item, i) => (
+                {/* {process && process.map((item, i) => (
                   <div className="container-wrap-box steps">
                     <div className="content">
                       <h3>{item.node?.Title}</h3>
@@ -297,7 +297,7 @@ const IndexPage = ({ data }) => {
                       <div className="month-date">{i + 1}</div>
                     </div>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
           </div>
@@ -486,18 +486,6 @@ export const query = graphql`
             }
           }
 
-          allStrapiProcess {
-            edges {
-              node {
-                Title
-                Description {
-                  data {
-                    Description
-                  }
-                }
-              }
-            }
-          }
 
           allStrapiOurapproache {
             edges {
@@ -518,3 +506,16 @@ export const query = graphql`
         }  
       `
 
+
+          // allStrapiProcess {
+          //   edges {
+          //     node {
+          //       Title
+          //       Description {
+          //         data {
+          //           Description
+          //         }
+          //       }
+          //     }
+          //   }
+          // }

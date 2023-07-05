@@ -3,7 +3,7 @@ import './style.css';
 
 export default function HeaderBar(props) {
     const { currentpage, pagetitle } = props;
-    console.log("hearderbar",props)
+    //console.log("hearderbar",props)
     return (
         <>
             <div className="blog-header-wrap">

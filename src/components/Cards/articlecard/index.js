@@ -3,7 +3,7 @@ import './style.css'
 
 export default function BlogArticleCard(props) {
     const { cardtitle, img, cardprofileimg, profilename, postdate, carddescription } = props;
-    console.log("allarticle",props)
+   // console.log("allarticle",props)
     // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
     // const posts = data.allStrapiArticle.edges;
     // const filteredData = posts.filter(post => {

@@ -1,0 +1,63 @@
+.subscribe-box-wrap {
+    padding: 98px 48px;
+    background: #005B58;
+    border-radius: 10px;
+    text-align: center;
+}
+.subscribe-card-box h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 42px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+.subscribe-card-box p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+}
+.subscribe-card-box button {
+    background: #FFFFFF;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: #005B58;
+    padding: 12px 48px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.subscribe-input-box input {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 18px 24px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #D1D1D1;
+}
+.subscribe-input-box {
+    margin-bottom: 48px;
+}
+.subscribe-box-wrap button{
+    margin-top: 0;
+}
+
+@media(max-width: 460px){
+    .subscribe-card-box button{
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+    }
+}
