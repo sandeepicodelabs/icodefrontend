@@ -2,8 +2,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const result = await graphql(
         `
-          {
-      
+        { 
              articles: allStrapiArticle {
                 edges {
                   node {
@@ -12,7 +11,21 @@ exports.createPages = async ({ graphql, actions }) => {
                   }
                 }
               }
-           }
+           
+
+           
+           
+           technologies:allStrapiTechnology {
+            edges {
+              node {
+                strapi_id
+                Slug
+              }
+            }
+          }
+        }
+        
+
         ` 
     )
 
@@ -22,6 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
     
       // Create blog articles pages.
       const articles = result.data.articles.edges
+      const technologies=result.data.technologies.edges
 
       articles.forEach((article, index) => {
         createPage({
@@ -34,12 +48,24 @@ exports.createPages = async ({ graphql, actions }) => {
         }) 
       })
 
+
+      technologies.forEach((technology, index) => {
+        createPage({
+          path: `/technologies/${technology.node.slug}`,
+          component: require.resolve("./src/pages/trendingtechologies/index.js"),
+          context: {
+            slug: technology.node.slug,
+          },
+        })
+      })
+
+
        const postsPerPage = 8
       const numPages = Math.ceil(articles.length / postsPerPage)
        Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-      path: i === 0 ? `../blogs` : `../blogs/${i + 1}`,
-      component: require.resolve("./src/templates/pagination.js"),
+      path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
+      component: require.resolve("./src/components/pagination/index.js"),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,

@@ -5,10 +5,11 @@ import fblogo from '../../assets/images/facebook.png'
 import twiterlogo from '../../assets/images/twiter.png'
 import linkedinlogo from '../../assets/images/linked.png'
 import instalogo from '../../assets/images/insta.png'
+import { graphql } from 'gatsby';
 
-function Footer(props) {
-    const { img, expertisetitle } = props;
-    //console.log("foooter",props)
+function Footer({data}) {
+    console.log("foooter",data)
+     const technologys=data?.allStrapiTechnology?.edges
   return (
     <>
     <footer className="footer-box">
@@ -88,3 +89,49 @@ function Footer(props) {
 }
 
 export default Footer
+
+
+export const query=graphql`
+query MyQuery {
+    allStrapiTechnology {
+      nodes {
+        Title
+      }
+    }
+  }
+
+`
+
+
+// export const query=graphql`
+// query MyQuery {
+//     allStrapiTechnology {
+//       edges {
+//         node {
+//           Slug
+//           strapi_id
+//           Title
+//           Benefits {
+//             data {
+//               Benefits
+//             }
+//           }
+//           Description {
+//             data {
+//               Description
+//             }
+//           }
+//           Valuetitle
+//           Valuedescription {
+//             data {
+//               Valuedescription
+//             }
+//           }
+//           Toolstitle
+//           Promotext
+//         }
+//       }
+//     }
+//   }
+
+// `

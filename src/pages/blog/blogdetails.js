@@ -64,7 +64,7 @@ export default function BlogPage({data,pageContext}) {
       })
      
       const article = posts.find(item=>{return item.node.Slug === pageContext.article.node.Slug})
-       console.log('filter',article)
+      // console.log('filter',article)
      
   return (
     
@@ -80,7 +80,7 @@ export default function BlogPage({data,pageContext}) {
           <div className="blog-description-data">
             {/* <div className="blog-detail-title">{article?.node.category.name}</div> */}
             <div className="blog-detail-data">
-              <div className="blog-card-date">{article?.node?.publishedAt}</div>
+              <div className="blog-card-date">{article?.node?.updatedAt}</div>
              
               {/* <div className="blog-card-posted-name"><span>Posted by :</span> {article?.node.user.displayName}</div> */}
             </div>
@@ -178,18 +178,18 @@ export default function BlogPage({data,pageContext}) {
               <div className="related-slider">
                 <Slider {...settings}>
                   {filteredData.map((item, i) => (
-                    <div className="article-slide">
+                     <div className="article-slide">
                       <AllArticleCard
                         key={i}
-                       // img={item.node?.image?.publicURL}
-                       // articleTitle={item.node?.category.name}
-                        articledescription={item.node?.Content.data.Content}
+                        // img={item.node?.Image?.url}
+                        articleTitle={item.node?.Title}
+                        //articledescription={item.node?.Content.data.Content}
                        // postedname={item.node?.user.displayName}
-                        postdate={item.node?.publishedAt}
-                        cardtitle={item.node?.Title}
-                        //cardprofile={item.node?.user.profileimage?.publicURL}
-                      />
-                    </div>
+                         postdate={item.node?.createdAt}
+                         cardtitle={item.node?.Title}
+                         //cardprofile={item.node?.user.profileimage?.publicURL}
+                       />
+                     </div>
                   ))}
                 </Slider>
               </div>
@@ -205,21 +205,25 @@ export default function BlogPage({data,pageContext}) {
 
 export const query=graphql`
 query MyQuery { 
-    allStrapiArticle (limit: 6, sort: {publishedAt: DESC}) {
-       edges {
-         node {
-           Title
-           Slug
-           Content {
-             data {
-               Content
-             }
-           }
-           createdAt(formatString: "DD MMMM, YYYY")
-           publishedAt(formatString: "DD MMMM, YYYY")
-         }
-       }
-     }
+  allStrapiArticle(limit: 6, sort: {publishedAt: DESC}) {
+    edges {
+      node {
+        Title
+        Slug
+        Content {
+          data {
+            Content
+          }
+        }
+        createdAt(formatString: "DD MM YYYY")
+        updatedAt(formatString: "DD MM YYYY")
+        Promotext
+        Image {
+          url
+        }
+      }
+    }
+  }
    }
 
 `

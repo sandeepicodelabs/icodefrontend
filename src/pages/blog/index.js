@@ -168,7 +168,7 @@ export default function Blog({ data }) {
 
 export const query = graphql`
 query MyQuery { 
- allStrapiArticle (limit: 10, sort: {publishedAt: DESC}) {
+ allStrapiArticle (limit: 12, sort: {publishedAt: DESC}) {
     edges {
       node {
         Title
