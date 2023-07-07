@@ -1,15 +1,29 @@
-import React from 'react'
-import { Link } from 'gatsby';
+import * as React from 'react'
 import footerlogo from '../../assets/images/footerlogo.png';
 import fblogo from '../../assets/images/facebook.png'
 import twiterlogo from '../../assets/images/twiter.png'
 import linkedinlogo from '../../assets/images/linked.png'
 import instalogo from '../../assets/images/insta.png'
-import { graphql } from 'gatsby';
+import { graphql,useStaticQuery,Link } from 'gatsby';
 
-function Footer({data}) {
-    console.log("foooter",data)
-     const technologys=data?.allStrapiTechnology?.edges
+const Footer =()=> {
+    const data = useStaticQuery(graphql`
+    query {
+      allStrapiTechnology {
+        edges {
+          node {
+            Title
+            Slug
+          }
+        }
+      }
+    }
+  `);
+   // const { Logo, SocialNetworkIcon, Address, CompanyName, Email, PhoneNumber } = data?.allStrapiComponentGlobalFooter?.edges[0]?.node || {};
+
+   const technology = data?.allStrapiTechnology?.edges
+
+    console.log("footer",technology)
   return (
     <>
     <footer className="footer-box">
@@ -36,7 +50,20 @@ function Footer({data}) {
                                 <div className="row">
                                     <div className="col-lg-6 col-md-6 col-sm-12 ">
                                         <div className="hiring-link">
-                                            <ul>
+                                           
+                                            {technology && technology.map((item,i)=>(
+                                         <ul>
+                                            <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire MEAN stack developers </Link>   </li>
+                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire MERN stack developers </Link></li>
+                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire JAM stack developers </Link></li>
+                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Nodejs developers </Link></li>
+                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Asp.net developers </Link></li>
+                                           
+                                              </ul>
+                                            )) 
+                                            }
+                                          
+                                            {/* <ul>
                                                 <li><Link to="/technologies/hire-mean-stack-developer">Hire MEAN stack developers </Link></li>
                                                 <li><Link to="/technologies/hire-mern-stack-developer">Hire MERN stack developers </Link></li>
                                                 <li><Link to="/technologies/hire-jam-stack-developer">Hire JAM stack developers </Link></li>
@@ -45,18 +72,21 @@ function Footer({data}) {
 
 
 
-                                            </ul>
+                                            </ul> */}
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-12 ">
                                         <div className="hiring-link">
-                                            <ul>
-                                                <li><Link to="/technologies/hire-react-native-developer">Hire React Native developers</Link></li>
-                                                <li><Link to="/technologies/hire-flutter-developer">Hire Flutter developers</Link></li>
-                                                <li><Link to="/technologies/hire-android-developer">Hire Android developers</Link></li>
-                                                <li><Link to="/technologies/hire-ios-developer">Hire IOS developers</Link></li>
-                                                <li><Link to="/technologies/hire-angular-developer">Hire Angular developers </Link></li>
+                                            {technology && technology.map((item,i)=>(
+
+                                            <ul> 
+                                                <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire React Native developers</Link></li>
+                                                <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Flutter developers</Link></li>
+                                                <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Android developers</Link></li>
+                                                <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire IOS developers</Link></li>
+                                                <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Angular developers </Link></li>
                                             </ul>
+                                            ) )}
                                         </div>
                                     </div>
                                 </div>
@@ -88,50 +118,7 @@ function Footer({data}) {
   )
 }
 
-export default Footer
+export default Footer;
 
 
-export const query=graphql`
-query MyQuery {
-    allStrapiTechnology {
-      nodes {
-        Title
-      }
-    }
-  }
-
-`
-
-
-// export const query=graphql`
-// query MyQuery {
-//     allStrapiTechnology {
-//       edges {
-//         node {
-//           Slug
-//           strapi_id
-//           Title
-//           Benefits {
-//             data {
-//               Benefits
-//             }
-//           }
-//           Description {
-//             data {
-//               Description
-//             }
-//           }
-//           Valuetitle
-//           Valuedescription {
-//             data {
-//               Valuedescription
-//             }
-//           }
-//           Toolstitle
-//           Promotext
-//         }
-//       }
-//     }
-//   }
-
-// `
+ 

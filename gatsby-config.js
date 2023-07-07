@@ -4,8 +4,7 @@
 
 // require("dotenv").config({
 //   path: `.env`,
-// });
-
+// }); 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 }); 
@@ -20,130 +19,12 @@ const strapiConfig = {
      "technology-partner",
      "expert-technologie",
      "expertise",
-     "processes",
+     "process",
      "ourapproache",
-     
-
-
-     {
-      singularName: "technology",
-      queryParams: {
-        // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
-        populate: {
-          image: "*",
-          images: "*",
-          ThumbnailName: {
-            populate: "*",
-          },
-          ThumbnailImage: {
-            populate: "*",
-          },
-          ThumbnailIcon: {
-            populate: {
-              Image: "*",
-              Link: "*",
-            },
-          },
-          ProductName: {
-            populate: "*",
-          },
-          ProductImage: {
-            populate: "*",
-          },
-          slug: {
-            populate: "*",
-          },
-          ProductDescription: {
-            populate: "*",
-          },
-          Schedatecnica: {
-            populate: "*",
-          },
-          SchedatecnicaLink: {
-            populate: "*",
-          },
-          SeperatorImage: {
-            populate: "*",
-          },
-          Content: {
-            populate: "*",
-          },
-          Image: {
-            populate: "*",
-          },
-          ProductLogoImg: {
-            populate: "*",
-          },
-          BackToVini: {
-            populate: "*",
-          },
-          DataSheet: {
-            populate: '*'
-          },
-          HoverImage: {
-            populate: '*'
-          },
-          localizations: {
-            populate: {
-              ThumbnailName: {
-                populate: "*",
-              },
-              ThumbnailImage: {
-                populate: "*",
-              },
-              ThumbnailIcon: {
-                populate: {
-                  Image: "*",
-                  Link: "*",
-                },
-              },
-              ProductName: {
-                populate: "*",
-              },
-              ProductImage: {
-                populate: "*",
-              },
-              slug: {
-                populate: "*",
-              },
-              ProductDescription: {
-                populate: "*",
-              },
-              Schedatecnica: {
-                populate: "*",
-              },
-              SchedatecnicaLink: {
-                populate: "*",
-              },
-              SeperatorImage: {
-                populate: "*",
-              },
-              Content: {
-                populate: "*",
-              },
-              Image: {
-                populate: "*",
-              },
-              ProductLogoImg: {
-                populate: "*",
-              },
-              BackToVini: {
-                populate: "*",
-              },
-              DataSheet: {
-                populate: '*'
-              },
-              HoverImage: {
-                populate: '*'
-              },
-            }
-          }
-        },
-      },
-    },
+     "technology",
+     "jointeche"
   ], 
-  queryLimit: 1000, 
+   queryLimit: 1000, 
 }; 
 
 

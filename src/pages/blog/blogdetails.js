@@ -53,8 +53,8 @@ export default function BlogPage({data,pageContext}) {
    // console.log('artile',data)
 
     const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-      const posts = data.allStrapiArticle.edges;
-      const filteredData = posts.filter(post => {
+      const posts = data?.allStrapiArticle?.edges;
+      const filteredData = posts?.filter(post => {
         const { Content, Title, Slug } = post.node
         return (
           Title.toLowerCase().includes(query?.toLowerCase()) ||
@@ -63,8 +63,8 @@ export default function BlogPage({data,pageContext}) {
         )
       })
      
-      const article = posts.find(item=>{return item.node.Slug === pageContext.article.node.Slug})
-      // console.log('filter',article)
+      const article = posts?.find(item=>{return item.node.Slug === pageContext.article.node.Slug})
+      // console.log('blog',article)
      
   return (
     

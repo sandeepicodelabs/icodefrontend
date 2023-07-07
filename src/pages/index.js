@@ -50,7 +50,9 @@ const IndexPage = ({ data }) => {
   const expertTech = data?.allStrapiExpertise?.edges
   const process = data?.allStrapiProcess?.edges
   const ourApproaches = data?.allStrapiOurapproache.edges
-   //console.log('process', process)
+
+  //console.log('process',choosecard)
+  
 
   const settings = {
     dots: false,
@@ -448,7 +450,7 @@ export const query = graphql`
                 }
               }
             }
-          }
+          } 
 
           allStrapiExperiencesProcesse {
             nodes {
@@ -503,19 +505,21 @@ export const query = graphql`
             }
           }
           
+          allStrapiProcess {
+            edges {
+              node {
+                Title
+                Description {
+                  data {
+                    Description
+                  }
+                }
+              }
+            }
+          }
+         
+          
         }  
       `
 
-
-          // allStrapiProcess {
-          //   edges {
-          //     node {
-          //       Title
-          //       Description {
-          //         data {
-          //           Description
-          //         }
-          //       }
-          //     }
-          //   }
-          // }
+ 

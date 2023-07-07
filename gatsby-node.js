@@ -10,10 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     Slug
                   }
                 }
-              }
-           
-
-           
+              }  
            
            technologies:allStrapiTechnology {
             edges {
@@ -48,13 +45,15 @@ exports.createPages = async ({ graphql, actions }) => {
         }) 
       })
 
-
+   
       technologies.forEach((technology, index) => {
         createPage({
-          path: `/technologies/${technology.node.slug}`,
+          path: `/trendingtechologies/${technology.node.Slug}`,
           component: require.resolve("./src/pages/trendingtechologies/index.js"),
           context: {
-            slug: technology.node.slug,
+            // id:technology.node.strapi_id,
+            // technology
+            Slug: technology.node.Slug,
           },
         })
       })
