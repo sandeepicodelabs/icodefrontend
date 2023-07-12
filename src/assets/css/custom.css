@@ -41,7 +41,7 @@ html {
 }
 
 .cover-background {
-  background-image: url(../images/cover-background.png);
+  /* background-image: url(../images/cover-background.png); */
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -102,7 +102,7 @@ html {
 }
 
 .cover-heading-text h1::before {
-  background-image: url(../images/leftarrow.png);
+  /* background-image: url(../../src/images/leftarrow.png); */
   content: "";
   position: absolute;
   height: 154px;
@@ -114,7 +114,7 @@ html {
 }
 
 .cover-heading-text h1::after {
-  background-image: url(../images/rightarrow.png);
+  /* background-image: url(../../src/images/rightarrow.png); */
   content: "";
   position: absolute;
   height: 154px;
@@ -203,7 +203,7 @@ html {
 .trusted-brand-box .slick-prev,
 .slick-prev:hover,
 .slick-prev:focus {
-  background-image: url(../images/slide-left.png) !important;
+  /* background-image: url(../images/slide-left.png) !important; */
   height: auto !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -221,8 +221,8 @@ html {
 
 .trusted-brand-box .slick-next,
 .slick-next:hover,
-.slick-next:focus {
-  background-image: url(../images/slide-right.png) !important;
+.slick-next:focus { 
+  /* background-image: url(../../src/images/slide-right.png) !important; */
   height: auto !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -369,7 +369,7 @@ html {
 }
 
 .tech-partner {
-  background-image: url(../images/partner-background.png);
+  /* background-image: url(../images/partner-background.png); */
   height: 100%;
   background-position: left;
   background-repeat: no-repeat;
@@ -384,7 +384,7 @@ html {
 }
 
 .tech-partner::after {
-  background-image: url(../images/dotted-background.png);
+  /* background-image: url(../images/dotted-background.png); */
   content: "";
   position: absolute;
   top: 16%;
@@ -428,15 +428,11 @@ html {
 .partner-slider .slick-list {
   padding: 0 !important;
 }
-<<<<<<< HEAD
  g 
-=======
-
->>>>>>> 582587eaba5f864dbd4d7adc0fcb4a532ccc2e94
 .partner-slider Button.slick-arrow.slick-prev {
   left: 14px;
-  z-index: 9;
-  background-image: url(../../assets/images/leftArrow.png) !important;
+  z-index: 9; 
+  /* background-image: url(../../src/images/leftArrow.png) !important; */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -445,7 +441,7 @@ html {
 .partner-slider Button.slick-arrow.slick-next {
   right: 14px;
   z-index: 9;
-  background-image: url(../../assets/images/rightArrow.png) !important;
+  /* background-image: url(../../src/images/rightArrow.png) !important; */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1039,7 +1035,7 @@ html {
 .about-slide .slick-prev {
   left: 14px;
   z-index: 9;
-  background-image: url(../../assets/images/leftArrow.png) !important;
+  /* background-image: url(../../src/images/leftArrow.png) !important; */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1051,7 +1047,7 @@ html {
 .about-slide Button.slick-arrow.slick-next {
   right: 14px;
   z-index: 9;
-  background-image: url(../../assets/images/rightArrow.png) !important;
+  /* background-image: url(../../src/images/rightArrow.png) !important; */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1071,7 +1067,7 @@ html {
 .work-slider .slick-prev {
   left: 14px;
   z-index: 9;
-  background-image: url(../../assets/images/leftArrow.png) !important;
+  /* background-image: url(../../src/images/leftArrow.png) !important; */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1083,7 +1079,7 @@ html {
 .work-slider Button.slick-arrow.slick-next {
   right: 14px;
   z-index: 9;
-  background-image: url(../../assets/images/rightArrow.png) !important;
+  /* background-image: url(../../src/images/rightArrow.png) !important; */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
