@@ -5,6 +5,7 @@ import twiterlogo from '../../assets/images/twiter.png'
 import linkedinlogo from '../../assets/images/linked.png'
 import instalogo from '../../assets/images/insta.png'
 import { graphql,useStaticQuery,Link } from 'gatsby';
+import ExpertiseCard from '../../pages/trendingtechologies';
 
 const Footer =()=> {
     const data = useStaticQuery(graphql`
@@ -23,7 +24,7 @@ const Footer =()=> {
 
    const technology = data?.allStrapiTechnology?.edges
 
-    console.log("footer",technology)
+   // console.log("footers",technology)
   return (
     <>
     <footer className="footer-box">
@@ -51,31 +52,27 @@ const Footer =()=> {
                                     <div className="col-lg-6 col-md-6 col-sm-12 ">
                                         <div className="hiring-link">
                                            
-                                            {technology && technology.map((item,i)=>(
-                                         <ul>
-                                            <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire MEAN stack developers </Link>   </li>
-                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire MERN stack developers </Link></li>
-                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire JAM stack developers </Link></li>
-                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Nodejs developers </Link></li>
-                                              <li><Link to={"../trendingtechologies/" + item?.node?.Slug}>Hire Asp.net developers </Link></li>
-                                           
-                                              </ul>
+                                         {technology && technology.map((item,i)=>( 
+                                                <ul>
+                                                    <li>   <Link to={"/trendingtechologies/" + item?.node?.Slug}>{item.node.Title}  </Link> </li>
+                                                </ul>
+                                                                                        
+                                                      
                                             )) 
-                                            }
-                                          
-                                            {/* <ul>
-                                                <li><Link to="/technologies/hire-mean-stack-developer">Hire MEAN stack developers </Link></li>
-                                                <li><Link to="/technologies/hire-mern-stack-developer">Hire MERN stack developers </Link></li>
-                                                <li><Link to="/technologies/hire-jam-stack-developer">Hire JAM stack developers </Link></li>
-                                                <li><Link to="/technologies/hire-nodejs-developer">Hire Nodejs developers </Link></li>
-                                                <li><Link to="/technologies/hire-dotnet-developer">Hire Asp.net developers </Link></li>
-
-
-
-                                            </ul> */}
+                                            }  
+                                            {/* {
+                                                technology && technology.map((item,i)=>(
+                                                    <Link to={"/trendingtechologies/" + item?.node?.Slug}>
+                                                    <ExpertiseCard
+                                                     title={item.node.Title}
+                                                    />
+                                                    </Link>
+                                                ))
+                                            } */}
+                                            
                                         </div>
                                     </div>
-                                    <div className="col-lg-6 col-md-6 col-sm-12 ">
+                                    {/* <div className="col-lg-6 col-md-6 col-sm-12 ">
                                         <div className="hiring-link">
                                             {technology && technology.map((item,i)=>(
 
@@ -88,7 +85,7 @@ const Footer =()=> {
                                             </ul>
                                             ) )}
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 

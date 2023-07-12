@@ -13,18 +13,22 @@ import './style.css'
 
 
 
-export default function ExpertiseCard({ data }) {
-  console.log('expertise card',technologycard?.node?.Title)
-  const technologycard = data?.allStrapiTechnology?.edges
-  const jointTechs = data?.allStrapiJointeche?.edges
+export default function ExpertiseCard({data,props,pageContext}) {
+    //console.log('props',props)
+    //const {title}=props;
+  const technologycard = data && data?.allStrapiTechnology?.edges;
+  const jointTechs = data?.allStrapiJointeche?.edges;
 
-
+  // console.log('expertise card',data && data?.allStrapiTechnology?.edges)  
+ const technology = technologycard.find(item=>{return item.node.Slug === pageContext.technology.node.Slug})
+               
+     console.log(technology, "---technolo")
   return (
     <div className="outer-trading-box">
       <Header />
       <section className="tranding-tech">
         <div className="tranding-bar-cover">
-          <h1>{technologycard?.node?.Title}</h1>
+           <h1>{technology?.node?.Title}</h1> 
           
           <div className="tranding-cover-cards">
             <TrandingCover
@@ -55,34 +59,40 @@ export default function ExpertiseCard({ data }) {
       <section className="recomment-box">
         <div className="recommented-wrap">
           <div className="recommend-section">
-            <h1>Why we recommend React Native as go to approach</h1>
+            <h1>{technology?.node?.Benefittitle.data.Benefittitle}</h1>
+            {/* <h1>Why we recommend React Native as go to approach</h1> */}
           </div>
           <div className="recommend-wrap-box">
             <div className="approach-left-box">
               <p>
-                Developed & maintained by Facebook, React Native is a great framework for cross platform mobile app development.
+                {technology?.node?.Benifitdescription.data.Benifitdescription}
+                {/* Developed & maintained by Facebook, React Native is a great framework for cross platform mobile app development.
                 React Native delivers great speed & performance, the UI and UX of the apps in most of the cases is same as Native
-                apps and on top of its all JavaScript. Choose React Native when:
+                apps and on top of its all JavaScript. Choose React Native when: */}
               </p>
             </div>
             <div className="approach-right-box">
               <div className="approach-box">
-                <h4>Great for startups</h4>
+                  <h4>{technology?.node?.StartupTitle}</h4>
+                {/* <h4>Great for startups</h4> */}
                 <p>
-                  Reat Native solves many challenges startups face. Every startup like to launch the product quickly as its important
+                    {technology?.node?.Startupdescription.data.Startupdescription}
+                  {/* Reat Native solves many challenges startups face. Every startup like to launch the product quickly as its important
                   for them to prove their unique propostion and establish this before somebody else takes over. They need a cost effective
                   solution and scalable solution. If you need ALL JAVASCRIPT full stack development, React Native is a perfect option.
                   It ticks almost all the points for startup apps. We help startups to launch apps on android & IOS platforms
-                  at the same time time reducing the product launch timeline.
+                  at the same time time reducing the product launch timeline. */}
                 </p>
               </div>
               <div className="approach-box">
-                <h4>MVP Development</h4>
+                 <h4>{technology?.node?.Developmenttitle}</h4>
+                {/* <h4>MVP Development</h4> */}
                 <p>
-                  React Native is best for MVP products as well. MVP products are built to validate the idea and keep improvising & scaling
+                  {technology?.node?.Developmentdescription.data.Developmentdescription}
+                  {/* React Native is best for MVP products as well. MVP products are built to validate the idea and keep improvising & scaling
                   with constant feedback received. This needs cost effective, scalable and the most important a great team to
                   collborate & maintain the app with constant changes. The one source code and same development team helps a lot
-                  than having mutiple teams and running after one developer to another.
+                  than having mutiple teams and running after one developer to another. */}
                 </p>
               </div>
             </div>
@@ -93,7 +103,7 @@ export default function ExpertiseCard({ data }) {
       <section className="why-we-hire">
         <div className="our-team-wrap">
           <div className="our-tech-team">
-            <h1>Reasons to hire our React team</h1>
+            <h1>{technology?.node?.Valuetitle}</h1>
             <div className="out-hiring-tech-subtext">
               Our team of React developers have more than 5 years of development experience .
               Our core focus is to delivery a quality, maintainable & scalable solution.
@@ -131,32 +141,56 @@ export default function ExpertiseCard({ data }) {
 
 export const query = graphql`
 query MyQuery {
-    allStrapiTechnology {
-      edges {
-        node {
-          Title
-          Benefits {
-            data {
-              Benefits
-            }
+  allStrapiTechnology {
+    edges {
+      node {
+        Title
+        Slug
+        Valuetitle
+        Metatitle
+        Promotext
+        Description {
+          data {
+            Description
           }
-          Description {
-            data {
-              Description
-            }
+        }
+        Metadescription {
+          data {
+            Metadescription
           }
-          Metatitle
-          Toolstitle
-          Valuedescription {
-            data {
-              Valuedescription
-            }
+        }
+        Benefittitle {
+          data {
+            Benefittitle
           }
-          Valuetitle
-          Promotext
+        }
+        Benifitdescription {
+          data {
+            Benifitdescription
+          }
+        }
+        Developmentdescription {
+          data {
+            Developmentdescription
+          }
+        }
+        Developmenttitle
+        StartupTitle
+        Startupdescription {
+          data {
+            Startupdescription
+          }
+        }
+        Valuedescription {
+          data {
+            Valuedescription
+          }
         }
       }
     }
+  }
+  
+  
 
     allStrapiJointeche {
         edges {

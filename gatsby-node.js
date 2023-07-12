@@ -43,17 +43,17 @@ exports.createPages = async ({ graphql, actions }) => {
             article
           },
         }) 
-      })
-
+      }) 
+ 
    
       technologies.forEach((technology, index) => {
         createPage({
           path: `/trendingtechologies/${technology.node.Slug}`,
           component: require.resolve("./src/pages/trendingtechologies/index.js"),
           context: {
-            // id:technology.node.strapi_id,
-            // technology
-            Slug: technology.node.Slug,
+             id:technology.node.strapi_id,
+             technology
+            //Slug: technology.node.Slug,
           },
         })
       })

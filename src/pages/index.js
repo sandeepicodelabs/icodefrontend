@@ -42,6 +42,7 @@ import Slider from "react-slick";
 import '../assets/css/custom.css';
 import '../assets/css/bootstrap.min.css';
 import Footer from "../components/Footer/Footer";
+import '../assets/css/carousel.css';
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const IndexPage = ({ data }) => {
@@ -52,7 +53,7 @@ const IndexPage = ({ data }) => {
   const ourApproaches = data?.allStrapiOurapproache.edges
 
   //console.log('process',choosecard)
-  
+
 
   const settings = {
     dots: false,
@@ -288,7 +289,7 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="timeline-content">
               <div className="timeline">
-                 {process && process.map((item, i) => (
+                {process && process.map((item, i) => (
                   <div className="container-wrap-box steps">
                     <div className="content">
                       <h3>{item.node?.Title}</h3>
@@ -299,7 +300,7 @@ const IndexPage = ({ data }) => {
                       <div className="month-date">{i + 1}</div>
                     </div>
                   </div>
-                ))} 
+                ))}
               </div>
             </div>
           </div>
@@ -314,11 +315,13 @@ const IndexPage = ({ data }) => {
               ))}
             </div>
             <div className="approach-button">
+              <a href="../ourapproach">
               <ButtonBox
                 type="button"
                 buttonname="know more about our approach"
-                className="approach-button-box"
+                className="approach-button-box" 
               />
+              </a>
             </div>
           </div>
         </div>
@@ -522,4 +525,4 @@ export const query = graphql`
         }  
       `
 
- 
+
