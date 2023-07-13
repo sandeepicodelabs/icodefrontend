@@ -56,7 +56,7 @@ export default function BlogPage({data,pageContext}) {
     const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
       const posts = data?.allStrapiArticle?.edges;
       const filteredData = posts?.filter(post => {
-        const { Content, Title, Slug } = post.node
+        const { Content, Title, Slug ,Type} = post.node
         return (
           Title.toLowerCase().includes(query?.toLowerCase()) ||
           Slug.toLowerCase().includes(query?.toLowerCase()) ||
@@ -213,6 +213,7 @@ query MyQuery {
       node {
         Title
         Slug
+        Type
         Content {
           data {
             Content
