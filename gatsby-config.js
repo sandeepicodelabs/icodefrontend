@@ -22,7 +22,8 @@ const strapiConfig = {
      "process",
      "ourapproache",
      "technology",
-     "jointeche"
+     "jointeche",
+     "project-list"
   ], 
    queryLimit: 1000, 
 }; 

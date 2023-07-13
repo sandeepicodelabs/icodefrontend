@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../Header/Header';
 import HeaderBar from '../headerbar';
 import { graphql } from 'gatsby';
+import './style.css'
 
 
 export default function BlogCoverCard(props) {

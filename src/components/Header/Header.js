@@ -57,6 +57,9 @@ export default class Header extends Component {
 								<NavLink href="/contact">Contact Us</NavLink>
 							</NavItem>
 							<NavItem>
+								<NavLink href="/projectlist">Project List</NavLink>
+							</NavItem>
+							<NavItem>
 								<NavLink href="/contact" className="button-hiring">Hire Developers</NavLink>
 							</NavItem>
 						</Nav>

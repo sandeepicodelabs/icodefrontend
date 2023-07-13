@@ -21,7 +21,7 @@ export default function Blog({ data }) {
   const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
   const filteredData = posts.filter(post => {
-    const { Content, Title, Slug, publishedAt } = post.node
+    const { Content, Title, Slug, publishedAt,Type } = post.node
     return (
       Title.toLowerCase().includes(query?.toLowerCase()) ||
       Slug.toLowerCase().includes(query?.toLowerCase()) ||
@@ -29,18 +29,7 @@ export default function Blog({ data }) {
 
     )
   });
-
-  // const articlecard = [
-  //   {
-  //     articleTitle: "Web development",
-  //     articledescription: "Ahead of time is a key aspect to sustain and grow an existing business. Most of the time persistence to change or adapt as per the changing market leads to potential gaps that give opportunities for...",
-  //     postedname: "John deo",
-  //     postdate: "May 4,2022",
-  //     cardtitle: "Developing Marketplace application with Sharetribe",
-  //     img: CardProfile,
-  //     cardprofile: profileimg
-  //   },
-  // ]
+ 
 
   const blogcovercard = [
     {
@@ -63,8 +52,7 @@ export default function Blog({ data }) {
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box">
           <div className="blog-wrap-data">
-            <div className="blog-card-cover">
-              <BlogCoverCard/>
+            <div className="blog-card-cover"> 
                 {blogcovercard.map((item, i) => (
                 <BlogCoverCard
                   key={i}
@@ -122,7 +110,7 @@ export default function Blog({ data }) {
                         key={i}
                         // img={item.node?.Image?.url}
                         // cardprofile={item.node?.user.profileimage?.publicURL}
-                        articleTitle={item.node?.Title}
+                        articleTitle={item.node?.Type}
                         // articledescription={item.node?.Content}
                         //postedname={item.node?.user.displayName}
                         postdate={item.node?.publishedAt}
@@ -173,6 +161,7 @@ query MyQuery {
       node {
         Title
         Slug
+        Type
         Content {
           data {
             Content

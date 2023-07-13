@@ -39,6 +39,8 @@ import Emailicon from '../assets/images/email.png';
 import messageimg from '../assets/images/message.png'
 import InputBox from "../components/input";
 import Slider from "react-slick";
+import '../assets/css/slick/slick-theme.css';
+import '../assets/css/slick/slick.css';
 import '../assets/css/custom.css';
 import '../assets/css/bootstrap.min.css';
 import Footer from "../components/Footer/Footer";
@@ -272,7 +274,7 @@ const IndexPage = ({ data }) => {
               // <Link to={"/trendingtechnologies/" + item.node.slug}>
               <ExpertiseCard
                 expertisetitle={item.node?.Title}
-                img={item.node?.Image.url}
+                img={item?.node?.Image.url}
               />
               // </Link>
             ))}

@@ -9,6 +9,7 @@ import Slider from 'react-slick';
 import AllArticleCard from '../../components/Cards/allarticlecard';
 import Footer from '../../components/Footer/Footer';
 import { Link, graphql } from 'gatsby';
+import Commentimg from '../../assets/images/comment.png'
  
 
 
@@ -78,11 +79,11 @@ export default function BlogPage({data,pageContext}) {
             <img src={data?.node?.image.publicURL} alt="St Logo" />
           </div>
           <div className="blog-description-data">
-            {/* <div className="blog-detail-title">{article?.node.category.name}</div> */}
+           <div className="blog-detail-title">{article?.node?.Type}</div> 
             <div className="blog-detail-data">
               <div className="blog-card-date">{article?.node?.updatedAt}</div>
-             
-              {/* <div className="blog-card-posted-name"><span>Posted by :</span> {article?.node.user.displayName}</div> */}
+               
+              <div className="blog-card-posted-name"><span>Posted by :</span>john</div> 
             </div>
           </div>
         </div>
@@ -141,7 +142,9 @@ export default function BlogPage({data,pageContext}) {
                     </div>
                   </div>
                   <div className="blog-comment-section">
-                     <img src={require('../../assets/images/comment.png')} alt="St Logo Commnent"/>
+                     {/* <img src={require('../../assets/images/comment.png')} alt="St Logo Commnent"/> */}  
+                     <img src={Commentimg} alt="St logo"/>
+                     
                   </div>
                 </div>
               </div>
@@ -183,7 +186,7 @@ export default function BlogPage({data,pageContext}) {
                         key={i}
                         // img={item.node?.Image?.url}
                         articleTitle={item.node?.Title}
-                        //articledescription={item.node?.Content.data.Content}
+                        articledescription={item.node?.Content.data.Content}
                        // postedname={item.node?.user.displayName}
                          postdate={item.node?.createdAt}
                          cardtitle={item.node?.Title}
