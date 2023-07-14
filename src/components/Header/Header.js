@@ -42,7 +42,7 @@ export default class Header extends Component {
 								<NavLink href="#about">About</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink href="#service">Services</NavLink>
+								<NavLink href="/services">Services</NavLink>
 							</NavItem>
 							<NavItem>
 								<NavLink href="#technologies">Technologies</NavLink>

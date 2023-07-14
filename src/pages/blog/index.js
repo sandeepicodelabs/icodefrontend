@@ -124,17 +124,21 @@ export default function Blog({ data }) {
                 <div className="most-polular">
                   <h1>Most popular</h1>
                   <div className="popular-wrap-box">
-                    {filteredData.map((item, i) => (
-                      <Link to={"../blog/" + item.node?.Slug}>
+                    <div>
+                    {
+                    filteredData.map((item, i) => (
+                      <div>
+                      <Link to={"../blog/" + item.node?.Slug}>{item.node?.Title}  </Link>
                         <MostPopularCard
                           key={i}
-                          populartitle={item.node?.Title}
+                        
                           //profilename={item.node?.user.displayName}
                           postdate={item.node?.publishedAt}
                         //blogdescription={item.node?.Title}
                         />
-                      </Link>
+                       </div>
                     ))}
+                    </div>
                   </div>
                 </div>
                 <div className="subscribe-box">

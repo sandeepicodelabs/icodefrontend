@@ -22,7 +22,7 @@ export default function ExpertiseCard({data,props,pageContext}) {
   // console.log('expertise card',data && data?.allStrapiTechnology?.edges)  
  const technology = technologycard.find(item=>{return item.node.Slug === pageContext.technology.node.Slug})
                
-     console.log(technology, "---technolo")
+   //  console.log(technology, "---technolo")
   return (
     <div className="outer-trading-box">
       <Header />

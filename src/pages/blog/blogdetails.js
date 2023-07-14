@@ -185,7 +185,7 @@ export default function BlogPage({data,pageContext}) {
                       <AllArticleCard
                         key={i}
                         // img={item.node?.Image?.url}
-                        articleTitle={item.node?.Title}
+                        articleTitle={item.node?.Type}
                         articledescription={item.node?.Content.data.Content}
                        // postedname={item.node?.user.displayName}
                          postdate={item.node?.createdAt}
