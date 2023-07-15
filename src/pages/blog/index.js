@@ -21,7 +21,7 @@ export default function Blog({ data }) {
   const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
   const filteredData = posts.filter(post => {
-    const { Content, Title, Slug, publishedAt,Type } = post.node
+    const { Content, Title, Slug, publishedAt, Type } = post.node
     return (
       Title.toLowerCase().includes(query?.toLowerCase()) ||
       Slug.toLowerCase().includes(query?.toLowerCase()) ||
@@ -29,7 +29,7 @@ export default function Blog({ data }) {
 
     )
   });
- 
+
 
   const blogcovercard = [
     {
@@ -43,7 +43,7 @@ export default function Blog({ data }) {
     }
   ]
 
-   
+
 
   return (
     <div>
@@ -52,8 +52,8 @@ export default function Blog({ data }) {
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box">
           <div className="blog-wrap-data">
-            <div className="blog-card-cover"> 
-                {blogcovercard.map((item, i) => (
+            <div className="blog-card-cover">
+              {blogcovercard.map((item, i) => (
                 <BlogCoverCard
                   key={i}
                   blogtitle={item.Title}
@@ -64,7 +64,7 @@ export default function Blog({ data }) {
                   CardProfile={item.CardProfile}
                   blogdescription={item.blogdescription}
                 />
-              ))}  
+              ))}
             </div>
             <div className="blog-card-article">
               <div className="search-box">
@@ -78,19 +78,23 @@ export default function Blog({ data }) {
               <div className="article-box-wrap-card">
                 <div className="article-heading">Recent articles</div>
                 <div className="article-card">
-                  {filteredData.map((item, i) => (
-                    <Link to={"../blog/" + item.node?.Slug}>
-                      <BlogArticleCard
-                        key={i}
-                        // cardprofileimg={item.node?.user.profileimage?.publicURL}
-                        // img={item.node?.Image?.url}
-                        cardtitle={item.node?.Title}
-                        // profilename={item.node?.user.displayName}
-                        postdate={item.node?.publishedAt}
-                      // carddescription={item.node?.Content}
-                      />
-                    </Link>
-                  ))}
+                  <div>
+                    {filteredData.map((item, i) => (
+                      <div>
+                        <Link to={"../blog/" + item.node?.Slug}> </Link>
+                        <BlogArticleCard
+                          key={i}
+                          // cardprofileimg={item.node?.user.profileimage?.publicURL}
+                          // img={item.node?.Image?.url}
+                          cardtitle={item.node?.Title}
+                          // profilename={item.node?.user.displayName}
+                          postdate={item.node?.publishedAt}
+                        // carddescription={item.node?.Content}
+                        />
+
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -104,41 +108,40 @@ export default function Blog({ data }) {
               <div className="article-list-wrap">
                 <div className="article-card-list-most">
                   {filteredData.map((item, i) => (
-                    //console.log('allartilce',item.node?.publishedAt)
-                    <Link to={"../blog/" + item.node?.Slug}>
+                    <div key={i}>
                       <AllArticleCard
-                        key={i}
                         // img={item.node?.Image?.url}
                         // cardprofile={item.node?.user.profileimage?.publicURL}
                         articleTitle={item.node?.Type}
                         // articledescription={item.node?.Content}
                         //postedname={item.node?.user.displayName}
                         postdate={item.node?.publishedAt}
-                        cardtitle={item.node?.Title}
+                        cardtitle={
+                          <Link to={"../blog/" + item.node?.Slug}>
+                            {item.node?.Title}
+                          </Link>
+                        }
                       />
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>
               <div className="most-popular-article">
                 <div className="most-polular">
                   <h1>Most popular</h1>
-                  <div className="popular-wrap-box">
-                    <div>
-                    {
-                    filteredData.map((item, i) => (
-                      <div>
-                      <Link to={"../blog/" + item.node?.Slug}>{item.node?.Title}  </Link>
-                        <MostPopularCard
-                          key={i}
-                        
-                          //profilename={item.node?.user.displayName}
-                          postdate={item.node?.publishedAt}
-                        //blogdescription={item.node?.Title}
-                        />
-                       </div>
-                    ))}
-                    </div>
+                  <div className="popular-wrap-box"> 
+                      {filteredData.map((item, i) => (
+                          <div className="popular-list">
+                              <Link to={"../blog/" + item.node?.Slug}>{item.node?.Title}  
+                              <MostPopularCard
+                                key={i} 
+                                //profilename={item.node?.user.displayName}
+                                postdate={item.node?.publishedAt}
+                              //blogdescription={item.node?.Title}
+                              />
+                              </Link> 
+                            </div>                            
+                        ))} 
                   </div>
                 </div>
                 <div className="subscribe-box">
@@ -153,7 +156,7 @@ export default function Blog({ data }) {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

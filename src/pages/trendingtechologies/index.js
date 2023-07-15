@@ -10,26 +10,28 @@ import { graphql } from 'gatsby';
 import Footer from '../../components/Footer/Footer';
 import EstimateCard from '../../components/Cards/estimatecard';
 import './style.css'
+import StackToolsCard from '../../components/Cards/StackToolsCard';
 
 
 
-export default function ExpertiseCard({data,props,pageContext}) {
-    //console.log('props',props)
-    //const {title}=props;
+export default function ExpertiseCard({ data, props, pageContext }) {
+ 
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
+  const tools = data?.allStrapiComponentSkillset?.edges
 
-  // console.log('expertise card',data && data?.allStrapiTechnology?.edges)  
- const technology = technologycard.find(item=>{return item.node.Slug === pageContext.technology.node.Slug})
-               
-   //  console.log(technology, "---technolo")
+  //console.log('tols',data?.allStrapiComponentSkillset?.edges)
+
+  const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
+   const stacktools=tools.find(item=>{return item?.node?.Slug===pageContext?.stacktool?.node?.Slug})          
+  //  console.log(technology, "---technolo")
   return (
     <div className="outer-trading-box">
       <Header />
       <section className="tranding-tech">
         <div className="tranding-bar-cover">
-           <h1>{technology?.node?.Title}</h1> 
-          
+          <h1>{technology?.node?.Title}</h1>
+
           <div className="tranding-cover-cards">
             <TrandingCover
               img={satisfactionGuaranteed}
@@ -55,7 +57,6 @@ export default function ExpertiseCard({data,props,pageContext}) {
           </div>
         </div>
       </section>
-
       <section className="recomment-box">
         <div className="recommented-wrap">
           <div className="recommend-section">
@@ -73,10 +74,10 @@ export default function ExpertiseCard({data,props,pageContext}) {
             </div>
             <div className="approach-right-box">
               <div className="approach-box">
-                  <h4>{technology?.node?.StartupTitle}</h4>
+                <h4>{technology?.node?.StartupTitle}</h4>
                 {/* <h4>Great for startups</h4> */}
                 <p>
-                    {technology?.node?.Startupdescription.data.Startupdescription}
+                  {technology?.node?.Startupdescription.data.Startupdescription}
                   {/* Reat Native solves many challenges startups face. Every startup like to launch the product quickly as its important
                   for them to prove their unique propostion and establish this before somebody else takes over. They need a cost effective
                   solution and scalable solution. If you need ALL JAVASCRIPT full stack development, React Native is a perfect option.
@@ -85,7 +86,7 @@ export default function ExpertiseCard({data,props,pageContext}) {
                 </p>
               </div>
               <div className="approach-box">
-                 <h4>{technology?.node?.Developmenttitle}</h4>
+                <h4>{technology?.node?.Developmenttitle}</h4>
                 {/* <h4>MVP Development</h4> */}
                 <p>
                   {technology?.node?.Developmentdescription.data.Developmentdescription}
@@ -99,7 +100,6 @@ export default function ExpertiseCard({data,props,pageContext}) {
           </div>
         </div>
       </section>
-
       <section className="why-we-hire">
         <div className="our-team-wrap">
           <div className="our-tech-team">
@@ -119,6 +119,20 @@ export default function ExpertiseCard({data,props,pageContext}) {
               />
             ))}
           </div>
+          <section>
+                  <div className="stack-tools-use">
+                      <div className="stack-heading">The React Native stack & tools we use:</div>
+                      <div className="stack-tools-card">
+                          {stacktools && stacktools.map((item, i) => (
+                              <StackToolsCard
+                                  key={i}
+                                  name={item.node?.Title}
+                                  // techchild={item.node?.tech.languages.items}
+                              />
+                          ))}
+                      </div>
+                  </div>
+              </section>
         </div>
       </section>
       <section className="estimate-section-wrap">
@@ -128,15 +142,6 @@ export default function ExpertiseCard({data,props,pageContext}) {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
 
 
 export const query = graphql`
@@ -203,7 +208,22 @@ query MyQuery {
             }
           }
         }
-      }
+      } 
+     
+        allStrapiComponentSkillset {
+          edges {
+            node {
+              Title
+              components_skills {
+                Skill
+              }
+              technology {
+                Title
+              }
+            }
+          }
+        }
+       
   }
 `
 

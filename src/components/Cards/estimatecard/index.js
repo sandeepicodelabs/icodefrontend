@@ -10,10 +10,12 @@ const EstimateCard=(props)=>{
         <>
             <div className="estimate-contact">
               <h3>Send your proposal now and get FREE analysis & estimation!</h3>
-              <ButtonBox
+               <a href='/contact'>
+              <ButtonBox 
                 buttonname="contact now"
                 className="estimate-submit"
               />
+              </a>
             </div>
           </>
     )

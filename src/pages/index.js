@@ -90,7 +90,7 @@ const IndexPage = ({ data }) => {
   const technologyslide = {
     dots: false,
     centerMode: false,
-    infinite: false,
+    infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
     speed: 500,

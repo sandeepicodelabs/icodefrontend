@@ -29,7 +29,9 @@
 .all-article-card-data {
     margin-top: 24px;
 }
-.all-article-card-description {
+
+.all-article-card-description a{
+    text-decoration: none;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;

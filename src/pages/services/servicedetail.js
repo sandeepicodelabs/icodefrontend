@@ -6,6 +6,8 @@ import companyaboutimg from '../../assets/images/companyabout.png';
 import './style.css'
 import Footer from '../../components/Footer/Footer';
 import { graphql } from 'gatsby';
+import FAQ from '../../components/FAQ/FAQ';
+ 
 export default function Servicedetail({ data }) {
 
     const process = data?.allStrapiProcess?.edges
@@ -107,26 +109,12 @@ export default function Servicedetail({ data }) {
                          
                         </div>
                     </section>
-
-                    <section>
-                    <div className="small-container">
-      <div className="small-inner-wrapper">
-        <h2 className="heading2 text-center">FAQs on Android App Development</h2>
-        <div className="heading5 text-center">
-          On the basis of our extensive experience as a leading android software development company and the questions that our partners ask, we have enlisted the following most asked questions. Our hope here is that through them, you will come one step closer to understanding Android at its core.
-        </div>
-        <ul className="app-faq-wrap-list clearfix">
-          <li className="">
-            <span className="head">Will we sign an NDA to keep my Android app idea confidential?<span className="plus"></span></span>
-            <div className="faq-content-wrap" style={{ display: 'none' }}>
-              <p>Yes. We always sign an NDA the moment we get an app idea. The process is done even before we get on the first call with our clients.</p>
-            </div>
-          </li>
-          {/* Add the remaining <li> elements */}
-        </ul>
-      </div>
-    </div>
-                    </section>
+                 <section >
+                    <div style={{paddingLeft:600,paddingBottom:100}}>
+                       <h1>FAQ Question</h1>   
+                    <FAQ/>
+                    </div> 
+                 </section> 
                 </div>
                 <Footer />
             </div>

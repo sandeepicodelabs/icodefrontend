@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/Footer';
 import EstimateCard from '../../components/Cards/estimatecard';
 import { graphql, Link } from 'gatsby';
 import Servicedetail from './servicedetail';
+import FAQ from '../../components/FAQ/FAQ';
 
 
 
@@ -196,7 +197,12 @@ export default function Services({ data }) {
 
                     </div>
                 </section>
-
+                <section>
+                    <div style={{paddingLeft:600,paddingBottom:100}}>
+                       <h1>FAQ Question</h1>   
+                    <FAQ/>
+                    </div> 
+                </section>
 
                 <section className="estimate-section-wrap">
                     <EstimateCard />

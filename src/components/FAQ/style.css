@@ -1,0 +1,15 @@
+.faq-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.answer {
+  margin-bottom: 100px;
+}

@@ -57,7 +57,10 @@ const Footer = () => {
                                                             {technology.slice(0, Math.ceil(technology.length / 2)).map((item, i) => (
                                                                 <ul key={i}>
                                                                     <li>
-                                                                        <Link to={"/trendingtechologies/" + item?.node?.Slug}>{item.node.Title}</Link>
+                                                                        <Link to={"/trendingtechologies/" + item?.node?.Slug}>
+                                                                            {item.node.Title.length > 20
+                                                                            ? item.node.Title.substring(0, 30) + ".." // Limit the title to 15 characters and add ellipsis
+                                                                             : item.node.Title}</Link>
                                                                     </li>
                                                                 </ul>
                                                             ))}  

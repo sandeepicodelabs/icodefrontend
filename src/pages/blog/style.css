@@ -91,6 +91,7 @@
     border: 1px solid #005B58;
     border-radius: 50px;
     padding: 18px 18px 18px 60px !important;
+    width: 100%;
 }
 
 .input-box-wrap {
@@ -149,10 +150,21 @@
     margin-bottom: 37px;
     padding: 5px 10px;
 }
-.popular-wrap-box .popular-article-card-box:hover{
+.popular-list{
+    padding: 10px;
+}
+.popular-list:hover{
     background: #e1f7f7;
 }
-
+.popular-wrap-box a{
+    text-decoration: none;
+    color: #101820;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
 .popular-wrap-box .popular-article-card-box:after {
     content: "";
     background-color: #3E4348;
@@ -160,6 +172,7 @@
     position: absolute;
     width: 100%;
     bottom: -17px;
+    left: 0;
 }
 
 .subscribe-box {
