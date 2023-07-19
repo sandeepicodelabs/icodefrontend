@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../../components/Header/Header'
 import HeaderBar from '../../components/headerbar';
 import ButtonBox from '../../components/button';
@@ -10,9 +10,28 @@ import contactSlack from '../../assets/images/contact-slack.png'
 // import { StaticQuery, graphql } from "gatsby"/ 
 import Footer from '../../components/Footer/Footer';
 import './style.css';
+import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
+
 
 
 export default function ContactPage() {
+
+    useEffect(() => {
+        mapboxgl.accessToken = "pk.eyJ1IjoiYXRhbDI1IiwiYSI6ImNsazZzaTlpeDAxZGUzZXBoN2tkdGtwZjUifQ.fY8VAIrCr371iMHsf4eKyQ"; // Replace with your Mapbox access token
+
+        const map = new mapboxgl.Map({
+            container: "st_google_map",
+            style: "mapbox://styles/mapbox/streets-v11", // Replace with the desired map style URL
+            center: [76.7179, 30.7046], // Longitude, Latitude
+            zoom: 15,
+        });
+
+        // Optional: Add markers or any other map-related customization
+        new mapboxgl.Marker().setLngLat([76.7179, 30.7046]).addTo(map);
+
+        // Cleanup the map instance when the component unmounts
+        return () => map.remove();
+    }, []);
     return (
         <section className="contact-us-page">
             <Header />
@@ -96,14 +115,11 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
+
             </div>
-            <div
-                id="st_google_map"
-                className="st_map st_contact_page"
-                data-latitude="30.7046"
-                data-longitude="76.7179">
-            </div>
+            <div id="st_google_map" className="st_map_st_contact_page"></div>
             <Footer />
+
         </section>
     )
 }

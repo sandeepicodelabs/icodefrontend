@@ -15,16 +15,16 @@ import StackToolsCard from '../../components/Cards/StackToolsCard';
 
 
 export default function ExpertiseCard({ data, props, pageContext }) {
- 
+
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
-  const tools = data?.allStrapiComponentSkillset?.edges
+  const tools = data && data?.allStrapiComponentSkilltool?.edges;
 
   //console.log('tols',data?.allStrapiComponentSkillset?.edges)
 
   const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-   const stacktools=tools.find(item=>{return item?.node?.Slug===pageContext?.stacktool?.node?.Slug})          
-  //  console.log(technology, "---technolo")
+  // const stacktools = tools.find(item => { return item?.node?.Slug === pageContext?.stacktools?.node?.Slug })
+  console.log(tools, "---tools")
   return (
     <div className="outer-trading-box">
       <Header />
@@ -120,19 +120,31 @@ export default function ExpertiseCard({ data, props, pageContext }) {
             ))}
           </div>
           <section>
-                  <div className="stack-tools-use">
-                      <div className="stack-heading">The React Native stack & tools we use:</div>
-                      <div className="stack-tools-card">
-                          {stacktools && stacktools.map((item, i) => (
-                              <StackToolsCard
-                                  key={i}
-                                  name={item.node?.Title}
-                                  // techchild={item.node?.tech.languages.items}
-                              />
-                          ))}
-                      </div>
-                  </div>
-              </section>
+            <div className="stack-tools-use">
+              <div className="stack-heading"> ff</div>
+              <div className="stack-tools-card">
+                {
+                  Object.entries(tools).map((item, i) => {
+                   // console.log("map",item[1]?.node.Name)
+                    return (
+                      <StackToolsCard
+                        key={i}
+                        name={item[1]?.node?.Name}
+                        techchild={item[1]?.node?.Tools?.Tools}
+                      />
+                    );
+                  })
+                }
+                {/* // {Object.entries(tools).map((item)=>{
+                //   console.log(item,"item")
+                //   return(
+                //     <></>
+                //   )
+                // })} */}
+
+              </div>
+            </div>
+          </section>
         </div>
       </section>
       <section className="estimate-section-wrap">
@@ -210,19 +222,17 @@ query MyQuery {
         }
       } 
      
-        allStrapiComponentSkillset {
-          edges {
-            node {
-              Title
-              components_skills {
-                Skill
-              }
-              technology {
-                Title
-              }
+      allStrapiComponentSkilltool {
+        edges {
+          node { 
+            Tools {
+              Tools
+              
             }
+            Name
           }
         }
+      }
        
   }
 `

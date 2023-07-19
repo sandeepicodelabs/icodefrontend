@@ -13,7 +13,7 @@ import { graphql } from 'gatsby';
 export default function ProjectList({data}) {
 
     const projectlist=data?.allStrapiProjectList?.edges
-    console.log('projectlist',projectlist)
+    //console.log('projectlist',projectlist)
    
   return (
     <div className="project-list-page">

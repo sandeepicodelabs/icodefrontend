@@ -25,7 +25,8 @@ const strapiConfig = {
      "jointeche",
      "project-list",
      "service",
-     "component-skillset"
+     "component-skillset",
+     "component-skilltool"
   ], 
    queryLimit: 1000, 
 }; 

@@ -141,6 +141,9 @@ h1.gettouch-heading {
     line-height: 24px;
     color: #FFFFFF;
 }
+.st_map_st_contact_page{
+    height: 300px;
+}
 
 @media(max-width: 1600px){
     .getintouch-box {

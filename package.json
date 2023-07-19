@@ -23,6 +23,7 @@
     "gatsby-source-strapi": "^3.3.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "i": "^0.3.7",
+    "mapbox-gl": "^2.15.0",
     "node-sass": "^9.0.0",
     "npm": "^9.7.2",
     "react": "^18.2.0",
