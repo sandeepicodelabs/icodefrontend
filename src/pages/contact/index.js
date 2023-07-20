@@ -41,7 +41,7 @@ export default function ContactPage() {
                     <div className="getintouch-form">
                         <h1 className="gettouch-heading">Got a project in mind?</h1>
                         <p className="gettouch-subheading">Send your enquiry and will get back to you within one business day</p>
-                        <div className="form-box">
+                        <div className="form-box-input">
                             <div className='form-row-box'>
                                 <div className='form-main-group'>
                                     <label>Your Name</label>
@@ -58,7 +58,7 @@ export default function ContactPage() {
                                     />
                                 </div>
                             </div>
-                            <div className='form-main-group'>
+                            <div className='form-main-group_input'>
                                 <label>Your Email</label>
                                 <textarea
                                     className="contact-input"

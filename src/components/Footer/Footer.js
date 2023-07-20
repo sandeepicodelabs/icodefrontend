@@ -18,11 +18,13 @@ const Footer = () => {
           }
         }
       }
-    }
+    } 
+      
   `);
     // const { Logo, SocialNetworkIcon, Address, CompanyName, Email, PhoneNumber } = data?.allStrapiComponentGlobalFooter?.edges[0]?.node || {};
 
     const technology = data?.allStrapiTechnology?.edges
+   // const stacktool=data?.allStrapiComponentSkilltool?.edges
 
     // console.log("footers",technology)
     return (
@@ -36,13 +38,8 @@ const Footer = () => {
                                     <a href="#"><img src={footerlogo} alt="icodelabs" /></a>
                                     <p>Web application development, Mobile app development, Outsource software development company in India.</p>
                                 </div>
-                                <div className="footer-email">
-                                    <h3>Email</h3>
-                                    <p>hello@icodelabs.co</p>
-                                </div>
-
                             </div>
-                            <div className="col-lg-7 col-md-12 col-sm-12 hiring-box">
+                            <div className="col-lg-5 col-md-12 col-sm-12 hiring-box">
                                 <div className="row">
                                     <div className="col-lg-12 col-md-12 col-sm-10">
                                         <div className="hiring-heading">
@@ -76,7 +73,10 @@ const Footer = () => {
                                                             {technology.slice(Math.ceil(technology.length / 2)).map((item, i) => (
                                                                 <ul key={i}>
                                                                     <li>
-                                                                        <Link to={"/trendingtechologies/" + item?.node?.Slug}>{item.node.Title}</Link>
+                                                                        <Link to={"/trendingtechologies/" + item?.node?.Slug}>
+                                                                        {item.node.Title.length > 20
+                                                                            ? item.node.Title.substring(0, 30) + ".." // Limit the title to 15 characters and add ellipsis
+                                                                             : item.node.Title}</Link>
                                                                     </li>
                                                                 </ul>
                                                             ))}
@@ -87,6 +87,10 @@ const Footer = () => {
                                         </div>
                                     </div>  
                                 </div>
+                            </div>
+                            <div className="footer-email col-lg-2">
+                                <h3>Email</h3>
+                                <p>hello@icodelabs.co</p>
                             </div>
                         </div>
                     </div>

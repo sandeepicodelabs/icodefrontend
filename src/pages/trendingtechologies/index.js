@@ -18,13 +18,16 @@ export default function ExpertiseCard({ data, props, pageContext }) {
 
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
-  const tools = data && data?.allStrapiComponentSkilltool?.edges;
+  // const tools = data && data?.allStrapiComponentSkilltool?.edges;
 
   //console.log('tols',data?.allStrapiComponentSkillset?.edges)
 
   const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-  // const stacktools = tools.find(item => { return item?.node?.Slug === pageContext?.stacktools?.node?.Slug })
-  console.log(tools, "---tools")
+  //const stacktools = tools.find(item => { return item?.node?.Slug === pageContext?.stacktools?.node?.Slug })
+  //console.log('stacktools', stacktools)
+  // const stack = stacktools?.node?.Tools?.Tools
+  // console.log('stack', stack)
+  console.log(technology, "---technology")
   return (
     <div className="outer-trading-box">
       <Header />
@@ -121,26 +124,30 @@ export default function ExpertiseCard({ data, props, pageContext }) {
           </div>
           <section>
             <div className="stack-tools-use">
-              <div className="stack-heading"> ff</div>
+              <div className="stack-heading"> {technology?.node?.Toolstitle}</div>
               <div className="stack-tools-card">
-                {
-                  Object.entries(tools).map((item, i) => {
-                   // console.log("map",item[1]?.node.Name)
-                    return (
+            
+                 {technology && technology.node.stack.map((item, i) => {
+                  console.log("map",item?.stacktools)
+                  return (
+                    <>
                       <StackToolsCard
                         key={i}
-                        name={item[1]?.node?.Name}
-                        techchild={item[1]?.node?.Tools?.Tools}
+                        name={item.stackName}
+                        techchild={item?.stacktools}
                       />
-                    );
-                  })
-                }
-                {/* // {Object.entries(tools).map((item)=>{
-                //   console.log(item,"item")
-                //   return(
-                //     <></>
-                //   )
-                // })} */}
+
+                    </>
+                  )
+                })} 
+           
+               
+                {/* {Object.entries(technology).map((item)=>{
+                 console.log(item?.node?.stack.stackName,"item")
+                  return(
+                    <></>
+                  )
+                 })}    */}
 
               </div>
             </div>
@@ -161,11 +168,18 @@ query MyQuery {
   allStrapiTechnology {
     edges {
       node {
+        stack {
+          stackName
+          stacktools {
+            stacktech
+          }
+        }
         Title
         Slug
         Valuetitle
         Metatitle
         Promotext
+        Toolstitle
         Description {
           data {
             Description
@@ -203,6 +217,8 @@ query MyQuery {
             Valuedescription
           }
         }
+
+       
       }
     }
   }
@@ -222,22 +238,26 @@ query MyQuery {
         }
       } 
      
-      allStrapiComponentSkilltool {
-        edges {
-          node { 
-            Tools {
-              Tools
-              
-            }
-            Name
-          }
-        }
-      }
-       
+      
   }
 `
 
 
 
 
-
+// allStrapiComponentSkilltool {
+  //   edges {
+  //     node {
+  //       Tools {
+  //         Tools {
+  //           Tools
+  //           Language
+  //           DataBase
+  //         }
+  //       }
+  //       technology {
+  //         Slug
+  //       }
+  //     }
+  //   }
+  // }

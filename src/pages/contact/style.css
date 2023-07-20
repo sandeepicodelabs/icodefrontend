@@ -9,7 +9,7 @@
 }
  
 .form-box {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
 }
 
@@ -66,6 +66,10 @@
     border: 1px solid #3E4348 !important;
     border-radius: 10px !important;
     font-weight: 500;
+    width: 100%;
+}
+.button-box{
+    margin-top: 48px;
 }
 
 
@@ -114,10 +118,12 @@ h1.gettouch-heading {
 .form-row-box {
     display: flex;
     margin-bottom: 24px;
+    justify-content: space-between;
 }
 .form-main-group{
-    width: 100%;
-    margin-right: 24px;
+    width: calc(50% - 9px);
+    display: flex;
+    flex-direction: column;
 }
 .contact-social-details ul li {
     margin-bottom: 48px;
@@ -178,6 +184,9 @@ h1.gettouch-heading {
     }
 }
 @media(max-width: 1024px){
+    .form-main-group{
+        width: 100%;
+    }
     .contact-social-details ul li {
         margin-bottom: 24px;
         align-items: center;

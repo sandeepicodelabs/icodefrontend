@@ -21,12 +21,29 @@ const strapiConfig = {
      "expertise",
      "process",
      "ourapproache",
-     "technology",
+      // "technology",
      "jointeche",
      "project-list",
      "service",
      "component-skillset",
-     "component-skilltool"
+     "component-skilltool",
+
+     {
+      singularName: "technology",
+      queryParams: {
+        // Populate media and relations
+        // Make sure to not specify the fields key so the api always returns the updatedAt
+        populate: {
+          image: "*",
+          images: "*",
+          stack: {
+            populate: {
+              stacktools: "*"
+            },
+          },
+        },
+      },
+    },
   ], 
    queryLimit: 1000, 
 }; 
