@@ -53,19 +53,39 @@ const settings = {
 export default function BlogPage({data,pageContext}) {
    // console.log('artile',data)
 
-    const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-      const posts = data?.allStrapiArticle?.edges;
-      const filteredData = posts?.filter(post => {
-        const { Content, Title, Slug ,Type} = post.node
-        return (
-          Title.toLowerCase().includes(query?.toLowerCase()) ||
-          Slug.toLowerCase().includes(query?.toLowerCase()) ||
-          Content.toLowerCase().includes(query?.toLowerCase())
-        )
-      })
+    // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
+    //   const posts = data?.allStrapiArticle?.edges;
+    //   const filteredData = posts?.filter(post => {
+    //     const { Content, Title, Slug ,Type} = post.node
+    //     return (
+    //       Title?.toLowerCase()?.includes(query?.toLowerCase()) ||
+    //       Slug?.toLowerCase()?.includes(query?.toLowerCase()) ||
+    //       Content?.toLowerCase()?.includes(query?.toLowerCase())
+    //     )
+    //   })
      
-      const article = posts?.find(item=>{return item.node.Slug === pageContext.article.node.Slug})
-      // console.log('blog',article)
+    //   const article = posts?.find(item=>{return item?.node?.Slug === pageContext.article?.node?.Slug})
+    //   // console.log('blog',article)
+
+
+      const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
+const posts = data?.allStrapiArticle?.edges;
+const filteredData = posts?.filter(post => {
+  const { Content, Title, Slug, Type } = post.node;
+  const validContent = typeof Content === 'string' ? Content : '';
+  const validTitle = typeof Title === 'string' ? Title : '';
+  const validSlug = typeof Slug === 'string' ? Slug : '';
+
+  return (
+    validTitle.toLowerCase().includes(query?.toLowerCase()) ||
+    validSlug.toLowerCase().includes(query?.toLowerCase()) ||
+    validContent.toLowerCase().includes(query?.toLowerCase())
+  );
+});
+
+const article = posts?.find(item => {
+  return item?.node?.Slug === pageContext.article?.node?.Slug;
+});
      
   return (
     

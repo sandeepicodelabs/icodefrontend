@@ -4,7 +4,7 @@ import './style.css';
  export default function InputBox(props) {
     const { type, value, placeholder, className, img, label } = props;
     //console.log("input",props)
-
+    const isClient = typeof window !== 'undefined';
    return (
         <>
             <div className="input-box">
@@ -15,10 +15,10 @@ import './style.css';
                   placeholder={placeholder}
                   className={className}
                 />
-                {!window.location.pathname.includes('contact') ?
+                 {!isClient || !window.location.pathname.includes('contact') ? (
                   <span className="input-icon">
                     <img src={img} alt="St Logo" />
-                  </span> : <></>
+                  </span>) : <></>
                 }
               </div>
             </div>

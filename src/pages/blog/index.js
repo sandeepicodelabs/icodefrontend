@@ -18,17 +18,36 @@ import './style.css';
 import { graphql, Link } from 'gatsby'
 
 export default function Blog({ data }) {
-  const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-  const posts = data?.allStrapiArticle?.edges;
-  const filteredData = posts.filter(post => {
-    const { Content, Title, Slug, publishedAt, Type } = post.node
-    return (
-      Title.toLowerCase().includes(query?.toLowerCase()) ||
-      Slug.toLowerCase().includes(query?.toLowerCase()) ||
-      Content.toLowerCase().includes(query?.toLowerCase())
 
-    )
+
+  const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
+  const posts = data?.allStrapiArticle?.edges;
+  const filteredData = posts?.filter(post => {
+    const { Content, Title, Slug, Type } = post.node;
+    const validContent = typeof Content === 'string' ? Content : '';
+    const validTitle = typeof Title === 'string' ? Title : '';
+    const validSlug = typeof Slug === 'string' ? Slug : '';
+  
+    return (
+      validTitle.toLowerCase().includes(query?.toLowerCase()) ||
+      validSlug.toLowerCase().includes(query?.toLowerCase()) ||
+      validContent.toLowerCase().includes(query?.toLowerCase())
+    );
   });
+  
+   
+
+  // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
+  // const posts = data?.allStrapiArticle?.edges;
+  // const filteredData = posts.filter(post => {
+  //   const { Content, Title, Slug, publishedAt, Type } = post.node
+  //   return (
+  //     Title?.toLowerCase()?.includes(query?.toLowerCase()) ||
+  //     Slug?.toLowerCase()?.includes(query?.toLowerCase()) ||
+  //     Content?.toLowerCase()?.includes(query?.toLowerCase())
+
+  //   )
+  // });
 
 
   const blogcovercard = [
@@ -81,7 +100,7 @@ export default function Blog({ data }) {
                   <div>
                     {filteredData.map((item, i) => (
                       <div>
-                        <Link to={"../blog/" + item.node?.Slug}> </Link>
+                        <Link to={"../blog/" + item?.node?.Slug}> </Link>
                         <BlogArticleCard
                           key={i}
                           // cardprofileimg={item.node?.user.profileimage?.publicURL}
@@ -117,7 +136,7 @@ export default function Blog({ data }) {
                         //postedname={item.node?.user.displayName}
                         postdate={item.node?.publishedAt}
                         cardtitle={
-                          <Link to={"../blog/" + item.node?.Slug}>
+                          <Link to={"../blog/" + item?.node?.Slug}>
                             {item.node?.Title}
                           </Link>
                         }
@@ -132,7 +151,7 @@ export default function Blog({ data }) {
                   <div className="popular-wrap-box"> 
                       {filteredData.map((item, i) => (
                           <div className="popular-list">
-                              <Link to={"../blog/" + item.node?.Slug}>{item.node?.Title}  
+                              <Link to={"../blog/" + item?.node?.Slug}>{item?.node?.Title}  
                               <MostPopularCard
                                 key={i} 
                                 //profilename={item.node?.user.displayName}
