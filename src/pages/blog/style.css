@@ -543,9 +543,9 @@ section.blog-detail-box .blog-detail-header {
     margin-top: 48px;
 }
 .related-slider .slick-prev {
-    left: 14px;
+    left: 14px; 
     z-index: 9;
-    background-image: url(../../../public/static/leftArrow.png) !important;
+    /* background-image: url(../../../public/static/leftArrow.png) !important; */
     height: 48px !important;
     background-size: 48px !important;
     width: 48px !important;
@@ -557,7 +557,7 @@ section.blog-detail-box .blog-detail-header {
   .related-slider Button.slick-arrow.slick-next {
     right: 14px;
     z-index: 9;
-    background-image: url(../../../public/static/rightArrow.png) !important;
+    /* background-image: url(../../../public/static/rightArrow.png) !important; */
     height: 48px !important;
     background-size: 48px !important;
     width: 48px !important;
