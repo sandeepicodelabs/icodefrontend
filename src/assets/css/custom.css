@@ -101,7 +101,7 @@ html {
   padding: 0 70px;
 } 
 .cover-heading-text h1::before {  
-  background-image: url(../../../public/static/leftarrow.png); 
+  /* background-image: url(../../../public/static/leftarrow.png);  */
   content: "";
   position: absolute;
   height: 154px;
@@ -431,7 +431,7 @@ html {
 .partner-slider Button.slick-arrow.slick-prev {
   left: 14px;
   z-index: 9; 
-  background-image: url(../../../public/static/leftArrow.png) !important; 
+  /* background-image: url(../../../public/static/leftArrow.png) !important;  */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1037,7 +1037,7 @@ html {
 .about-slide .slick-prev {
   left: 14px;
   z-index: 9;
-   background-image: url(../../../public/static/leftArrow.png) !important; 
+   /* background-image: url(../../../public/static/leftArrow.png) !important;  */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1069,7 +1069,7 @@ html {
 .work-slider .slick-prev {
   left: 14px;
   z-index: 9;
-   background-image: url(../../../public/static/leftArrow.png) !important; 
+   /* background-image: url(../../../public/static/leftArrow.png) !important;  */
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
