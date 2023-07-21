@@ -128,7 +128,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
               <div className="stack-tools-card">
             
                  {technology && technology.node.stack.map((item, i) => {
-                  console.log("map",item?.stacktools)
+                 // console.log("map",item?.stacktools)
                   return (
                     <>
                       <StackToolsCard

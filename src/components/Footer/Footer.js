@@ -97,9 +97,9 @@ const Footer = () => {
                 </div>
                 <div className="footer-bar">
                     <div className="social-link">
-                        <a href="#"><img src={fblogo} alt="icodelabs" /></a>
-                        <a href="#"><img src={twiterlogo} alt="icodelabs" /></a>
-                        <a href="#"><img src={linkedinlogo} alt="icodelabs" /></a>
+                        <a href="https://www.facebook.com/InnovativecodeLabs"><img src={fblogo} alt="icodelabs" /></a>
+                        <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Ficode_labs"><img src={twiterlogo} alt="icodelabs" /></a>
+                        <a href="https://www.linkedin.com/company/icodelabs"><img src={linkedinlogo} alt="icodelabs" /></a>
                         <a href="#"><img src={instalogo} alt="icodelabs" /></a>
                     </div>
                     <div className="copyright-link">

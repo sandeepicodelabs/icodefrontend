@@ -11,6 +11,7 @@ import contactSlack from '../../assets/images/contact-slack.png'
 import Footer from '../../components/Footer/Footer';
 import './style.css';
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
+import { Link } from 'gatsby';
 
 
 
@@ -95,19 +96,24 @@ export default function ContactPage() {
                                             <div className="contact-social-icon">
                                                 <img src={contactMeet} />
                                             </div>
-                                            <span>Schedule a call</span>
+                                            <span>
+                                                <a href="https://calendly.com/jaytiwary">Schedule a call</a> 
+                                            </span>
+                                           
                                         </li>
                                         <li>
                                             <div className="contact-social-icon">
                                                 <img src={contactSkype} />
                                             </div>
-                                            <span>Skype call</span>
+                                            <span><p><Link to="skype:live:jaytiwary_4?call">Skype call</Link></p></span>
                                         </li>
                                         <li>
                                             <div className="contact-social-icon">
                                                 <img src={contactSlack} />
                                             </div>
-                                            <span>Slack us</span>
+                                            <span>
+                                            <a href="https://icodesoftwarelabs.slack.com">Slack us</a>
+                                           </span>
                                         </li>
                                     </ul>
                                 </div>
