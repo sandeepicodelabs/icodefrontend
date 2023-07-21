@@ -431,7 +431,7 @@ html {
 .partner-slider Button.slick-arrow.slick-prev {
   left: 14px;
   z-index: 9; 
-  background-image: url(../../assets/images/leftArrow.png) !important; 
+  background-image: url(../../../public/static/leftArrow.png) !important; 
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -440,7 +440,7 @@ html {
 .partner-slider Button.slick-arrow.slick-next {
   right: 14px;
   z-index: 9;
-   background-image: url(../../assets/images/rightArrow.png) !important; 
+   background-image: url(../../../public/static/rightArrow.png) !important; 
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1037,7 +1037,7 @@ html {
 .about-slide .slick-prev {
   left: 14px;
   z-index: 9;
-   background-image: url(../../assets/images/leftArrow.png) !important; 
+   background-image: url(../../../public/static/leftArrow.png) !important; 
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1049,7 +1049,7 @@ html {
 .about-slide Button.slick-arrow.slick-next {
   right: 14px;
   z-index: 9;
-   background-image: url(../../assets/images/rightArrow.png) !important; 
+   background-image: url(../../../public/static/rightArrow.png) !important; 
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1069,7 +1069,7 @@ html {
 .work-slider .slick-prev {
   left: 14px;
   z-index: 9;
-   background-image: url(../../assets/images/leftArrow.png) !important; 
+   background-image: url(../../../public/static/leftArrow.png) !important; 
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
@@ -1081,7 +1081,7 @@ html {
 .work-slider Button.slick-arrow.slick-next {
   right: 14px;
   z-index: 9;
-   background-image: url(../../assets/images/rightArrow.png) !important; 
+   background-image: url(../../../public/static/rightArrow.png) !important; 
   height: 48px !important;
   background-size: 48px !important;
   width: 48px !important;
