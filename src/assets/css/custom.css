@@ -101,7 +101,7 @@ html {
   padding: 0 70px;
 } 
 .cover-heading-text h1::before {  
-   background-image: url(../../assets/images/leftarrow.png); 
+  background-image: url(../../../public/static/leftarrow.png); 
   content: "";
   position: absolute;
   height: 154px;
@@ -113,7 +113,7 @@ html {
 }
 
 .cover-heading-text h1::after {
-   background-image: url(../../assets/images/rightarrow.png); 
+  background-image: url(../../../public/static/rightarrow.png); 
   content: "";
   position: absolute;
   height: 154px;
