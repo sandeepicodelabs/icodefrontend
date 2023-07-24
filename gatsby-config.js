@@ -10,7 +10,7 @@ require("dotenv").config({
 }); 
 
 const strapiConfig = { 
-  apiURL:"http://localhost:1337/",
+  apiURL:"https://icodelabsbackend.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN, 
   collectionTypes: [  
      //"article",
@@ -27,7 +27,6 @@ const strapiConfig = {
      "service",
      "component-skillset",
      "component-skilltool",
-     "admin_user",
 
      {
       singularName: "technology",
@@ -52,10 +51,7 @@ const strapiConfig = {
         // Populate media and relations
         // Make sure to not specify the fields key so the api always returns the updatedAt
         populate: {
-         admin_user:
-         {
-           firstname:"*"
-         } ,
+         admin_user: "*",
          Image:"*"
        
           
