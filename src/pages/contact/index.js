@@ -97,9 +97,9 @@ export default function ContactPage() {
                                                 <img src={contactMeet} />
                                             </div>
                                             <span>
-                                                <a href="https://calendly.com/jaytiwary">Schedule a call</a> 
+                                                <a href="https://calendly.com/jaytiwary">Schedule a call</a>
                                             </span>
-                                           
+
                                         </li>
                                         <li>
                                             <div className="contact-social-icon">
@@ -112,8 +112,8 @@ export default function ContactPage() {
                                                 <img src={contactSlack} />
                                             </div>
                                             <span>
-                                            <a href="https://icodesoftwarelabs.slack.com">Slack us</a>
-                                           </span>
+                                                <a href="https://icodesoftwarelabs.slack.com">Slack us</a>
+                                            </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,11 +121,9 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div id="st_google_map" className="st_map_st_contact_page"></div>
+            <div id="st_google_map" className="st_map_st_contact_page" />
             <Footer />
-
         </section>
     )
 }

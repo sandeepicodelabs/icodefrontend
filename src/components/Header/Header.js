@@ -7,6 +7,10 @@ import {
 	Nav,
 	NavItem,
 	NavLink,
+	UncontrolledDropdown,
+	DropdownToggle,
+	DropdownMenu,
+	DropdownItem
 } from 'reactstrap';
 import icodelogo from '../../assets/images/logo/icodelab-logo.png';
 
@@ -36,19 +40,10 @@ export default class Header extends Component {
 						</div>
 					</NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
-					<Collapse isOpen={this.state.isOpen} navbar>
+					<Collapse isOpen={this.state.isOpen} navbar className='navbar-collapse-right'>
 						<Nav className="ml-auto" navbar>
 							<NavItem>
-								<NavLink href="#about">About</NavLink>
-							</NavItem>
-							<NavItem>
-								<NavLink href="/services">Services</NavLink>
-							</NavItem>
-							<NavItem>
-								<NavLink href="#technologies">Technologies</NavLink>
-							</NavItem>
-							<NavItem>
-								<NavLink href="#process">Process</NavLink>
+								<NavLink href="/aboutus">About</NavLink>
 							</NavItem>
 							<NavItem>
 								<NavLink href="/blog">Blog</NavLink>
@@ -56,9 +51,37 @@ export default class Header extends Component {
 							<NavItem>
 								<NavLink href="/contact">Contact Us</NavLink>
 							</NavItem>
-							<NavItem>
-								<NavLink href="/projectlist">Project List</NavLink>
-							</NavItem>
+							<UncontrolledDropdown nav inNavbar>
+								<DropdownToggle nav caret>
+									Services
+								</DropdownToggle>
+								<DropdownMenu right>
+									{/* {service.map((item, i)=>{
+									return(
+										<DropdownItem>
+											<NavLink href="/projectlist">Project List</NavLink>
+										</DropdownItem>
+									)
+									})} */}
+								</DropdownMenu>
+							</UncontrolledDropdown>
+
+							<UncontrolledDropdown nav inNavbar>
+								<DropdownToggle nav caret>
+									Company
+								</DropdownToggle>
+								<DropdownMenu right>
+									<DropdownItem>
+										<NavLink href="/projectlist">Project List</NavLink>
+									</DropdownItem>
+									<DropdownItem>
+										<NavLink href="#technologies">Technologies</NavLink>
+									</DropdownItem>
+									<DropdownItem>
+										<NavLink href="#process">Process</NavLink>
+									</DropdownItem>
+								</DropdownMenu>
+							</UncontrolledDropdown>
 							<NavItem>
 								<NavLink href="/contact" className="button-hiring">Hire Developers</NavLink>
 							</NavItem>

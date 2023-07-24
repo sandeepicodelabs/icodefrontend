@@ -39,14 +39,16 @@ html {
 .header-box {
   z-index: 9;
 }
-
+.navbar-collapse-right{
+  justify-content: flex-end;
+}
 .cover-background {
    background-image: url(../images/cover-background.png); 
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 130%;
-  padding: 84px 16em 160px 16em;
+  padding: 84px 16em;
   text-align: center;
   border-top: 1px solid rgba(0, 152, 162, 0.3);
 }
@@ -83,7 +85,7 @@ html {
 
 .cover-logo-box {
   text-align: center;
-  padding-top: 98px;
+  padding-top: 0;
 }
 
 .cover-heading-text h1 {
@@ -162,7 +164,7 @@ html {
 }
 
 .booking-button {
-  margin-top: 96px;
+  /* margin-top: 96px; */
 }
 
 .booking-button button {
@@ -253,7 +255,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 160px 200px;
+  padding: 110px 200px;
 }
 
 .our-company-about .company-description {
@@ -373,7 +375,7 @@ html {
   background-position: left;
   background-repeat: no-repeat;
   background-size: 80% 100%;
-  padding: 160px 200px;
+  padding: 110px 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -508,7 +510,7 @@ html {
 
 .our-expertise {
   background: rgba(87, 248, 243, 0.28);
-  padding: 160px 200px;
+  padding: 110px 200px;
 }
 
 .our-expertise h1 {
@@ -906,16 +908,18 @@ html {
 
 .about-client-box {
   background-image: url(../images/about-background.png);
-  height: 792px;
+  height: 670px;
   background-position: left;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding: 160px 200px;
+  padding: 110px 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
 }
+
+
 
 .about-client-box:after {
   content: "";
@@ -1094,7 +1098,7 @@ html {
   background-image: url(../images/shadowback.png);
   background-position: center;
   background-size: 100% 100%;
-  padding: 160px 200px;
+  padding: 110px 200px;
 }
 
 .recent-work .work-box h1 {
@@ -1150,7 +1154,7 @@ html {
 }
 
 .contact-us-box {
-  padding: 160px 200px;
+  padding: 110px 200px;
   display: flex;
   justify-content: space-between;
 }
@@ -1250,6 +1254,9 @@ html {
 
 .footer_wrap {
   padding: 96px 200px 50px 200px;
+  z-index: 9;
+  position: relative;
+  background: #fff;
 }
 
 .footer_wrap .footer-logo {
@@ -1493,6 +1500,7 @@ footer.footer-box {
     padding: 90px 120px;
     height: auto;
   }
+  
 
   .recent-work {
     padding: 100px 120px;

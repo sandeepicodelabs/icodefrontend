@@ -199,7 +199,7 @@ export default function Services({ data }) {
                 </section>
                 <section>
                     <div style={{paddingLeft:600,paddingBottom:100}}>
-                       <h1>FAQ Question</h1>   
+                       {/* <h1>FAQ Question</h1>    */}
                     <FAQ/>
                     </div> 
                 </section>
