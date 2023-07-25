@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import Header from '../../components/Header/Header'
 import HeaderBar from '../../components/headerbar';
 import ButtonBox from '../../components/button';
@@ -12,10 +12,29 @@ import Footer from '../../components/Footer/Footer';
 import './style.css';
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
 import { Link } from 'gatsby';
+//import { countryList } from 'country-codes-list';
+import PhoneInput from 'react-phone-number-input';
 
 
 
-export default function ContactPage() {
+
+export default function ContactPage() {    
+//  const countries = countryList ? Object.entries(countryList) : []; 
+//      console.log("country",countries)   
+
+// const [countries, setCountries] = useState([]);
+// useEffect(() => {
+//     // Simulate an asynchronous data fetch
+//     // Replace this with your actual data fetching logic
+//     setTimeout(() => {
+//       if (countryList) {
+//         setCountries(Object.entries(countryList));
+//       }
+//     }, 1000); // Wait for 1 second before updating the state with data
+//   }, []); 
+//   console.log("country",countries)
+
+const [value, setValue] = useState()
 
     useEffect(() => {
         mapboxgl.accessToken = "pk.eyJ1IjoiYXRhbDI1IiwiYSI6ImNsazZzaTlpeDAxZGUzZXBoN2tkdGtwZjUifQ.fY8VAIrCr371iMHsf4eKyQ"; // Replace with your Mapbox access token
@@ -31,8 +50,12 @@ export default function ContactPage() {
         new mapboxgl.Marker().setLngLat([76.7179, 30.7046]).addTo(map);
 
         // Cleanup the map instance when the component unmounts
-        return () => map.remove();
+        return () => map.remove(); 
+       
     }, []);
+   
+   
+
     return (
         <section className="contact-us-page">
             <Header />
@@ -59,6 +82,30 @@ export default function ContactPage() {
                                     />
                                 </div>
                             </div>
+                            <div className='form-row-box'>
+                                <div className='form-main-group'>
+                                    <label>Skyep Id</label>
+                                    <input
+                                        type="text"
+                                        className="contact-input"
+                                    />
+                                </div>
+                                <div className='form-main-group'>
+                                    <label>Phone no. </label>
+                                    <input type='text'
+      country="US"
+      value={value}
+      onChange={setValue} />
+                                    {/* <input
+                                        type="text"
+                                        className="contact-input" defaultCountry="US"
+                                        placeholder="Enter phone number"
+                                        onChange={(value) => console.log(value)}
+                                    /> */}
+                                </div>
+                            </div>
+
+
                             <div className='form-main-group_input'>
                                 <label>Your Email</label>
                                 <textarea

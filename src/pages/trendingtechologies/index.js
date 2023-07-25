@@ -18,16 +18,8 @@ export default function ExpertiseCard({ data, props, pageContext }) {
 
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
-  // const tools = data && data?.allStrapiComponentSkilltool?.edges;
-
-  //console.log('tols',data?.allStrapiComponentSkillset?.edges)
-
   const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-  //const stacktools = tools.find(item => { return item?.node?.Slug === pageContext?.stacktools?.node?.Slug })
-  //console.log('stacktools', stacktools)
-  // const stack = stacktools?.node?.Tools?.Tools
-  // console.log('stack', stack)
-  console.log(technology, "---technology")
+  // console.log(technology, "---technology")
   return (
     <div className="outer-trading-box">
       <Header />
@@ -64,39 +56,25 @@ export default function ExpertiseCard({ data, props, pageContext }) {
         <div className="recommented-wrap">
           <div className="recommend-section">
             <h1>{technology?.node?.Benefittitle.data.Benefittitle}</h1>
-            {/* <h1>Why we recommend React Native as go to approach</h1> */}
           </div>
           <div className="recommend-wrap-box">
             <div className="approach-left-box">
               <p>
                 {technology?.node?.Benifitdescription.data.Benifitdescription}
-                {/* Developed & maintained by Facebook, React Native is a great framework for cross platform mobile app development.
-                React Native delivers great speed & performance, the UI and UX of the apps in most of the cases is same as Native
-                apps and on top of its all JavaScript. Choose React Native when: */}
               </p>
             </div>
             <div className="approach-right-box">
               <div className="approach-box">
                 <h4>{technology?.node?.StartupTitle}</h4>
-                {/* <h4>Great for startups</h4> */}
                 <p>
                   {technology?.node?.Startupdescription.data.Startupdescription}
-                  {/* Reat Native solves many challenges startups face. Every startup like to launch the product quickly as its important
-                  for them to prove their unique propostion and establish this before somebody else takes over. They need a cost effective
-                  solution and scalable solution. If you need ALL JAVASCRIPT full stack development, React Native is a perfect option.
-                  It ticks almost all the points for startup apps. We help startups to launch apps on android & IOS platforms
-                  at the same time time reducing the product launch timeline. */}
                 </p>
               </div>
               <div className="approach-box">
                 <h4>{technology?.node?.Developmenttitle}</h4>
-                {/* <h4>MVP Development</h4> */}
                 <p>
                   {technology?.node?.Developmentdescription.data.Developmentdescription}
-                  {/* React Native is best for MVP products as well. MVP products are built to validate the idea and keep improvising & scaling
-                  with constant feedback received. This needs cost effective, scalable and the most important a great team to
-                  collborate & maintain the app with constant changes. The one source code and same development team helps a lot
-                  than having mutiple teams and running after one developer to another. */}
+
                 </p>
               </div>
             </div>
@@ -126,9 +104,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
             <div className="stack-tools-use">
               <div className="stack-heading"> {technology?.node?.Toolstitle}</div>
               <div className="stack-tools-card">
-            
-                 {technology && technology.node.stack.map((item, i) => {
-                 // console.log("map",item?.stacktools)
+                {technology && technology.node.stack.map((item, i) => {
                   return (
                     <>
                       <StackToolsCard
@@ -139,15 +115,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
 
                     </>
                   )
-                })} 
-           
-               
-                {/* {Object.entries(technology).map((item)=>{
-                 console.log(item?.node?.stack.stackName,"item")
-                  return(
-                    <></>
-                  )
-                 })}    */}
+                })}
 
               </div>
             </div>

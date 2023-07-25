@@ -42,41 +42,37 @@ export default class Header extends Component {
 					<NavbarToggler onClick={this.toggle} />
 					<Collapse isOpen={this.state.isOpen} navbar className='navbar-collapse-right'>
 						<Nav className="ml-auto" navbar>
+						<UncontrolledDropdown nav inNavbar>
+								<DropdownToggle nav caret>
+									Services
+								</DropdownToggle>
+								 
+							</UncontrolledDropdown>
 							<NavItem>
-								<NavLink href="/aboutus">About</NavLink>
+							<NavLink href="/services">Services</NavLink>
+							</NavItem>
+							<NavItem>
+							<NavLink href="#technologies">Technologies</NavLink>
+							</NavItem>
+							<NavItem>
+							<NavLink href="/projectlist">Portfolio</NavLink>
 							</NavItem>
 							<NavItem>
 								<NavLink href="/blog">Blog</NavLink>
 							</NavItem>
-							<NavItem>
-								<NavLink href="/contact">Contact Us</NavLink>
-							</NavItem>
-							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav caret>
-									Services
-								</DropdownToggle>
-								<DropdownMenu right>
-									{/* {service.map((item, i)=>{
-									return(
-										<DropdownItem>
-											<NavLink href="/projectlist">Project List</NavLink>
-										</DropdownItem>
-									)
-									})} */}
-								</DropdownMenu>
-							</UncontrolledDropdown>
+							 
 
 							<UncontrolledDropdown nav inNavbar>
 								<DropdownToggle nav caret>
 									Company
 								</DropdownToggle>
-								<DropdownMenu right>
+								<DropdownMenu>
 									<DropdownItem>
-										<NavLink href="/projectlist">Project List</NavLink>
+									<NavLink href="/aboutus">About</NavLink>
 									</DropdownItem>
 									<DropdownItem>
-										<NavLink href="#technologies">Technologies</NavLink>
-									</DropdownItem>
+									<NavLink href="/contact">Contact Us</NavLink>
+									</DropdownItem> 
 									<DropdownItem>
 										<NavLink href="#process">Process</NavLink>
 									</DropdownItem>

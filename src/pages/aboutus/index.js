@@ -8,13 +8,15 @@ import '../../assets/css/custom.css';
 import Footer from '../../components/Footer/Footer'
 import Slider from "react-slick";
 import { graphql } from 'gatsby';
-
+import TechnologyCard from "../../components/Cards/technologycard";
+import CompanyApproachCard from "../../components/Cards/companyapproachecard";
+import './style.css'
 
 
 export default function Aboutus({ data }) {
     const choosecard = data?.allStrapiExperiencesProcesse?.nodes
-
-
+    const technologyPartners = data?.allStrapiTechnologyPartner?.nodes
+    const ourApproaches = data?.allStrapiOurapproache.edges
 
 
     const settings = {
@@ -46,234 +48,254 @@ export default function Aboutus({ data }) {
         ]
 
     };
+    const technologyslide = {
+        dots: false,
+        centerMode: false,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        speed: 500,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 2,
+                    initialSlide: 1,
+                    centerMode: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
+                }
+            },
+            {
+                breakpoint: 460,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
+                }
+            },
+        ]
+    };
 
     return (
         <div>
             <Header />
             <section>
                 <div className="cover-background">
-                    <div className="cover-logo-box">
+                    {/* <div className="cover-logo-box">
                         <img src={covercode} alt="St Logo" />
-                    </div>
+                    </div> */}
                     <div className="cover-heading-text">
-                        <h1>Transforming Bussiness With Innovation </h1>
+                        <h1>Ideate. Innovate. Create. Your Tech Solutions Experts</h1>
                     </div>
                     <div className="subtext-box">
-                        <p className="cover-sub-text">Commited to deliver quality & performance oriented apps.</p>
-                    </div>
-                    {/* <div className="cover-stack-heading">
-            <img src={meanstack} alt="St Logo" />
-            <span className="cover-stack">Mean stack development</span>
-          </div> */}
-                    {/* <div className="booking-button">
-            <ButtonBox
-              type="button"
-              buttonname="Book a free consultation"
-            />
-          </div> */}
-                </div>
-            </section>
-            <section>
-                <div className='row'>
-                    <div className='col-md-4'>
-                        <h3>Who we are?</h3>
-                    </div>
-                    <div className='col-md-8'>
-                        <p>
-                            We are believers of change!
-                            A change driven by technology and innovation. We help businesses and individuals in adapting as well as adopting digital transformation.
-                            Our aim is to change people’s lives and improve businesses with our progressive and innovative technology solutions.
-                        </p>
+                        <p className="cover-sub-text">
+                            With our ‘Get Things Done’ philosophy, entrust your app or web project to us.
+                            We excel in tackling complexities,
+                            providing optimal solutions, and delivering within agreed timelines..</p>
                     </div>
                 </div>
             </section>
-
-            <section>
-                <div className='row'>
-                    <div className='col-md-4'>
-                        <h3>What We Do Best</h3>
-                    </div>
-                    <div className='col-md-8'>
-                        <p>
-                            We start by listening to the issues, requirements, challenges and objectives.
-                            The process continues with an effort to understand the business,
-                            market sector and competitors to develop information which is combined with our technical knowledge,
-                            expertise and research in order to provide the best solution at the lowest cost.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
             <section>
                 <div className="our-company-about">
                     <div className="company-description">
-                        <span className="text-bold">We’re an app development company</span> <br />
-                        led by seasoned professionals over two decades of experience.
-                        We architect, design, and develop scalable solutions with industry focus on startups,
-                        smaller & medium enterprises helping
-                        them to fulfill end-to-end technology needs at affordable rates.
+                        {/* <span className="text-bold">About Icode Labs</span> <br /> */}
+                        <div className='row'>
+                            <h1>About iCode Labs</h1>
+                        </div>
+                        iCode Labs Solutions is a leading digital solutions provider specializing in Web & Custom Software Development,
+                        Mobile App Development (iOS & Android), Marketplace Development, UI/UX Design, Sharetribe Flex, and Digital Marketing services.
+                        Our team of skilled professionals is dedicated to delivering high-quality digital design and development work for businesses of all sizes and budgets.
+                        With a focus on adaptation and growth, we understand the challenges small businesses face and offer tailored solutions to help them succeed in the online marketplace.
+                        Our expertise combines branding, graphic design, website, mobile app design and development, and online/offline marketing strategies to help our clients attract and engage customers for successful business growth.
+
                     </div>
                     <div className="company-images">
                         <img src={companyaboutimg} alt="St Logo" />
                     </div>
                 </div>
             </section>
+            <section>
 
-            <section id='about'>
+                <div className='col-md-12'>
+                    <div className='row'>
+                        <div className='col-md-4'>
+
+                            <div className="join-our-about">
+                                <span>
+                                </span>
+                                <h5> Our Area Of Expertise</h5>
+                                <p>
+                                    Our process begins with attentive listening, and understanding your issues, requirements, challenges,
+                                    and objectives. We then delve into comprehending your business, market sector, and competitors,
+                                    combining this information with our technical expertise and research.
+                                    This approach enables us to deliver optimal solutions with maximum efficiency and cost-effectiveness.
+                                </p>
+
+
+                            </div>
+                        </div>
+
+                        <div className='col-md-4'>
+
+                            <div className="join-our-about">
+                                <span>
+                                </span>
+                                <h5> Our Mission</h5>
+                                <p>
+                                    Our client-centric solutions prioritize maximum productivity with minimal resources, upholding service delivery
+                                    principles. Embodying our motto, 'Build Apps Driven By Innovation,' we strive to implement result-oriented product
+                                    design and creation strategies, ensuring impactful and efficient outcomes.
+
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div className='col-md-4'>
+
+                            <div className="join-our-about">
+                                <span>
+                                </span>
+                                <h5> Our Vision</h5>
+                                <p>
+                                    Our custom software development company firmly believes that integrating mobile technology and
+                                    digitizing processes for individuals and businesses can significantly simplify their lives,
+                                    allowing them to focus more on their core business functions.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section>
                 <div className="why-choose-us">
                     <div className="heading-main">
-                        <h1 className="choose-heading">Work Life</h1>
-                        <h1 className="choose-subheading"> At Its Best</h1>
-                        {/* <p className="choose-description">
-              startups & smaller organizations struggle to hire experienced professionals due to hefty agency rates.
-              Less experienced developers can code but limited to provide a value proposition.
-              Icode does this for you at affordable rates.
-            </p> */}
-                    </div>
-                    <div className="choose-card-wrap-box">
-                        <div className="choose-card-main">
-
-                            {choosecard && choosecard.map((item, i) => (
-                                <WhyChooseCard key={i}
-                                    subheading={item.title}
-                                    img={item.icon.url}
-                                />
-                            ))}
-
-
-                        </div>
+                        <h1 className="choose-heading">Our Core Strengths</h1>
+                        <p className="choose-description">
+                            At Icode Laps, our foundation is built by passionate individuals who are both dreamers and doers.
+                            Guided by a core set of values, everything we accomplish is a testament to the dedication and commitment of our
+                            exceptional team. Here are our core values that describe who we are:
+                        </p>
                     </div>
                 </div>
-            </section>
-            <section>
                 <div className='row'>
-                    <div className='col-md-2'>
-
-                    </div>
-                    <div className='col-md-8'>
-                        <h1>Our nested feedback loop ensures
-                            your projects are dominated by
-                            change that benefits</h1>
-                            <p>In order to respond quickly to change, our process includes the following feedback loops. 
-                                These feedback loops operate on different time scales to facilitate everything from tiny adjustments to wholesale 
-                                changes in a project's direction.</p>
-                    </div>
-                    
-                    <div className='col-md-2'>
-
-                    </div>
-
-                </div>
-
-                <div className='row'>
-                    <div className='col-md-2'>
-
-                    </div>
-                    <div className='col-md-8'>
+                    <div className='col-md-3'>
                         <div className='row'>
-                        <div className='col-md-3'>
-                            <h3>Feedback Loop</h3>
+                            <div className="our-approach">
+                                <div className="company-approach-card">
+                                    <div className="company-approach-box">
+                                        <div className="approach-logo">
+                                            {/* <img src={img} alt="St Logo" /> */}
+                                        </div>
+                                        <div className="apporoach-description">
+                                            <div className="approach-heading">Smooth and Effortless Delivery </div>
+                                            <div className="approach-subheading">We prioritize exceptional project delivery, providing constant status updates, scope control, and active customer engagement.
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
                         </div>
-                        <div className='col-md-3'>
-                            <h3>Frequency</h3>
-                        </div>
-                        <div className='col-md-3'>
-                            <h3>Participant</h3>
-                        </div>
-                        <div className='col-md-3'>
-                            <h3>Length</h3>
-                        </div>
-                        </div>
-                         
-                    </div>
-                    <div className='col-md-2'>
 
                     </div>
 
+                    <div className='col-md-3'>
+                        <div className='row'>
+                            <div className="our-approach">
+                                <div className="company-approach-card">
+                                    <div className="company-approach-box">
+                                        <div className="approach-logo">
+                                            {/* <img src={img} alt="St Logo" /> */}
+                                        </div>
+                                        <div className="apporoach-description">
+                                            <div className="approach-heading">Pioneering Solutions Provider</div>
+                                            <div className="approach-subheading"> Delivering projects with innovation at the core,
+                                                we provide tailor-made solutions that embrace the latest technology.
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className='col-md-3'>
+                        <div className='row'>
+                            <div className="our-approach">
+                                <div className="company-approach-card">
+                                    <div className="company-approach-box">
+                                        <div className="approach-logo">
+                                            {/* <img src={img} alt="St Logo" /> */}
+                                        </div>
+                                        <div className="apporoach-description">
+                                            <div className="approach-heading">Building Lasting Client Relationships </div>
+                                            <div className="approach-subheading">
+                                                Whether handling a single job or a portfolio of projects,
+                                                our aim is to forge enduring client relationships with a supportive network.
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className='col-md-3'>
+                        <div className='row'>
+                            <div className="our-approach">
+                                <div className="company-approach-card">
+                                    <div className="company-approach-box">
+                                        <div className="approach-logo">
+                                            {/* <img src={img} alt="St Logo" /> */}
+                                        </div>
+                                        <div className="apporoach-description">
+                                            <div className="approach-heading">Customer-Centric Delivery Approach</div>
+                                            <div className="approach-subheading">We tailor each project to meet our client's unique goals,
+                                                ensuring customer satisfaction remains at the heart of our delivery process.
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
-            <section style={{padding: 94}}>
-                <div className='row'>
-                    <div className='col-md-1'></div>
-                    <div className='col-md-4'>
-                        <h1>Our Enterprise Software Development Project Flow</h1>
-                    </div>
-                    <div className='col-md-1'></div>
-                    <div className='col-md-5'>
-                          <p>We offer the best practices and full cycle enterprise software development solutions in a structured and systematic way.
-                             We start with deep analysis of business requirements and nurture the relationship with post-launch support and maintenance.</p>
-                    </div>
-                    <div className='col-md-1'></div>
-                </div>
-                <br/>
-                <br/>
-                <div className='row'>
-                    <div className='col-md-1'>
-
-                    </div>
-                    <div className='col-md-4'>
-                        <h1>Planning & Research</h1>
-                        <br/>
-                        <p>We start by collecting all the relevant information and defining the scope of the project to develop an
-                             enterprise software solution that is a perfect fit to your business needs.</p>
-                    </div>
-                    <div className='col-md-2'></div>
-                   <div className='col-md-4'>
-                    <h1>Design & Development</h1>
-                    <br/>
-                    <p>Our team of enterprise solution experts prepare the documents as per the specified requirements and define the overall 
-                        system architecture and technology stack. 
-                        Our enterprise software developers then start the development process 
-                        by using the chosen coding languages and methodologies.</p>
-                   </div>
-                </div>
-
-                <div className='row'>
-                    <div className='col-md-1'>
-
-                    </div>
-                    <div className='col-md-4'>
-                        <h1>Testing & Deployment</h1>
-                        <br/>
-                        <p>Our team of software testers perform unit testing with the aim of finding and fixing bugs and defects. 
-                            The final software is then released and checked for deployment issues, if any.</p>
-                    </div>
-                    <div className='col-md-2'></div>
-                   <div className='col-md-4'>
-                    <h1>Maintenance & Support</h1>
-                    <br/>
-                    <p>As per the terms of the agreement, we offer corrective,
-                         perfective and adaptive maintenance services to ensure the enterprise
-                          system continues to perform to its full capacity.</p>
-                   </div>
-                </div>
-            </section>
 
 
-            <section>
-                <div className="about-client-box">
-                    <div className="about-client">
-                        <h1 className="client-heading">Our Achievements</h1>
-                        <div className="trusted-brand-box">
 
-                            <Slider  {...settings}>
-                                {/* <GatsbyImage image={image} alt=" "  /> */}
-
-                                {/* {image.map((item, key) => ( 
-                                    <div key={key}>
-        
-                                         </div>
-          
-                                       // <Img fluid={item?.url} alt=" " />
-        
-                                  )) } */}
-
-                            </Slider>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <Footer />
         </div>
@@ -291,6 +313,36 @@ query MyQuery{
           icon {
             id
             url
+          }
+        }
+      }
+
+      allStrapiTechnologyPartner {
+        nodes {
+          Title
+          Description {
+            data {
+              Description
+            }
+          }
+          Image {
+            url
+          }
+        }
+      }
+
+      allStrapiOurapproache {
+        edges {
+          node {
+            Title
+            Description {
+              data {
+                Description
+              }
+            }
+            Image {
+              url
+            }
           }
         }
       }

@@ -33,13 +33,13 @@ const Footer = () => {
                 <div className='footer_wrap'>
                     <div>
                         <div className="row">
-                            <div className="col-lg-5 col-md-12 col-sm-12">
+                            <div className="col-lg-4 col-md-12 col-sm-12">
                                 <div className="footer-logo">
                                     <a href="#"><img src={footerlogo} alt="icodelabs" /></a>
                                     <p>Web application development, Mobile app development, Outsource software development company in India.</p>
                                 </div>
                             </div>
-                            <div className="col-lg-5 col-md-12 col-sm-12 hiring-box">
+                            <div className="col-lg-6 col-md-12 col-sm-12 hiring-box">
                                 <div className="row">
                                     <div className="col-lg-12 col-md-12 col-sm-10">
                                         <div className="hiring-heading">
@@ -56,7 +56,7 @@ const Footer = () => {
                                                                     <li>
                                                                         <Link to={"/trendingtechologies/" + item?.node?.Slug}>
                                                                             {item.node.Title.length > 20
-                                                                            ? item.node.Title.substring(0, 30) + ".." // Limit the title to 15 characters and add ellipsis
+                                                                            ? item.node.Title.substring(0,23) + "" // Limit the title to 15 characters and add ellipsis
                                                                              : item.node.Title}</Link>
                                                                     </li>
                                                                 </ul>
@@ -75,7 +75,7 @@ const Footer = () => {
                                                                     <li>
                                                                         <Link to={"/trendingtechologies/" + item?.node?.Slug}>
                                                                         {item.node.Title.length > 20
-                                                                            ? item.node.Title.substring(0, 30) + ".." // Limit the title to 15 characters and add ellipsis
+                                                                            ? item.node.Title.substring(0, 23) + "" // Limit the title to 15 characters and add ellipsis
                                                                              : item.node.Title}</Link>
                                                                     </li>
                                                                 </ul>
