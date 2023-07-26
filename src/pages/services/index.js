@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../../components/Header/Header';
 import './style.css'
 import deliveryImage from '../../assets/images/professional-programmer-working-late-dark-office.png';
+import mobileImge from '../../assets/images/linedin-lite-post-image.png'
 import img from '../../assets/images/graphql.png'
 import '../../assets/css/custom.css';
 import '../../assets/css/bootstrap.min.css';
@@ -24,14 +25,25 @@ export default function Services({ data }) {
             <Header />
             <div className="project-wrap-box">
                 <section>
-                    <div className="project-list-cover">
-
-                        <p>Select your marketplace type.<br />
-                            Transparency, Inspection & Adaptation
-                            We follow agile principles and the industry best practices to deliver a
-                            predictable high quality & on-time result.
-                        </p>
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <div className="project-list-cover">
+                                <div className='col-md-7'>
+                                    <h1>Android App Development Company</h1>
+                                    <p>Are you in need of bespoke Android app development services? Are you searching for a
+                                        leading Android mobile app development company to create a tailored Android app? We are a distinguished
+                                        company specializing in Android app development, backed by a wealth of industry experience. Our mission is
+                                        to enable businesses to adopt a mobile-first approach and provide exceptional, well-established Android app
+                                        development services.
+                                    </p>
+                                </div>
+                                <div className="deliver-image-mobile">
+                                    <img src={mobileImge} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </section>
 
                 <section>
@@ -198,10 +210,10 @@ export default function Services({ data }) {
                     </div>
                 </section>
                 <section>
-                    <div style={{paddingLeft:600,paddingBottom:100}}>
-                       {/* <h1>FAQ Question</h1>    */}
-                    <FAQ/>
-                    </div> 
+                    <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
+                        {/* <h1>FAQ Question</h1>    */}
+                        <FAQ />
+                    </div>
                 </section>
 
                 <section className="estimate-section-wrap">

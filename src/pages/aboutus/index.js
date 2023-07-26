@@ -4,14 +4,13 @@ import ButtonBox from '../../components/button';
 import Header from '../../components/Header/Header';
 import companyaboutimg from '../../assets/images/companyabout.png';
 import WhyChooseCard from "../../components/Cards/whychoosecard";
-import '../../assets/css/custom.css';
 import Footer from '../../components/Footer/Footer'
 import Slider from "react-slick";
 import { graphql } from 'gatsby';
 import TechnologyCard from "../../components/Cards/technologycard";
 import CompanyApproachCard from "../../components/Cards/companyapproachecard";
 import './style.css'
-
+import '../../assets/css/custom.css';
 
 export default function Aboutus({ data }) {
     const choosecard = data?.allStrapiExperiencesProcesse?.nodes
@@ -99,7 +98,7 @@ export default function Aboutus({ data }) {
                         <p className="cover-sub-text">
                             With our ‘Get Things Done’ philosophy, entrust your app or web project to us.
                             We excel in tackling complexities,
-                            providing optimal solutions, and delivering within agreed timelines..</p>
+                            providing optimal solutions, and delivering within agreed timelines</p>
                     </div>
                 </div>
             </section>
@@ -110,11 +109,18 @@ export default function Aboutus({ data }) {
                         <div className='row'>
                             <h1>About iCode Labs</h1>
                         </div>
-                        iCode Labs Solutions is a leading digital solutions provider specializing in Web & Custom Software Development,
-                        Mobile App Development (iOS & Android), Marketplace Development, UI/UX Design, Sharetribe Flex, and Digital Marketing services.
-                        Our team of skilled professionals is dedicated to delivering high-quality digital design and development work for businesses of all sizes and budgets.
-                        With a focus on adaptation and growth, we understand the challenges small businesses face and offer tailored solutions to help them succeed in the online marketplace.
-                        Our expertise combines branding, graphic design, website, mobile app design and development, and online/offline marketing strategies to help our clients attract and engage customers for successful business growth.
+                        <p>  iCode Labs Solutions is a leading digital solutions provider specializing in Web & Custom Software Development,
+                            Mobile App Development (iOS & Android), Marketplace Development, UI/UX Design, Sharetribe Flex, and Digital Marketing services.
+                        </p>
+
+                        <p>
+                            Our team of skilled professionals is dedicated to delivering high-quality digital design and development work for businesses of all sizes and budgets.
+                            With a focus on adaptation and growth, we understand the challenges small businesses face and offer tailored solutions to help them succeed in the online marketplace.
+                        </p>
+                        <p>
+                            Our expertise combines branding, graphic design, website, mobile app design and development,
+                            and online/offline marketing strategies to help our clients attract and engage customers for successful business growth.
+                        </p>
 
                     </div>
                     <div className="company-images">
@@ -180,123 +186,124 @@ export default function Aboutus({ data }) {
 
 
 
-            <section>
-                <div className="why-choose-us">
-                    <div className="heading-main">
-                        <h1 className="choose-heading">Our Core Strengths</h1>
-                        <p className="choose-description">
-                            At Icode Laps, our foundation is built by passionate individuals who are both dreamers and doers.
-                            Guided by a core set of values, everything we accomplish is a testament to the dedication and commitment of our
-                            exceptional team. Here are our core values that describe who we are:
-                        </p>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-md-3'>
+            <section id="process">
+                <div className="how-do-we-do">
+                    <div className="how-do-we-do">
+                        <div className="inner-timeline-box">
+                            <div className="timeline-heading">
+                                <h1 className="choose-heading">Our Core Strengths</h1>
+                                <p className="choose-description">
+                                    At Icode Laps, our foundation is built by passionate individuals who are both dreamers and doers.
+                                    Guided by a core set of values, everything we accomplish is a testament to the dedication and commitment of our
+                                    exceptional team. Here are our core values that describe who we are:
+                                </p>
+                            </div>
+                        </div>
+
                         <div className='row'>
-                            <div className="our-approach">
-                                <div className="company-approach-card">
-                                    <div className="company-approach-box">
-                                        <div className="approach-logo">
-                                            {/* <img src={img} alt="St Logo" /> */}
-                                        </div>
-                                        <div className="apporoach-description">
-                                            <div className="approach-heading">Smooth and Effortless Delivery </div>
-                                            <div className="approach-subheading">We prioritize exceptional project delivery, providing constant status updates, scope control, and active customer engagement.
+                            <div className='col-md-3'>
+                                <div className='row'>
+                                    <div className="our-approach">
+                                        <div className="company-approach-card">
+                                            <div className="company-approach-box">
+                                                <a href="/ourapproach">
+                                                    <div className="approach-logo">
+                                                        {/* <img src={img} alt="St Logo" /> */}
+                                                    </div>
+                                                    <div className="apporoach-description">
+                                                        <div className="approach-heading">Lower Costs
+                                                        </div>
+                                                        <div className="approach-subheading">One major benefit of hiring Android developers is that they can
+                                                            leverage the powerful Software Development Kit (SDK) to build apps more efficiently.
+                                                            This not only reduces development time but also minimizes licensing and overall development costs. </div>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </div>
 
                                     </div>
-
-
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                            <div className='col-md-3'>
+                                <div className='row'>
+                                    <div className="our-approach">
+                                        <div className="company-approach-card">
+                                            <div className="company-approach-box">
+                                                <div className="approach-logo">
+                                                    {/* <img src={img} alt="St Logo" /> */}
+                                                </div>
+                                                <div className="apporoach-description">
+                                                    <div className="approach-heading">Pioneering Solutions Provider</div>
+                                                    <div className="approach-subheading"> Delivering projects with innovation at the core,
+                                                        we provide tailor-made solutions that embrace the latest technology.
 
-                    <div className='col-md-3'>
-                        <div className='row'>
-                            <div className="our-approach">
-                                <div className="company-approach-card">
-                                    <div className="company-approach-box">
-                                        <div className="approach-logo">
-                                            {/* <img src={img} alt="St Logo" /> */}
-                                        </div>
-                                        <div className="apporoach-description">
-                                            <div className="approach-heading">Pioneering Solutions Provider</div>
-                                            <div className="approach-subheading"> Delivering projects with innovation at the core,
-                                                we provide tailor-made solutions that embrace the latest technology.
+                                                    </div>
+                                                </div>
 
                                             </div>
-                                        </div>
 
+
+                                        </div>
                                     </div>
-
-
                                 </div>
+
                             </div>
-                        </div>
 
-                    </div>
+                            <div className='col-md-3'>
+                                <div className='row'>
+                                    <div className="our-approach">
+                                        <div className="company-approach-card">
+                                            <div className="company-approach-box">
+                                                <div className="approach-logo">
+                                                    {/* <img src={img} alt="St Logo" /> */}
+                                                </div>
+                                                <div className="apporoach-description">
+                                                    <div className="approach-heading">Building Lasting Client Relationships </div>
+                                                    <div className="approach-subheading">
+                                                        Whether handling a single job or a portfolio of projects,
+                                                        our aim is to forge enduring client relationships with a supportive network.
 
-                    <div className='col-md-3'>
-                        <div className='row'>
-                            <div className="our-approach">
-                                <div className="company-approach-card">
-                                    <div className="company-approach-box">
-                                        <div className="approach-logo">
-                                            {/* <img src={img} alt="St Logo" /> */}
-                                        </div>
-                                        <div className="apporoach-description">
-                                            <div className="approach-heading">Building Lasting Client Relationships </div>
-                                            <div className="approach-subheading">
-                                                Whether handling a single job or a portfolio of projects,
-                                                our aim is to forge enduring client relationships with a supportive network.
+                                                    </div>
+                                                </div>
 
                                             </div>
-                                        </div>
 
+
+                                        </div>
                                     </div>
-
-
                                 </div>
+
                             </div>
-                        </div>
 
-                    </div>
+                            <div className='col-md-3'>
+                                <div className='row'>
+                                    <div className="our-approach">
+                                        <div className="company-approach-card">
+                                            <div className="company-approach-box">
+                                                <div className="approach-logo">
+                                                    {/* <img src={img} alt="St Logo" /> */}
+                                                </div>
+                                                <div className="apporoach-description">
+                                                    <div className="approach-heading">Customer-Centric Delivery Approach</div>
+                                                    <div className="approach-subheading">We tailor each project to meet our client's unique goals,
+                                                        ensuring customer satisfaction remains at the heart of our delivery process.
 
-                    <div className='col-md-3'>
-                        <div className='row'>
-                            <div className="our-approach">
-                                <div className="company-approach-card">
-                                    <div className="company-approach-box">
-                                        <div className="approach-logo">
-                                            {/* <img src={img} alt="St Logo" /> */}
-                                        </div>
-                                        <div className="apporoach-description">
-                                            <div className="approach-heading">Customer-Centric Delivery Approach</div>
-                                            <div className="approach-subheading">We tailor each project to meet our client's unique goals,
-                                                ensuring customer satisfaction remains at the heart of our delivery process.
+                                                    </div>
+                                                </div>
 
                                             </div>
+
+
                                         </div>
-
                                     </div>
-
-
                                 </div>
+
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
-
-
-
-
-
             <Footer />
         </div>
 

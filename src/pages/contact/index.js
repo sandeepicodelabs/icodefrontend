@@ -14,6 +14,7 @@ import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-g
 import { Link } from 'gatsby';
 //import { countryList } from 'country-codes-list';
 import PhoneInput from 'react-phone-number-input';
+import '../../assets/css/custom.css';
 
 
 

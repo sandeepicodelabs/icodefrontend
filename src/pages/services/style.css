@@ -172,3 +172,18 @@
         font-size: 26px;
     }
 }
+.project-list-cover {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+
+    & .col-md-7 {
+        width: 60%;
+    }
+    & .deliver-image-mobile {
+
+        & img {
+            width: 600px;
+        }
+    }
+}
