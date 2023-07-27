@@ -4,6 +4,7 @@ import './style.css'
 export default function WhyWeJoinCard(props) {
 
     const { img, teamdescription, teamheading, type, buttonname, className } = props;
+    //console.log('serviwhyjoin',props)
 
   return (
     <>
