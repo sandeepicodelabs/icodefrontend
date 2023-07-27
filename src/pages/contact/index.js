@@ -20,22 +20,50 @@ import '../../assets/css/custom.css';
 
 
 export default function ContactPage() {    
-//  const countries = countryList ? Object.entries(countryList) : []; 
-//      console.log("country",countries)   
+ 
 
-// const [countries, setCountries] = useState([]);
-// useEffect(() => {
-//     // Simulate an asynchronous data fetch
-//     // Replace this with your actual data fetching logic
-//     setTimeout(() => {
-//       if (countryList) {
-//         setCountries(Object.entries(countryList));
-//       }
-//     }, 1000); // Wait for 1 second before updating the state with data
-//   }, []); 
-//   console.log("country",countries)
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [value, setValue] = useState()
 
-const [value, setValue] = useState()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+
+        const data = {
+            name,
+            email,
+          };
+      
+
+          const result = await fetch('http://localhost:1337/api/contact-uses', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              query: `
+                mutation CreateContactForm($data: ContactFormInput!) {
+                  createContactForm(input: {data: $data}) {
+                    contactForm {
+                      id
+                      name
+                      email
+                    }
+                  }
+                }
+              `,
+              variables: {
+                data,
+              },
+            }),
+          });
+      
+          const response = await result.json();
+          console.log(response);
+          // Handle the response as needed, e.g., show a success message
+        };
+
 
     useEffect(() => {
         mapboxgl.accessToken = "pk.eyJ1IjoiYXRhbDI1IiwiYSI6ImNsazZzaTlpeDAxZGUzZXBoN2tkdGtwZjUifQ.fY8VAIrCr371iMHsf4eKyQ"; // Replace with your Mapbox access token
@@ -66,24 +94,28 @@ const [value, setValue] = useState()
                     <div className="getintouch-form">
                         <h1 className="gettouch-heading">Got a project in mind?</h1>
                         <p className="gettouch-subheading">Send your enquiry and will get back to you within one business day</p>
+                        <form method="post" action='http://localhost:1337/api/contact-uses'>
                         <div className="form-box-input">
                             <div className='form-row-box'>
                                 <div className='form-main-group'>
                                     <label>Your Name</label>
                                     <input
                                         type="text"
-                                        className="contact-input"
+                                        className="contact-input" name='name'  value={name}
+                                        onChange={(e) => setName(e.target.value)}
                                     />
                                 </div>
                                 <div className='form-main-group'>
                                     <label>Your Email</label>
                                     <input
                                         type="text"
-                                        className="contact-input"
+                                        className="contact-input" name='email'
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </div>
                             </div>
-                            <div className='form-row-box'>
+                            {/* <div className='form-row-box'>
                                 <div className='form-main-group'>
                                     <label>Skyep Id</label>
                                     <input
@@ -94,23 +126,18 @@ const [value, setValue] = useState()
                                 <div className='form-main-group'>
                                     <label>Phone no. </label>
                                     <input type='text'
-      country="US"
-      value={value}
-      onChange={setValue} />
-                                    {/* <input
-                                        type="text"
-                                        className="contact-input" defaultCountry="US"
-                                        placeholder="Enter phone number"
-                                        onChange={(value) => console.log(value)}
-                                    /> */}
+                                country="US"
+                                value={value}
+                                onChange={setValue} />
+                                    
                                 </div>
-                            </div>
+                            </div> */}
 
 
                             <div className='form-main-group_input'>
                                 <label>Your Email</label>
                                 <textarea
-                                    className="contact-input"
+                                    className="contact-input" name='youremail'
                                     rows={10}
                                 />
                             </div>
@@ -119,6 +146,7 @@ const [value, setValue] = useState()
                             type="submit"
                             buttonname="SEND MESSAGE"
                         />
+                        </form>
                     </div>
                     <div className="getintouch-links">
                         <div className="contact-data">

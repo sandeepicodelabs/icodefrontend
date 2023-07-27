@@ -31,7 +31,6 @@ export default function Servicedetail({ data }) {
                                         <p>
                                             {servicedetail?.node.Description.data.Description}
                                         </p>
-
                                     </div>
                                     <div className="deliver-image-section">
                                         <img src={deliveryImage} />
@@ -41,27 +40,26 @@ export default function Servicedetail({ data }) {
                         </div>
                     </section>
                     <section className="why-we-hire">
-                         <div className="our-team-wrap">
+                        <div className="our-team-wrap">
                             <div className="our-tech-team">
                                 <h1 >{servicedetail?.node?.DevlopmentTitle}</h1>
                                 {/* <div className="choose-subheading"> </div> */}
                                 <p className="choose-description">
                                     {servicedetail?.node?.DevelopmentDescription.data.DevelopmentDescription}
                                 </p>
-                            </div>  
+                            </div>
                             <div className="join-expertise">
-                                            {servicedetail && servicedetail.node.Titleservice.map((item, i) => (
-                                               //console.log("map",item?.Servicetitle)
-                                                <WhyWeJoinCard
-                                                    key={i}
-                                                    // img={item.node?.image.publicURL}
-                                                    teamheading={item?.Servicetitle}
-                                                    teamdescription={item?.ServiceDescription.data.ServiceDescription}
-                                               />
-                                            ))}
-                                          
-                                        </div> 
- 
+                                {servicedetail && servicedetail.node.Titleservice.map((item, i) => (
+                                    <WhyWeJoinCard
+                                        key={i}
+                                        // img={item.node?.image.publicURL}
+                                        teamheading={item?.Servicetitle}
+                                        teamdescription={item?.ServiceDescription.data.ServiceDescription}
+                                    />
+                                ))}
+
+                            </div>
+
                         </div>
                     </section>
 
@@ -76,7 +74,6 @@ export default function Servicedetail({ data }) {
                                 <div className="timeline-content">
                                     <div className="timeline">
                                         {servicedetail && servicedetail?.node?.ToolService.map((item, i) => (
-                                            // console.log('map',item)
                                             <div className="container-wrap-box steps">
                                                 <div className="content">
                                                     <h3>{item?.toolsTitle}</h3>
@@ -88,22 +85,30 @@ export default function Servicedetail({ data }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="our-approach">
-                                <div className="company-approach-card">
-                                {servicedetail && servicedetail?.node.EnhanceService.map((item, i) => (
-                                    //console.log('enhanmap',item?.ETitle)
-                <CompanyApproachCard
-                  approachheading={item?.ETitle}
-                 // img={item.node?.Image.url}
-                  approachsubheading={item?.EDescription.data.EDescription}
-                />
-              ))}               </div>
-                            </div> 
                         </div>
                     </section>
-
-
-
+                    <section id="process">
+                        <div className="how-do-we-do">
+                            <div className="inner-timeline-box">
+                                <div className="timeline-heading">
+                                    <h1>{servicedetail?.node?.EnhanceTitle}</h1>
+                                    <p>{servicedetail?.node?.EnhanceDescription.data.EnhanceDescription}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="our-approach">
+                                <div className="company-approach-card">
+                                    {servicedetail && servicedetail?.node.EnhanceService.map((item, i) => (
+                                        <CompanyApproachCard
+                                            approachheading={item?.ETitle}
+                                            // img={item.node?.Image.url}
+                                            approachsubheading={item?.EDescription.data.EDescription}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div> 
+                    </section> 
                     <section >
                         <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
                             <h1>FAQ Question</h1>

@@ -27,6 +27,7 @@ const strapiConfig = {
      "service",
      "component-skillset",
      "component-skilltool",
+     "contact-us",
     // "service-detail",
     {
       singularName: "service-detail",

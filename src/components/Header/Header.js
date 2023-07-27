@@ -1,26 +1,47 @@
-import React, { Component,useState } from 'react';
+import React, { Component, useState } from 'react';
 import {
-	Collapse,
-	Navbar,
-	NavbarToggler,
-	NavbarBrand,
-	Nav,
-	NavItem,
-	NavLink,
-	UncontrolledDropdown,
-	DropdownToggle,
-	DropdownMenu,
-	DropdownItem
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
-import icodelogo from '../../assets/images/logo/icodelab-logo.png'; 
-import {Link} from 'gatsby'
+import icodelogo from '../../assets/images/logo/icodelab-logo.png';
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 
-const Header = ({data}) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const data = useStaticQuery(graphql`
+  query {
+    allStrapiService {
+      edges {
+        node {
+          Title
+          Slug
+          Description {
+            data {
+              Description
+            }
+          }
+          Image {
+            url
+          }
+        }
+      }
+    }
+  } 
+    
+`);
   const service = data?.allStrapiService?.edges
 
-  console.log("header",data)
+  //console.log("header",service)
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -42,12 +63,12 @@ const Header = ({data}) => {
                 Services
               </DropdownToggle>
               <DropdownMenu>
-			  {service &&
-        service.map((item, i) => (
-          <DropdownItem key={i}>
-            <Link to={`/services/${item?.node?.Slug}`}>Service</Link>
-          </DropdownItem>
-        ))}
+                {service &&
+                  service.map((item, i) => (
+                    <DropdownItem key={i}>
+                      <Link to={`/services/${item?.node?.Slug}`}>{item?.node.Title}</Link>
+                    </DropdownItem>
+                  ))}
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
@@ -92,24 +113,3 @@ export default Header;
 
 
 
-
-export const query = graphql`
-query MyQuery {
-    allStrapiService {
-      edges {
-        node {
-          Title
-          Slug
-          Description {
-            data {
-              Description
-            }
-          }
-          Image {
-            url
-          }
-        }
-      }
-    }
-  }
-`

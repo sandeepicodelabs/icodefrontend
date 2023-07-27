@@ -16,9 +16,18 @@ import CardProfileimg from '../../assets/images/covercardprofile.png';
 import SearchIcon from '../../assets/images/searchicon.svg';
 import './style.css';
 import { graphql, Link } from 'gatsby'
+import paginationNext from '../../assets/images/pagination-next-icon.png';
+import paginationprev from '../../assets/images/pagination-prev-icon.png';
 
-export default function Blog({ data }) {
+export default function Blog({ data,pageContext }) {
+    
 
+  const { currentPage, count } = pageContext;
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === count;
+  const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
+  const nextPage = `/blog/${currentPage + 1}`; 
+ console.log("blog",data)
 
   const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
@@ -136,7 +145,7 @@ export default function Blog({ data }) {
                         //postedname={item.node?.user.displayName}
                         postdate={item.node?.publishedAt}
                         cardtitle={
-                          <Link to={"../blog/" + item?.node?.Slug}>
+                          <Link to={"/blog/" + item?.node?.Slug}>
                             {item.node?.Title}
                           </Link>
                         }
@@ -170,8 +179,34 @@ export default function Blog({ data }) {
               </div>
             </div>
             <div className="pagination-box">
-              <PaginationBox />
-            </div>
+        <div className="pagination">
+          {!isFirst && (
+            <Link to={prevPage} className="page-navigate-icon">
+              <img src={paginationprev} alt="Previous Page" />
+            </Link>
+          )}
+          {Array.from({ length: count }, (_, i) => (
+            <Link
+              key={`pagination-number${i + 1}`}
+              to={`/blog/${i === 0 ? "" : i + 1}`}
+              className={`pagination-count ${i + 1 === currentPage ? "active" : ""}`}
+            >
+              {i + 1}
+            </Link>
+          ))}
+          {!isLast && (
+            <Link to={nextPage} className="page-navigate-icon">
+              <img src={paginationNext} alt="Next Page" />
+            </Link>
+          )}
+        </div>
+      </div>
+
+      
+             {/* <div className="pagination-box">
+              <PaginationBox  
+              /> */}
+           
           </div>
         </div>
       </section>
@@ -182,7 +217,7 @@ export default function Blog({ data }) {
 
 export const query = graphql`
 query MyQuery { 
- allStrapiArticle (limit: 12, sort: {publishedAt: DESC}) {
+ allStrapiArticle (  sort: {publishedAt: DESC}) {
     edges {
       node {
         Title

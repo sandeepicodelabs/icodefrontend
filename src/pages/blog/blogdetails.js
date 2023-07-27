@@ -67,7 +67,7 @@ export default function BlogPage({data,pageContext}) {
     //   const article = posts?.find(item=>{return item?.node?.Slug === pageContext.article?.node?.Slug})
     //   // console.log('blog',article)
 
-
+    
       const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
 const posts = data?.allStrapiArticle?.edges;
 const filteredData = posts?.filter(post => {
@@ -163,7 +163,7 @@ const article = posts?.find(item => {
                   </div>
                   <div className="blog-comment-section">
                      {/* <img src={require('../../assets/images/comment.png')} alt="St Logo Commnent"/> */}  
-                     <img src={Commentimg} alt="St logo"/>
+                     {/* <img src={Commentimg} alt="St logo"/> */}
                      
                   </div>
                 </div>
@@ -174,7 +174,7 @@ const article = posts?.find(item => {
                 <h1>Most popular</h1>
                 <div className="popular-wrap-box">
                   {filteredData.map((item, i) => (
-                    <Link to={"../blog/" + item.node?.Slug}>
+                    <Link to={"/blog/" + item.node?.Slug}>
                       <MostPopularCard
                         key={i}
                         //populartitle={item.node?.category.name}
@@ -201,6 +201,7 @@ const article = posts?.find(item => {
               <div className="related-slider">
                 <Slider {...settings}>
                   {filteredData.map((item, i) => (
+                      <Link to={"/blog/" + item.node?.Slug}> 
                      <div className="article-slide">
                       <AllArticleCard
                         key={i}
@@ -212,7 +213,9 @@ const article = posts?.find(item => {
                          cardtitle={item.node?.Title}
                          //cardprofile={item.node?.user.profileimage?.publicURL}
                        />
+                     
                      </div>
+                       </Link>
                   ))}
                 </Slider>
               </div>

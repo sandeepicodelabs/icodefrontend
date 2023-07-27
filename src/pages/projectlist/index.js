@@ -3,9 +3,9 @@ import ButtonBox from '../../components/button';
 import Header from '../../components/Header/Header';
 import EstimateCard from '../../components/Cards/estimatecard';
 import Footer from '../../components/Footer/Footer'; 
-import ProjectListCard from '../../components/Cards/projectcard'; 
-import './style.css'
+import ProjectListCard from '../../components/Cards/projectcard';  
 import { graphql } from 'gatsby';
+import '../../assets/css/custom.css';
 
 
  
