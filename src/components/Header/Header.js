@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import {
 	Collapse,
 	Navbar,
@@ -12,79 +12,104 @@ import {
 	DropdownMenu,
 	DropdownItem
 } from 'reactstrap';
-import icodelogo from '../../assets/images/logo/icodelab-logo.png';
+import icodelogo from '../../assets/images/logo/icodelab-logo.png'; 
+import {Link} from 'gatsby'
 
-export default class Header extends Component {
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			isOpen: false
-		};
-		this.toggle = this.toggle.bind(this);
-	}
+const Header = ({data}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const service = data?.allStrapiService?.edges
 
-	toggle() { 
-		this.setState({
-			isOpen: !this.state.isOpen
-		});
-	}
+  console.log("header",data)
 
-	render() {
-		return (
-			<header className="header-nav header-box">
-				<Navbar color="light" light expand="lg" className='navbar-wrap-box-background'>
-					<NavbarBrand href="/">
-						<div className="logo-box">
-							<img src={icodelogo} alt="St Logo"/>
-						</div>
-					</NavbarBrand>
-					<NavbarToggler onClick={this.toggle} />
-					<Collapse isOpen={this.state.isOpen} navbar className='navbar-collapse-right'>
-						<Nav className="ml-auto" navbar>
-						<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav caret>
-									Services
-								</DropdownToggle>
-								 
-							</UncontrolledDropdown>
-							<NavItem>
-							<NavLink href="/services">Services</NavLink>
-							</NavItem>
-							<NavItem>
-							<NavLink href="#technologies">Technologies</NavLink>
-							</NavItem>
-							<NavItem>
-							<NavLink href="/projectlist">Portfolio</NavLink>
-							</NavItem>
-							<NavItem>
-								<NavLink href="/blog">Blog</NavLink>
-							</NavItem>
-							 
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
 
-							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav caret>
-									Company
-								</DropdownToggle>
-								<DropdownMenu>
-									<DropdownItem>
-									<NavLink href="/aboutus">About</NavLink>
-									</DropdownItem>
-									<DropdownItem>
-									<NavLink href="/contact">Contact Us</NavLink>
-									</DropdownItem> 
-									<DropdownItem>
-										<NavLink href="#process">Process</NavLink>
-									</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
-							<NavItem>
-								<NavLink href="/contact" className="button-hiring">Hire Developers</NavLink>
-							</NavItem>
-						</Nav>
-					</Collapse>
-				</Navbar>
-			</header>
-		);
-	}
-}
+  return (
+    <header className="header-nav header-box">
+      <Navbar color="light" light expand="lg" className="navbar-wrap-box-background">
+        <NavbarBrand href="/">
+          <div className="logo-box">
+            <img src={icodelogo} alt="St Logo" />
+          </div>
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar className="navbar-collapse-right">
+          <Nav className="ml-auto" navbar>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Services
+              </DropdownToggle>
+              <DropdownMenu>
+			  {service &&
+        service.map((item, i) => (
+          <DropdownItem key={i}>
+            <Link to={`/services/${item?.node?.Slug}`}>Service</Link>
+          </DropdownItem>
+        ))}
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="#technologies">Technologies</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/projectlist">Portfolio</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/blog">Blog</NavLink>
+            </NavItem>
+
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Company
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem>
+                  <NavLink href="/aboutus">About</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink href="/contact">Contact Us</NavLink>
+                </DropdownItem>
+                <DropdownItem>
+                  <NavLink href="#process">Process</NavLink>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <NavItem>
+              <NavLink href="/contact" className="button-hiring">
+                Hire Developers
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </header>
+  );
+};
+
+export default Header;
+
+
+
+
+export const query = graphql`
+query MyQuery {
+    allStrapiService {
+      edges {
+        node {
+          Title
+          Slug
+          Description {
+            data {
+              Description
+            }
+          }
+          Image {
+            url
+          }
+        }
+      }
+    }
+  }
+`
