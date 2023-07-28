@@ -10,7 +10,7 @@ require("dotenv").config({
 }); 
 
 const strapiConfig = { 
-  apiURL:"http://localhost:1337/",
+  apiURL:"https://icodelabsbackend.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN, 
   collectionTypes: [  
      //"article",
