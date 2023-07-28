@@ -19,15 +19,15 @@ import { graphql, Link } from 'gatsby'
 import paginationNext from '../../assets/images/pagination-next-icon.png';
 import paginationprev from '../../assets/images/pagination-prev-icon.png';
 
-export default function Blog({ data,pageContext }) {
-    
+export default function Blog({ data, pageContext }) {
+
 
   const { currentPage, count } = pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === count;
   const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
-  const nextPage = `/blog/${currentPage + 1}`; 
- console.log("blog",data)
+  const nextPage = `/blog/${currentPage + 1}`;
+  console.log("blog", pageContext)
 
   const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
@@ -36,15 +36,15 @@ export default function Blog({ data,pageContext }) {
     const validContent = typeof Content === 'string' ? Content : '';
     const validTitle = typeof Title === 'string' ? Title : '';
     const validSlug = typeof Slug === 'string' ? Slug : '';
-  
+
     return (
       validTitle.toLowerCase().includes(query?.toLowerCase()) ||
       validSlug.toLowerCase().includes(query?.toLowerCase()) ||
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
-  
-   
+
+
 
   // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
   // const posts = data?.allStrapiArticle?.edges;
@@ -157,19 +157,19 @@ export default function Blog({ data,pageContext }) {
               <div className="most-popular-article">
                 <div className="most-polular">
                   <h1>Most popular</h1>
-                  <div className="popular-wrap-box"> 
-                      {filteredData.map((item, i) => (
-                          <div className="popular-list">
-                              <Link to={"../blog/" + item?.node?.Slug}>{item?.node?.Title}  
-                              <MostPopularCard
-                                key={i} 
-                                //profilename={item.node?.user.displayName}
-                                postdate={item.node?.publishedAt}
-                              //blogdescription={item.node?.Title}
-                              />
-                              </Link> 
-                            </div>                            
-                        ))} 
+                  <div className="popular-wrap-box">
+                    {filteredData.map((item, i) => (
+                      <div className="popular-list">
+                        <Link to={"../blog/" + item?.node?.Slug}>{item?.node?.Title}
+                          <MostPopularCard
+                            key={i}
+                            //profilename={item.node?.user.displayName}
+                            postdate={item.node?.publishedAt}
+                          //blogdescription={item.node?.Title}
+                          />
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className="subscribe-box">
@@ -179,34 +179,34 @@ export default function Blog({ data,pageContext }) {
               </div>
             </div>
             <div className="pagination-box">
-        <div className="pagination">
-          {!isFirst && (
-            <Link to={prevPage} className="page-navigate-icon">
-              <img src={paginationprev} alt="Previous Page" />
-            </Link>
-          )}
-          {Array.from({ length: count }, (_, i) => (
-            <Link
-              key={`pagination-number${i + 1}`}
-              to={`/blog/${i === 0 ? "" : i + 1}`}
-              className={`pagination-count ${i + 1 === currentPage ? "active" : ""}`}
-            >
-              {i + 1}
-            </Link>
-          ))}
-          {!isLast && (
-            <Link to={nextPage} className="page-navigate-icon">
-              <img src={paginationNext} alt="Next Page" />
-            </Link>
-          )}
-        </div>
-      </div>
+              <div className="pagination">
+                {!isFirst && (
+                  <Link to={prevPage} className="page-navigate-icon">
+                    <img src={paginationprev} alt="Previous Page" />
+                  </Link>
+                )}
+                {Array.from({ length: count }, (_, i) => (
+                  <Link
+                    key={`pagination-number${i + 1}`}
+                    to={`/blog/${i === 0 ? "" : i + 1}`}
+                    className={`pagination-count ${i + 1 === currentPage ? "active" : ""}`}
+                  >
+                    {i + 1}
+                  </Link>
+                ))}
+                {!isLast && (
+                  <Link to={nextPage} className="page-navigate-icon">
+                    <img src={paginationNext} alt="Next Page" />
+                  </Link>
+                )}
+              </div>
+            </div>
 
-      
-             {/* <div className="pagination-box">
+
+            {/* <div className="pagination-box">
               <PaginationBox  
               /> */}
-           
+
           </div>
         </div>
       </section>
