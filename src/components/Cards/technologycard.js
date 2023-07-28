@@ -5,7 +5,7 @@ import '../../assets/css/custom.css';
 
 const TechnologyCard = (props) => {
   const { img, technologyheading, technologydescription } = props;
-  // console.log('tec',props);
+   //console.log('tec',technologyheading);
 
   return (
     

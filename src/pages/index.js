@@ -48,13 +48,14 @@ import '../assets/css/carousel.css';
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const IndexPage = ({ data }) => {
+  const companylogo = data?.allStrapiCompanyLogo?.edges
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes
-  const technologyPartners = data?.allStrapiTechnologyPartner?.nodes
+  const technologyPartners = data?.allStrapiTechnologyPartner?.edges
   const expertTech = data?.allStrapiExpertise?.edges
   const process = data?.allStrapiProcess?.edges
   const ourApproaches = data?.allStrapiOurapproache.edges
 
-  //console.log('process',choosecard)
+  console.log('process', companylogo)
 
 
   const settings = {
@@ -154,7 +155,7 @@ const IndexPage = ({ data }) => {
     ]
   }
 
- 
+
 
   return (
     <div>
@@ -188,16 +189,14 @@ const IndexPage = ({ data }) => {
           <div className="trusted-brand-box">
 
             <Slider  {...settings}>
-              {/* <GatsbyImage image={image} alt=" "  /> */}
+              {/* <GatsbyImage image={image} alt=" "  />  */}
 
-              {/* {image.map((item, key) => ( 
-                      <div key={key}>
-                    
-                      </div>
-                      
-                        // <Img fluid={item?.url} alt=" " />
-                    
-                   )) } */}
+              {companylogo && companylogo.map((item, key) => (
+                <div className="brand-logo">
+                  <img src={item?.node?.logo?.url} />
+                </div>
+
+              ))}
 
             </Slider>
           </div>
@@ -206,11 +205,15 @@ const IndexPage = ({ data }) => {
       <section>
         <div className="our-company-about">
           <div className="company-description">
-            <span className="text-bold">We’re an app development company</span> <br />
-            led by seasoned professionals over two decades of experience.
-            We architect, design, and develop scalable solutions with industry focus on startups,
-            smaller & medium enterprises helping
-            them to fulfill end-to-end technology needs at affordable rates.
+            <span className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</span> <br />
+            <p>
+              iCode Labs Solutions is a leading digital solutions provider specializing in Web & Custom Software Development,
+              Mobile App Development (iOS & Android), Marketplace Development, UI/UX Design, Sharetribe Flex, and Digital Marketing services.
+            </p>
+            <p>
+              Our team of skilled professionals is dedicated to delivering high-quality digital design and development products for businesses of all sizes and budgets.
+              With a focus on adaptation and growth, we understand the challenges small businesses face and offer tailored solutions to help them succeed in the online marketplace.
+            </p>
           </div>
           <div className="company-images">
             <img src={companyaboutimg} alt="St Logo" />
@@ -221,12 +224,11 @@ const IndexPage = ({ data }) => {
       <section id='about'>
         <div className="why-choose-us">
           <div className="heading-main">
-            <h1 className="choose-heading">Why Icode labs?</h1>
-            <div className="choose-subheading">Experience matters so do processes</div>
+            <h1 className="choose-heading">Why Choose Icode Labs?</h1>
+            <div className="choose-subheading">Empowering Business Success through Passionate Development</div>
             <p className="choose-description">
-              startups & smaller organizations struggle to hire experienced professionals due to hefty agency rates.
-              Less experienced developers can code but limited to provide a value proposition.
-              Icode does this for you at affordable rates.
+              Take your digital presence to new heights with user-friendly experiences and robust security,
+              delivering unparalleled results customized for your business.
             </p>
           </div>
           <div className="choose-card-wrap-box">
@@ -235,7 +237,7 @@ const IndexPage = ({ data }) => {
               {choosecard && choosecard.map((item, i) => (
                 <WhyChooseCard key={i}
                   subheading={item.title}
-                  img={item.icon.url}
+                  img={item?.icon?.url}
                 />
               ))}
 
@@ -249,17 +251,21 @@ const IndexPage = ({ data }) => {
       <section id='service'>
         <div className="tech-partner">
           <div className="partner-content">
-            <h1>As a technology partner</h1>
-            <p>we can help your business to make a digital success</p>
+            <h1>Accelerating Your Business Growth with Cutting-Edge Digital Solutions</h1>
+            <p>
+              We are a top-notch software development company, recognized for our excellence,
+              delivering tangible outcomes through cutting-edge technology,
+              empowering our clients to stay ahead in the competitive landscape and achieve remarkable success.
+            </p>
           </div>
           <div className="partner-slider">
             <Slider {...technologyslide}>
               {technologyPartners && technologyPartners.map((item, i) => (
                 <TechnologyCard
                   key={i}
-                  technologyheading={item.Title}
-                  img={item?.Image?.url}
-                  technologydescription={item.Description.data.Description}
+                  technologyheading={item?.node?.Title}
+                  img={item?.node?.Image[0]?.url}
+                  technologydescription={item?.node?.Description?.data?.Description}
                 />
               ))}
             </Slider>
@@ -276,7 +282,7 @@ const IndexPage = ({ data }) => {
               // <Link to={"/trendingtechnologies/" + item.node.slug}>
               <ExpertiseCard
                 expertisetitle={item.node?.Title}
-                img={item?.node?.Image.url}
+                img={item?.node?.Image[0]?.url}
               />
               // </Link>
             ))}
@@ -288,8 +294,8 @@ const IndexPage = ({ data }) => {
         <div className="how-do-we-do">
           <div className="inner-timeline-box">
             <div className="timeline-heading">
-              <h1>How do we do?</h1>
-              <p>Process in 4 easy step</p>
+              <h1>How Do We Work?</h1>
+              <p>Process in 5 easy step</p>
             </div>
             <div className="timeline-content">
               <div className="timeline">
@@ -312,19 +318,19 @@ const IndexPage = ({ data }) => {
             <div className="company-approach-card">
               {ourApproaches && ourApproaches.map((item, i) => (
                 <CompanyApproachCard
-                  approachheading={item.node?.Title}
-                  img={item.node?.Image.url}
-                  approachsubheading={item.node?.Description.data.Description}
+                  approachheading={item?.node?.Title}
+                  img={item?.node?.Image[0]?.url}
+                  approachsubheading={item.node?.Description?.data?.Description}
                 />
               ))}
             </div>
             <div className="approach-button">
               <a href="../ourapproach">
-              <ButtonBox
-                type="button"
-                buttonname="know more about our approach"
-                className="approach-button-box" 
-              />
+                <ButtonBox
+                  type="button"
+                  buttonname="know more about our approach"
+                  className="approach-button-box"
+                />
               </a>
             </div>
           </div>
@@ -457,7 +463,7 @@ export const query = graphql`
                 }
               }
             }
-          } 
+          }
 
           allStrapiExperiencesProcesse {
             nodes {
@@ -471,15 +477,17 @@ export const query = graphql`
 
          
           allStrapiTechnologyPartner {
-            nodes {
-              Title
-              Description {
-                data {
-                  Description
+            edges {
+              node {
+                Image {
+                  url
                 }
-              }
-              Image {
-                url
+                Title
+                Description {
+                  data {
+                    Description
+                  }
+                }
               }
             }
           }

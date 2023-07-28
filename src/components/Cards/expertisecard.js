@@ -4,7 +4,7 @@ import '../../assets/css/custom.css';
 const ExpertiseCard = (props) => {
      
     const { img, expertisetitle } = props;  
-    //console.log("card",expertisetitle)  
+   // console.log("card",img)  
   return (
     <>
       <div className="expertise-box">

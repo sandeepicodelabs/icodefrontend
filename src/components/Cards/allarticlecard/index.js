@@ -3,6 +3,7 @@ import './style.css'
 
 export default function AllArticleCard(props) {
     const { articleTitle, articledescription, postedname, postdate, cardtitle, img, cardprofile } = props;
+    //console.log("article image",img)
   return (
     <>
     <div className="all-article-card-box">

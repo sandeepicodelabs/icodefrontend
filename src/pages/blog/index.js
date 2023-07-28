@@ -27,7 +27,7 @@ export default function Blog({ data, pageContext }) {
   const isLast = currentPage === count;
   const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
   const nextPage = `/blog/${currentPage + 1}`;
-  console.log("blog", pageContext)
+  //console.log("blog", data)
 
   const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
@@ -135,10 +135,11 @@ export default function Blog({ data, pageContext }) {
             <div className="all-article-wrap">
               <div className="article-list-wrap">
                 <div className="article-card-list-most">
-                  {filteredData.map((item, i) => (
+                  {filteredData && filteredData.map((item, i) => (
+                   // console.log('map',item?.node?.Image[0]?.url)
                     <div key={i}>
                       <AllArticleCard
-                        // img={item.node?.Image?.url}
+                         img={item?.node?.Image[0]?.url}
                         // cardprofile={item.node?.user.profileimage?.publicURL}
                         articleTitle={item.node?.Type}
                         // articledescription={item.node?.Content}
@@ -223,6 +224,10 @@ query MyQuery {
         Title
         Slug
         Type
+        Image {
+          url
+        }
+
         Content {
           data {
             Content

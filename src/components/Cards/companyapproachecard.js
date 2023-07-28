@@ -3,7 +3,7 @@ import '../../assets/css/custom.css';
 
 function companyapproachecard(props) {
     const { img, approachheading, approachsubheading } = props;
-     //console.log('cardcompany',props)
+    // console.log('cardcompany',img)
   return (
     <>
     <div className="company-approach-box">

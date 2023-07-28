@@ -14,13 +14,13 @@ const strapiConfig = {
   accessToken: process.env.STRAPI_TOKEN, 
   collectionTypes: [  
      //"article",
-     "company-logo", 
-     "experiences-processe",
-     "technology-partner",
+    // "company-logo", 
+    // "experiences-processe",
+     //"technology-partner",
      "expert-technologie",
-     "expertise",
+     //"expertise",
      "process",
-     "ourapproache",
+     //"ourapproache",
       // "technology",
      "jointeche",
      "project-list",
@@ -80,14 +80,76 @@ const strapiConfig = {
       queryParams: {
         // Populate media and relations
         // Make sure to not specify the fields key so the api always returns the updatedAt
-        populate: {
-         admin_user: "*",
-         Image:"*"
+        populate: { 
+         Image:"*" 
+          
+        },
+      },
+    },
+    {
+      singularName: "experiences-processe",
+      queryParams: {
+        // Populate media and relations
+        // Make sure to not specify the fields key so the api always returns the updatedAt 
+          icon:{
+            populate: { 
+            Image:"*"
+          }
+        
        
           
         },
       },
     },
+
+
+    {
+      singularName: "technology-partner",
+      queryParams: {  
+        populate: { 
+        Image:{ 
+            url:"*"
+          } 
+          
+        },
+      },
+    },
+
+    {
+      singularName: "expertise",
+      queryParams: {  
+        populate: { 
+        Image:{ 
+            url:"*"
+          } 
+          
+        },
+      },
+    },
+    {
+      singularName: "ourapproache",
+      queryParams: {  
+        populate: { 
+        Image:{ 
+            url:"*"
+          } 
+          
+        },
+      },
+    },
+
+    {
+      singularName: "company-logo",
+      queryParams: {  
+        populate: { 
+        logo:{ 
+            url:"*"
+          } 
+          
+        },
+      },
+    },
+
 
 
 
