@@ -4,7 +4,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const result = await graphql(
         `
         { 
-             articles:  allStrapiArticle {
+             articles:allStrapiArticle {
               edges {
                 node {
                   strapi_id
@@ -21,14 +21,14 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
           }
-          services:allStrapiService {
+          services:allStrapiServiceDetail {
             edges {
-              node {
+              node { 
                 strapi_id
-                Slug
+                Slug 
               }
             }
-          } 
+          }
           
         } 
 
@@ -73,22 +73,23 @@ exports.createPages = async ({ graphql, actions }) => {
           path: `/blog/${article.node.Slug}`,
           component: require.resolve("./src/pages/blog/blogdetails.js"),
           context: {
-            id: article.node. strapi_id,
+            id: article.node.strapi_id,
             article
           },
         }) 
       }) 
   
-      services.forEach((service, index) => {
+      services.forEach((service, index) => { 
         createPage({
           path: `/services/${service.node.Slug}`,
           component: require.resolve("./src/pages/services/servicedetail.js"),
           context: {
-            id: service.node. strapi_id,
-            service
+            id: service.node.strapi_id,
+            service 
           },
         }) 
       }) 
+      
    
       technologies.forEach((technology, index) => {
         createPage({

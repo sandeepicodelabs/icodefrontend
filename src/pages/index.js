@@ -55,7 +55,7 @@ const IndexPage = ({ data }) => {
   const process = data?.allStrapiProcess?.edges
   const ourApproaches = data?.allStrapiOurapproache.edges
 
-  console.log('process', companylogo)
+  //console.log('process', companylogo)
 
 
   const settings = {
@@ -205,6 +205,7 @@ const IndexPage = ({ data }) => {
       <section>
         <div className="our-company-about">
           <div className="company-description">
+          {/* <h1 className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</h1> <br /> */}
             <span className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</span> <br />
             <p>
               iCode Labs Solutions is a leading digital solutions provider specializing in Web & Custom Software Development,

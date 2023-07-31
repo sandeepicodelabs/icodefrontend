@@ -87,7 +87,7 @@ export default function BlogPage({ data, pageContext }) {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
 
-   console.log('article',article)
+  // console.log('article',article)
   return (
 
     <div>

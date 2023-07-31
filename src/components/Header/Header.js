@@ -20,26 +20,18 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(graphql`
   query {
-    allStrapiService {
+    allStrapiServiceDetail {
       edges {
         node {
-          Title
           Slug
-          Description {
-            data {
-              Description
-            }
-          }
-          Image {
-            url
-          }
+          TitleMain
         }
       }
     }
   } 
     
 `);
-  const service = data?.allStrapiService?.edges
+  const service = data?.allStrapiServiceDetail?.edges
 
   //console.log("header",service)
 
@@ -66,7 +58,7 @@ const Header = () => {
                 {service &&
                   service.map((item, i) => (
                     <DropdownItem key={i}>
-                      <Link to={`/services/${item?.node?.Slug}`}>{item?.node.Title}</Link>
+                      <Link to={`/services/${item?.node?.Slug}`}>{item?.node.TitleMain}</Link>
                     </DropdownItem>
                   ))}
               </DropdownMenu>

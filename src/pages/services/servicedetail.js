@@ -12,11 +12,17 @@ import '../../assets/css/custom.css';
 import WhyWeJoinCard from '../../components/Cards/jointeamcard';
 import CompanyApproachCard from '../../components/Cards/companyapproachecard'
 
-export default function Servicedetail({ data }) {
+export default function Servicedetail({ data,pageContext }) { 
 
-    const process = data?.allStrapiProcess?.edges;
-    const servicedetail = data?.allStrapiServiceDetail?.edges[0];
-    console.log("service", servicedetail)
+  const servicedetail = data && data?.allStrapiServiceDetail?.edges;
+
+  const detail = servicedetail?.find(item => {
+   // console.log('checking', item?.node?.Slug, pageContext.service?.node?.Slug, pageContext)
+    return item?.node?.Slug === pageContext.service?.node?.Slug;
+  });
+
+  //console.log('servicedetail', servicedetail);
+console.log("detail", detail);
     return (
         <>
             <div className="project-list-page">
@@ -27,9 +33,9 @@ export default function Servicedetail({ data }) {
                             <div className="deliver-qualitywork" style={{ padding: 0 }}>
                                 <div className='row'>
                                     <div className="deliver-description">
-                                        <h1>{servicedetail?.node?.Title}</h1>
+                                        <h1>{detail?.node?.Title}</h1>
                                         <p>
-                                            {servicedetail?.node.Description.data.Description}
+                                            {detail?.node.Description.data.Description}
                                         </p>
                                     </div>
                                     <div className="deliver-image-section">
@@ -42,14 +48,14 @@ export default function Servicedetail({ data }) {
                     <section className="why-we-hire">
                         <div className="our-team-wrap">
                             <div className="our-tech-team">
-                                <h1 >{servicedetail?.node?.DevlopmentTitle}</h1>
+                                <h1 >{detail?.node?.DevlopmentTitle}</h1>
                                 {/* <div className="choose-subheading"> </div> */}
                                 <p className="choose-description">
-                                    {servicedetail?.node?.DevelopmentDescription.data.DevelopmentDescription}
+                                    {detail?.node?.DevelopmentDescription.data.DevelopmentDescription}
                                 </p>
                             </div>
                             <div className="join-expertise">
-                                {servicedetail && servicedetail.node.Titleservice.map((item, i) => (
+                                {detail && detail.node.Titleservice.map((item, i) => (
                                     <WhyWeJoinCard
                                         key={i}
                                         // img={item.node?.image.publicURL}
@@ -67,13 +73,13 @@ export default function Servicedetail({ data }) {
                         <div className="how-do-we-do">
                             <div className="inner-timeline-box">
                                 <div className="timeline-heading">
-                                    <h1>{servicedetail?.node?.ToolsTitle}</h1>
-                                    <p>{servicedetail?.node?.ToolsDescription.data.ToolsDescription}
+                                    <h1>{detail?.node?.ToolsTitle}</h1>
+                                    <p>{detail?.node?.ToolsDescription.data.ToolsDescription}
                                     </p>
                                 </div>
                                 <div className="timeline-content">
                                     <div className="timeline">
-                                        {servicedetail && servicedetail?.node?.ToolService.map((item, i) => (
+                                        {detail && detail?.node?.ToolService.map((item, i) => (
                                             <div className="container-wrap-box steps">
                                                 <div className="content">
                                                     <h3>{item?.toolsTitle}</h3>
@@ -91,14 +97,14 @@ export default function Servicedetail({ data }) {
                         <div className="how-do-we-do">
                             <div className="inner-timeline-box">
                                 <div className="timeline-heading">
-                                    <h1>{servicedetail?.node?.EnhanceTitle}</h1>
-                                    <p>{servicedetail?.node?.EnhanceDescription.data.EnhanceDescription}
+                                    <h1>{detail?.node?.EnhanceTitle}</h1>
+                                    <p>{detail?.node?.EnhanceDescription.data.EnhanceDescription}
                                     </p>
                                 </div>
                             </div>
                             <div className="our-approach">
                                 <div className="company-approach-card">
-                                    {servicedetail && servicedetail?.node.EnhanceService.map((item, i) => (
+                                    {detail && detail?.node.EnhanceService.map((item, i) => (
                                         <CompanyApproachCard
                                             approachheading={item?.ETitle}
                                             // img={item.node?.Image.url}
@@ -111,7 +117,7 @@ export default function Servicedetail({ data }) {
                     </section> 
                     <section >
                         <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
-                            <h1>FAQ Question</h1>
+                             
                             <FAQ />
                         </div>
                     </section>
@@ -127,9 +133,11 @@ export default function Servicedetail({ data }) {
 
 export const query = graphql`
 query MyQuery {  
-        allStrapiServiceDetail {
+  allStrapiServiceDetail {
           edges {
             node {
+              Slug
+              TitleMain
               Title
               Description {
                 data {

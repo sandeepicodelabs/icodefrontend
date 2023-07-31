@@ -22,11 +22,11 @@ import paginationprev from '../../assets/images/pagination-prev-icon.png';
 export default function Blog({ data, pageContext }) {
 
 
-  const { currentPage, count } = pageContext;
-  const isFirst = currentPage === 1;
-  const isLast = currentPage === count;
-  const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
-  const nextPage = `/blog/${currentPage + 1}`;
+  // const { currentPage, count } = pageContext;
+  // const isFirst = currentPage === 1;
+  // const isLast = currentPage === count;
+  // const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
+  // const nextPage = `/blog/${currentPage + 1}`;
   //console.log("blog", data)
 
   const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
@@ -179,7 +179,7 @@ export default function Blog({ data, pageContext }) {
 
               </div>
             </div>
-            <div className="pagination-box">
+            {/* <div className="pagination-box">
               <div className="pagination">
                 {!isFirst && (
                   <Link to={prevPage} className="page-navigate-icon">
@@ -201,7 +201,7 @@ export default function Blog({ data, pageContext }) {
                   </Link>
                 )}
               </div>
-            </div>
+            </div> */}
 
 
             {/* <div className="pagination-box">

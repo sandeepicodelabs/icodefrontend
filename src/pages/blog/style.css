@@ -289,7 +289,7 @@ section.blog-detail-box .blog-detail-header {
 .blog-detail-cover .blog-application-cover-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    /* object-fit: contain; */
     border: 1px solid #eee;
 }
 
