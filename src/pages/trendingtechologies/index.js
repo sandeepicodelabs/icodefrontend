@@ -94,7 +94,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
             {jointTechs && jointTechs.map((item, i) => (
               <WhyWeJoinCard
                 key={i}
-                // img={item.node?.image.publicURL}
+                 //img={item.node?.image.publicURL}
                 teamheading={item.node?.Title}
                 teamdescription={item.node?.Description.data.Description}
               />

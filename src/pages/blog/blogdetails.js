@@ -87,16 +87,17 @@ export default function BlogPage({ data, pageContext }) {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
 
+   console.log('article',article)
   return (
 
     <div>
       <section className="blog-detail-box">
         <Header />
-        <HeaderBar currentpage="Blog" pagetitle="Developing Marketplace application with Sharetribe" />
+        <HeaderBar currentpage="Blog" pagetitle={article?.node?.Title} />
         <div className="cover-full-box">
           <div className="blog-detail-cover">
             <div className="blog-application-cover-image">
-              <img src={data?.node?.image.publicURL} alt="St Logo" />
+              <img src={article?.node?.Image[0].url} alt="St Logo" />
             </div>
             <div className="blog-description-data">
               <div className="blog-detail-title">{article?.node?.Type}</div>
@@ -205,7 +206,7 @@ export default function BlogPage({ data, pageContext }) {
                         <div className="article-slide">
                           <AllArticleCard
                             key={i}
-                            // img={item.node?.Image?.url}
+                             img={item.node?.Image[0]?.url}
                             articleTitle={item.node?.Type}
                             articledescription={item.node?.Content.data.Content}
                             // postedname={item.node?.user.displayName}

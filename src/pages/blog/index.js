@@ -113,7 +113,7 @@ export default function Blog({ data, pageContext }) {
                         <BlogArticleCard
                           key={i}
                           // cardprofileimg={item.node?.user.profileimage?.publicURL}
-                          // img={item.node?.Image?.url}
+                           img={item.node?.Image[0]?.url}
                           cardtitle={item.node?.Title}
                           // profilename={item.node?.user.displayName}
                           postdate={item.node?.publishedAt}
