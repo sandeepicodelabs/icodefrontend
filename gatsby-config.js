@@ -56,20 +56,8 @@ const strapiConfig = {
                 }
               },  
         }
-      }
-          ToolService: {
-            populate: {
-              toolsDescription: "*",
-            },
-          },
-          EnhanceService: {
-            populate: {
-              EDescription: "*",
-              EImage: "*",
-            },
-          },
-        },
-      },
+      }   
+       
     },
 
     {
