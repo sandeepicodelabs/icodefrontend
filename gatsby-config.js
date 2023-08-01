@@ -4,9 +4,8 @@
 
 // require("dotenv").config({
 //   path: `.env`,
-// }); 
+// });
 require("dotenv").config({
-
   path: `.env.${process.env.NODE_ENV}`,
 }); 
 // const sgMail = require('@sendgrid/mail');
@@ -43,7 +42,7 @@ const strapiConfig = {
           Titleservice: {
             populate: {
               servicedescription: "*",
-            }
+            },
           },
               ToolService: {  
                 populate: {
@@ -58,9 +57,22 @@ const strapiConfig = {
               },  
         }
       }
+          ToolService: {
+            populate: {
+              toolsDescription: "*",
+            },
+          },
+          EnhanceService: {
+            populate: {
+              EDescription: "*",
+              EImage: "*",
+            },
+          },
+        },
+      },
     },
 
-     {
+    {
       singularName: "technology",
       queryParams: {
         // Populate media and relations
@@ -70,7 +82,7 @@ const strapiConfig = {
           images: "*",
           stack: {
             populate: {
-              stacktools: "*"
+              stacktools: "*",
             },
           },
         },
@@ -82,9 +94,8 @@ const strapiConfig = {
       queryParams: {
         // Populate media and relations
         // Make sure to not specify the fields key so the api always returns the updatedAt
-        populate: { 
-         Image:"*" 
-          
+        populate: {
+          Image: "*",
         },
       },
     },
@@ -101,38 +112,34 @@ const strapiConfig = {
       },
     },
 
-
     {
       singularName: "technology-partner",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
 
     {
       singularName: "expertise",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
     {
       singularName: "ourapproache",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
@@ -150,50 +157,38 @@ const strapiConfig = {
 
     {
       singularName: "company-logo",
-      queryParams: {  
-        populate: { 
-        logo:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          logo: {
+            url: "*",
+          },
         },
       },
     },
+  ],
+  queryLimit: 1000,
+};
 
-
-
-
-
-  ], 
-   queryLimit: 1000, 
-}; 
-
-
-module.exports ={ 
-  plugins: [ 
+module.exports = {
+  plugins: [
     "gatsby-plugin-image",
-     "gatsby-plugin-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-strapi",
       options: {
-        ...strapiConfig
-      
+        ...strapiConfig,
       },
-      
-    },  
-    
-      // { 
-      //   resolve: `gatsby-source-filesystem`,
-      //   options: {
-      //     // The unique name for each instance
-      //     name: `images`,
-      //     // Path to the directory
-      //     path: `${__dirname}/src/assets/images`,
-      //   },
-      // }, 
-     
+    },
+
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     // The unique name for each instance
+    //     name: `images`,
+    //     // Path to the directory
+    //     path: `${__dirname}/src/assets/images`,
+    //   },
+    // },
   ],
-  
 };
- 
