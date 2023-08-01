@@ -12,7 +12,7 @@ require("dotenv").config({
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const strapiConfig = { 
-  apiURL:"https://icodelabsbackend.onrender.com",
+  apiURL:"http://localhost:1337/",
   accessToken: process.env.STRAPI_TOKEN, 
   collectionTypes: [  
      //"article",
@@ -44,6 +44,19 @@ const strapiConfig = {
               servicedescription: "*",
             },
           },
+              ToolService: {  
+                populate: {
+                  toolsDescription: "*"
+                }
+              }, 
+              EnhanceService: {  
+                populate: {
+                  EDescription: "*",
+                  EImage:"*"
+                }
+              },  
+        }
+      }
           ToolService: {
             populate: {
               toolsDescription: "*",
@@ -90,11 +103,11 @@ const strapiConfig = {
       singularName: "experiences-processe",
       queryParams: {
         // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt
-        icon: {
-          populate: {
-            Image: "*",
-          },
+        // Make sure to not specify the fields key so the api always returns the updatedAt 
+          icon:{
+            populate: { 
+            Image:"*"
+          } 
         },
       },
     },

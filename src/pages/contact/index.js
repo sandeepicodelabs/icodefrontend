@@ -13,31 +13,53 @@ import "./style.css";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
 import { Link } from "gatsby";
 //import { countryList } from 'country-codes-list';
-// import PhoneInput from 'react-phone-number-input';
+import PhoneInput from "react-phone-number-input";
 import "../../assets/css/custom.css";
 // import sgMail from './sendgrid'
 import axios from "axios";
 
 export default function ContactPage() {
-  const [emailData, setEmailData] = useState({
-    to: "",
-    subject: "",
-    text: "",
-  });
+  // const [emailData, setEmailData] = useState({
+  //     to: '',
+  //     subject: '',
+  //     text: '',
+  // });
 
-  const handleChange = (e) => {
-    setEmailData({ ...emailData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //     setEmailData({ ...emailData, [e.target.name]: e.target.value });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+      },
+    };
+    // Make the POST request to your Strapi backend
     axios
-      .post("https://icodelabsbackend.onrender.com/plugins", emailData)
-      .then((response) => {
-        console.log(response.data.message);
+      .get(
+        `http://localhost:1337/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "http://localhost:1337/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
       })
       .catch((error) => {
-        console.error(error);
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
       });
   };
 
@@ -74,41 +96,19 @@ export default function ContactPage() {
                 <div className="form-row-box">
                   <div className="form-main-group">
                     <label>Your Name</label>
-                    <input type="text" className="contact-input" name="to" />
+                    <input type="text" className="contact-input" name="name" />
                   </div>
                   <div className="form-main-group">
                     <label>Your Email</label>
-                    <input
-                      type="text"
-                      className="contact-input"
-                      name="subject"
-                    />
+                    <input type="text" className="contact-input" name="email" />
                   </div>
                 </div>
-                {/* <div className='form-row-box'>
-                                <div className='form-main-group'>
-                                    <label>Skyep Id</label>
-                                    <input
-                                        type="text"
-                                        className="contact-input"
-                                    />
-                                </div>
-                                <div className='form-main-group'>
-                                    <label>Phone no. </label>
-                                    <input type='text'
-                                country="US"
-                                value={value}
-                                onChange={setValue} />
-                                    
-                                </div>
-                            </div> */}
-
-                <div className="form-main-group_input">
+                <div className="form-main-group">
                   <label>Your Message</label>
                   <textarea
                     className="contact-input"
                     rows={10}
-                    onChange={handleChange}
+                    name="message"
                   />
                 </div>
               </div>
