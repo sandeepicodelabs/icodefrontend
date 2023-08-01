@@ -19,26 +19,37 @@ import '../../assets/css/custom.css';
 import axios from 'axios';
 
 export default function ContactPage() {   
-    const [emailData, setEmailData] = useState({
-        to: '',
-        subject: '',
-        text: '',
-      });
-    
-      const handleChange = (e) => {
-        setEmailData({ ...emailData, [e.target.name]: e.target.value });
-      };
+    // const [emailData, setEmailData] = useState({
+    //     to: '',
+    //     subject: '',
+    //     text: '',
+    // });
 
-      const handleSubmit = (e) => {
+    // const handleChange = (e) => {
+    //     setEmailData({ ...emailData, [e.target.name]: e.target.value });
+    // };
+
+    
+    const handleSubmit =  (e) => {
         e.preventDefault();
-        axios.post('https://icodelabsbackend.onrender.com/plugins', emailData)
-          .then((response) => {
-            console.log(response.data.message);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
+        // Get the form data from the event target
+        const formData = new FormData(e.target);
+        const contactData = {
+            data:{ Name: formData.get('name'), Email: formData.get('email'), Message: formData.get('message') }
+        }
+        // Make the POST request to your Strapi backend
+         axios.get(`http://localhost:1337/api/sendingemails?name=${formData.get('name')}&email=${formData.get('email')}&message=${formData.get('message')}`)
+            .then(async (response) => {
+                console.log('Form data sent successfully:', response);
+                return axios.post("http://localhost:1337/api/contact-uses", contactData)
+            }).then(response2 => {
+                console.log(response2, "response2");
+            })
+            .catch((error) => {
+                console.log('Error sending form data:', error);
+                // Optionally, you can show an error message here or handle the error gracefully
+            });
+    };
 
 
 
@@ -69,54 +80,26 @@ export default function ContactPage() {
                         <h1 className="gettouch-heading">Got a project in mind?</h1>
                         <p className="gettouch-subheading">Send your enquiry and will get back to you within one business day</p>
                         <form onSubmit={handleSubmit}>
-                        <div className="form-box-input">
-                            <div className='form-row-box'>
-                                <div className='form-main-group'>
-                                    <label>Your Name</label>
-                                    <input
-                                        type="text"
-                                        className="contact-input"   name="to"
-                                    />
+                            <div className="form-box-input">
+                                <div className="form-row-box">
+                                    <div className="form-main-group">
+                                        <label>Your Name</label>
+                                        <input type="text" className="contact-input" name="name" />
+                                    </div>
+                                    <div className="form-main-group">
+                                        <label>Your Email</label>
+                                        <input type="text" className="contact-input" name="email" />
+                                    </div>
                                 </div>
                                 <div className='form-main-group'>
-                                    <label>Your Email</label>
-                                    <input
-                                        type="text"
-                                        className="contact-input"   name="subject"
-                                    />
-                                </div>
+                                            <label>Your Message</label>
+                                            <textarea
+                                                className="contact-input"
+                                                rows={10} name="message"
+                                            />
+                                        </div>
                             </div>
-                            {/* <div className='form-row-box'>
-                                <div className='form-main-group'>
-                                    <label>Skyep Id</label>
-                                    <input
-                                        type="text"
-                                        className="contact-input"
-                                    />
-                                </div>
-                                <div className='form-main-group'>
-                                    <label>Phone no. </label>
-                                    <input type='text'
-                                country="US"
-                                value={value}
-                                onChange={setValue} />
-                                    
-                                </div>
-                            </div> */}
-
-
-                            <div className='form-main-group_input'>
-                                <label>Your Message</label>
-                                <textarea
-                                    className="contact-input"  
-                                    rows={10} onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <ButtonBox
-                            type="submit"
-                            buttonname="SEND MESSAGE"  
-                        />
+                            <ButtonBox type="submit" buttonname="SEND MESSAGE" />
                         </form>
                     </div>
                     <div className="getintouch-links">
