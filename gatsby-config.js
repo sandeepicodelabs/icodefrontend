@@ -9,11 +9,11 @@ require("dotenv").config({
 
   path: `.env.${process.env.NODE_ENV}`,
 }); 
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// const sgMail = require('@sendgrid/mail');
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const strapiConfig = { 
-  apiURL:"http://localhost:1337/",
+  apiURL:"https://icodelabsbackend.onrender.com",
   accessToken: process.env.STRAPI_TOKEN, 
   collectionTypes: [  
      //"article",
@@ -25,7 +25,7 @@ const strapiConfig = {
      "process",
      //"ourapproache",
       // "technology",
-     "jointeche",
+    // "jointeche",
      "project-list",
      "service",
      "component-skillset",
@@ -131,6 +131,17 @@ const strapiConfig = {
     },
     {
       singularName: "ourapproache",
+      queryParams: {  
+        populate: { 
+        Image:{ 
+            url:"*"
+          } 
+          
+        },
+      },
+    },
+    {
+      singularName: "jointeche",
       queryParams: {  
         populate: { 
         Image:{ 

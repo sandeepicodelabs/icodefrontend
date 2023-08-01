@@ -15,79 +15,31 @@ import { Link } from 'gatsby';
 //import { countryList } from 'country-codes-list';
 import PhoneInput from 'react-phone-number-input';
 import '../../assets/css/custom.css';
-import sgMail from './sendgrid'
+// import sgMail from './sendgrid' 
+import axios from 'axios';
 
+export default function ContactPage() {   
+    const [emailData, setEmailData] = useState({
+        to: '',
+        subject: '',
+        text: '',
+      });
+    
+      const handleChange = (e) => {
+        setEmailData({ ...emailData, [e.target.name]: e.target.value });
+      };
 
-
-export default function ContactPage() {    
- 
-
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [value, setValue] = useState()
-
-    const handleSubmit = async (e) => {
+      const handleSubmit = (e) => {
         e.preventDefault();
-
-
-        const data = {
-            name,
-            email,
-          };
-
-          //emailsendgrid
-          const [emailData, setEmailData] = useState({
-            to: 'sandeepbishnoi2503@gmail.com',
-            from: 'support@icodelabs.co',
-            subject: 'Contact Form Submission',
-            text: 'testing',
+        axios.post('https://icodelabsbackend.onrender.com/plugins', emailData)
+          .then((response) => {
+            console.log(response.data.message);
+          })
+          .catch((error) => {
+            console.error(error);
           });
-        
-          const handleChange = (e) => {
-            setEmailData({ ...emailData, text: e.target.value });
-          };
-        
+      };
 
-          const handleSubmit = (e) => {
-            e.preventDefault();
-            sgMail.send(emailData)
-              .then(() => {
-                console.log('Email sent successfully');
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          };
-
-
-
-          const result = await fetch('http://localhost:1337/api/contact-uses', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              query: `
-                mutation CreateContactForm($data: ContactFormInput!) {
-                  createContactForm(input: {data: $data}) {
-                    contactForm {
-                      id
-                      name
-                      email
-                    }
-                  }
-                }
-              `,
-              variables: {
-                data,
-              },
-            }),
-          });
-      
-          const response = await result.json();
-          console.log(response);
-          // Handle the response as needed, e.g., show a success message
-        };
 
 
     useEffect(() => {
@@ -101,46 +53,36 @@ export default function ContactPage() {
         });
 
         // Optional: Add markers or any other map-related customization
-        new mapboxgl.Marker().setLngLat([76.7179, 30.7046]).addTo(map);
-
+        new mapboxgl.Marker().setLngLat([76.7179, 30.7046]).addTo(map); 
         // Cleanup the map instance when the component unmounts
         return () => map.remove(); 
        
-    }, []);
-   
-   
+    }, []); 
 
     return (
         <section className="contact-us-page">
             <Header />
-            <HeaderBar currentpage="Contact Us" pagetitle="Contact Us" />
-            <form onSubmit={handleSubmit}>
-      <textarea onChange={handleChange} />
-      <button type="submit">Submit</button>
-    </form>
+            <HeaderBar currentpage="Contact Us" pagetitle="Contact Us" /> 
             <div className="getintouch-box">
                 <div className="getbox-form">
                     <div className="getintouch-form">
                         <h1 className="gettouch-heading">Got a project in mind?</h1>
                         <p className="gettouch-subheading">Send your enquiry and will get back to you within one business day</p>
-                        <form method="post" action='http://localhost:1337/api/contact-uses'>
+                        <form onSubmit={handleSubmit}>
                         <div className="form-box-input">
                             <div className='form-row-box'>
                                 <div className='form-main-group'>
                                     <label>Your Name</label>
                                     <input
                                         type="text"
-                                        className="contact-input" name='name'  value={name}
-                                        onChange={(e) => setName(e.target.value)}
+                                        className="contact-input"   name="to"
                                     />
                                 </div>
                                 <div className='form-main-group'>
                                     <label>Your Email</label>
                                     <input
                                         type="text"
-                                        className="contact-input" name='email'
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="contact-input"   name="subject"
                                     />
                                 </div>
                             </div>
@@ -164,16 +106,16 @@ export default function ContactPage() {
 
 
                             <div className='form-main-group_input'>
-                                <label>Your Email</label>
+                                <label>Your Message</label>
                                 <textarea
-                                    className="contact-input" name='youremail'
-                                    rows={10}
+                                    className="contact-input"  
+                                    rows={10} onChange={handleChange}
                                 />
                             </div>
                         </div>
                         <ButtonBox
                             type="submit"
-                            buttonname="SEND MESSAGE"
+                            buttonname="SEND MESSAGE"  
                         />
                         </form>
                     </div>
