@@ -4,33 +4,32 @@
 
 // require("dotenv").config({
 //   path: `.env`,
-// }); 
+// });
 require("dotenv").config({
-
   path: `.env.${process.env.NODE_ENV}`,
-}); 
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+});
+// const sgMail = require('@sendgrid/mail');
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const strapiConfig = { 
-  apiURL:"http://localhost:1337/",
-  accessToken: process.env.STRAPI_TOKEN, 
-  collectionTypes: [  
-     //"article",
-    // "company-logo", 
+const strapiConfig = {
+  apiURL: "https://icodelabsbackend.onrender.com",
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: [
+    //"article",
+    // "company-logo",
     // "experiences-processe",
-     //"technology-partner",
-     "expert-technologie",
-     //"expertise",
-     "process",
-     //"ourapproache",
-      // "technology",
-     "jointeche",
-     "project-list",
-     "service",
-     "component-skillset",
-     "component-skilltool",
-     "contact-us",
+    //"technology-partner",
+    "expert-technologie",
+    //"expertise",
+    "process",
+    //"ourapproache",
+    // "technology",
+    "jointeche",
+    "project-list",
+    "service",
+    "component-skillset",
+    "component-skilltool",
+    "contact-us",
     // "service-detail",
     {
       singularName: "service-detail",
@@ -43,25 +42,24 @@ const strapiConfig = {
           Titleservice: {
             populate: {
               servicedescription: "*",
-            }
+            },
           },
-              ToolService: {  
-                populate: {
-                  toolsDescription: "*"
-                }
-              }, 
-              EnhanceService: {  
-                populate: {
-                  EDescription: "*",
-                  EImage:"*"
-                }
-              }, 
-           
-        }
-      }
+          ToolService: {
+            populate: {
+              toolsDescription: "*",
+            },
+          },
+          EnhanceService: {
+            populate: {
+              EDescription: "*",
+              EImage: "*",
+            },
+          },
+        },
+      },
     },
 
-     {
+    {
       singularName: "technology",
       queryParams: {
         // Populate media and relations
@@ -71,7 +69,7 @@ const strapiConfig = {
           images: "*",
           stack: {
             populate: {
-              stacktools: "*"
+              stacktools: "*",
             },
           },
         },
@@ -83,9 +81,8 @@ const strapiConfig = {
       queryParams: {
         // Populate media and relations
         // Make sure to not specify the fields key so the api always returns the updatedAt
-        populate: { 
-         Image:"*" 
-          
+        populate: {
+          Image: "*",
         },
       },
     },
@@ -93,100 +90,81 @@ const strapiConfig = {
       singularName: "experiences-processe",
       queryParams: {
         // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt 
-          icon:{
-            populate: { 
-            Image:"*"
-          }
-        
-       
-          
+        // Make sure to not specify the fields key so the api always returns the updatedAt
+        icon: {
+          populate: {
+            Image: "*",
+          },
         },
       },
     },
 
-
     {
       singularName: "technology-partner",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
 
     {
       singularName: "expertise",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
     {
       singularName: "ourapproache",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
 
     {
       singularName: "company-logo",
-      queryParams: {  
-        populate: { 
-        logo:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          logo: {
+            url: "*",
+          },
         },
       },
     },
+  ],
+  queryLimit: 1000,
+};
 
-
-
-
-
-  ], 
-   queryLimit: 1000, 
-}; 
-
-
-module.exports ={ 
-  plugins: [ 
+module.exports = {
+  plugins: [
     "gatsby-plugin-image",
-     "gatsby-plugin-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-strapi",
       options: {
-        ...strapiConfig
-      
+        ...strapiConfig,
       },
-      
-    },  
-    
-      // { 
-      //   resolve: `gatsby-source-filesystem`,
-      //   options: {
-      //     // The unique name for each instance
-      //     name: `images`,
-      //     // Path to the directory
-      //     path: `${__dirname}/src/assets/images`,
-      //   },
-      // }, 
-     
+    },
+
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     // The unique name for each instance
+    //     name: `images`,
+    //     // Path to the directory
+    //     path: `${__dirname}/src/assets/images`,
+    //   },
+    // },
   ],
-  
 };
- 
