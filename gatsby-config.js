@@ -7,29 +7,29 @@
 // });
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
+}); 
 // const sgMail = require('@sendgrid/mail');
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const strapiConfig = {
-  apiURL: "https://icodelabsbackend.onrender.com",
-  accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [
-    //"article",
-    // "company-logo",
+const strapiConfig = { 
+  apiURL:"https://icodelabsbackend.onrender.com",
+  accessToken: process.env.STRAPI_TOKEN, 
+  collectionTypes: [  
+     //"article",
+    // "company-logo", 
     // "experiences-processe",
-    //"technology-partner",
-    "expert-technologie",
-    //"expertise",
-    "process",
-    //"ourapproache",
-    // "technology",
-    "jointeche",
-    "project-list",
-    "service",
-    "component-skillset",
-    "component-skilltool",
-    "contact-us",
+     //"technology-partner",
+     "expert-technologie",
+     //"expertise",
+     "process",
+     //"ourapproache",
+      // "technology",
+    // "jointeche",
+     "project-list",
+     "service",
+     "component-skillset",
+     "component-skilltool",
+     "contact-us",
     // "service-detail",
     {
       singularName: "service-detail",
@@ -127,6 +127,17 @@ const strapiConfig = {
           Image: {
             url: "*",
           },
+        },
+      },
+    },
+    {
+      singularName: "jointeche",
+      queryParams: {  
+        populate: { 
+        Image:{ 
+            url:"*"
+          } 
+          
         },
       },
     },

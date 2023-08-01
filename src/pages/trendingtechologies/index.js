@@ -19,7 +19,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
   const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-  // console.log(technology, "---technology")
+   console.log(jointTechs, "---technology")
   return (
     <div className="outer-trading-box">
       <Header />
@@ -94,7 +94,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
             {jointTechs && jointTechs.map((item, i) => (
               <WhyWeJoinCard
                 key={i}
-                 //img={item.node?.image.publicURL}
+                 img={item.node?.Image[0]?.url}
                 teamheading={item.node?.Title}
                 teamdescription={item.node?.Description.data.Description}
               />
@@ -193,19 +193,21 @@ query MyQuery {
   
   
 
-    allStrapiJointeche {
-        edges {
-          node {
-            Title
-            Description {
-              data {
-                Description
-              }
-            }
+  allStrapiJointeche {
+    edges {
+      node {
+        Image {
+          url
+        }
+        Description {
+          data {
+            Description
           }
         }
-      } 
-     
+        Title
+      }
+    }
+  }
       
   }
 `

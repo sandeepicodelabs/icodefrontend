@@ -64,7 +64,7 @@ const Header = () => {
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <NavLink href="/technologies">Technologies</NavLink>
+              <NavLink href="#technologies">Technologies</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/projectlist">Portfolio</NavLink>
