@@ -15,7 +15,7 @@ import { Link } from 'gatsby';
 //import { countryList } from 'country-codes-list';
 import PhoneInput from 'react-phone-number-input';
 import '../../assets/css/custom.css';
-
+import sgMail from './sendgrid'
 
 
 
@@ -34,7 +34,32 @@ export default function ContactPage() {
             name,
             email,
           };
-      
+
+          //emailsendgrid
+          const [emailData, setEmailData] = useState({
+            to: 'sandeepbishnoi2503@gmail.com',
+            from: 'support@icodelabs.co',
+            subject: 'Contact Form Submission',
+            text: 'testing',
+          });
+        
+          const handleChange = (e) => {
+            setEmailData({ ...emailData, text: e.target.value });
+          };
+        
+
+          const handleSubmit = (e) => {
+            e.preventDefault();
+            sgMail.send(emailData)
+              .then(() => {
+                console.log('Email sent successfully');
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          };
+
+
 
           const result = await fetch('http://localhost:1337/api/contact-uses', {
             method: 'POST',
@@ -89,6 +114,10 @@ export default function ContactPage() {
         <section className="contact-us-page">
             <Header />
             <HeaderBar currentpage="Contact Us" pagetitle="Contact Us" />
+            <form onSubmit={handleSubmit}>
+      <textarea onChange={handleChange} />
+      <button type="submit">Submit</button>
+    </form>
             <div className="getintouch-box">
                 <div className="getbox-form">
                     <div className="getintouch-form">

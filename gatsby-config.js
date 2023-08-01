@@ -6,8 +6,11 @@
 //   path: `.env`,
 // }); 
 require("dotenv").config({
+
   path: `.env.${process.env.NODE_ENV}`,
 }); 
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const strapiConfig = { 
   apiURL:"http://localhost:1337/",
@@ -159,7 +162,7 @@ const strapiConfig = {
 }; 
 
 
-module.exports = { 
+module.exports ={ 
   plugins: [ 
     "gatsby-plugin-image",
      "gatsby-plugin-sharp",
