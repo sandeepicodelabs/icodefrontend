@@ -200,7 +200,7 @@ const IndexPage = ({ data }) => {
             <h1>
               We build bespoke mobile & web applications driven by Innovation.{" "}
             </h1>
-          </div>
+          </div>        
           <div className="subtext-box">
             <p className="cover-sub-text">
               Commited to deliver quality & performance oriented apps.
