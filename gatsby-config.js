@@ -1,31 +1,31 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
- 
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});  
+});
 
-const strapiConfig = { 
-  
-  apiURL:"https://icodelabsbackend.onrender.com/",
-  accessToken: process.env.STRAPI_TOKEN, 
-  collectionTypes: [  
-     //"article",
+const strapiConfig = {
+
+  apiURL: "https://icodelabsbackend.onrender.com/",
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: [
+    //"article",
     // "company-logo", 
     // "experiences-processe",
-     //"technology-partner",
-     "expert-technologie",
-     //"expertise",
-     "process",
-     //"ourapproache",
-      // "technology",
+    //"technology-partner",
+    "expert-technologie",
+    //"expertise",
+    "process",
+    //"ourapproache",
+    // "technology",
     // "jointeche",
-     "project-list",
-     "service",
-     "component-skillset",
-     "component-skilltool",
-     "contact-us",
+    "project-list",
+    "service",
+    "component-skillset",
+    "component-skilltool",
+    "contact-us",
     // "service-detail",
     {
       singularName: "service-detail",
@@ -38,25 +38,25 @@ const strapiConfig = {
           Titleservice: {
             populate: {
               servicedescription: "*",
-              TImage:"*" 
-               
+              TImage: "*"
+
             },
           },
-              ToolService: {  
-                populate: {
-                  toolsDescription: "*", 
-                }
-              }, 
-              EnhanceService: {  
-                populate: {
-                  EDescription: "*",
-                  EImage:"*"
-              },  
+          ToolService: {
+            populate: {
+              toolsDescription: "*",
+            }
+          },
+          EnhanceService: {
+            populate: {
+              EDescription: "*",
+              EImage: "*"
+            },
+          }
         }
-      }   
-       
+
+      },
     },
-  },
 
     {
       singularName: "technology",
@@ -90,10 +90,10 @@ const strapiConfig = {
       queryParams: {
         // Populate media and relations
         // Make sure to not specify the fields key so the api always returns the updatedAt 
-          icon:{
-            populate: { 
-            Image:"*"
-          } 
+        icon: {
+          populate: {
+            Image: "*"
+          }
         },
       },
     },
@@ -131,12 +131,12 @@ const strapiConfig = {
     },
     {
       singularName: "jointeche",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*"
+          }
+
         },
       },
     },

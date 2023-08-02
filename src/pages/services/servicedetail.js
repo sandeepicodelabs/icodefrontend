@@ -58,7 +58,7 @@ console.log("detail", detail);
                                   //console.log('titleservice',item?.TImage[0]?.url)
                                     <WhyWeJoinCard
                                         key={i}
-                                         img={item?.TImage[0]?.url}
+                                         img={item?.TImage && item?.TImage[0]?.url}
                                         teamheading={item?.Servicetitle}
                                         teamdescription={item?.ServiceDescription?.data?.ServiceDescription}
                                     />
@@ -107,7 +107,7 @@ console.log("detail", detail);
                                     {detail && detail?.node.EnhanceService.map((item, i) => (
                                         <CompanyApproachCard
                                             approachheading={item?.ETitle}
-                                             img={item?.EImage[0]?.url}
+                                             img={ item?.EImage && item?.EImage[0]?.url}
                                             approachsubheading={item?.EDescription.data.EDescription}
                                         />
                                     ))}

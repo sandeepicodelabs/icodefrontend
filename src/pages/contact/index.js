@@ -6,8 +6,7 @@ import contactLocation from "../../assets/images/contact-location.png";
 import contactEmail from "../../assets/images/contact-email.png";
 import contactMeet from "../../assets/images/contact-meet.png";
 import contactSkype from "../../assets/images/contact-skype.png";
-import contactSlack from "../../assets/images/contact-slack.png";
-// import { StaticQuery, graphql } from "gatsby"/
+import contactSlack from "../../assets/images/contact-slack.png"; 
 import Footer from "../../components/Footer/Footer";
 import "./style.css";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
@@ -18,21 +17,12 @@ import "../../assets/css/custom.css";
 // import sgMail from './sendgrid'
 import axios from "axios";
 
-export default function ContactPage() {
-  // const [emailData, setEmailData] = useState({
-  //     to: '',
-  //     subject: '',
-  //     text: '',
-  // });
-
-  // const handleChange = (e) => {
-  //     setEmailData({ ...emailData, [e.target.name]: e.target.value });
-  // };
-
-  const handleSubmit = (e) => {
+export default function ContactPage() { 
+  const handleSubmit = (e) => { 
     e.preventDefault();
     // Get the form data from the event target
     const formData = new FormData(e.target);
+    console.log(formData,"formData")
     const contactData = {
       data: {
         Name: formData.get("name"),
@@ -40,17 +30,16 @@ export default function ContactPage() {
         Message: formData.get("message"),
       },
     };
+    console.log(contactData,"contactData")
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `${process.env.STRAPI_API_URL}/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          `${process.env.STRAPI_API_URL}/api/contact-uses`,
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
           contactData
         );
       })

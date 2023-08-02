@@ -73,12 +73,12 @@ const IndexPage = ({ data }) => {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `${process.env.STRAPI_API_URL}/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          `${process.env.STRAPI_API_URL}/api/contact-uses`,
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
           contactData
         );
       })
