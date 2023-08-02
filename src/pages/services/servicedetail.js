@@ -14,8 +14,7 @@ import CompanyApproachCard from '../../components/Cards/companyapproachecard'
 
 export default function Servicedetail({ data,pageContext }) { 
 
-  const servicedetail = data && data?.allStrapiServiceDetail?.edges;
-
+  const servicedetail = data && data?.allStrapiServiceDetail?.edges; 
   const detail = servicedetail?.find(item => {
    // console.log('checking', item?.node?.Slug, pageContext.service?.node?.Slug, pageContext)
     return item?.node?.Slug === pageContext.service?.node?.Slug;
@@ -56,11 +55,12 @@ console.log("detail", detail);
                             </div>
                             <div className="join-expertise">
                                 {detail && detail.node.Titleservice.map((item, i) => (
+                                  //console.log('titleservice',item?.TImage[0]?.url)
                                     <WhyWeJoinCard
                                         key={i}
-                                        // img={item.node?.image.publicURL}
+                                         img={item?.TImage[0]?.url}
                                         teamheading={item?.Servicetitle}
-                                        teamdescription={item?.ServiceDescription.data.ServiceDescription}
+                                        teamdescription={item?.ServiceDescription?.data?.ServiceDescription}
                                     />
                                 ))}
 
@@ -107,7 +107,7 @@ console.log("detail", detail);
                                     {detail && detail?.node.EnhanceService.map((item, i) => (
                                         <CompanyApproachCard
                                             approachheading={item?.ETitle}
-                                            // img={item.node?.Image.url}
+                                             img={item?.EImage[0]?.url}
                                             approachsubheading={item?.EDescription.data.EDescription}
                                         />
                                     ))}
@@ -169,6 +169,9 @@ query MyQuery {
                   }
                 }
                 Servicetitle
+                TImage {
+                  url
+                }
               }
               ToolService {
                 toolsDescription {
@@ -179,6 +182,9 @@ query MyQuery {
                 toolsTitle
               }
               EnhanceService {
+                EImage{
+                  url
+                }
                 ETitle
                 EDescription {
                   data {

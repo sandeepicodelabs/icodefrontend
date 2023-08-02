@@ -1,15 +1,10 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-
-// require("dotenv").config({
-//   path: `.env`,
-// });
+ 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-}); 
-// const sgMail = require('@sendgrid/mail');
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+});  
 
 const strapiConfig = { 
   
@@ -43,23 +38,25 @@ const strapiConfig = {
           Titleservice: {
             populate: {
               servicedescription: "*",
+              TImage:"*" 
+               
             },
           },
               ToolService: {  
                 populate: {
-                  toolsDescription: "*"
+                  toolsDescription: "*", 
                 }
               }, 
               EnhanceService: {  
                 populate: {
                   EDescription: "*",
                   EImage:"*"
-                }
               },  
         }
       }   
        
     },
+  },
 
     {
       singularName: "technology",
