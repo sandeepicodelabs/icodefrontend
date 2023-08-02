@@ -109,7 +109,7 @@ export default function Blog({ data, pageContext }) {
                   <div>
                     {filteredData.map((item, i) => (
                       <div>
-                        <Link to={"../blog/" + item?.node?.Slug}> </Link>
+                        <Link to={"/blog/" + item?.node?.Slug}> </Link>
                         <BlogArticleCard
                           key={i}
                           // cardprofileimg={item.node?.user.profileimage?.publicURL}
@@ -161,7 +161,7 @@ export default function Blog({ data, pageContext }) {
                   <div className="popular-wrap-box">
                     {filteredData.map((item, i) => (
                       <div className="popular-list">
-                        <Link to={"../blog/" + item?.node?.Slug}>{item?.node?.Title}
+                        <Link to={"/blog/" + item?.node?.Slug}>{item?.node?.Title}
                           <MostPopularCard
                             key={i}
                             //profilename={item.node?.user.displayName}

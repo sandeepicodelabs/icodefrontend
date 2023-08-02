@@ -45,6 +45,7 @@ import "../assets/css/custom.css";
 import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
+import axios from "axios";
 
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -57,6 +58,39 @@ const IndexPage = ({ data }) => {
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
   //console.log('process', companylogo)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+      },
+    };
+    // Make the POST request to your Strapi backend
+    axios
+      .get(
+        `http://localhost:1337/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "http://localhost:1337/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
+      })
+      .catch((error) => {
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
+      });
+  };
 
   const settings = {
     dots: false,
@@ -433,15 +467,15 @@ const IndexPage = ({ data }) => {
                 Write Us, we will contact you shortly!
               </p>
             </div>
+            <form  onSubmit={handleSubmit}>
             <div className="contact-right">
               <div className="contact-form">
                 <div className="input-wrap">
                   <InputBox
-                    type="text"
-                    value=""
+                    type="text" 
                     placeholder={"Full Name"}
                     className="contact-inputs"
-                    img={userImg}
+                    img={userImg} name="name"
                   />
                 </div>
                 <div className="input-wrap">
@@ -450,17 +484,16 @@ const IndexPage = ({ data }) => {
 										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
 									</span> */}
                   <InputBox
-                    type="email"
-                    value=""
+                    type="email" 
                     placeholder={"Email"}
                     className="contact-inputs"
-                    img={Emailicon}
+                    img={Emailicon} name="email"
                   />
                 </div>
                 <div className="input-wrap">
                   <textarea
                     placeholder="Write a message here"
-                    rows={5}
+                    rows={5} name="message"
                   ></textarea>
                   <span className="input-icon">
                     <img src={messageimg} alt="St Logo" />
@@ -481,6 +514,7 @@ const IndexPage = ({ data }) => {
                 </div>
               </div>
             </div>
+            </form>
           </div>
         </div>
       </section>

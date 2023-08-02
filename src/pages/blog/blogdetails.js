@@ -110,66 +110,14 @@ export default function BlogPage({ data, pageContext }) {
           </div>
           <div className="blog-detail-grid-wrap">
             <div className="blog-detail-body">
-              <div className="blog-detail-left-wrap">
-                <div className="detail-description-wrap">
+              {/* <div className="blog-detail-left-wrap">*/}
+                <div className="detail-description-wrap"> 
                   <p>
                     {article?.node.Content.data.Content}
                   </p>
                 </div>
-                <div className="blog-chronology-box">
-                  <div className="blog-box-wrap">
-                    <div className="blog-chronology-heading">Chronology</div>
-                    <div className="blog-image-chronology">
-                      <img src={Chronologyimg} alt="St Logo" />
-                    </div>
-                  </div>
-                  <div className="blog-web-box">
-                    <div className="blog-chronology-heading">Practical Web development</div>
-                    <ul>
-                      <li>Basic</li>
-                      <li>Testing</li>
-                    </ul>
-                  </div>
-                  <div className="blog-web-box">
-                    <div className="blog-chronology-heading">Security considerations</div>
-                    <div className="blog-security-data">
-                      <p>
-                        Web development takes into account many security considerations,
-                        such as data entry error checking through forms, filtering output, and encryption.
-                        Malicious practices such as SQL injection can be executed by users with ill intent yet with only
-                        primitive knowledge of Web development as a whole. Scripts can be used to exploit Web sites by
-                        granting unauthorized access to malicious users that try to collect information such as email
-                        addresses, passwords and protected content like credit card numbers.
-                      </p>
-                      <p>
-                        Because new security holes are found in Web applications even after testing and launch,
-                        security patch updates are frequent for widely used applications. It is often the job of Web
-                        developers to keep applications up to date as security patches are released and new security concerns are discovered.
-                      </p>
-                    </div>
-                    <div className="blog-security-image">
-                      <img src={securityimage} alt="St Logo" />
-                    </div>
-                    <div className="blog-chronology-heading">Conclusion</div>
-                    <div className="blog-conclusion-data">
-                      <div className="conclusion-text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                        containing Lorem Ipsum passages, and more recently with desktop
-                        publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                      </div>
-                    </div>
-                    <div className="blog-comment-section">
-                      {/* <img src={require('../../assets/images/comment.png')} alt="St Logo Commnent"/> */}
-                      {/* <img src={Commentimg} alt="St logo"/> */}
-
-                    </div>
-                  </div>
-                </div>
-              </div>
+             
+              {/* </div> */}
               <div className="blog-detail-right-wrap">
                 <div className="most-polular">
                   <h1>Most popular</h1>
