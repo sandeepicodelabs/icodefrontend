@@ -212,7 +212,9 @@ const IndexPage = ({ data }) => {
             <span className="cover-stack">Mean stack development</span>
           </div>
           <div className="booking-button">
-            <ButtonBox type="button" buttonname="Book a free consultation" />
+           <a href="https://calendly.com/jaytiwary">
+            <ButtonBox  type="button" buttonname="Book a free consultation" />
+            </a>
           </div>
         </div>
       </section>
