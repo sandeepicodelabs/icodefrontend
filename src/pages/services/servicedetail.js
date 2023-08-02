@@ -83,7 +83,7 @@ console.log("detail", detail);
                                             <div className="container-wrap-box steps">
                                                 <div className="content">
                                                     <h3>{item?.toolsTitle}</h3>
-                                                    <p>{item?.toolsDescription.data.toolsDescription}</p>
+                                                      <p>{item?.toolsDescription.data.toolsDescription}</p>
                                                 </div>
                                             </div>
                                         ))}
