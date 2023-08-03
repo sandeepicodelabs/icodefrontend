@@ -139,7 +139,7 @@ export default function BlogPage({ data, pageContext }) {
               <p>{article?.node?.EnterpriseDescription.data.EnterpriseDescription}</p>
 
               <h1>{article?.node?.ImplementedTitle}</h1>
-              <ReactMarkdown source={article?.node?.ImplementedDescription.data.ImplementedDescription}/>
+             <p>{article?.node?.ImplementedDescription.data.ImplementedDescription} </p> 
 
               {/* {article.node && Array.isArray(article.node) && article.node.map((item, i) =>(
                 console.log('item')
