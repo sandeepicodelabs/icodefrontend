@@ -11,22 +11,13 @@ const strapiConfig = {
   apiURL: "https://icodelabsbackend.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
-    //"article",
-    // "company-logo", 
-    // "experiences-processe",
-    //"technology-partner",
     "expert-technologie",
-    //"expertise",
     "process",
-    //"ourapproache",
-    // "technology",
-    // "jointeche",
     "project-list",
     "service",
     "component-skillset",
     "component-skilltool",
     "contact-us",
-    // "service-detail",
     {
       singularName: "service-detail",
       queryParams: {
