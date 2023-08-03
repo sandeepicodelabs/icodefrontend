@@ -551,7 +551,7 @@ export default IndexPage;
 
 export const query = graphql`
   query MyQuery {
-    allStrapiCompanyLogo {
+    allStrapiCompanyLogo (sort: {strapi_id: ASC}) {
       edges {
         node {
           logo {
@@ -561,7 +561,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiExperiencesProcesse {
+    allStrapiExperiencesProcesse (sort: {strapi_id: ASC}) {
       nodes {
         title
         icon {
@@ -571,7 +571,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiTechnologyPartner {
+    allStrapiTechnologyPartner (sort: {strapi_id: ASC}) {
       edges {
         node {
           Image {
@@ -587,7 +587,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiExpertise {
+    allStrapiExpertise (sort: {strapi_id: ASC}) {
       edges {
         node {
           Title
@@ -598,7 +598,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiOurapproache {
+    allStrapiOurapproache (sort: {strapi_id: ASC}) {
       edges {
         node {
           Title
@@ -614,7 +614,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiProcess {
+    allStrapiProcess (sort: {strapi_id: ASC}) {
       edges {
         node {
           Title

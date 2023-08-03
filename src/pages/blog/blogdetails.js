@@ -9,7 +9,8 @@ import Slider from 'react-slick';
 import AllArticleCard from '../../components/Cards/allarticlecard';
 import Footer from '../../components/Footer/Footer';
 import { Link, graphql } from 'gatsby';
-import Commentimg from '../../assets/images/comment.png'
+import Commentimg from '../../assets/images/comment.png';
+import  ReactMarkdown  from 'react-markdown';
 
 
 
@@ -87,7 +88,7 @@ export default function BlogPage({ data, pageContext }) {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
 
-   //console.log('article',article)
+  console.log('article', article)
   return (
 
     <div>
@@ -111,12 +112,48 @@ export default function BlogPage({ data, pageContext }) {
           <div className="blog-detail-grid-wrap">
             <div className="blog-detail-body">
               {/* <div className="blog-detail-left-wrap">*/}
-                <div className="detail-description-wrap"> 
-                  <p>
-                    {article?.node.Content.data.Content}
-                  </p>
-                </div>
+              <div className="detail-description-wrap">
+              <p>{article?.node?.Content.data.Content}</p>
+              <h1>{article?.node?.DetailTitle}</h1>
+              <p>
+              {article?.node?.BlogMeanDescription.data.BlogMeanDescription}
+              </p>
+
+              <h1>{article?.node?.BlogMeanTitle}</h1>
+              <p>{article?.node?.BlogMeanDescription.data.BlogMeanDescription}</p>
+
+              <h1>{article?.node?.KeyElementTitle}</h1>
+              <p>{article?.node?.KeyElementDescription.data.KeyElementDescription}</p>
+
+              <h1>{article && article?.node?.FeaturesTitle}</h1>
+              <p>{article && article?.node?.FeatureDescription.data.FeatureDescription}</p>
+
+              <h1>{article?.node?.ContractTitle}</h1>
+              <p>{article?.node?.CurrencyDescription.data.CurrencyDescription}</p>
+
+
+              <h1>{article?.node?.CurrencyTitle}</h1>
+              <p>{article?.node?.CurrencyDescription.data.CurrencyDescription}</p>
+
+              <h1>{article?.node?.EnterpriseTitle}</h1>
+              <p>{article?.node?.EnterpriseDescription.data.EnterpriseDescription}</p>
+
+              <h1>{article?.node?.ImplementedTitle}</h1>
+              <ReactMarkdown source={article?.node?.ImplementedDescription.data.ImplementedDescription}/>
+
+              {/* {article.node && Array.isArray(article.node) && article.node.map((item, i) =>(
+                console.log('item')
+                // <li>
+                //    <ReactMarkdown soure={item?.ImplementedDescription.data.ImplementedDescription}/>
+                // </li>
+              ))} */}
+            
+
+                    </div>
+            
+
              
+
               {/* </div> */}
               <div className="blog-detail-right-wrap">
                 <div className="most-polular">
@@ -154,7 +191,7 @@ export default function BlogPage({ data, pageContext }) {
                         <div className="article-slide">
                           <AllArticleCard
                             key={i}
-                             img={item.node?.Image[0]?.url}
+                            img={item.node?.Image[0]?.url}
                             articleTitle={item.node?.Type}
                             articledescription={item.node?.Content.data.Content}
                             // postedname={item.node?.user.displayName}
@@ -180,7 +217,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
 query MyQuery { 
-  allStrapiArticle(limit: 6, sort: {publishedAt: DESC}) {
+  allStrapiArticle( sort: {publishedAt: DESC}) {
     edges {
       node {
         Title
@@ -191,6 +228,57 @@ query MyQuery {
             Content
           }
         }
+
+        DetailTitle
+        DetailDescription {
+          data {
+            DetailDescription
+          }
+        }
+        BlogMeanTitle
+        BlogMeanDescription {
+          data {
+            BlogMeanDescription
+          }
+        }
+        KeyElementTitle
+        KeyElementDescription {
+          data {
+            KeyElementDescription
+          }
+        }
+        FeaturesTitle
+        FeatureDescription {
+          data {
+            FeatureDescription
+          }
+        }
+        ContractTitle
+        CurrencyDescription {
+          data {
+            CurrencyDescription
+          }
+        }
+        CurrencyTitle
+        ContractDescription {
+          data {
+            ContractDescription
+          }
+        }
+        EnterpriseTitle
+        EnterpriseDescription {
+          data {
+            EnterpriseDescription
+          }
+        }
+        ImplementedTitle
+        ImplementedDescription {
+          data {
+            ImplementedDescription
+          }
+        }
+
+
         createdAt(formatString: "DD MM YYYY")
         updatedAt(formatString: "DD MM YYYY")
         Promotext

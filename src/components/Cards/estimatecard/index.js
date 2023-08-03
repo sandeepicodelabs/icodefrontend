@@ -1,8 +1,7 @@
 import React from 'react'
 import ButtonBox from '../../button';
 
-const EstimateCard=(props)=>{
-
+const EstimateCard=(props)=>{ 
     const { type, buttonname, className } = props;
 
     return(

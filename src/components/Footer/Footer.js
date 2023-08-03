@@ -10,7 +10,7 @@ import ExpertiseCard from '../../pages/trendingtechologies';
 const Footer = () => {
     const data = useStaticQuery(graphql`
     query {
-      allStrapiTechnology {
+      allStrapiTechnology (sort: {strapi_id: ASC}) {
         edges {
           node {
             Title

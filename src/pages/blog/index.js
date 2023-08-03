@@ -42,9 +42,7 @@ export default function Blog({ data, pageContext }) {
       validSlug.toLowerCase().includes(query?.toLowerCase()) ||
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
-  });
-
-
+  }); 
 
   // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
   // const posts = data?.allStrapiArticle?.edges;
@@ -150,6 +148,7 @@ export default function Blog({ data, pageContext }) {
                             {item.node?.Title}
                           </Link>
                         }
+                          
                       />
                     </div>
                   ))}

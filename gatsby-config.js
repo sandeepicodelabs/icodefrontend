@@ -35,6 +35,7 @@ const strapiConfig = {
         populate: {
           image: "*",
           images: "*",
+          TopImage:"*",
           Titleservice: {
             populate: {
               servicedescription: "*",
