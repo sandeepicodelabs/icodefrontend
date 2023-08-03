@@ -24,7 +24,7 @@ import covercode from "../assets/images/cover-code.png";
 import meanstack from "../assets/images/meanstack.png";
 // import webimg from '../assets/images/web.png';
 // import messageimg from '../assets/images/message.png';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
@@ -46,8 +46,9 @@ import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
 import axios from "axios";
-
+import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import "./style.scss";
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -99,6 +100,8 @@ const IndexPage = ({ data }) => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 6,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 768,
@@ -121,37 +124,36 @@ const IndexPage = ({ data }) => {
     ],
   };
 
-  const technologyslide = {
+  var technologyslide = {
     dots: false,
-    centerMode: false,
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 1,
+    infinite: false,
     speed: 500,
+    slidesToShow: 2.5,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    arrows: true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1300,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 2,
-          initialSlide: 1,
-          centerMode: true,
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+          infinite: true,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
           initialSlide: 1,
         },
       },
       {
-        breakpoint: 460,
+        breakpoint: 580,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1,
         },
       },
     ],
@@ -170,6 +172,7 @@ const IndexPage = ({ data }) => {
 
   const testimonialslide = {
     dots: false,
+    arrows: true,
     centerMode: false,
     infinite: true,
     slidesToShow: 1,
@@ -183,66 +186,95 @@ const IndexPage = ({ data }) => {
           slidesToScroll: 1,
           initialSlide: 1,
           speed: 1000,
-          // centerMode: true,
+          centerMode: true,
         },
       },
     ],
   };
-
+  const workSlider = {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    arrows: true,
+    dots: false,
+    speed: 300,
+    infinite: true,
+    autoplaySpeed: 5000,
+    autoplay: false,
+    centerPadding: 0,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          speed: 1000,
+        },
+      },
+    ],
+  };
   return (
-    <div>
+    <div className="pageWrapper">
       <Header />
-      <section>
+      <section className="heroSection">
         <div className="cover-background">
-          <div className="cover-logo-box">
-            <img src={covercode} alt="St Logo" />
-          </div>
-          <div className="cover-heading-text">
-            <h1>
-              We build bespoke mobile & web applications driven by Innovation.{" "}
-            </h1>
-          </div>
-          <div className="subtext-box">
-            <p className="cover-sub-text">
-              Commited to deliver quality & performance oriented apps.
-            </p>
-          </div>
-          <div className="cover-stack-heading">
-            <img src={meanstack} alt="St Logo" />
-            <span className="cover-stack">Mean stack development</span>
-          </div>
-          <div className="booking-button">
-           <a href="https://calendly.com/jaytiwary">
-            <ButtonBox  type="button" buttonname="Book a free consultation" />
-            </a>
+          <div className="contentWidth">
+            <div className="cover-logo-box">
+              <img src={covercode} alt="St Logo" />
+            </div>
+            <div className="cover-heading-text">
+              <h1>
+                We build bespoke mobile & web applications driven by Innovation.{" "}
+              </h1>
+            </div>
+            <div className="subtext-box">
+              <p className="cover-sub-text">
+                Commited to deliver quality & performance oriented apps.
+              </p>
+            </div>
+            <div className="cover-stack-heading">
+              <img src={meanstack} alt="St Logo" />
+              <span className="cover-stack">Mean stack development</span>
+            </div>
+            <div className="booking-button">
+              <a href="https://calendly.com/jaytiwary">
+                <ButtonBox
+                  type="button"
+                  buttonname="Book a free consultation"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </section>
       <section>
         <div className="trusted-brands">
-          <h5>TRUSTED BY 50+ COMPANIES</h5>
-          <div className="trusted-brand-box">
-            <Slider {...settings}>
-              {/* <GatsbyImage image={image} alt=" "  />  */}
+          <div className="contentWidth">
+            <h5>TRUSTED BY 50+ COMPANIES</h5>
+            <div className="trusted-brand-box">
+              <Slider {...settings}>
+                {/* <GatsbyImage image={image} alt=" "  />  */}
 
-              {companylogo &&
-                companylogo.map((item, key) => (
-                  <div className="brand-logo">
-                    <img src={item?.node?.logo?.url} />
-                  </div>
-                ))}
-            </Slider>
+                {companylogo &&
+                  companylogo.map((item, key) => (
+                    <div className="brand-logo">
+                      <img src={item?.node?.logo?.url} />
+                    </div>
+                  ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </section>
       <section>
-        <div className="our-company-about">
+        <div className="contentWidth our-company-about">
           <div className="company-description">
             {/* <h1 className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</h1> <br /> */}
-            <span className="text-bold">
-              ICode Labs: Igniting Ideas And Engineering Excellence.
-            </span>{" "}
-            <br />
+            <div className="sectionHeaing">
+              <h2>ICode Labs: Igniting Ideas And Engineering Excellence.</h2>
+              <span className="line">&nbsp;</span>
+            </div>
             <p>
               iCode Labs Solutions is a leading digital solutions provider
               specializing in Web & Custom Software Development, Mobile App
@@ -420,7 +452,44 @@ const IndexPage = ({ data }) => {
           <div className="work-box">
             <h1>our recent work</h1>
             <div className="work-slider">
-              <div className="gallery">
+              <Slider {...workSlider}>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-1"
+                    src={webimg}
+                    data-index="1"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-2"
+                    src={webimg}
+                    data-index="2"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-3"
+                    src={webimg}
+                    data-index="3"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-4"
+                    src={webimg}
+                    data-index="4"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-5"
+                    src={webimg}
+                    data-index="5"
+                  />
+                </div>
+              </Slider>
+              {/* <div className="gallery">
                 <div className="gallery-container">
                   <img
                     className="gallery-item gallery-item-1"
@@ -449,7 +518,7 @@ const IndexPage = ({ data }) => {
                   />
                 </div>
                 <div className="gallery-controls"></div>
-              </div>
+              </div> */}
             </div>
             <div className="view-work">
               <a href="/projectlist">
@@ -464,20 +533,25 @@ const IndexPage = ({ data }) => {
         <div className="contact-wrap">
           <div className="contact-us-box">
             <div className="contact-left">
-              <h1 className="contact-heading">Have a Question?</h1>
-              <p className="contact-Subheading">
-                Write Us, we will contact you shortly!
-              </p>
+              <div className="contact-top-content">
+                <h1 className="contact-heading">Have a Question?</h1>
+                <p className="contact-Subheading">
+                  Write Us, we will contact you shortly!
+                </p>
+              </div>
+              <div className="contact-img">
+                <img src={contactimg} alt="contact image" />
+              </div>
             </div>
-            <form  onSubmit={handleSubmit}>
-            <div className="contact-right">
+            <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
                   <InputBox
-                    type="text" 
+                    type="text"
                     placeholder={"Full Name"}
                     className="contact-inputs"
-                    img={userImg} name="name"
+                    img={userImg}
+                    name="name"
                   />
                 </div>
                 <div className="input-wrap">
@@ -486,16 +560,18 @@ const IndexPage = ({ data }) => {
 										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
 									</span> */}
                   <InputBox
-                    type="email" 
+                    type="email"
                     placeholder={"Email"}
                     className="contact-inputs"
-                    img={Emailicon} name="email"
+                    img={Emailicon}
+                    name="email"
                   />
                 </div>
                 <div className="input-wrap">
                   <textarea
                     placeholder="Write a message here"
-                    rows={5} name="message"
+                    rows={5}
+                    name="message"
                   ></textarea>
                   <span className="input-icon">
                     <img src={messageimg} alt="St Logo" />
@@ -515,7 +591,6 @@ const IndexPage = ({ data }) => {
                   <ButtonBox type="submit" buttonname="SEND MESSAGE" />
                 </div>
               </div>
-            </div>
             </form>
           </div>
         </div>

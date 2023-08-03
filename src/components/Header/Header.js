@@ -1,107 +1,96 @@
-import React, { Component, useState } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from 'reactstrap';
-import icodelogo from '../../assets/images/logo/icodelab-logo.png';
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import React, { useState } from "react";
+import icodelogo from "../../assets/images/logo/icodelab-logo.png";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
-
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(graphql`
-  query {
-    allStrapiServiceDetail {
-      edges {
-        node {
-          Slug
-          TitleMain
+    query {
+      allStrapiServiceDetail {
+        edges {
+          node {
+            Slug
+            TitleMain
+          }
         }
       }
     }
-  } 
-    
-`);
-  const service = data?.allStrapiServiceDetail?.edges
+  `);
+  const service = data?.allStrapiServiceDetail?.edges;
 
-  //console.log("header",service)
+  const serviceDropdownList = service?.map((item) => {
+    return {
+      text: item?.node?.TitleMain,
+      link: `/services/${item?.node?.Slug}`,
+    };
+  });
 
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
+  const toggleDropdown = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
+  const { width } = useWindowDimensions();
+  const isTabLayout = width < 992;
+  const isMobileLayout = width < 768;
   return (
-    <header className="header-nav header-box">
-      <Navbar color="light" light expand="lg" className="navbar-wrap-box-background">
-        <NavbarBrand href="/">
-          <div className="logo-box">
+    <header className="topbar">
+      <div className="contentWidth">
+        <div className="topbarNavigation">
+          <a href="/" className="logo">
             <img src={icodelogo} alt="St Logo" />
-          </div>
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar className="navbar-collapse-right">
-          <Nav className="ml-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Services
-              </DropdownToggle>
-              <DropdownMenu>
-                {service &&
-                  service.map((item, i) => (
-                    <DropdownItem key={i}>
-                      <Link to={`/services/${item?.node?.Slug}`}>{item?.node.TitleMain}</Link>
-                    </DropdownItem>
-                  ))}
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <NavItem>
-              <NavLink href="#technologies">Technologies</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/projectlist">Portfolio</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/blog">Blog</NavLink>
-            </NavItem>
-
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Company
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>
-                  <NavLink href="/aboutus">About</NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <NavLink href="/contact">Contact Us</NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <NavLink href="#process">Process</NavLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <NavItem>
-              <NavLink href="/contact" className="button-hiring">
+          </a>
+          <span className="toggleBtn" onClick={toggle}>
+            &nbsp;
+          </span>
+          <nav
+            className={"navigation " + (isOpen && isTabLayout ? "expand" : "")}
+            isOpen={isOpen}
+          >
+            <div className="navlink">
+              <DropdownMenu title={"Services"} options={serviceDropdownList} />
+            </div>
+            <div className="navlink">
+              <a onClick={toggle} href="#technologies">
+                Technologies
+              </a>
+            </div>
+            <div className="navlink">
+              <a onClick={toggle} href="/projectlist">
+                Portfolio
+              </a>
+            </div>
+            <div className="navlink">
+              <a onClick={toggle} href="/Blog">
+                Blog
+              </a>
+            </div>
+            <div className="navlink">
+              <DropdownMenu
+                title={"Company"}
+                options={[
+                  { text: "About", link: "/aboutus" },
+                  { text: "Contact Us", link: "/contact" },
+                  { text: "Process", link: "#process" },
+                ]}
+              />
+            </div>
+            <div className="navlink">
+              <a href="/contact" className="hiringButton btn">
                 Hire Developers
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };
 
 export default Header;
-
-
-

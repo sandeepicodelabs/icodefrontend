@@ -7,30 +7,29 @@
 // });
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-}); 
+});
 // const sgMail = require('@sendgrid/mail');
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const strapiConfig = { 
-  
-  apiURL:"https://icodelabsbackend.onrender.com/",
-  accessToken: process.env.STRAPI_TOKEN, 
-  collectionTypes: [  
-     //"article",
-    // "company-logo", 
+const strapiConfig = {
+  apiURL: "https://icodelabsbackend.onrender.com/",
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: [
+    //"article",
+    // "company-logo",
     // "experiences-processe",
-     //"technology-partner",
-     "expert-technologie",
-     //"expertise",
-     "process",
-     //"ourapproache",
-      // "technology",
+    //"technology-partner",
+    "expert-technologie",
+    //"expertise",
+    "process",
+    //"ourapproache",
+    // "technology",
     // "jointeche",
-     "project-list",
-     "service",
-     "component-skillset",
-     "component-skilltool",
-     "contact-us",
+    "project-list",
+    "service",
+    "component-skillset",
+    "component-skilltool",
+    "contact-us",
     // "service-detail",
     {
       singularName: "service-detail",
@@ -45,20 +44,19 @@ const strapiConfig = {
               servicedescription: "*",
             },
           },
-              ToolService: {  
-                populate: {
-                  toolsDescription: "*"
-                }
-              }, 
-              EnhanceService: {  
-                populate: {
-                  EDescription: "*",
-                  EImage:"*"
-                }
-              },  
-        }
-      }   
-       
+          ToolService: {
+            populate: {
+              toolsDescription: "*",
+            },
+          },
+          EnhanceService: {
+            populate: {
+              EDescription: "*",
+              EImage: "*",
+            },
+          },
+        },
+      },
     },
 
     {
@@ -92,11 +90,11 @@ const strapiConfig = {
       singularName: "experiences-processe",
       queryParams: {
         // Populate media and relations
-        // Make sure to not specify the fields key so the api always returns the updatedAt 
-          icon:{
-            populate: { 
-            Image:"*"
-          } 
+        // Make sure to not specify the fields key so the api always returns the updatedAt
+        icon: {
+          populate: {
+            Image: "*",
+          },
         },
       },
     },
@@ -134,12 +132,11 @@ const strapiConfig = {
     },
     {
       singularName: "jointeche",
-      queryParams: {  
-        populate: { 
-        Image:{ 
-            url:"*"
-          } 
-          
+      queryParams: {
+        populate: {
+          Image: {
+            url: "*",
+          },
         },
       },
     },
@@ -163,6 +160,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-strapi",
       options: {
