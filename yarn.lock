@@ -2561,9 +2561,9 @@
     form-data "^3.0.0"
 
 "@types/node@*", "@types/node@>=10.0.0":
-  version "20.4.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.5.tgz#9dc0a5cb1ccce4f7a731660935ab70b9c00a5d69"
-  integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
+  version "20.4.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.4.7.tgz#74d323a93f1391a63477b27b9aec56669c98b2ab"
+  integrity sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==
 
 "@types/node@^8.5.7":
   version "8.10.66"
@@ -3803,9 +3803,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001464, caniuse-lite@^1.0.30001517:
-  version "1.0.30001518"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001518.tgz#b3ca93904cb4699c01218246c4d77a71dbe97150"
-  integrity sha512-rup09/e3I0BKjncL+FesTayKtPrdwKhUufQFd3riFw1hHg8JmIFoInYfB102cFcY/pPgGmdyl/iy+jgiDi2vdA==
+  version "1.0.30001519"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001519.tgz#3e7b8b8a7077e78b0eb054d69e6edf5c7df35601"
+  integrity sha512-0QHgqR+Jv4bxHMp8kZ1Kn8CH55OikjKJ6JmKkZYP1F3D7w+lnFXF70nG5eNfsZS89jadi5Ywy5UCSKLAglIRkg==
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -4850,9 +4850,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.477:
-  version "1.4.480"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.480.tgz#40e32849ca50bc23ce29c1516c5adb3fddac919d"
-  integrity sha512-IXTgg+bITkQv/FLP9FjX6f9KFCs5hQWeh5uNSKxB9mqYj/JXhHDbu+ekS43LVvbkL3eW6/oZy4+r9Om6lan1Uw==
+  version "1.4.484"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.484.tgz#770358eba089471c5dae5719db3a5a4fbf02bfb2"
+  integrity sha512-nO3ZEomTK2PO/3TUXgEx0A97xZTpKVf4p427lABHuCpT1IQ2N+njVh29DkQkCk6Q4m2wjU+faK4xAcfFndwjvw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -6893,9 +6893,9 @@ immer@^9.0.7:
   integrity sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==
 
 immutable@^4.0.0:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.1.tgz#17988b356097ab0719e2f741d56f3ec6c317f9dc"
-  integrity sha512-lj9cnmB/kVS0QHsJnYKD1uo3o39nrbKxszjnqS9Fr6NB7bZzW45U6WSGBPKXDL/CvDKqDNPA4r3DoDQ8GTxo2A==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.2.tgz#f89d910f8dfb6e15c03b2cae2faaf8c1f66455fe"
+  integrity sha512-oGXzbEDem9OOpDWZu88jGiYCvIsLHMvGw+8OXlpsvTFvIQplQbjg1B1cvKg8f7Hoch6+NGjpPsH1Fr+Mc2D1aA==
 
 immutable@~3.7.6:
   version "3.7.6"
@@ -7697,10 +7697,10 @@ libnpmversion@^4.0.2:
     proc-log "^3.0.0"
     semver "^7.3.7"
 
-libphonenumber-js@^1.10.37:
-  version "1.10.38"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.38.tgz#edb9c1f13796ab17a8484180ef937184784628e9"
-  integrity sha512-4NjVXVUmpZ9Zsqq6FXa2+MKI+KAI3tOqA0pxXgXGluhpj4ge5didmbWJpMBqGB3AVGv1SnEtKdGTbxjSEG1kCQ==
+libphonenumber-js@^1.10.39:
+  version "1.10.39"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.39.tgz#12dd512621c9ebb13402a694ac81dc78511cd982"
+  integrity sha512-iPMM/NbSNIrdwbr94rAOos6krB7snhfzEptmk/DJUtTPs+P9gOhZ1YXVPcRgjpp3jJByclfm/Igvz45spfJK7g==
 
 lilconfig@^2.0.3:
   version "2.1.0"
@@ -8647,9 +8647,9 @@ msgpackr-extract@^3.0.2:
     "@msgpackr-extract/msgpackr-extract-win32-x64" "3.0.2"
 
 msgpackr@^1.5.4:
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.9.5.tgz#ac548c5f4546db895e84e46d39d813be961dc527"
-  integrity sha512-/IJ3cFSN6Ci3eG2wLhbFEL6GT63yEaoN/R5My2QkV6zro+OJaVRLPlwvxY7EtHYSmDlQpk8stvOQTL2qJFkDRg==
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.9.6.tgz#0b2bd37fba705756df795fdfe06a55f447c7bc47"
+  integrity sha512-50rmb6+ZWvEm0vJn8R8CwI1Eavss3h5rgtKrcdUal3EkZcpqw82+xsmc7RoHb8fYB5V4EOU2NDaOitDAdO0t+w==
   optionalDependencies:
     msgpackr-extract "^3.0.2"
 
@@ -10241,14 +10241,14 @@ react-markdown@^8.0.7:
     vfile "^5.0.0"
 
 react-phone-number-input@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.3.0.tgz#ac5a259523d93a7539ae1cab704f3241ce830bb6"
-  integrity sha512-6d1lq9parRGnVz6laEN7ijU7MeUCkFEJsTnzB/97nVrm/WE48EDEV5/2bu08mzfZjvX6shpryqG0DUCNiP07Cg==
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.3.1.tgz#55bc11425dd8a1a78d63ccf1d4505d6470309446"
+  integrity sha512-+F2UVz9ca5623yiErweUmyrWxHa1dwJN8JQvY0hM9E2sd6h8sFghWE6dmENXPAB2hTKnaWkGMc8suFXaopj+sw==
   dependencies:
     classnames "^2.3.1"
     country-flag-icons "^1.5.4"
     input-format "^0.3.8"
-    libphonenumber-js "^1.10.37"
+    libphonenumber-js "^1.10.39"
     prop-types "^15.8.1"
 
 react-popper@^2.2.4:
