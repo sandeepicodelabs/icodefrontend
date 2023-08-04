@@ -1,17 +1,16 @@
-import React from 'react'
-import Header from '../../components/Header/Header';
-import HeaderBar from '../../components/headerbar';
-import Chronologyimg from '../../assets/images/Chronology.png';
-import securityimage from '../../assets/images/securityimage.png';
-import MostPopularCard from '../../components/Cards/mostpopularcard';
-import SubscribeCard from '../../components/Cards/subscribe';
-import Slider from 'react-slick';
-import AllArticleCard from '../../components/Cards/allarticlecard';
-import Footer from '../../components/Footer/Footer';
-import { Link, graphql } from 'gatsby';
-import Commentimg from '../../assets/images/comment.png'
-
-
+import React from "react";
+import Header from "../../components/Header/Header";
+import HeaderBar from "../../components/headerbar";
+import Chronologyimg from "../../assets/images/Chronology.png";
+import securityimage from "../../assets/images/securityimage.png";
+import MostPopularCard from "../../components/Cards/mostpopularcard";
+import SubscribeCard from "../../components/Cards/subscribe";
+import Slider from "react-slick";
+import AllArticleCard from "../../components/Cards/allarticlecard";
+import Footer from "../../components/Footer/Footer";
+import { Link, graphql } from "gatsby";
+import Commentimg from "../../assets/images/comment.png";
+import "./blog.scss";
 
 const settings = {
   dots: false,
@@ -21,7 +20,7 @@ const settings = {
   autoplaySpeed: 2000,
   slidesToShow: 3,
   slidesToScroll: 2,
-  centerPadding: '60px',
+  centerPadding: "60px",
   responsive: [
     {
       breakpoint: 1024,
@@ -29,7 +28,7 @@ const settings = {
         slidesToShow: 3,
         slidesToScroll: 2,
         initialSlide: 1,
-      }
+      },
     },
     {
       breakpoint: 920,
@@ -37,7 +36,7 @@ const settings = {
         slidesToShow: 2,
         slidesToScroll: 1,
         initialSlide: 1,
-      }
+      },
     },
     {
       breakpoint: 600,
@@ -45,9 +44,9 @@ const settings = {
         slidesToShow: 1,
         slidesToScroll: 1,
         initialSlide: 1,
-      }
+      },
     },
-  ]
+  ],
 };
 
 export default function BlogPage({ data, pageContext }) {
@@ -67,14 +66,14 @@ export default function BlogPage({ data, pageContext }) {
   //   const article = posts?.find(item=>{return item?.node?.Slug === pageContext.article?.node?.Slug})
   //   // console.log('blog',article)
 
-
-  const query = typeof window !== 'undefined' ? window.location.search.slice(8) : null;
+  const query =
+    typeof window !== "undefined" ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
-  const filteredData = posts?.filter(post => {
+  const filteredData = posts?.filter((post) => {
     const { Content, Title, Slug, Type } = post.node;
-    const validContent = typeof Content === 'string' ? Content : '';
-    const validTitle = typeof Title === 'string' ? Title : '';
-    const validSlug = typeof Slug === 'string' ? Slug : '';
+    const validContent = typeof Content === "string" ? Content : "";
+    const validTitle = typeof Title === "string" ? Title : "";
+    const validSlug = typeof Slug === "string" ? Slug : "";
 
     return (
       validTitle.toLowerCase().includes(query?.toLowerCase()) ||
@@ -83,13 +82,12 @@ export default function BlogPage({ data, pageContext }) {
     );
   });
 
-  const article = posts?.find(item => {
+  const article = posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
 
-   //console.log('article',article)
+  //console.log('article',article)
   return (
-
     <div>
       <section className="blog-detail-box">
         <Header />
@@ -104,19 +102,19 @@ export default function BlogPage({ data, pageContext }) {
               <div className="blog-detail-data">
                 <div className="blog-card-date">{article?.node?.updatedAt}</div>
 
-                <div className="blog-card-posted-name"><span>Posted by :</span>john</div>
+                <div className="blog-card-posted-name">
+                  <span>Posted by :</span>john
+                </div>
               </div>
             </div>
           </div>
           <div className="blog-detail-grid-wrap">
             <div className="blog-detail-body">
               {/* <div className="blog-detail-left-wrap">*/}
-                <div className="detail-description-wrap"> 
-                  <p>
-                    {article?.node.Content.data.Content}
-                  </p>
-                </div>
-             
+              <div className="detail-description-wrap">
+                <p>{article?.node.Content.data.Content}</p>
+              </div>
+
               {/* </div> */}
               <div className="blog-detail-right-wrap">
                 <div className="most-polular">
@@ -142,7 +140,9 @@ export default function BlogPage({ data, pageContext }) {
             </div>
             <div className="blog-box-bottom-wrap">
               <div className="blog-hire-contact-box">
-                <div className="hire-development-team-text">Hire an experienced web development team?</div>
+                <div className="hire-development-team-text">
+                  Hire an experienced web development team?
+                </div>
                 <button>CONTACT NOW</button>
               </div>
               <div className="related-post-box">
@@ -154,15 +154,14 @@ export default function BlogPage({ data, pageContext }) {
                         <div className="article-slide">
                           <AllArticleCard
                             key={i}
-                             img={item.node?.Image[0]?.url}
+                            img={item.node?.Image[0]?.url}
                             articleTitle={item.node?.Type}
                             articledescription={item.node?.Content.data.Content}
                             // postedname={item.node?.user.displayName}
                             postdate={item.node?.createdAt}
                             cardtitle={item.node?.Title}
-                          //cardprofile={item.node?.user.profileimage?.publicURL}
+                            //cardprofile={item.node?.user.profileimage?.publicURL}
                           />
-
                         </div>
                       </Link>
                     ))}
@@ -175,31 +174,30 @@ export default function BlogPage({ data, pageContext }) {
       </section>
       <Footer />
     </div>
-  )
+  );
 }
 
 export const query = graphql`
-query MyQuery { 
-  allStrapiArticle(limit: 6, sort: {publishedAt: DESC}) {
-    edges {
-      node {
-        Title
-        Slug
-        Type
-        Content {
-          data {
-            Content
+  query MyQuery {
+    allStrapiArticle(limit: 6, sort: { publishedAt: DESC }) {
+      edges {
+        node {
+          Title
+          Slug
+          Type
+          Content {
+            data {
+              Content
+            }
           }
-        }
-        createdAt(formatString: "DD MM YYYY")
-        updatedAt(formatString: "DD MM YYYY")
-        Promotext
-        Image {
-          url
+          createdAt(formatString: "DD MM YYYY")
+          updatedAt(formatString: "DD MM YYYY")
+          Promotext
+          Image {
+            url
+          }
         }
       }
     }
   }
-   }
-
-`
+`;

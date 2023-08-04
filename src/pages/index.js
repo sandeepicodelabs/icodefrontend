@@ -49,6 +49,7 @@ import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./style.scss";
+import "./TypingEffect.js";
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -234,7 +235,15 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="cover-stack-heading">
               <img src={meanstack} alt="St Logo" />
-              <span className="cover-stack">Mean stack development</span>
+              {/* <span className="cover-stack">Mean stack development</span> */}
+              <a
+                href=""
+                class="typewrite"
+                data-period="2000"
+                data-type='[ "Flutter App Development", "Angular Development", "MEAN Stack Development", "MERN Stack Development", "JAM Stack Development", "React Native Development" ]'
+              >
+                <span class="cover-stack"></span>
+              </a>
             </div>
             <div className="booking-button">
               <a href="https://calendly.com/jaytiwary">

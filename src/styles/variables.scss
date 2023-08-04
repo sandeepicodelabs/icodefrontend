@@ -8,13 +8,13 @@ $border-color: #e1e1e1;
 $hover-bg: rgb(0 0 0 / 78%);
 $box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
 
-$font-family: "Poppins", sans-serif !important;
+$font-family: "Poppins", sans-serif;
 
 html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: $font-family;
+  font-family: $font-family !important;
 
   /* A non-standard feature: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
   -webkit-font-smoothing: antialiased;

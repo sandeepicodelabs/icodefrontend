@@ -116,12 +116,21 @@
         text-align: center;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        @include sm {
+          max-width: 370px;
+        }
         & > img {
           width: 30px;
           @include sm {
             width: auto;
           }
+        }
+        & > a {
+          text-decoration: none;
         }
         .cover-stack {
           font-style: normal;
@@ -1833,5 +1842,41 @@
         }
       }
     }
+  }
+}
+
+.typing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#typing-text {
+  font-size: 24px;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid #333;
+  animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #333;
   }
 }
