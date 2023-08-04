@@ -11,6 +11,7 @@ import Footer from "../../components/Footer/Footer";
 import { Link, graphql } from "gatsby";
 import Commentimg from "../../assets/images/comment.png";
 import "./blog.scss";
+import ReactMarkdown from "react-markdown";
 
 const settings = {
   dots: false,
@@ -112,7 +113,8 @@ export default function BlogPage({ data, pageContext }) {
             <div className="blog-detail-body">
               {/* <div className="blog-detail-left-wrap">*/}
               <div className="detail-description-wrap">
-                <p>{article?.node.Content.data.Content}</p>
+                
+                <ReactMarkdown>{article?.node.Content.data.Content}</ReactMarkdown>
               </div>
 
               {/* </div> */}

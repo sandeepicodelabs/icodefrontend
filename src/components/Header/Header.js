@@ -67,7 +67,7 @@ const Header = () => {
               </a>
             </div>
             <div className="navlink">
-              <a onClick={toggle} href="/Blog">
+              <a onClick={toggle} href="/blog">
                 Blog
               </a>
             </div>
