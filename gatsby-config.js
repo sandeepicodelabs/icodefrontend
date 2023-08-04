@@ -6,6 +6,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+
 const strapiConfig = {
 
   apiURL: "https://icodelabsbackend.onrender.com/",
