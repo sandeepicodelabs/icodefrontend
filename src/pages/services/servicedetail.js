@@ -1,27 +1,20 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-import deliveryImage from '../../assets/images/professional-programmer-working-late-dark-office.png';
-import ButtonBox from '../../components/button';
-import companyaboutimg from '../../assets/images/companyabout.png';
 import './style.css'
 import Footer from '../../components/Footer/Footer';
 import { graphql } from 'gatsby';
 import FAQ from '../../components/FAQ/FAQ';
-import mobileImge from '../../assets/images/linedin-lite-post-image.png'
 import '../../assets/css/custom.css';
 import WhyWeJoinCard from '../../components/Cards/jointeamcard';
 import CompanyApproachCard from '../../components/Cards/companyapproachecard';
 import EstimateCard from '../../components/Cards/estimatecard';
 
-export default function Servicedetail({ data, pageContext }) { 
+export default function Servicedetail({ data, pageContext }) {
   const servicedetail = data && data?.allStrapiServiceDetail?.edges;
   const detail = servicedetail?.find(item => {
-    // console.log('checking', item?.node?.Slug, pageContext.service?.node?.Slug, pageContext)
     return item?.node?.Slug === pageContext.service?.node?.Slug;
   });
-
-  //console.log('servicedetail', servicedetail);
- // console.log("detail", detail && detail?.node?.TopImage[0]?.url);
+  //console.log('servicedetail', servicedetail); 
   return (
     <>
       <div className="project-list-page">
@@ -34,12 +27,12 @@ export default function Servicedetail({ data, pageContext }) {
                   <div className="deliver-description">
                     <h1>{detail?.node?.Title}</h1>
                     <p>
-                      { detail?.node.Description.data.Description}
+                      {detail?.node.Description.data.Description}
                     </p>
                   </div>
                   <div className="deliver-image-section">
-                  
-                    <img src={ detail && detail?.node?.TopImage?.[0]?.url} />
+
+                    <img src={detail && detail?.node?.TopImage?.[0]?.url}  alt="st logo"/>
                   </div>
                 </div>
               </div>
@@ -49,14 +42,12 @@ export default function Servicedetail({ data, pageContext }) {
             <div className="our-team-wrap">
               <div className="our-tech-team">
                 <h1 >{detail?.node?.DevlopmentTitle}</h1>
-                {/* <div className="choose-subheading"> </div> */}
                 <p className="choose-description">
                   {detail?.node?.DevelopmentDescription.data.DevelopmentDescription}
                 </p>
               </div>
               <div className="join-expertise">
                 {detail && detail.node.Titleservice.map((item, i) => (
-                  //console.log('titleservice',item?.TImage[0]?.url)
                   <WhyWeJoinCard
                     key={i}
                     img={item?.TImage && item?.TImage[0]?.url}
@@ -66,7 +57,6 @@ export default function Servicedetail({ data, pageContext }) {
                 ))}
 
               </div>
-
             </div>
           </section>
 
@@ -116,13 +106,12 @@ export default function Servicedetail({ data, pageContext }) {
               </div>
             </div>
           </section>
-  <br/>
+          <br />
           <section className="estimate-section-wrap">
-        <EstimateCard />
-      </section>
+            <EstimateCard />
+          </section>
           <section >
             <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
-
               <FAQ />
             </div>
           </section>

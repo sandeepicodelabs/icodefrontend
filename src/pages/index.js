@@ -1,35 +1,15 @@
-import * as React from "react";
-// import Header from "../components/Header/Header";
+import * as React from "react"; 
 import { graphql } from "gatsby";
-import Header from "../components/Header/Header";
-
-//import Creativeteam from '../assets/images/creative-team.png';
-//import TeamIdea from '../assets/images/team-idea.png';
-//import Teamresult from '../assets/images/teamresult.png';
-//import ProjectManage from '../assets/images/project-management.png';
-//import ClientSatisfy from '../assets/images/client-satisfy.png';
-//import LatestStack from '../assets/images/latest-stack.png';
-//import CompleteTranspancy from '../assets/images/complete-transpancy.png';
-// ScalableSolution from '../assets/images/scalable-solution.png';
-
-// import TestimonialCard from '../components/testimonialcard'; 
-// import userImg from '../../assets/images/user.png';
-// import Emailicon from '../../assets/images/email.png';
-import ButtonBox from "../components/button";
-// import testimonialPicture from '../assets/images/testimonialPic.png';
-// import commaimage from '../assets/images/comma.png';
+import Header from "../components/Header/Header"; 
+import ButtonBox from "../components/button"; 
 import companyaboutimg from "../assets/images/companyabout.png";
 import covercode from "../assets/images/cover-code.png";
-import meanstack from "../assets/images/meanstack.png";
-// import webimg from '../assets/images/web.png';
-// import messageimg from '../assets/images/message.png';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import meanstack from "../assets/images/meanstack.png"; 
 import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
 import CompanyApproachCard from "../components/Cards/companyapproachecard";
-import TestimonialCard from "../components/Cards/testimonialcard";
-
+import TestimonialCard from "../components/Cards/testimonialcard"; 
 import testimonialPicture from "../assets/images/testimonialPic.png";
 import commaimage from "../assets/images/comma.png";
 import webimg from "../assets/images/web.png";
@@ -45,8 +25,7 @@ import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
 import axios from "axios";
-
-//import { GatsbyImage, getImage } from "gatsby-plugin-image";
+ 
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -56,7 +35,7 @@ const IndexPage = ({ data }) => {
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
-  //console.log('process', companylogo)
+ 
   const handleSubmit = (e) => { 
     e.preventDefault();
     // Get the form data from the event target
@@ -229,7 +208,7 @@ const IndexPage = ({ data }) => {
               {companylogo &&
                 companylogo.map((item, key) => (
                   <div className="brand-logo">
-                    <img src={item?.node?.logo?.url} />
+                    <img src={item?.node?.logo?.url}  alt=" "/>
                   </div>
                 ))}
             </Slider>
@@ -426,27 +405,27 @@ const IndexPage = ({ data }) => {
                   <img
                     className="gallery-item gallery-item-1"
                     src={webimg}
-                    data-index="1"
+                    data-index="1" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-2"
                     src={webimg}
-                    data-index="2"
+                    data-index="2" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-3"
                     src={webimg}
-                    data-index="3"
+                    data-index="3" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-4"
                     src={webimg}
-                    data-index="4"
+                    data-index="4" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-5"
                     src={webimg}
-                    data-index="5"
+                    data-index="5" alt=" "
                   />
                 </div>
                 <div className="gallery-controls"></div>

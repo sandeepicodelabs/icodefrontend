@@ -23,7 +23,7 @@ export default function ExploreAnalyze(props) {
                 </div>
             </div>
             <div className="explore-data-right">
-                <img src={img} />
+                <img src={img} alt='st logo'/>
             </div>
         </div>
     </div>

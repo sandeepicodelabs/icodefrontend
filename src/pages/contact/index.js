@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import ButtonBox from "../../components/button";
@@ -10,11 +10,8 @@ import contactSlack from "../../assets/images/contact-slack.png";
 import Footer from "../../components/Footer/Footer";
 import "./style.css";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
-import { Link } from "gatsby";
-//import { countryList } from 'country-codes-list';
-import PhoneInput from "react-phone-number-input";
-import "../../assets/css/custom.css";
-// import sgMail from './sendgrid'
+import { Link } from "gatsby"; 
+import "../../assets/css/custom.css"; 
 import axios from "axios";
 
 export default function ContactPage() { 
@@ -113,7 +110,7 @@ export default function ContactPage() {
                   <ul>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactLocation} />
+                        <img src={contactLocation}  alt="st logo"/>
                       </div>
                       <span>
                         F-465, K&B Tower,III Floor, Phase 8B Industrial Area,
@@ -122,13 +119,13 @@ export default function ContactPage() {
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactEmail} />
+                        <img src={contactEmail}  alt="st logo"/>
                       </div>
                       <span>hello@icodelabs.co</span>
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactMeet} />
+                        <img src={contactMeet} alt="st logo"/>
                       </div>
                       <span>
                         <a href="https://calendly.com/jaytiwary">
@@ -138,7 +135,7 @@ export default function ContactPage() {
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactSkype} />
+                        <img src={contactSkype}  alt="st logo"/>
                       </div>
                       <span>
                         <p>
@@ -150,7 +147,7 @@ export default function ContactPage() {
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactSlack} />
+                        <img src={contactSlack}  alt="st logo"/>
                       </div>
                       <span>
                         <a href="https://icodesoftwarelabs.slack.com">

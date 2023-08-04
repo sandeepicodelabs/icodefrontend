@@ -2,11 +2,10 @@ import React from 'react';
 import './style.css';
 import paginationNext from '../../assets/images/pagination-next-icon.png';
 import paginationprev from '../../assets/images/pagination-prev-icon.png';
-import Blog from '../../pages/blog';
-
+ 
 export default function PaginationBox(props) {
-  const { pageContext, data } = props;
-  //console.log('pagination',props)
+  //const { pageContext, data } = props;
+ 
      
   return (
     <>

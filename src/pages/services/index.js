@@ -9,17 +9,10 @@ import '../../assets/css/bootstrap.min.css';
 import Footer from '../../components/Footer/Footer';
 import EstimateCard from '../../components/Cards/estimatecard';
 import { graphql, Link } from 'gatsby';
-import Servicedetail from './servicedetail';
-import FAQ from '../../components/FAQ/FAQ';
-
-
-
+import FAQ from '../../components/FAQ/FAQ'; 
 
 export default function Services({ data }) {
-    // console.log("servicedatail",data)
-
     const service = data?.allStrapiService?.edges
-
     return (
         <div className="project-list-page">
             <Header />
@@ -38,14 +31,12 @@ export default function Services({ data }) {
                                     </p>
                                 </div>
                                 <div className="deliver-image-mobile">
-                                    <img src={mobileImge} />
+                                    <img src={mobileImge} alt="st logo" />
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </section>
-
                 <section>
                     <div className="deliver-qualitywork">
                         <div className="deliver-description">
@@ -59,19 +50,17 @@ export default function Services({ data }) {
                                         </div>
                                     ))
                                 }
-                            </div>
-
+                            </div> 
                         </div>
                         <div className="deliver-image-section">
-                            <img src={deliveryImage} />
+                            <img src={deliveryImage} alt="st logo" />
                         </div>
                     </div>
                 </section>
-
                 <section>
                     <div className="deliver-qualitywork">
                         <div className="deliver-image-section">
-                            <img src={deliveryImage} />
+                            <img src={deliveryImage} alt="st logo" />
                         </div>
                         <div className="deliver-description">
                             <div>
@@ -82,7 +71,6 @@ export default function Services({ data }) {
                             We follow agile principles and the industry best practices to deliver a
                             predictable high quality & on-time result.
                         </div>
-
                     </div>
                 </section>
                 <section>
@@ -97,15 +85,14 @@ export default function Services({ data }) {
                             predictable high quality & on-time result.
                         </div>
                         <div className="deliver-image-section">
-                            <img src={deliveryImage} />
+                            <img src={deliveryImage} alt="st logo" />
                         </div>
                     </div>
                 </section>
-
                 <section>
                     <div className="deliver-qualitywork">
                         <div className="deliver-image-section">
-                            <img src={deliveryImage} />
+                            <img src={deliveryImage} alt="st logo" />
                         </div>
                         <div className="deliver-description">
                             <div>
@@ -116,10 +103,8 @@ export default function Services({ data }) {
                             We follow agile principles and the industry best practices to deliver a
                             predictable high quality & on-time result.
                         </div>
-
                     </div>
-                </section>
-
+                </section> 
                 <section>
                     <div className="deliver-qualitywork">
                         <div className="deliver-description">
@@ -132,11 +117,10 @@ export default function Services({ data }) {
                             predictable high quality & on-time result.
                         </div>
                         <div className="deliver-image-section">
-                            <img src={deliveryImage} />
+                            <img src={deliveryImage} alt="st logo" />
                         </div>
                     </div>
                 </section>
-
                 <section>
                     <div className='row'>
                         <div className='col-md-4'>
@@ -188,34 +172,28 @@ export default function Services({ data }) {
                             </div>
                         </div>
                     </div>
-                </section>
-
+                </section> 
                 <section>
                     <div className="deliver-qualitywork">
                         <div className="deliver-image-section">
-                            <img src={deliveryImage} />
-                        </div>
-
+                            <img src={deliveryImage} alt='st logo' />
+                        </div> 
                         <div className="deliver-description">
                             <div>
                                 <h1>Mainteance and support</h1>
-                            </div>
-
+                            </div> 
                             Agile scrum theory puts strong focus on the three pillars
                             <span>Transparency, Inspection & Adaptation</span>.
                             We follow agile principles and the industry best practices to deliver a
                             predictable high quality & on-time result.
-                        </div>
-
+                        </div> 
                     </div>
                 </section>
                 <section>
                     <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
-                        {/* <h1>FAQ Question</h1>    */}
                         <FAQ />
                     </div>
-                </section>
-
+                </section> 
                 <section className="estimate-section-wrap">
                     <EstimateCard />
                 </section>

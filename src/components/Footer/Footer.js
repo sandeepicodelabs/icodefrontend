@@ -4,8 +4,7 @@ import fblogo from '../../assets/images/facebook.png'
 import twiterlogo from '../../assets/images/twiter.png'
 import linkedinlogo from '../../assets/images/linked.png'
 import instalogo from '../../assets/images/insta.png'
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import ExpertiseCard from '../../pages/trendingtechologies';
+import { graphql, useStaticQuery, Link } from 'gatsby'; 
 
 const Footer = () => {
     const data = useStaticQuery(graphql`

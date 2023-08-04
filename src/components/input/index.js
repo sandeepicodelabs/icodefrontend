@@ -2,9 +2,9 @@
 import './style.css';
  
  export default function InputBox(props) {
-    const { type, value, placeholder, className, img, label,demo, name } = props;
+    const { type, value, placeholder, className, img,demo, name } = props;
     //console.log("demo",demo)
-    const isClient = typeof window !== 'undefined';
+    //const isClient = typeof window !== 'undefined';
    return (
         <>
             <div className="input-box">

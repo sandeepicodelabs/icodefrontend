@@ -10,8 +10,7 @@ import MostPopularCard from '../../components/Cards/mostpopularcard';
 import AllArticleCard from '../../components/Cards/allarticlecard';
 import SubscribeCard from '../../components/Cards/subscribe';
 import PaginationBox from '../../components/pagination';
-import CardProfile from '../../assets/images/allarticleimg.png';
-import BlogCoverImg from '../../assets/images/articlecardimg.png';
+import CardProfile from '../../assets/images/allarticleimg.png'; 
 import CardProfileimg from '../../assets/images/covercardprofile.png';
 import SearchIcon from '../../assets/images/searchicon.svg';
 import './style.css';
@@ -42,20 +41,7 @@ export default function Blog({ data, pageContext }) {
       validSlug.toLowerCase().includes(query?.toLowerCase()) ||
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
-  }); 
-
-  // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-  // const posts = data?.allStrapiArticle?.edges;
-  // const filteredData = posts.filter(post => {
-  //   const { Content, Title, Slug, publishedAt, Type } = post.node
-  //   return (
-  //     Title?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //     Slug?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //     Content?.toLowerCase()?.includes(query?.toLowerCase())
-
-  //   )
-  // });
-
+  });  
 
   const blogcovercard = [
     {
@@ -133,8 +119,7 @@ export default function Blog({ data, pageContext }) {
             <div className="all-article-wrap">
               <div className="article-list-wrap">
                 <div className="article-card-list-most">
-                  {filteredData && filteredData.map((item, i) => (
-                   // console.log('map',item?.node?.Image[0]?.url)
+                  {filteredData && filteredData.map((item, i) => ( 
                     <div key={i}>
                       <AllArticleCard
                          img={item?.node?.Image[0]?.url}

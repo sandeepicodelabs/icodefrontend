@@ -1,15 +1,12 @@
 import React from 'react'
 import Header from '../../components/Header/Header';
-import HeaderBar from '../../components/headerbar';
-import Chronologyimg from '../../assets/images/Chronology.png';
-import securityimage from '../../assets/images/securityimage.png';
+import HeaderBar from '../../components/headerbar';  
 import MostPopularCard from '../../components/Cards/mostpopularcard';
 import SubscribeCard from '../../components/Cards/subscribe';
 import Slider from 'react-slick';
 import AllArticleCard from '../../components/Cards/allarticlecard';
 import Footer from '../../components/Footer/Footer';
-import { Link, graphql } from 'gatsby';
-import Commentimg from '../../assets/images/comment.png';
+import { Link, graphql } from 'gatsby'; 
 import  ReactMarkdown  from 'react-markdown';
 
 
@@ -88,7 +85,7 @@ export default function BlogPage({ data, pageContext }) {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
 
-  console.log('article', article)
+ // console.log('article', article)
   return (
 
     <div>
@@ -112,48 +109,12 @@ export default function BlogPage({ data, pageContext }) {
           <div className="blog-detail-grid-wrap">
             <div className="blog-detail-body">
               {/* <div className="blog-detail-left-wrap">*/}
-              <div className="detail-description-wrap">
-              <p>{article?.node?.Content.data.Content}</p>
-              <h1>{article?.node?.DetailTitle}</h1>
-              <p>
-              {article?.node?.BlogMeanDescription.data.BlogMeanDescription}
-              </p>
+               <div className="detail-description-wrap">
+              {/* <p>{article?.node?.Content.data.Content}</p>   */}
 
-              <h1>{article?.node?.BlogMeanTitle}</h1>
-              <p>{article?.node?.BlogMeanDescription.data.BlogMeanDescription}</p>
+             <ReactMarkdown>{article?.node?.Content.data.Content}</ReactMarkdown> 
 
-              <h1>{article?.node?.KeyElementTitle}</h1>
-              <p>{article?.node?.KeyElementDescription.data.KeyElementDescription}</p>
-
-              <h1>{article && article?.node?.FeaturesTitle}</h1>
-              <p>{article && article?.node?.FeatureDescription.data.FeatureDescription}</p>
-
-              <h1>{article?.node?.ContractTitle}</h1>
-              <p>{article?.node?.CurrencyDescription.data.CurrencyDescription}</p>
-
-
-              <h1>{article?.node?.CurrencyTitle}</h1>
-              <p>{article?.node?.CurrencyDescription.data.CurrencyDescription}</p>
-
-              <h1>{article?.node?.EnterpriseTitle}</h1>
-              <p>{article?.node?.EnterpriseDescription.data.EnterpriseDescription}</p>
-
-              <h1>{article?.node?.ImplementedTitle}</h1>
-             <p>{article?.node?.ImplementedDescription.data.ImplementedDescription} </p> 
-
-              {/* {article.node && Array.isArray(article.node) && article.node.map((item, i) =>(
-                console.log('item')
-                // <li>
-                //    <ReactMarkdown soure={item?.ImplementedDescription.data.ImplementedDescription}/>
-                // </li>
-              ))} */}
-            
-
-                    </div>
-            
-
-             
-
+                    </div> 
               {/* </div> */}
               <div className="blog-detail-right-wrap">
                 <div className="most-polular">
