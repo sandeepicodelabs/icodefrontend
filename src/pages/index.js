@@ -42,7 +42,7 @@ import Slider from "react-slick";
 import "../assets/css/slick/slick-theme.css";
 import "../assets/css/slick/slick.css";
 import "../assets/css/custom.css";
-import "../assets/css/bootstrap.min.css";
+// import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
 import axios from "axios";
@@ -176,7 +176,7 @@ const IndexPage = ({ data }) => {
     centerMode: false,
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     speed: 1000,
     responsive: [
       {
@@ -186,7 +186,6 @@ const IndexPage = ({ data }) => {
           slidesToScroll: 1,
           initialSlide: 1,
           speed: 1000,
-          centerMode: true,
         },
       },
     ],
@@ -204,9 +203,9 @@ const IndexPage = ({ data }) => {
     centerPadding: 0,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 767,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
           speed: 1000,
@@ -242,16 +241,15 @@ const IndexPage = ({ data }) => {
                 <ButtonBox
                   type="button"
                   buttonname="Book a free consultation"
+                  className="btn"
                 />
               </a>
             </div>
           </div>
         </div>
-      </section>
-      <section>
         <div className="trusted-brands">
           <div className="contentWidth">
-            <h5>TRUSTED BY 50+ COMPANIES</h5>
+            <h5>Trusted By 50+ Companies</h5>
             <div className="trusted-brand-box">
               <Slider {...settings}>
                 {/* <GatsbyImage image={image} alt=" "  />  */}
@@ -267,8 +265,8 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
-      <section>
-        <div className="contentWidth our-company-about">
+      <section className="our-company-about">
+        <div className="contentWidth">
           <div className="company-description">
             {/* <h1 className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</h1> <br /> */}
             <div className="sectionHeaing">
@@ -297,7 +295,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       <section id="about">
-        <div className="why-choose-us">
+        <div className="contentWidth why-choose-us">
           <div className="heading-main">
             <h1 className="choose-heading">Why Choose Icode Labs?</h1>
             <div className="choose-subheading">
@@ -326,57 +324,61 @@ const IndexPage = ({ data }) => {
 
       <section id="service">
         <div className="tech-partner">
-          <div className="partner-content">
-            <h1>
-              Accelerating Your Business Growth with Cutting-Edge Digital
-              Solutions
-            </h1>
-            <p>
-              We are a top-notch software development company, recognized for
-              our excellence, delivering tangible outcomes through cutting-edge
-              technology, empowering our clients to stay ahead in the
-              competitive landscape and achieve remarkable success.
-            </p>
-          </div>
-          <div className="partner-slider">
-            <Slider {...technologyslide}>
-              {technologyPartners &&
-                technologyPartners.map((item, i) => (
-                  <TechnologyCard
-                    key={i}
-                    technologyheading={item?.node?.Title}
-                    img={item?.node?.Image[0]?.url}
-                    technologydescription={
-                      item?.node?.Description?.data?.Description
-                    }
-                  />
-                ))}
-            </Slider>
+          <div className="service-content-wrapper contentWidth">
+            <div className="partner-content">
+              <h1>
+                Accelerating Your Business Growth with Cutting-Edge Digital
+                Solutions
+              </h1>
+              <p>
+                We are a top-notch software development company, recognized for
+                our excellence, delivering tangible outcomes through
+                cutting-edge technology, empowering our clients to stay ahead in
+                the competitive landscape and achieve remarkable success.
+              </p>
+            </div>
+            <div className="partner-slider">
+              <Slider {...technologyslide}>
+                {technologyPartners &&
+                  technologyPartners.map((item, i) => (
+                    <TechnologyCard
+                      key={i}
+                      technologyheading={item?.node?.Title}
+                      img={item?.node?.Image[0]?.url}
+                      technologydescription={
+                        item?.node?.Description?.data?.Description
+                      }
+                    />
+                  ))}
+              </Slider>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="technologies">
         <div className="our-expertise">
-          <h1>We expertise in </h1>
-          <p>trending technologies the world is looking at</p>
-          <div className="our-expertise-tech">
-            {expertTech &&
-              expertTech.map((item, i) => (
-                // <Link to={"/trendingtechnologies/" + item.node.slug}>
-                <ExpertiseCard
-                  expertisetitle={item.node?.Title}
-                  img={item?.node?.Image[0]?.url}
-                />
-                // </Link>
-              ))}
+          <div className="contentWidth">
+            <h1>We expertise in </h1>
+            <p>trending technologies the world is looking at</p>
+            <div className="our-expertise-tech">
+              {expertTech &&
+                expertTech.map((item, i) => (
+                  // <Link to={"/trendingtechnologies/" + item.node.slug}>
+                  <ExpertiseCard
+                    expertisetitle={item.node?.Title}
+                    img={item?.node?.Image[0]?.url}
+                  />
+                  // </Link>
+                ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section id="process">
         <div className="how-do-we-do">
-          <div className="inner-timeline-box">
+          <div className="inner-timeline-box contentWidth">
             <div className="timeline-heading">
               <h1>How Do We Work?</h1>
               <p>Process in 5 easy step</p>
@@ -400,56 +402,64 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           <div className="our-approach">
-            <div className="company-approach-card">
-              {ourApproaches &&
-                ourApproaches.map((item, i) => (
-                  <CompanyApproachCard
-                    approachheading={item?.node?.Title}
-                    img={item?.node?.Image[0]?.url}
-                    approachsubheading={
-                      item.node?.Description?.data?.Description
-                    }
+            <div className="contentWidth">
+              <div className="company-approach-card">
+                {ourApproaches &&
+                  ourApproaches.map((item, i) => (
+                    <CompanyApproachCard
+                      approachheading={item?.node?.Title}
+                      img={item?.node?.Image[0]?.url}
+                      approachsubheading={
+                        item.node?.Description?.data?.Description
+                      }
+                    />
+                  ))}
+              </div>
+              <div className="approach-button">
+                <a href="../ourapproach">
+                  <ButtonBox
+                    type="button"
+                    buttonname="know more our approach"
+                    className="approach-button-box btn"
                   />
-                ))}
-            </div>
-            <div className="approach-button">
-              <a href="../ourapproach">
-                <ButtonBox
-                  type="button"
-                  buttonname="know more about our approach"
-                  className="approach-button-box"
-                />
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <section>
         <div className="about-client-box">
-          <div className="about-client">
-            <h1 className="client-heading">What clients say about us</h1>
-            <ButtonBox type="button" buttonname="Reade more reviews" />
-          </div>
-          <div className="about-slide">
-            <Slider {...testimonialslide}>
-              {testimonialCard.map((item, i) => (
-                <TestimonialCard
-                  key={i}
-                  testimonialmessage={item.testimonialmessage}
-                  img={item.img}
-                  clientname={item.clientname}
-                  clientaddress={item.clientaddress}
-                  commaimage={item.commaimage}
-                />
-              ))}
-            </Slider>
+          <div className="contentWidth">
+            <div className="about-client">
+              <h1 className="client-heading">
+                What clients say <br /> about us
+              </h1>
+              <ButtonBox type="button" buttonname="Reade more reviews" />
+            </div>
+            <div className="about-slide">
+              <Slider {...testimonialslide}>
+                {testimonialCard.map((item, i) => (
+                  <TestimonialCard
+                    key={i}
+                    testimonialmessage={item.testimonialmessage}
+                    img={item.img}
+                    clientname={item.clientname}
+                    clientaddress={item.clientaddress}
+                    commaimage={item.commaimage}
+                  />
+                ))}
+              </Slider>
+
+              <ButtonBox type="button" buttonname="Reade more reviews" />
+            </div>
           </div>
         </div>
       </section>
 
       <section>
         <div className="recent-work">
-          <div className="work-box">
+          <div className="contentWidth work-box">
             <h1>our recent work</h1>
             <div className="work-slider">
               <Slider {...workSlider}>
@@ -531,7 +541,7 @@ const IndexPage = ({ data }) => {
 
       <section>
         <div className="contact-wrap">
-          <div className="contact-us-box">
+          <div className="contentWidth contact-us-box">
             <div className="contact-left">
               <div className="contact-top-content">
                 <h1 className="contact-heading">Have a Question?</h1>
@@ -588,7 +598,7 @@ const IndexPage = ({ data }) => {
                   </label>
                 </div>
                 <div className="send-button">
-                  <ButtonBox type="submit" buttonname="SEND MESSAGE" />
+                  <ButtonBox type="submit" buttonname="Send message" />
                 </div>
               </div>
             </form>
