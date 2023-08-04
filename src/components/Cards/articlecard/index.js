@@ -14,7 +14,7 @@ export default function BlogArticleCard(props) {
                 <h5 className="blog-card-title">{cardtitle}</h5>
                 <div className="blog-card-detail-box">
                   <div className="blog-profile-list">
-                    <img src={cardprofileimg} />
+                    <img src={cardprofileimg} alt=' '/>
                     <div className="card-profile-wrap">
                       <div className="profile-name"><span>Posted by :</span> {profilename}</div>
                       <div className="post-date">{postdate} </div>

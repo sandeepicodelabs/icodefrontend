@@ -109,7 +109,7 @@ export default function OurApproach() {
                                 predictable high quality & on-time result.
                             </div>
                             <div className="deliver-image-section">
-                                <img src={deliveryImage} />
+                                <img src={deliveryImage} alt="st logo"/>
                             </div>
                         </div>
                     </section>

@@ -1,24 +1,7 @@
-import * as React from "react";
-// import Header from "../components/Header/Header";
+import * as React from "react"; 
 import { graphql } from "gatsby";
-import Header from "../components/Header/Header";
-
-//import Creativeteam from '../assets/images/creative-team.png';
-//import TeamIdea from '../assets/images/team-idea.png';
-//import Teamresult from '../assets/images/teamresult.png';
-//import ProjectManage from '../assets/images/project-management.png';
-//import ClientSatisfy from '../assets/images/client-satisfy.png';
-//import LatestStack from '../assets/images/latest-stack.png';
-//import CompleteTranspancy from '../assets/images/complete-transpancy.png';
-// ScalableSolution from '../assets/images/scalable-solution.png';
-
-// import TestimonialCard from '../components/testimonialcard';
-// import InputBox from '../components/input';
-// import userImg from '../../assets/images/user.png';
-// import Emailicon from '../../assets/images/email.png';
-import ButtonBox from "../components/button";
-// import testimonialPicture from '../assets/images/testimonialPic.png';
-// import commaimage from '../assets/images/comma.png';
+import Header from "../components/Header/Header"; 
+import ButtonBox from "../components/button"; 
 import companyaboutimg from "../assets/images/companyabout.png";
 import covercode from "../assets/images/cover-code.png";
 import meanstack from "../assets/images/meanstack.png";
@@ -29,8 +12,7 @@ import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
 import CompanyApproachCard from "../components/Cards/companyapproachecard";
-import TestimonialCard from "../components/Cards/testimonialcard";
-
+import TestimonialCard from "../components/Cards/testimonialcard"; 
 import testimonialPicture from "../assets/images/testimonialPic.png";
 import commaimage from "../assets/images/comma.png";
 import webimg from "../assets/images/web.png";
@@ -59,11 +41,12 @@ const IndexPage = ({ data }) => {
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
-  //console.log('process', companylogo)
-  const handleSubmit = (e) => {
+ 
+  const handleSubmit = (e) => { 
     e.preventDefault();
     // Get the form data from the event target
     const formData = new FormData(e.target);
+    console.log(formData,"formData")
     const contactData = {
       data: {
         Name: formData.get("name"),
@@ -71,17 +54,16 @@ const IndexPage = ({ data }) => {
         Message: formData.get("message"),
       },
     };
+    console.log(contactData,"contactData")
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `http://localhost:1337/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          "http://localhost:1337/api/contact-uses",
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
           contactData
         );
       })
@@ -91,7 +73,9 @@ const IndexPage = ({ data }) => {
       .catch((error) => {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
-      });
+      });  
+      e.target.reset();
+
   };
 
   const settings = {
@@ -513,27 +497,27 @@ const IndexPage = ({ data }) => {
                   <img
                     className="gallery-item gallery-item-1"
                     src={webimg}
-                    data-index="1"
+                    data-index="1" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-2"
                     src={webimg}
-                    data-index="2"
+                    data-index="2" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-3"
                     src={webimg}
-                    data-index="3"
+                    data-index="3" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-4"
                     src={webimg}
-                    data-index="4"
+                    data-index="4" alt=" "
                   />
                   <img
                     className="gallery-item gallery-item-5"
                     src={webimg}
-                    data-index="5"
+                    data-index="5" alt=" "
                   />
                 </div>
                 <div className="gallery-controls"></div>
@@ -565,6 +549,16 @@ const IndexPage = ({ data }) => {
             <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
+                <div className="input-box">
+              <div className="form-box">
+                  {/* <input
+                    type="text"
+                    name="name"
+                    onChange={(e)=>e.target.value}
+                    placeholder={"Full Name"}
+                    className="contact-inputs"
+                    img={userImg}  
+                  /> */}
                   <InputBox
                     type="text"
                     placeholder={"Full Name"}
@@ -572,6 +566,13 @@ const IndexPage = ({ data }) => {
                     img={userImg}
                     name="name"
                   />
+                    {/* {!window.location.pathname.includes('contact') ? (
+                  <span className="input-icon">
+                    <img src={img} alt="St Logo" />
+                  </span>) : <></>} */}
+                </div>
+
+                  </div>
                 </div>
                 <div className="input-wrap">
                   {/* <input type="text" placeholder='Email'  />
@@ -593,7 +594,7 @@ const IndexPage = ({ data }) => {
                     name="message"
                   ></textarea>
                   <span className="input-icon">
-                    <img src={messageimg} alt="St Logo" />
+                    <img src={messageimg} alt="St Logo" name="message" />
                   </span>
                 </div>
                 <div className="term-policy">
@@ -624,7 +625,7 @@ export default IndexPage;
 
 export const query = graphql`
   query MyQuery {
-    allStrapiCompanyLogo {
+    allStrapiCompanyLogo (sort: {strapi_id: ASC}) {
       edges {
         node {
           logo {
@@ -634,7 +635,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiExperiencesProcesse {
+    allStrapiExperiencesProcesse (sort: {strapi_id: ASC}) {
       nodes {
         title
         icon {
@@ -644,7 +645,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiTechnologyPartner {
+    allStrapiTechnologyPartner (sort: {strapi_id: ASC}) {
       edges {
         node {
           Image {
@@ -660,7 +661,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiExpertise {
+    allStrapiExpertise (sort: {strapi_id: ASC}) {
       edges {
         node {
           Title
@@ -671,7 +672,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiOurapproache {
+    allStrapiOurapproache (sort: {strapi_id: ASC}) {
       edges {
         node {
           Title
@@ -687,7 +688,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiProcess {
+    allStrapiProcess (sort: {strapi_id: ASC}) {
       edges {
         node {
           Title

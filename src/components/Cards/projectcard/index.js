@@ -8,11 +8,11 @@ export default function ProjectListCard(props) {
   return (
     <>
     <div className="project-box">
-      <img src={img} />
+      <img src={img} alt='st logo' />
       <div className="project-body-box">
         <h3>Smart hire
           <span>
-            <a href="#"><img src={linkIcon} /></a>
+            <a href="#"><img src={linkIcon} alt=' ' /></a>
           </span>
         </h3>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>

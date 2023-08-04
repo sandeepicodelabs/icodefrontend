@@ -1,87 +1,11 @@
 import React from 'react'
-import covercode from '../../assets/images/cover-code.png';
-import ButtonBox from '../../components/button';
 import Header from '../../components/Header/Header';
 import companyaboutimg from '../../assets/images/companyabout.png';
-import WhyChooseCard from "../../components/Cards/whychoosecard";
 import Footer from '../../components/Footer/Footer'
-import Slider from "react-slick";
-import { graphql } from 'gatsby';
-import TechnologyCard from "../../components/Cards/technologycard";
-import CompanyApproachCard from "../../components/Cards/companyapproachecard";
 import './style.css'
 import '../../assets/css/custom.css';
 
-export default function Aboutus({ data }) {
-    const choosecard = data?.allStrapiExperiencesProcesse?.nodes
-    const technologyPartners = data?.allStrapiTechnologyPartner?.nodes
-    const ourApproaches = data?.allStrapiOurapproache.edges
-
-
-    const settings = {
-        dots: false,
-        centerMode: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 6,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 2,
-                    initialSlide: 1,
-                    centerMode: true,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 3,
-                    initialSlide: 3,
-                    centerMode: true,
-                }
-            },
-        ]
-
-    };
-    const technologyslide = {
-        dots: false,
-        centerMode: false,
-        infinite: true,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        speed: 500,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 2,
-                    initialSlide: 1,
-                    centerMode: true,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1,
-                }
-            },
-            {
-                breakpoint: 460,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1,
-                }
-            },
-        ]
-    };
+export default function Aboutus() {
 
     return (
         <div>
@@ -184,8 +108,6 @@ export default function Aboutus({ data }) {
                 </div>
             </section>
 
-
-
             <section id="process">
                 <div className="how-do-we-do">
                     <div className="how-do-we-do">
@@ -239,11 +161,8 @@ export default function Aboutus({ data }) {
                                                         we provide tailor-made solutions that embrace the latest technology.
 
                                                     </div>
-                                                </div>
-
-                                            </div>
-
-
+                                                </div> 
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>
@@ -265,17 +184,12 @@ export default function Aboutus({ data }) {
                                                         our aim is to forge enduring client relationships with a supportive network.
 
                                                     </div>
-                                                </div>
-
-                                            </div>
-
-
+                                                </div> 
+                                            </div> 
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-
+                                </div> 
+                            </div> 
                             <div className='col-md-3'>
                                 <div className='row'>
                                     <div className="our-approach">
@@ -291,14 +205,10 @@ export default function Aboutus({ data }) {
 
                                                     </div>
                                                 </div>
-
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -312,47 +222,3 @@ export default function Aboutus({ data }) {
 
 
 
-export const query = graphql`
-query MyQuery{ 
-    allStrapiExperiencesProcesse {
-        nodes {
-          title
-          icon {
-            id
-            url
-          }
-        }
-      }
-
-      allStrapiTechnologyPartner {
-        nodes {
-          Title
-          Description {
-            data {
-              Description
-            }
-          }
-          Image {
-            url
-          }
-        }
-      }
-
-      allStrapiOurapproache {
-        edges {
-          node {
-            Title
-            Description {
-              data {
-                Description
-              }
-            }
-            Image {
-              url
-            }
-          }
-        }
-      }
-}
-
-`

@@ -2,9 +2,6 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
-// require("dotenv").config({
-//   path: `.env`,
-// });
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -39,9 +36,12 @@ const strapiConfig = {
         populate: {
           image: "*",
           images: "*",
+          TopImage:"*",
           Titleservice: {
             populate: {
               servicedescription: "*",
+              TImage: "*"
+
             },
           },
           ToolService: {
@@ -164,6 +164,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
+        apiURL: "http://127.0.0.1:1337/",
         ...strapiConfig,
       },
     },

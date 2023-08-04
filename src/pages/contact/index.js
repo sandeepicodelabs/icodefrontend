@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import ButtonBox from "../../components/button";
@@ -6,33 +6,20 @@ import contactLocation from "../../assets/images/contact-location.png";
 import contactEmail from "../../assets/images/contact-email.png";
 import contactMeet from "../../assets/images/contact-meet.png";
 import contactSkype from "../../assets/images/contact-skype.png";
-import contactSlack from "../../assets/images/contact-slack.png";
-// import { StaticQuery, graphql } from "gatsby"/
+import contactSlack from "../../assets/images/contact-slack.png"; 
 import Footer from "../../components/Footer/Footer";
 import "./style.css";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
-import { Link } from "gatsby";
-//import { countryList } from 'country-codes-list';
-import PhoneInput from "react-phone-number-input";
-import "../../assets/css/custom.css";
-// import sgMail from './sendgrid'
+import { Link } from "gatsby"; 
+import "../../assets/css/custom.css"; 
 import axios from "axios";
 
-export default function ContactPage() {
-  // const [emailData, setEmailData] = useState({
-  //     to: '',
-  //     subject: '',
-  //     text: '',
-  // });
-
-  // const handleChange = (e) => {
-  //     setEmailData({ ...emailData, [e.target.name]: e.target.value });
-  // };
-
-  const handleSubmit = (e) => {
+export default function ContactPage() { 
+  const handleSubmit = (e) => { 
     e.preventDefault();
     // Get the form data from the event target
     const formData = new FormData(e.target);
+    console.log(formData,"formData")
     const contactData = {
       data: {
         Name: formData.get("name"),
@@ -40,17 +27,16 @@ export default function ContactPage() {
         Message: formData.get("message"),
       },
     };
+    console.log(contactData,"contactData")
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `http://localhost:1337/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          "http://localhost:1337/api/contact-uses",
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
           contactData
         );
       })
@@ -61,6 +47,7 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      e.target.reset();
   };
 
   useEffect(() => {
@@ -123,7 +110,7 @@ export default function ContactPage() {
                   <ul>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactLocation} />
+                        <img src={contactLocation}  alt="st logo"/>
                       </div>
                       <span>
                         F-465, K&B Tower,III Floor, Phase 8B Industrial Area,
@@ -132,13 +119,13 @@ export default function ContactPage() {
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactEmail} />
+                        <img src={contactEmail}  alt="st logo"/>
                       </div>
                       <span>hello@icodelabs.co</span>
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactMeet} />
+                        <img src={contactMeet} alt="st logo"/>
                       </div>
                       <span>
                         <a href="https://calendly.com/jaytiwary">
@@ -148,7 +135,7 @@ export default function ContactPage() {
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactSkype} />
+                        <img src={contactSkype}  alt="st logo"/>
                       </div>
                       <span>
                         <p>
@@ -160,7 +147,7 @@ export default function ContactPage() {
                     </li>
                     <li>
                       <div className="contact-social-icon">
-                        <img src={contactSlack} />
+                        <img src={contactSlack}  alt="st logo"/>
                       </div>
                       <span>
                         <a href="https://icodesoftwarelabs.slack.com">

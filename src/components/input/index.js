@@ -2,9 +2,9 @@
 import './style.css';
  
  export default function InputBox(props) {
-    const { type, value, placeholder, className, img, label } = props;
-    //console.log("input",props)
-    const isClient = typeof window !== 'undefined';
+    const { type, value, placeholder, className, img,demo, name } = props;
+    //console.log("demo",demo)
+    //const isClient = typeof window !== 'undefined';
    return (
         <>
             <div className="input-box">
@@ -14,12 +14,12 @@ import './style.css';
                   value={value}
                   placeholder={placeholder}
                   className={className}
+                  name={name}
                 />
-                 {!isClient || !window.location.pathname.includes('contact') ? (
-                  <span className="input-icon">
+                
+                  {demo?<span className="input-icon">
                     <img src={img} alt="St Logo" />
-                  </span>) : <></>
-                }
+                  </span>:null}
               </div>
             </div>
           </>
