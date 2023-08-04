@@ -34,12 +34,12 @@ export default function ContactPage() {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
+        `http://localhost:1337/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          "http://localhost:1337/api/contact-uses",
           contactData
         );
       })
@@ -50,6 +50,7 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      e.target.reset();
   };
 
   useEffect(() => {

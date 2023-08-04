@@ -89,6 +89,7 @@ const IndexPage = ({ data }) => {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      e.target.reset();
   };
 
   const settings = {
