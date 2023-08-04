@@ -114,7 +114,7 @@ export default function BlogPage({ data, pageContext }) {
               {/* <div className="blog-detail-left-wrap">*/}
               <div className="detail-description-wrap">
                 
-                <ReactMarkdown>{article?.node.Content.data.Content}</ReactMarkdown>
+                <ReactMarkdown>{article?.node?.Content.data.Content}</ReactMarkdown>
               </div>
 
               {/* </div> */}
