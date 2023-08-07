@@ -4,6 +4,7 @@ $base-light-color: #c8f9f8;
 $secondary-color: #57f8f3;
 $black-color: #000;
 $text-color: #333;
+$label-color: #707070;
 $white-color: #fff;
 $border-color: #e1e1e1;
 $light-bg: #f2f2f2;
@@ -29,7 +30,16 @@ body {
   margin: 0;
   padding: 0;
 }
+::-moz-selection {
+  /* Code for Firefox */
+  color: $white-color;
+  background: $base-color;
+}
 
+::selection {
+  color: $white-color;
+  background: $base-color;
+}
 * {
   margin: 0;
   padding: 0;
