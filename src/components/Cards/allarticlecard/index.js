@@ -14,7 +14,7 @@ export default function AllArticleCard(props) {
         <h5 className="all-article-card-title">{articleTitle}</h5>
         <div className="all-article-card-detail-box">
           <div className="all-article-profile-list">
-            <img src={cardprofile}  alt='st logo'/>
+            {/* <img src={cardprofile}  alt='st logo'/> */}
             <div className="all-article-profile-wrap">
               <div className="all-article-name"><span>Posted by :</span> {postedname}</div>
               <div className="all-article-post-date">{postdate}</div>
@@ -22,9 +22,9 @@ export default function AllArticleCard(props) {
           </div>
           <div className="all-article-card-description">{cardtitle}</div>
         </div>
-        <div className="all-article-description">
+        {/* <div className="all-article-description">
           {articledescription}
-        </div>
+        </div> */}
       </div>
     </div>
   </>

@@ -28,7 +28,7 @@ import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./style.scss";
-import "../hooks/TypingEffect.js";
+import "../hooks/TypingEffect.js"; 
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -548,14 +548,7 @@ const IndexPage = ({ data }) => {
                 <div className="input-wrap">
                 <div className="input-box">
               <div className="form-box">
-                  {/* <input
-                    type="text"
-                    name="name"
-                    onChange={(e)=>e.target.value}
-                    placeholder={"Full Name"}
-                    className="contact-inputs"
-                    img={userImg}  
-                  /> */}
+                   
                   <InputBox
                     type="text"
                     placeholder={"Full Name"}
@@ -563,19 +556,13 @@ const IndexPage = ({ data }) => {
                     img={userImg}
                     name="name"
                   />
-                    {/* {!window.location.pathname.includes('contact') ? (
-                  <span className="input-icon">
-                    <img src={img} alt="St Logo" />
-                  </span>) : <></>} */}
+                    
                 </div>
 
                   </div>
                 </div>
                 <div className="input-wrap">
-                  {/* <input type="text" placeholder='Email'  />
-									<span className="input-icon">
-										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
-									</span> */}
+                   
                   <InputBox
                     type="email"
                     placeholder={"Email"}

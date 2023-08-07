@@ -12,6 +12,13 @@ import { Link, graphql } from "gatsby";
 import Commentimg from "../../assets/images/comment.png";
 import "./blog.scss";
 import ReactMarkdown from "react-markdown";
+import InputBox from "../../components/input";
+import userImg from "../../assets/images/user.png";
+import Emailicon from "../../assets/images/email.png";
+import ButtonBox from "../../components/button"; 
+import messageimg from "../../assets/images/message.png";
+import axios from "axios";
+import bigInt from 'big-integer'
 
 const settings = {
   dots: false,
@@ -53,19 +60,43 @@ const settings = {
 export default function BlogPage({ data, pageContext }) {
   // console.log('artile',data)
 
-  // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-  //   const posts = data?.allStrapiArticle?.edges;
-  //   const filteredData = posts?.filter(post => {
-  //     const { Content, Title, Slug ,Type} = post.node
-  //     return (
-  //       Title?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //       Slug?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //       Content?.toLowerCase()?.includes(query?.toLowerCase())
-  //     )
-  //   })
+  // for enquiry form
+  const handleSubmit = (e) => { 
+    e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    console.log(formData,"formData")
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+        MobileNo: bigInt(formData.get("mobileno"))
+      },
+    };
+    console.log(contactData,"contactData")
+    // Make the POST request to your Strapi backend
+    axios
+      .get(
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}&mobileno=${formData.get("mobileno")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
+      })
+      .catch((error) => {
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
+      });  
+      e.target.reset();
 
-  //   const article = posts?.find(item=>{return item?.node?.Slug === pageContext.article?.node?.Slug})
-  //   // console.log('blog',article)
+  };
 
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
@@ -101,10 +132,10 @@ export default function BlogPage({ data, pageContext }) {
             <div className="blog-description-data">
               <div className="blog-detail-title">{article?.node?.Type}</div>
               <div className="blog-detail-data">
-                <div className="blog-card-date">{article?.node?.updatedAt}</div>
+                <div className="blog-card-date">{article?.node?.createdAt}</div>
 
                 <div className="blog-card-posted-name">
-                  <span>Posted by :</span>john
+                  <span>Posted by :</span>{article?.node?.Author}
                 </div>
               </div>
             </div>
@@ -128,7 +159,7 @@ export default function BlogPage({ data, pageContext }) {
                           key={i}
                           //populartitle={item.node?.category.name}
                           // profilename={item.node?.user.displayName}
-                          postdate={item.node?.publishedAt}
+                          postdate={item.node?.createdAt}
                           blogdescription={item.node?.Title}
                         />
                       </Link>
@@ -136,7 +167,62 @@ export default function BlogPage({ data, pageContext }) {
                   </div>
                 </div>
                 <div className="blog-detail-sidebar-subscribe">
-                  <SubscribeCard />
+                  {/* <SubscribeCard /> */}
+                  <form className="contact-right" onSubmit={handleSubmit} >
+              <div className="contact-form">
+                <h1>Let’s Build Your Dream App!</h1>
+                <div className="input-wrap">
+                <div className="input-box">
+              <div className="form-box">
+                
+                  <InputBox
+                    type="text"
+                    placeholder={"Full Name"}
+                    className="contact-inputs"
+                    img={userImg}
+                    name="name"
+                  /> 
+                </div> 
+                  </div>
+                </div>
+                <div className="input-wrap">
+                  {/* <input type="text" placeholder='Email'  />
+									<span className="input-icon">
+										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
+									</span> */}
+                  <InputBox
+                    type="email"
+                    placeholder={"Email"}
+                    className="contact-inputs"
+                    img={Emailicon}
+                    name="email"
+                  />
+                </div>
+                <div className="input-wrap"> 
+                  <InputBox
+                    type="number"
+                    placeholder={"Mobile No"}
+                    className="contact-inputs"
+                    //img={Emailicon}
+                    name="mobileno"
+                  />
+                </div>
+                <div className="input-wrap">
+                  <textarea
+                    placeholder="Write a message here"
+                    rows={5}
+                    name="message"
+                  ></textarea>
+                  <span className="input-icon">
+                    <img src={messageimg} alt="St Logo" name="message" />
+                  </span>
+                </div>
+               
+                <div className="send-button">
+                  <ButtonBox type="submit" buttonname="Send message" />
+                </div>
+              </div>
+            </form>
                 </div>
               </div>
             </div>
@@ -181,10 +267,11 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle{
+    allStrapiArticle (limit: 6, sort: {Title: DESC}){
       edges {
         node {
           Title
+          Author
           Slug
           Type
           Content {
@@ -192,8 +279,8 @@ export const query = graphql`
               Content
             }
           }
-          createdAt(formatString: "DD MM YYYY")
-          updatedAt(formatString: "DD MM YYYY")
+          createdAt(formatString: "DD MMMM, YYYY")
+          updatedAt(formatString: "DD MMMM, YYYY")
           Promotext
           Image {
             url

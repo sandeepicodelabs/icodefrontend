@@ -18,6 +18,12 @@ import "./blog.scss";
 import { graphql, Link } from "gatsby";
 import paginationNext from "../../assets/images/pagination-next-icon.png";
 import paginationprev from "../../assets/images/pagination-prev-icon.png";
+import InputBox from "../../components/input";
+import userImg from "../../assets/images/user.png";
+import Emailicon from "../../assets/images/email.png";
+import ButtonBox from "../../components/button"; 
+import messageimg from "../../assets/images/message.png";
+import axios from "axios";
 
 export default function Blog({ data, pageContext }) {
   // const { currentPage, count } = pageContext;
@@ -43,17 +49,7 @@ export default function Blog({ data, pageContext }) {
     );
   });
 
-  // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-  // const posts = data?.allStrapiArticle?.edges;
-  // const filteredData = posts.filter(post => {
-  //   const { Content, Title, Slug, publishedAt, Type } = post.node
-  //   return (
-  //     Title?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //     Slug?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //     Content?.toLowerCase()?.includes(query?.toLowerCase())
 
-  //   )
-  // });
 
   const blogcovercard = [
     {
@@ -74,7 +70,7 @@ export default function Blog({ data, pageContext }) {
         <Header />
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box">
-          <div className="blog-wrap-data">
+          {/* <div className="blog-wrap-data">
             <div className="blog-card-cover">
               {blogcovercard.map((item, i) => (
                 <BlogCoverCard
@@ -120,12 +116,12 @@ export default function Blog({ data, pageContext }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="article-main-box">
-            <div className="all-article-heading">
+            {/* <div className="all-article-heading">
               <h3>All articles</h3>
-            </div>
+            </div> */}
             <div className="all-article-wrap">
               <div className="article-list-wrap">
                 <div className="article-card-list-most">
@@ -138,7 +134,7 @@ export default function Blog({ data, pageContext }) {
                           // cardprofile={item.node?.user.profileimage?.publicURL}
                           articleTitle={item.node?.Type}
                           // articledescription={item.node?.Content}
-                          //postedname={item.node?.user.displayName}
+                          postedname={item.node?.Author}
                           postdate={item.node?.publishedAt}
                           cardtitle={
                             <Link to={"/blog/" + item?.node?.Slug}>
@@ -151,6 +147,14 @@ export default function Blog({ data, pageContext }) {
                 </div>
               </div>
               <div className="most-popular-article">
+              <div className="search-box">
+                <div className="input-box-wrap">
+                  <input type="text" placeholder="Search Topics..." />
+                  <span>
+                    <img src={SearchIcon} alt="St Logo" />
+                  </span>
+                </div>
+              </div>
                 <div className="most-polular">
                   <h1>Most popular</h1>
                   <div className="popular-wrap-box">
@@ -170,6 +174,7 @@ export default function Blog({ data, pageContext }) {
                   </div>
                 </div>
                 <div className="subscribe-box">
+             
                   <SubscribeCard />
                 </div>
               </div>
@@ -214,10 +219,11 @@ export default function Blog({ data, pageContext }) {
 
 export const query = graphql`
 query MyQuery{
-  allStrapiArticle(limit: 6, sort: {Title: DESC}){
+  allStrapiArticle(limit: 6 , sort: {Title: DESC}){
       edges {
         node {
           Title
+          Author
           Slug
           Type
           Image {

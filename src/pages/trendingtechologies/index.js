@@ -19,7 +19,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
   const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-   //console.log(jointTechs, "---technology")
+   console.log(technology, "---technology")
   return (
     <div className="outer-trading-box">
       <Header />
@@ -86,8 +86,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
           <div className="our-tech-team">
             <h1>{technology?.node?.Valuetitle}</h1>
             <div className="out-hiring-tech-subtext">
-              Our team of React developers have more than 5 years of development experience .
-              Our core focus is to delivery a quality, maintainable & scalable solution.
+            {technology?.node?.Valuedescription?.data.Valuedescription}
             </div>
           </div>
           <div className="join-expertise">
