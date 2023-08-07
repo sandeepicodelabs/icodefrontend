@@ -40,9 +40,6 @@
         padding-top: 30px;
         h1 {
           font-style: normal;
-          font-weight: 600;
-          font-size: 24px;
-          line-height: 128%;
           text-align: center;
           text-transform: capitalize;
           color: $black-color;
@@ -52,6 +49,9 @@
           margin: auto;
           padding: 0 30px;
           max-width: 100%;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 128%;
           @include sm {
             padding: 0 70px;
             max-width: 90%;
@@ -291,18 +291,17 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    @include md {
-      padding: 80px 24px 30px;
-    }
+
     @include lg {
+      padding: 80px 24px 30px;
       flex-direction: row;
     }
     .company-description {
       width: 100%;
-      padding-bottom: 20px;
+      padding-bottom: 40px;
       @include lg {
         width: 60%;
-        padding-right: 20px;
+        padding-right: 40px;
         padding-bottom: 0px;
       }
 
@@ -351,6 +350,11 @@
       }
     }
     .company-images {
+      width: 100%;
+      text-align: center;
+      @include lg {
+        width: 40%;
+      }
       & > img {
         max-width: 100%;
       }
@@ -985,6 +989,16 @@
 }
 
 .how-do-we-do {
+  &.ourStrength {
+    .inner-timeline-box {
+      &.contentWidth {
+        padding: 50px 24px 30px;
+        @include lg {
+          padding: 80px 24px 40px;
+        }
+      }
+    }
+  }
   .inner-timeline-box {
     &.contentWidth {
       padding: 50px 24px;
@@ -1025,9 +1039,9 @@
 
       p {
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 16px;
-        line-height: 130%;
+        line-height: 160%;
         text-transform: capitalize;
         color: $text-color;
         text-align: center;
@@ -1303,6 +1317,7 @@
     display: inline-block;
     position: absolute;
     z-index: 1;
+    top: -1px;
     @include lg {
       height: 100px;
     }
@@ -1315,9 +1330,17 @@
       padding: 0px 24px 80px;
     }
   }
+  &.ourCoreStrength {
+    .contentWidth {
+      padding-bottom: 60px;
+      .company-approach-card {
+        padding-bottom: 0;
+      }
+    }
+  }
   .company-approach-card {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     gap: 20px;
     justify-content: flex-start;
@@ -1359,11 +1382,6 @@
         text-transform: capitalize;
         color: $white-color;
         margin-bottom: 12px;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
       }
 
       .approach-subheading {

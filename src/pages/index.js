@@ -23,7 +23,7 @@ import InputBox from "../components/input";
 import Slider from "react-slick";
 import "../assets/css/slick/slick-theme.css";
 import "../assets/css/slick/slick.css";
-import "../assets/css/custom.css";
+// import "../assets/css/custom.css";
 // import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
@@ -261,7 +261,6 @@ const IndexPage = ({ data }) => {
       <section className="our-company-about">
         <div className="contentWidth">
           <div className="company-description">
-            {/* <h1 className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</h1> <br /> */}
             <div className="sectionHeading">
               <h2>ICode Labs: Igniting Ideas And Engineering Excellence.</h2>
               <span className="line">&nbsp;</span>

@@ -1,0 +1,137 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+.cover-background {
+  background-image: url("../assets/images/tranding-cover.png");
+  min-height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  border-top: 1px solid rgba(0, 152, 162, 0.3);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  @include md {
+    padding: 50px 0;
+  }
+  .contentWidth {
+    max-width: 100%;
+    @include xl {
+      max-width: 60%;
+    }
+  }
+  h1 {
+    color: $black-color;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    line-height: 130%;
+    @include sm {
+      font-size: 30px;
+      line-height: 135%;
+    }
+    @include md {
+      font-size: 34px;
+      line-height: 140%;
+    }
+    @include lg {
+      font-size: 38px;
+      line-height: 145%;
+    }
+  }
+  p {
+    color: $text-color;
+    font-size: 18px;
+    line-height: 150%;
+    @include sm {
+      font-size: 20px;
+    }
+  }
+}
+.ourMissionSec {
+  padding: 100px 24px 50px;
+  background-color: $light-bg;
+  @include lg {
+    padding: 130px 24px 80px;
+  }
+  .contentWidth {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .join-our-about {
+      background: #ffffff;
+      padding: 64px 24px 49px 24px;
+      box-shadow: $box-shadow;
+      border-radius: 10px;
+      position: relative;
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 60px;
+      }
+      @include lg {
+        margin: 0;
+      }
+      .sectionHeading {
+        .line {
+          width: 60px;
+        }
+      }
+      h5 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 33px;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        color: $black-color;
+        margin-bottom: 12px;
+      }
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0;
+        color: $text-color;
+      }
+      .join-icon {
+        position: absolute;
+        top: -60px;
+        left: 24px;
+        background-color: $base-color;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & > svg {
+          width: 50px;
+          height: 50px;
+          &.iconExpert {
+            path {
+              fill: none;
+              stroke: $white-color;
+            }
+          }
+          &.iconVision {
+            path {
+              fill: none;
+              stroke: $white-color;
+              stroke-width: 1.5px;
+            }
+          }
+          path {
+            fill: $white-color;
+          }
+        }
+      }
+    }
+  }
+}
