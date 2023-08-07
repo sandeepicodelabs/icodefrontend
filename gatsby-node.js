@@ -9,10 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node {
                   strapi_id
                   Slug
-                  pageInfo {
-                    currentPage
-                    pageCount
-                  }
+                   
                 }
               }
             }
@@ -47,24 +44,22 @@ exports.createPages = async ({ graphql, actions }) => {
       //const articles = result.data.articles.edges
   
       const technologies=result.data.technologies.edges
-      const services=result.data.services.edges
+      const services=result.data.services.edges 
 
- 
-
-      const articles = result.data.articles.edges;
-      const { pageCount } = result.data.allStrapiArticle.pageInfo;
-       const articlesPerPage = 6;
+       const articles = result.data.articles.edges;
+      // const { pageCount } = result.data.allStrapiArticle.pageInfo;
+      //  const articlesPerPage = 6;
        
-       Array.from({ length: pageCount }).forEach((_, i) => {
-        createPage({
-          path: i === 0 ? `/articles` : `/articles/${i + 1}`,
-          component: articleTemplate,
-          context: {
-            limit: articlesPerPage,
-            skip: i * articlesPerPage,
-          },
-        });
-      });
+      //  Array.from({ length: pageCount }).forEach((_, i) => {
+      //   createPage({
+      //     path: i === 0 ? `/articles` : `/articles/${i + 1}`,
+      //     component: articleTemplate,
+      //     context: {
+      //       limit: articlesPerPage,
+      //       skip: i * articlesPerPage,
+      //     },
+      //   });
+      // });
 
 
 

@@ -233,15 +233,18 @@ query MyQuery{
           publishedAt(formatString: "DD MMMM, YYYY")
         }
       }
-      pageInfo {
-        pageCount
-        currentPage
-        hasNextPage
-        hasPreviousPage
-        itemCount
-        perPage
-        totalCount
-      }
+     
     }
   }
 `;
+
+
+ // pageInfo {
+      //   pageCount
+      //   currentPage
+      //   hasNextPage
+      //   hasPreviousPage
+      //   itemCount
+      //   perPage
+      //   totalCount
+      // }
