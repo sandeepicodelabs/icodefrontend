@@ -1,0 +1,194 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+.getintouch-box {
+  background-color: $base-color;
+  padding: 50px 0;
+  @include lg {
+    padding: 80px 0;
+  }
+
+  .getbox-form {
+    display: flex;
+    background: $white-color;
+    border-radius: 10px;
+    flex-direction: column;
+    @include lg {
+      flex-direction: row;
+    }
+    .getintouch-form {
+      width: 100%;
+      padding: 50px 48px;
+      @include lg {
+        width: 60%;
+      }
+      .gettouch-heading {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 42px;
+        color: $black-color;
+        margin-bottom: 6px;
+      }
+
+      .gettouch-subheading {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $text-color;
+        margin-bottom: 20px;
+      }
+      & > form {
+        margin-top: 10px;
+        float: left;
+        width: 100%;
+        .form-box-input {
+          .form-row-box {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            flex-direction: column;
+            @include md {
+              flex-direction: row;
+            }
+            .form-main-group {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              @include md {
+                width: calc(50% - 9px);
+                margin: 0;
+              }
+              &:not(:last-child) {
+                margin-bottom: 24px;
+                @include md {
+                  margin-right: 18px;
+                  margin-bottom: 0px;
+                }
+              }
+              .contact-input {
+                padding: 0 24px;
+                height: 50px;
+                background: rgb(203 203 203 / 5%);
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                font-weight: 400;
+                width: 100%;
+              }
+            }
+          }
+          .form-main-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            label {
+              font-size: 15px;
+              margin-bottom: 5px;
+              color: $label-color;
+            }
+
+            .contact-input {
+              padding: 0 16px;
+              height: 50px;
+              background: rgb(203 203 203 / 5%);
+              border: 1px solid $border-color;
+              border-radius: 4px;
+              font-weight: 400;
+              width: 100%;
+              font-size: 16px;
+              &:focus {
+                border-color: #9bc6c5;
+                outline: none;
+              }
+            }
+            textarea {
+              height: 150px !important;
+              padding: 16px !important;
+              resize: none;
+              box-sizing: border-box;
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .getintouch-links {
+    background-image: url("../assets/images/contactlocation.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    position: relative;
+    @include lg {
+      width: 40%;
+    }
+    .contact-data {
+      background: rgba(0, 91, 88, 0.8);
+      border: 2px solid #ffffff;
+      box-shadow: 0px 0px 50px rgb(0 91 88 / 40%);
+      border-radius: 0px 10px 10px 0px;
+      height: 100%;
+      .contact-details-right {
+        padding: 50px 0;
+        .contact-heading {
+          background-color: $white-color;
+          color: $black-color;
+          font-size: 24px;
+          line-height: 130%;
+          font-weight: 500;
+          max-width: 90%;
+          width: 100%;
+          margin-left: auto;
+          padding: 10px 30px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          @include xl {
+            font-size: 28px;
+            padding: 10px 40px;
+          }
+        }
+        .contact-social-details {
+          padding: 0 48px;
+          margin-top: 48px;
+          ul {
+            list-style-type: none;
+
+            li {
+              margin-bottom: 24px;
+              display: flex;
+              align-items: center;
+
+              span {
+                padding-left: 24px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: $white-color;
+
+                a {
+                  font-style: normal;
+                  font-weight: 400;
+                  font-size: 16px;
+                  line-height: 24px;
+                  color: $white-color;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.button-box {
+  margin-top: 48px;
+}
+
+.st_map_st_contact_page {
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
+}

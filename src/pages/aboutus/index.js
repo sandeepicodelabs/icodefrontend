@@ -3,7 +3,6 @@ import Header from "../../components/Header/Header";
 import companyaboutimg from "../../assets/images/companyabout.png";
 import Footer from "../../components/Footer/Footer";
 import "../about.scss";
-import "../../assets/css/custom.css";
 import IconExpert from "../../components/IconExpert/IconExpert";
 import IconMission from "../../components/IconMission/IconMission";
 import IconVision from "../../components/IconVision/IconVision";

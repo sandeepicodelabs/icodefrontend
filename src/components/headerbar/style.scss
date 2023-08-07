@@ -1,0 +1,90 @@
+@import "../../styles/customMediaQueries.scss";
+@import "../../styles/variables.scss";
+.blog-header-wrap {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background: rgba(87, 248, 243, 0.28);
+  .contentWidth {
+    padding: 50px 24px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style-type: none;
+      width: 100%;
+      @include md {
+        width: auto;
+        justify-content: start;
+      }
+      .breadcrumb-item {
+        color: $text-color;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 100%;
+        margin-right: 12px;
+        display: inline-flex;
+        align-items: center;
+        &::before {
+          background-image: url("../../assets/images/breadcrumparrow.png");
+          content: "";
+          height: 15px;
+          width: 8px;
+          background-position: center;
+          background-size: 6px;
+          background-repeat: no-repeat;
+          margin-right: 12px;
+          display: inline-block;
+        }
+        &:first-child {
+          &::before {
+            display: none;
+          }
+        }
+        &.active {
+          color: $black-color;
+          margin-right: 0;
+        }
+        a {
+          color: $text-color;
+          font-size: 15px;
+          font-weight: 500;
+          line-height: 100%;
+          text-decoration: none;
+          &:hover {
+            color: $base-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .blog-header {
+    text-align: center;
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      text-transform: capitalize;
+      color: $black-color;
+      margin-bottom: 0;
+      font-size: 28px;
+      line-height: 130%;
+      @include sm {
+        font-size: 30px;
+        line-height: 135%;
+      }
+      @include md {
+        font-size: 34px;
+        line-height: 140%;
+      }
+      @include lg {
+        font-size: 38px;
+        line-height: 145%;
+      }
+    }
+  }
+}

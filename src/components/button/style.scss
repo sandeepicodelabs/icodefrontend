@@ -1,0 +1,26 @@
+@import "../../styles/customMediaQueries.scss";
+@import "../../styles/variables.scss";
+.button-box {
+  button {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    padding: 12px 30px;
+    font-size: 16px;
+    letter-spacing: 0.025em;
+    text-transform: capitalize;
+    color: $white-color;
+    background: $base-color;
+    border-radius: 50px;
+    border: 1px solid $base-color;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(0 0 0 / 78%);
+      color: $white-color;
+    }
+    @media (min-width: 768px) {
+      padding: 14px 38px;
+      font-size: 18px;
+    }
+  }
+}
