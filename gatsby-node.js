@@ -9,6 +9,10 @@ exports.createPages = async ({ graphql, actions }) => {
                 node {
                   strapi_id
                   Slug
+                  pageInfo {
+                    currentPage
+                    pageCount
+                  }
                 }
               }
             }
@@ -48,22 +52,19 @@ exports.createPages = async ({ graphql, actions }) => {
  
 
       const articles = result.data.articles.edges;
-      const postsPerPage = 6;
-      const numPages = Math.ceil(articles.length / postsPerPage);
-    
-      Array.from({ length: numPages }).forEach((_, i) => {
+      const { pageCount } = result.data.allStrapiArticle.pageInfo;
+       const articlesPerPage = 6;
+       
+       Array.from({ length: pageCount }).forEach((_, i) => {
         createPage({
-          path: i === 0 ? "../blog" : `../blog/${i + 1}`,
-          component: require.resolve("./src/pages/blog/index.js"),
+          path: i === 0 ? `/articles` : `/articles/${i + 1}`,
+          component: articleTemplate,
           context: {
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            numPages,
-            currentPage: i + 1,
+            limit: articlesPerPage,
+            skip: i * articlesPerPage,
           },
         });
       });
-      
 
 
 

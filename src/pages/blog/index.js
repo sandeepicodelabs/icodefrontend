@@ -102,7 +102,7 @@ export default function Blog({ data, pageContext }) {
                 <div className="article-heading">Recent articles</div>
                 <div className="article-card">
                   <div>
-                    {filteredData.map((item, i) => (
+                    {filteredData && filteredData.map((item, i) => (
                       <div>
                         <Link to={"/blog/" + item?.node?.Slug}> </Link>
                         <BlogArticleCard
@@ -154,7 +154,7 @@ export default function Blog({ data, pageContext }) {
                 <div className="most-polular">
                   <h1>Most popular</h1>
                   <div className="popular-wrap-box">
-                    {filteredData.map((item, i) => (
+                    {filteredData && filteredData.map((item, i) => (
                       <div className="popular-list">
                         <Link to={"/blog/" + item?.node?.Slug}>
                           {item?.node?.Title}
@@ -209,9 +209,12 @@ export default function Blog({ data, pageContext }) {
   );
 }
 
+
+
+
 export const query = graphql`
-  query MyQuery {
-    allStrapiArticle(sort: { publishedAt: DESC }) {
+query MyQuery{
+  allStrapiArticle(limit: 6, sort: {Title: DESC}){
       edges {
         node {
           Title
@@ -229,6 +232,15 @@ export const query = graphql`
           createdAt(formatString: "DD MMMM, YYYY")
           publishedAt(formatString: "DD MMMM, YYYY")
         }
+      }
+      pageInfo {
+        pageCount
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        itemCount
+        perPage
+        totalCount
       }
     }
   }
