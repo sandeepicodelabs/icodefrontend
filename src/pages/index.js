@@ -1,7 +1,7 @@
-import * as React from "react"; 
+import * as React from "react";
 import { graphql } from "gatsby";
-import Header from "../components/Header/Header"; 
-import ButtonBox from "../components/button"; 
+import Header from "../components/Header/Header";
+import ButtonBox from "../components/button";
 import companyaboutimg from "../assets/images/companyabout.png";
 import covercode from "../assets/images/cover-code.png";
 import meanstack from "../assets/images/meanstack.png"; 
@@ -9,7 +9,7 @@ import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
 import CompanyApproachCard from "../components/Cards/companyapproachecard";
-import TestimonialCard from "../components/Cards/testimonialcard"; 
+import TestimonialCard from "../components/Cards/testimonialcard";
 import testimonialPicture from "../assets/images/testimonialPic.png";
 import commaimage from "../assets/images/comma.png";
 import webimg from "../assets/images/web.png";
@@ -20,7 +20,7 @@ import InputBox from "../components/input";
 import Slider from "react-slick";
 import "../assets/css/slick/slick-theme.css";
 import "../assets/css/slick/slick.css";
-import "../assets/css/custom.css";
+// import "../assets/css/custom.css";
 // import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
@@ -38,12 +38,11 @@ const IndexPage = ({ data }) => {
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
- 
-  const handleSubmit = (e) => { 
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Get the form data from the event target
     const formData = new FormData(e.target);
-    console.log(formData,"formData")
+    console.log(formData, "formData");
     const contactData = {
       data: {
         Name: formData.get("name"),
@@ -51,11 +50,13 @@ const IndexPage = ({ data }) => {
         Message: formData.get("message"),
       },
     };
-    console.log(contactData,"contactData")
+    console.log(contactData, "contactData");
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get("name")}&email=${formData.get("email")}&message=${formData.get("message")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get("message")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -70,9 +71,8 @@ const IndexPage = ({ data }) => {
       .catch((error) => {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
-      });  
-      e.target.reset();
-
+      });
+    e.target.reset();
   };
 
   const settings = {
@@ -258,8 +258,7 @@ const IndexPage = ({ data }) => {
       <section className="our-company-about">
         <div className="contentWidth">
           <div className="company-description">
-            {/* <h1 className="text-bold">ICode Labs: Igniting Ideas And Engineering Excellence.</h1> <br /> */}
-            <div className="sectionHeaing">
+            <div className="sectionHeading">
               <h2>ICode Labs: Igniting Ideas And Engineering Excellence.</h2>
               <span className="line">&nbsp;</span>
             </div>
@@ -287,7 +286,10 @@ const IndexPage = ({ data }) => {
       <section id="about">
         <div className="contentWidth why-choose-us">
           <div className="heading-main">
-            <h1 className="choose-heading">Why Choose Icode Labs?</h1>
+            <div className="sectionHeading">
+              <h1 className="choose-heading">Why Choose Icode Labs?</h1>
+              <span className="line">&nbsp;</span>
+            </div>
             <div className="choose-subheading">
               Empowering Business Success through Passionate Development
             </div>
@@ -316,10 +318,13 @@ const IndexPage = ({ data }) => {
         <div className="tech-partner">
           <div className="service-content-wrapper contentWidth">
             <div className="partner-content">
-              <h1>
-                Accelerating Your Business Growth with Cutting-Edge Digital
-                Solutions
-              </h1>
+              <div className="sectionHeading">
+                <h1>
+                  Accelerating Your Business Growth with Cutting-Edge Digital
+                  Solutions
+                </h1>
+                <span className="line">&nbsp;</span>
+              </div>
               <p>
                 We are a top-notch software development company, recognized for
                 our excellence, delivering tangible outcomes through
@@ -328,7 +333,7 @@ const IndexPage = ({ data }) => {
               </p>
             </div>
             <div className="partner-slider">
-              <Slider {...technologyslide}>
+              {/* <Slider {...technologyslide}>
                 {technologyPartners &&
                   technologyPartners.map((item, i) => (
                     <TechnologyCard
@@ -340,7 +345,18 @@ const IndexPage = ({ data }) => {
                       }
                     />
                   ))}
-              </Slider>
+              </Slider> */}
+              {technologyPartners &&
+                technologyPartners.map((item, i) => (
+                  <TechnologyCard
+                    key={i}
+                    technologyheading={item?.node?.Title}
+                    img={item?.node?.Image[0]?.url}
+                    technologydescription={
+                      item?.node?.Description?.data?.Description
+                    }
+                  />
+                ))}
             </div>
           </div>
         </div>
@@ -349,8 +365,12 @@ const IndexPage = ({ data }) => {
       <section id="technologies">
         <div className="our-expertise">
           <div className="contentWidth">
-            <h1>We expertise in </h1>
+            <div className="sectionHeading">
+              <h1>We expertise in </h1>
+              <span className="line">&nbsp;</span>
+            </div>
             <p>trending technologies the world is looking at</p>
+
             <div className="our-expertise-tech">
               {expertTech &&
                 expertTech.map((item, i) => (
@@ -370,7 +390,10 @@ const IndexPage = ({ data }) => {
         <div className="how-do-we-do">
           <div className="inner-timeline-box contentWidth">
             <div className="timeline-heading">
-              <h1>How Do We Work?</h1>
+              <div className="sectionHeading ">
+                <h1>How Do We Work?</h1>
+                <span className="line">&nbsp;</span>
+              </div>
               <p>Process in 5 easy step</p>
             </div>
             <div className="timeline-content">
@@ -422,9 +445,12 @@ const IndexPage = ({ data }) => {
         <div className="about-client-box">
           <div className="contentWidth">
             <div className="about-client">
-              <h1 className="client-heading">
-                What clients say <br /> about us
-              </h1>
+              <div className="sectionHeading">
+                <h1 className="client-heading">
+                  What clients say <br /> about us
+                </h1>
+                <span className="line">&nbsp;</span>
+              </div>
               <ButtonBox type="button" buttonname="Reade more reviews" />
             </div>
             <div className="about-slide">
@@ -450,7 +476,10 @@ const IndexPage = ({ data }) => {
       <section>
         <div className="recent-work">
           <div className="contentWidth work-box">
-            <h1>our recent work</h1>
+            <div className="sectionHeading">
+              <h1>our recent work</h1>
+              <span className="line">&nbsp;</span>
+            </div>
             <div className="work-slider">
               <Slider {...workSlider}>
                 <div className="work-slider-item">
@@ -534,7 +563,10 @@ const IndexPage = ({ data }) => {
           <div className="contentWidth contact-us-box">
             <div className="contact-left">
               <div className="contact-top-content">
-                <h1 className="contact-heading">Have a Question?</h1>
+                <div className="sectionHeading">
+                  <h1 className="contact-heading">Have a Question?</h1>
+                  <span className="line">&nbsp;</span>
+                </div>
                 <p className="contact-Subheading">
                   Write Us, we will contact you shortly!
                 </p>
@@ -546,19 +578,28 @@ const IndexPage = ({ data }) => {
             <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
-                <div className="input-box">
-              <div className="form-box">
-                   
-                  <InputBox
+                  <div className="input-box">
+                    <div className="form-box">
+                      {/* <input
                     type="text"
+                    name="name"
+                    onChange={(e)=>e.target.value}
                     placeholder={"Full Name"}
                     className="contact-inputs"
-                    img={userImg}
-                    name="name"
-                  />
-                    
-                </div>
-
+                    img={userImg}  
+                  /> */}
+                      <InputBox
+                        type="text"
+                        placeholder={"Full Name"}
+                        className="contact-inputs"
+                        img={userImg}
+                        name="name"
+                      />
+                      {/* {!window.location.pathname.includes('contact') ? (
+                  <span className="input-icon">
+                    <img src={img} alt="St Logo" />
+                  </span>) : <></>} */}
+                    </div>
                   </div>
                 </div>
                 <div className="input-wrap">
@@ -609,7 +650,7 @@ export default IndexPage;
 
 export const query = graphql`
   query MyQuery {
-    allStrapiCompanyLogo (sort: {strapi_id: ASC}) {
+    allStrapiCompanyLogo(sort: { strapi_id: ASC }) {
       edges {
         node {
           logo {
@@ -619,7 +660,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiExperiencesProcesse (sort: {strapi_id: ASC}) {
+    allStrapiExperiencesProcesse(sort: { strapi_id: ASC }) {
       nodes {
         title
         icon {
@@ -629,7 +670,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiTechnologyPartner (sort: {strapi_id: ASC}) {
+    allStrapiTechnologyPartner(sort: { strapi_id: ASC }) {
       edges {
         node {
           Image {
@@ -645,7 +686,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiExpertise (sort: {strapi_id: ASC}) {
+    allStrapiExpertise(sort: { strapi_id: ASC }) {
       edges {
         node {
           Title
@@ -656,7 +697,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiOurapproache (sort: {strapi_id: ASC}) {
+    allStrapiOurapproache(sort: { strapi_id: ASC }) {
       edges {
         node {
           Title
@@ -672,7 +713,7 @@ export const query = graphql`
       }
     }
 
-    allStrapiProcess (sort: {strapi_id: ASC}) {
+    allStrapiProcess(sort: { strapi_id: ASC }) {
       edges {
         node {
           Title
