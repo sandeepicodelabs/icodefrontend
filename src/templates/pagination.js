@@ -3,8 +3,9 @@ import React from 'react'
 
 export default function Pagination({pageContext}) {
     //const { pageContext, data } = props;
-    const {pageCount}=pageContext
-    console.log(pageContext,"pagination")
+    const { group, index, first, last, pageCount } = pageContext
+    const previousUrl = index - 1 == 1 ? '/' : (index - 1).toString()
+    const nextUrl = (index + 1).toString()
   return (
     <>
      {/* <Layout theme="st_header_area sticky-bg-chambray"> */}
@@ -22,6 +23,8 @@ export default function Pagination({pageContext}) {
           </div>
         </div>
       </section>
+
+      <h4>{pageCount} Pages</h4>
       {/* <ArticlesComponent articles={data.articles.edges} pageContext={pageContext} /> */}
 
     {/* </Layout> */}
