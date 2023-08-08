@@ -384,12 +384,6 @@
   }
 }
 @media (max-width: 768px) {
-  .estimate-contact h3 {
-    font-size: 22px;
-    line-height: 33px;
-    margin-bottom: 24px;
-  }
-
   .stack-tools-use .stack-tools-card .stack-card {
     width: 90%;
     min-width: 90%;
@@ -467,10 +461,6 @@
   }
 }
 @media (max-width: 460px) {
-  .estimate-contact h3 {
-    font-size: 18px;
-    line-height: 28px;
-  }
   .stack-label {
     font-size: 18px !important;
   }

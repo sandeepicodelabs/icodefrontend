@@ -1,25 +1,24 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import satisfactionGuaranteed from '../../assets/images/satisfaction-guaranteed.png'
-import QualityCode from '../../assets/images/quality-code.png'
-import Enableprocess from '../../assets/images/enable-process.png'
-import ButtonBox from '../../components/button';
-import TrandingCover from '../../components/Cards/tradingcover';
-import WhyWeJoinCard from '../../components/Cards/jointeamcard';
-import { graphql } from 'gatsby';
-import Footer from '../../components/Footer/Footer';
-import EstimateCard from '../../components/Cards/estimatecard';
-import './style.css'
-import StackToolsCard from '../../components/Cards/StackToolsCard';
-
-
+import React from "react";
+import Header from "../../components/Header/Header";
+import satisfactionGuaranteed from "../../assets/images/satisfaction-guaranteed.png";
+import QualityCode from "../../assets/images/quality-code.png";
+import Enableprocess from "../../assets/images/enable-process.png";
+import ButtonBox from "../../components/button";
+import TrandingCover from "../../components/Cards/tradingcover";
+import WhyWeJoinCard from "../../components/Cards/jointeamcard";
+import { graphql } from "gatsby";
+import Footer from "../../components/Footer/Footer";
+import EstimateCard from "../../components/Cards/estimatecard";
+import "./style.css";
+import StackToolsCard from "../../components/Cards/StackToolsCard";
 
 export default function ExpertiseCard({ data, props, pageContext }) {
-
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
-  const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-   //console.log(jointTechs, "---technology")
+  const technology = technologycard.find((item) => {
+    return item.node.Slug === pageContext?.technology?.node?.Slug;
+  });
+  //console.log(jointTechs, "---technology")
   return (
     <div className="outer-trading-box">
       <Header />
@@ -44,6 +43,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
           <div className="hiring-buttons">
             <ButtonBox
               buttonname="Book free consutation"
+              className="hire-dev-button"
             />
             <ButtonBox
               buttonname="Hire developer"
@@ -73,8 +73,10 @@ export default function ExpertiseCard({ data, props, pageContext }) {
               <div className="approach-box">
                 <h4>{technology?.node?.Developmenttitle}</h4>
                 <p>
-                  {technology?.node?.Developmentdescription.data.Developmentdescription}
-
+                  {
+                    technology?.node?.Developmentdescription.data
+                      .Developmentdescription
+                  }
                 </p>
               </div>
             </div>
@@ -86,37 +88,41 @@ export default function ExpertiseCard({ data, props, pageContext }) {
           <div className="our-tech-team">
             <h1>{technology?.node?.Valuetitle}</h1>
             <div className="out-hiring-tech-subtext">
-              Our team of React developers have more than 5 years of development experience .
-              Our core focus is to delivery a quality, maintainable & scalable solution.
+              Our team of React developers have more than 5 years of development
+              experience . Our core focus is to delivery a quality, maintainable
+              & scalable solution.
             </div>
           </div>
           <div className="join-expertise">
-            {jointTechs && jointTechs.map((item, i) => (
-              <WhyWeJoinCard
-                key={i}
-                 img={item.node?.Image[0]?.url}
-                teamheading={item.node?.Title}
-                teamdescription={item.node?.Description.data.Description}
-              />
-            ))}
+            {jointTechs &&
+              jointTechs.map((item, i) => (
+                <WhyWeJoinCard
+                  key={i}
+                  img={item.node?.Image[0]?.url}
+                  teamheading={item.node?.Title}
+                  teamdescription={item.node?.Description.data.Description}
+                />
+              ))}
           </div>
           <section>
             <div className="stack-tools-use">
-              <div className="stack-heading"> {technology?.node?.Toolstitle}</div>
+              <div className="stack-heading">
+                {" "}
+                {technology?.node?.Toolstitle}
+              </div>
               <div className="stack-tools-card">
-                {technology && technology.node.stack.map((item, i) => {
-                  return (
-                    <>
-                      <StackToolsCard
-                        key={i}
-                        name={item.stackName}
-                        techchild={item?.stacktools}
-                      />
-
-                    </>
-                  )
-                })}
-
+                {technology &&
+                  technology.node.stack.map((item, i) => {
+                    return (
+                      <>
+                        <StackToolsCard
+                          key={i}
+                          name={item.stackName}
+                          techchild={item?.stacktools}
+                        />
+                      </>
+                    );
+                  })}
               </div>
             </div>
           </section>
@@ -127,107 +133,98 @@ export default function ExpertiseCard({ data, props, pageContext }) {
       </section>
       <Footer />
     </div>
-  )
+  );
 }
 
-
 export const query = graphql`
-query MyQuery {
-  allStrapiTechnology {
-    edges {
-      node {
-        stack {
-          stackName
-          stacktools {
-            stacktech
+  query MyQuery {
+    allStrapiTechnology {
+      edges {
+        node {
+          stack {
+            stackName
+            stacktools {
+              stacktech
+            }
+          }
+          Title
+          Slug
+          Valuetitle
+          Metatitle
+          Promotext
+          Toolstitle
+          Description {
+            data {
+              Description
+            }
+          }
+          Metadescription {
+            data {
+              Metadescription
+            }
+          }
+          Benefittitle {
+            data {
+              Benefittitle
+            }
+          }
+          Benifitdescription {
+            data {
+              Benifitdescription
+            }
+          }
+          Developmentdescription {
+            data {
+              Developmentdescription
+            }
+          }
+          Developmenttitle
+          StartupTitle
+          Startupdescription {
+            data {
+              Startupdescription
+            }
+          }
+          Valuedescription {
+            data {
+              Valuedescription
+            }
           }
         }
-        Title
-        Slug
-        Valuetitle
-        Metatitle
-        Promotext
-        Toolstitle
-        Description {
-          data {
-            Description
-          }
-        }
-        Metadescription {
-          data {
-            Metadescription
-          }
-        }
-        Benefittitle {
-          data {
-            Benefittitle
-          }
-        }
-        Benifitdescription {
-          data {
-            Benifitdescription
-          }
-        }
-        Developmentdescription {
-          data {
-            Developmentdescription
-          }
-        }
-        Developmenttitle
-        StartupTitle
-        Startupdescription {
-          data {
-            Startupdescription
-          }
-        }
-        Valuedescription {
-          data {
-            Valuedescription
-          }
-        }
+      }
+    }
 
-       
+    allStrapiJointeche {
+      edges {
+        node {
+          Image {
+            url
+          }
+          Description {
+            data {
+              Description
+            }
+          }
+          Title
+        }
       }
     }
   }
-  
-  
-
-  allStrapiJointeche {
-    edges {
-      node {
-        Image {
-          url
-        }
-        Description {
-          data {
-            Description
-          }
-        }
-        Title
-      }
-    }
-  }
-      
-  }
-`
-
-
-
+`;
 
 // allStrapiComponentSkilltool {
-  //   edges {
-  //     node {
-  //       Tools {
-  //         Tools {
-  //           Tools
-  //           Language
-  //           DataBase
-  //         }
-  //       }
-  //       technology {
-  //         Slug
-  //       }
-  //     }
-  //   }
-  // }
+//   edges {
+//     node {
+//       Tools {
+//         Tools {
+//           Tools
+//           Language
+//           DataBase
+//         }
+//       }
+//       technology {
+//         Slug
+//       }
+//     }
+//   }
+// }

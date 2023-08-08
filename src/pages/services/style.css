@@ -50,17 +50,6 @@
     font-size: 40px;
     line-height: 136%;
   }
-  .deliver-qualitywork {
-    padding: 80px 120px;
-    gap: 40px;
-  }
-
-  .deliver-qualitywork .deliver-description {
-    width: 65%;
-  }
-  .deliver-qualitywork .deliver-image-section {
-    width: 35%;
-  }
 }
 @media (max-width: 1440px) {
   .project-list-cover {
