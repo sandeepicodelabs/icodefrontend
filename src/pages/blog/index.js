@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Footer from "../../components/Footer/Footer";
@@ -25,14 +25,10 @@ import ButtonBox from "../../components/button";
 import messageimg from "../../assets/images/message.png";
 import axios from "axios";
 
-export default function Blog({ data, pageContext }) {
-  // const { currentPage, count } = pageContext;
-  // const isFirst = currentPage === 1;
-  // const isLast = currentPage === count;
-  // const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
-  // const nextPage = `/blog/${currentPage + 1}`;
-  //console.log("blog", data)
-
+export default function Blog({ data, pageContext }) {  
+  const {pageCount}=pageContext 
+ 
+ console.log(pageCount,"pagination")
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
@@ -48,21 +44,9 @@ export default function Blog({ data, pageContext }) {
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
+   
 
-
-
-  const blogcovercard = [
-    {
-      blogtitle: "Web development",
-      img: BlogCover,
-      profilename: "John deo",
-      postdate: "May 4,2022",
-      blogheading: "Developing Marketplace application with Sharetribe",
-      blogdescription:
-        "Ahead of time is a key aspect to sustain and grow an existing business. Most of the time persistence to change or adapt as per the changing market leads to potential gaps that give opportunities for...",
-      CardProfile: profileimg,
-    },
-  ];
+ 
 
   return (
     <div>
@@ -70,54 +54,7 @@ export default function Blog({ data, pageContext }) {
         <Header />
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box">
-          {/* <div className="blog-wrap-data">
-            <div className="blog-card-cover">
-              {blogcovercard.map((item, i) => (
-                <BlogCoverCard
-                  key={i}
-                  blogtitle={item.Title}
-                  img={item.img}
-                  profilename={item.profilename}
-                  postdate={item.postdate}
-                  blogheading={item.blogheading}
-                  CardProfile={item.CardProfile}
-                  blogdescription={item.blogdescription}
-                />
-              ))}
-            </div>
-            <div className="blog-card-article">
-              <div className="search-box">
-                <div className="input-box-wrap">
-                  <input type="text" placeholder="Search Topics..." />
-                  <span>
-                    <img src={SearchIcon} alt="St Logo" />
-                  </span>
-                </div>
-              </div>
-              <div className="article-box-wrap-card">
-                <div className="article-heading">Recent articles</div>
-                <div className="article-card">
-                  <div>
-                    {filteredData && filteredData.map((item, i) => (
-                      <div>
-                        <Link to={"/blog/" + item?.node?.Slug}> </Link>
-                        <BlogArticleCard
-                          key={i}
-                          // cardprofileimg={item.node?.user.profileimage?.publicURL}
-                          img={item.node?.Image[0]?.url}
-                          cardtitle={item.node?.Title}
-                          // profilename={item.node?.user.displayName}
-                          postdate={item.node?.publishedAt}
-                          // carddescription={item.node?.Content}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
+           
           <div className="article-main-box">
             {/* <div className="all-article-heading">
               <h3>All articles</h3>
@@ -179,33 +116,12 @@ export default function Blog({ data, pageContext }) {
                 </div>
               </div>
             </div>
-            {/* <div className="pagination-box">
-              <div className="pagination">
-                {!isFirst && (
-                  <Link to={prevPage} className="page-navigate-icon">
-                    <img src={paginationprev} alt="Previous Page" />
-                  </Link>
-                )}
-                {Array.from({ length: count }, (_, i) => (
-                  <Link
-                    key={`pagination-number${i + 1}`}
-                    to={`/blog/${i === 0 ? "" : i + 1}`}
-                    className={`pagination-count ${i + 1 === currentPage ? "active" : ""}`}
-                  >
-                    {i + 1}
-                  </Link>
-                ))}
-                {!isLast && (
-                  <Link to={nextPage} className="page-navigate-icon">
-                    <img src={paginationNext} alt="Next Page" />
-                  </Link>
-                )}
-              </div>
-            </div> */}
-
-            {/* <div className="pagination-box">
+             
+ 
+            <div className="pagination-box">
               <PaginationBox  
-              /> */}
+              />  
+          </div>  
           </div>
         </div>
       </section>
@@ -218,8 +134,8 @@ export default function Blog({ data, pageContext }) {
 
 
 export const query = graphql`
-query MyQuery{
-  allStrapiArticle(limit: 6 , sort: {Title: DESC}){
+query MyQuery  {
+  allStrapiArticle (limit: 6, skip: 6) {
       edges {
         node {
           Title
@@ -245,12 +161,4 @@ query MyQuery{
 `;
 
 
- // pageInfo {
-      //   pageCount
-      //   currentPage
-      //   hasNextPage
-      //   hasPreviousPage
-      //   itemCount
-      //   perPage
-      //   totalCount
-      // }
+ 

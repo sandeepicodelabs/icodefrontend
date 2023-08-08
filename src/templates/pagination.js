@@ -1,8 +1,10 @@
 import React from 'react'
  
 
-export default function Pagination(props) {
-    const { pageContext, data } = props;
+export default function Pagination({pageContext}) {
+    //const { pageContext, data } = props;
+    const {pageCount}=pageContext
+    console.log(pageContext,"pagination")
   return (
     <>
      {/* <Layout theme="st_header_area sticky-bg-chambray"> */}
