@@ -1,0 +1,190 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+
+.deliver-qualitywork {
+  .contentWidth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 24px;
+    flex-direction: column;
+    @include lg {
+      flex-direction: row;
+      padding: 80px 24px;
+    }
+    .deliver-description {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+      @include lg {
+        width: 50%;
+        text-align: left;
+        margin: 0;
+      }
+      h1 {
+        margin-bottom: 14px;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 140%;
+        color: $black-color;
+        @include lg {
+          margin-bottom: 20px;
+          font-size: 34px;
+        }
+      }
+      p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 160%;
+        color: $text-color;
+        @include lg {
+          font-size: 24px;
+        }
+        strong {
+          color: $black-color;
+          font-weight: 500;
+        }
+      }
+    }
+    .deliver-image-section {
+      text-align: center;
+      width: 100%;
+      @include lg {
+        width: 50%;
+      }
+      & > img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.explore-box-wrap {
+  background: rgba(87, 248, 243, 0.1);
+  .contentWidth {
+    padding: 50px 24px;
+    @include lg {
+      padding: 80px 24px;
+    }
+    .explore-tab-viewbox {
+      .card-background-wrap {
+        background: $white-color;
+        box-shadow: 0px 0px 15px 2px rgba(0, 91, 88, 0.3);
+        border-radius: 10px;
+        position: relative;
+      }
+
+      .tabbutton {
+        background-color: $base-color;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 30px 24px;
+        margin: 0 auto 40px auto;
+        overflow-x: auto;
+        width: 100%;
+        @include xl {
+          justify-content: center;
+        }
+        @include xxl {
+          max-width: 80%;
+        }
+
+        button {
+          padding: 8px 20px;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 140%;
+          text-align: center;
+          color: $white-color;
+          cursor: pointer;
+          background-color: transparent;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          &.active {
+            background: $white-color;
+            border-radius: 10px;
+            color: $black-color !important;
+          }
+        }
+      }
+    }
+  }
+}
+.analye-card-wrap {
+  .card-background-wrap {
+    button {
+      &.slick-arrow {
+        color: #ff000000;
+        &.slick-prev {
+          content: "";
+          position: absolute;
+          background-image: url("../assets/images/tabpreviousbtn.png");
+          height: 65px;
+          width: 65px;
+          left: -6px;
+          background-size: 100%;
+          z-index: 99;
+          &::before {
+            display: none;
+          }
+          &:hover,
+          &:focus {
+            content: "";
+            position: absolute;
+            background-image: url("../assets/images/tabpreviousbtn.png") !important;
+            height: 65px !important;
+            width: 65px;
+            left: -6px;
+            background-size: 100% !important;
+            z-index: 99;
+          }
+        }
+        &.slick-next {
+          content: "";
+          position: absolute;
+          background-image: url("../assets/images/tabnextbtn.png");
+          height: 65px;
+          width: 65px;
+          right: -7px;
+          background-size: 100%;
+          &:hover,
+          &:focus {
+            background-image: url("../assets/images/tabnextbtn.png") !important;
+            height: 65px !important;
+            width: 65px;
+            right: -7px;
+            background-size: 100% !important;
+            content: "";
+            position: absolute;
+          }
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+    .slick-track {
+      .slick-slide {
+        &:nth-child(odd) {
+          .outer-trading-box {
+            .explore-data-tab {
+              flex-direction: row-reverse;
+            }
+          }
+        }
+      }
+    }
+    .outer-trading-box {
+      .explore-data-tab {
+        flex-wrap: wrap;
+        @include lg {
+          flex-wrap: nowrap;
+        }
+      }
+    }
+  }
+}

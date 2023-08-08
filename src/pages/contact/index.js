@@ -8,7 +8,6 @@ import contactMeet from "../../assets/images/contact-meet.png";
 import contactSkype from "../../assets/images/contact-skype.png";
 import contactSlack from "../../assets/images/contact-slack.png";
 import Footer from "../../components/Footer/Footer";
-import "../../assets/css/custom.css";
 import "../contact.scss";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
 import { Link } from "gatsby";

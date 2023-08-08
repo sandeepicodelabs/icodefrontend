@@ -1,563 +1,507 @@
-.tranding-bar-cover{
-    background-image: url(../../assets/images/tranding-cover.png);
-    height: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    padding: 84px 16em 160px 16em;
-    text-align: center;
-    border-top: 1px solid rgba(0, 152, 162, 0.3);
-    position: relative;
+.tranding-bar-cover {
+  background-image: url(../../assets/images/tranding-cover.png);
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 84px 16em 160px 16em;
+  text-align: center;
+  border-top: 1px solid rgba(0, 152, 162, 0.3);
+  position: relative;
 }
 .tranding-cover-cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 64px;
-    margin-top: 96px;
-}
-.hiring-buttons .hire-dev-button{
-    background-color: #fff !important;
-    border: 1px solid #005B58 !important;
-    color: #005B58 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  margin-top: 96px;
 }
 .tranding-bar-cover .hiring-buttons button {
-    width: 350px;
+  width: 350px;
 }
 .tranding-bar-cover .hiring-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 96px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 96px;
 }
 .tranding-bar-cover h1 {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 160%;
-    text-align: center;
-    text-transform: capitalize;
-    color: #101820;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 160%;
+  text-align: center;
+  text-transform: capitalize;
+  color: #101820;
 }
-.recomment-box{
-    background-color: #fff;
+.recomment-box {
+  background-color: #fff;
 }
-.recommented-wrap{
-    padding: 160px 200px;
+.recommented-wrap {
+  padding: 160px 200px;
 }
 .recommented-wrap .recommend-section h1 {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 160%;
-    text-transform: capitalize;
-    color: #101820;
-    margin-bottom: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 160%;
+  text-transform: capitalize;
+  color: #101820;
+  margin-bottom: 0;
 }
 .recommend-section {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
 }
 .recommend-wrap-box .approach-left-box {
-    background: #005B58;
-    border-radius: 10px;
-    width: 40%;
+  background: #005b58;
+  border-radius: 10px;
+  width: 40%;
 }
-.recommend-wrap-box .approach-left-box p{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 33px;
-    color: #FFFFFF;
-    padding: 48px 24px;
-    margin-bottom: 0;
+.recommend-wrap-box .approach-left-box p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  color: #ffffff;
+  padding: 48px 24px;
+  margin-bottom: 0;
 }
 .recommented-wrap .recommend-wrap-box {
-    display: flex;
-    gap: 96px;
+  display: flex;
+  gap: 96px;
 }
 .recommend-wrap-box .approach-right-box {
-    width: 60%;
+  width: 60%;
 }
 .recommend-wrap-box .approach-box {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 .approach-right-box .approach-box h4 {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 42px;
-    color: #101820;
-    margin-bottom: 23px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+  color: #101820;
+  margin-bottom: 23px;
 }
 .approach-right-box .approach-box p {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #3E4348;
-    margin-bottom: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #3e4348;
+  margin-bottom: 0;
 }
-.our-team-wrap{
-    background: rgba(87, 248, 243, 0.1);
-    padding: 160px 200px;
+.our-team-wrap {
+  background: rgba(87, 248, 243, 0.1);
+  padding: 160px 200px;
 }
 .our-team-wrap .our-tech-team h1 {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 72px;
-    color: #000000;
-    width: 50%;
-    padding-right: 45px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 72px;
+  color: #000000;
+  width: 50%;
+  padding-right: 45px;
 }
 .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 33px;
-    color: #3E4348;
-    width: 50%;
-    position: relative;
-    padding-left: 24px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 33px;
+  color: #3e4348;
+  width: 50%;
+  position: relative;
+  padding-left: 24px;
 }
 .our-team-wrap .our-tech-team {
-    display: flex;
-    margin-bottom: 96px;
+  display: flex;
+  margin-bottom: 96px;
 }
 .out-hiring-tech-subtext:before {
-    content: "";
-    background: #005B58;
-    border-radius: 10px;
-    position: absolute;
-    width: 4px;
-    height: 110px;
-    left: 0;
+  content: "";
+  background: #005b58;
+  border-radius: 10px;
+  position: absolute;
+  width: 4px;
+  height: 110px;
+  left: 0;
 }
 .our-team-wrap .join-expertise {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 64px;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 64px;
+  justify-content: space-between;
 }
-.stack-tools-use{
-    padding: 160px 200px;
+.stack-tools-use {
+  padding: 160px 200px;
 }
 .stack-tools-use .stack-tools-card {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 48px;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: space-between;
 }
 .stack-heading {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 72px;
-    text-transform: capitalize;
-    color: #000000;
-    margin-bottom: 48px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 72px;
+  text-transform: capitalize;
+  color: #000000;
+  margin-bottom: 48px;
 }
 .stack-tools-use .stack-tools-card .stack-card {
+  width: 48%;
+}
+
+@media (max-width: 1600px) {
+  .tranding-bar-cover {
+    padding: 80px 120px;
+  }
+  .recommented-wrap {
+    padding: 120px;
+  }
+  .our-team-wrap {
+    padding: 120px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 40px;
+    line-height: 136%;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 40px;
+    line-height: 136%;
+  }
+  .our-team-wrap .our-tech-team h1 {
+    font-size: 40px;
+    line-height: 136%;
+  }
+  .stack-heading {
+    font-size: 48px;
+    line-height: 136%;
+  }
+  .stack-tools-use {
+    padding: 120px;
+  }
+}
+@media (max-width: 1440px) {
+  .stack-tools-use {
+    padding: 90px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 34px;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 34px;
+  }
+  .our-team-wrap .our-tech-team h1 {
+    font-size: 34px;
+  }
+  .stack-heading {
+    font-size: 34px;
+  }
+
+  .recommented-wrap .recommend-wrap-box {
+    gap: 40px;
+  }
+  .recommented-wrap {
+    padding: 90px;
+  }
+  .tranding-bar-cover {
+    padding: 80px 90px;
+  }
+  .our-team-wrap {
+    padding: 90px;
+  }
+  .out-hiring-tech-subtext:before {
+    height: 100%;
+  }
+  .stack-tools-use .stack-tools-card .stack-card {
+    height: 215px;
+  }
+  .stack-tools-use .stack-tools-card {
+    column-gap: 10px;
+    row-gap: 45px;
+  }
+  .stack-card-tech {
+    padding: 30px 15px !important;
+  }
+  .stack-label {
+    width: 150px;
+  }
+  .stack-label {
+    font-size: 20px !important;
+  }
+  .stack-card .stack-card-box ul li {
+    padding-left: 30px;
+  }
+}
+@media (max-width: 1200px) {
+  .stack-tools-use .stack-tools-card {
+    justify-content: flex-start;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
+    flex-wrap: unset;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 50px;
+  }
+  .stack-tools-use .stack-tools-card .stack-card {
+    width: 70%;
+    min-width: 70%;
+  }
+  .stack-tools-use {
+    padding: 60px;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 32px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 32px;
+  }
+  .tranding-cover-cards {
+    margin-top: 65px;
+  }
+  .tranding-bar-cover .hiring-buttons {
+    margin-top: 70px;
+  }
+  .recommented-wrap {
+    padding: 60px;
+  }
+  .tranding-bar-cover {
+    padding: 80px 60px;
+  }
+  .our-team-wrap {
+    padding: 60px;
+  }
+  .our-team-wrap .our-tech-team {
+    flex-wrap: wrap;
+  }
+  .our-team-wrap .our-tech-team h1 {
+    width: 100%;
+  }
+  .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
+    width: 100%;
+  }
+  .join-expertise .join-our-team {
     width: 48%;
+  }
+  .stack-heading {
+    margin-bottom: 10px;
+  }
 }
-.estimate-contact {
-    background: linear-gradient(269.91deg, #57F8F3 -22.82%, rgba(0, 91, 88, 0.92958) 25.29%,
-     rgba(0, 91, 88, 0.8) 83.49%, rgba(61, 201, 196, 0.939583) 107.5%);
-    border-radius: 10px;
-    text-align: center;
-    padding: 48px 10px;
-}
-.estimate-contact h3 {
-    font-style: normal;
-    font-weight: 600;
+@media (max-width: 1024px) {
+  .our-team-wrap .join-expertise {
+    justify-content: flex-start;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 100%;
+    flex-wrap: unset;
+    padding: 40px 10px 20px 10px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 50px;
+  }
+  .our-team-wrap .our-tech-team {
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .join-expertise .join-our-team {
+    width: 50%;
+    min-width: 50%;
+  }
+  .stack-tools-use {
+    padding: 40px;
+  }
+  .recommented-wrap {
+    padding: 40px;
+  }
+  .our-team-wrap {
+    padding: 40px;
+  }
+  .tranding-bar-cover {
+    padding: 40px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 30px;
+  }
+  .recommented-wrap .recommend-section h1 {
     font-size: 28px;
-    line-height: 42px;
+  }
+  .recommend-section {
+    margin-bottom: 33px;
+  }
+  .recommend-wrap-box .approach-left-box p {
+    font-size: 18px;
+    padding: 24px;
+  }
+  .approach-right-box .approach-box h4 {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 10px;
+  }
+  .trend-cover-wrap {
+    width: 100% !important;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 30px;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 30px;
+  }
+  .our-team-wrap .our-tech-team h1 {
+    font-size: 30px;
+  }
+  .stack-heading {
+    font-size: 30px;
+  }
+  .trend-cover-wrap h5 {
+    font-size: 20px !important;
+  }
+  .recommented-wrap .recommend-wrap-box {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .recommend-wrap-box .approach-left-box {
+    width: 100%;
+  }
+  .recommend-wrap-box .approach-right-box {
+    width: 100%;
+  }
+  .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
+    font-size: 20px;
+  }
+}
+@media (max-width: 920px) {
+  .tranding-bar-cover .hiring-buttons button {
+    width: 326px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .stack-tools-use .stack-tools-card .stack-card {
+    width: 90%;
+    min-width: 90%;
+    height: 326px;
+  }
+  .stack-card .stack-card-box ul li {
+    float: none !important;
+    width: 100% !important;
+  }
+  .stack-tools-use {
+    padding: 40px 24px;
+  }
+  .our-team-wrap {
+    padding: 40px 24px;
+  }
+  .recommend-wrap-box .approach-left-box p {
+    font-size: 16px;
+    padding: 24px;
+    line-height: 27px;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 24px;
     text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 48px;
+  }
+  .recommented-wrap {
+    padding: 40px 24px;
+  }
+  .tranding-bar-cover {
+    padding: 40px 24px;
+  }
+  .tranding-bar-cover .hiring-buttons {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 24px;
+  }
+  .tranding-cover-cards {
+    margin-top: 48px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 28px;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 28px;
+  }
+  .our-team-wrap .our-tech-team h1 {
+    font-size: 28px;
+    padding-right: 0 !important;
+  }
+  .stack-heading {
+    font-size: 28px;
+  }
+  .trend-cover-wrap h5 {
+    font-size: 18px !important;
+  }
+  .approach-right-box .approach-box h4 {
+    font-size: 20px;
+  }
+  .join-our-team h5 {
+    font-size: 20px !important;
+    margin-bottom: 5px !important;
+  }
 }
-.estimate-contact .estimate-submit{
-    color: #005B58;
-    background-color: #fff;
-    border: 1px solid #fff;
+@media (max-width: 600px) {
+  .tranding-cover-cards {
+    margin-top: 48px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0;
+  }
+  .join-expertise .join-our-team {
+    width: 100%;
+    min-width: 100%;
+  }
 }
-.estimate-section-wrap{
-    padding: 0 200px 160px 200px;
-}
-
-
-
-@media(max-width: 1600px){
-    .estimate-section-wrap {
-        padding: 0 120px 120px 120px;
-    }
-    .tranding-bar-cover {
-        padding: 80px 120px;
-    }
-    .recommented-wrap {
-        padding: 120px;
-    }
-    .our-team-wrap {
-        padding: 120px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 40px;
-        line-height: 136%;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 40px;
-        line-height: 136%;
-    }
-    .our-team-wrap .our-tech-team h1 {
-        font-size: 40px;
-        line-height: 136%;
-    }
-    .stack-heading {
-        font-size: 48px;
-        line-height: 136%;
-    }
-    .stack-tools-use {
-        padding: 120px;
-    }
-}
-@media(max-width: 1440px){
-    .estimate-section-wrap {
-        padding: 0 90px 90px 90px;
-    }
-    .stack-tools-use {
-        padding: 90px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 34px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 34px;
-    }
-    .our-team-wrap .our-tech-team h1 {
-        font-size: 34px;
-    }
-    .stack-heading {
-        font-size: 34px;
-    }
-   
-    .recommented-wrap .recommend-wrap-box {
-        gap: 40px;
-    }
-    .recommented-wrap {
-        padding: 90px;
-    }
-    .tranding-bar-cover {
-        padding: 80px 90px;
-    }
-    .our-team-wrap {
-        padding: 90px;
-    }
-    .out-hiring-tech-subtext:before {
-        height: 100%;
-    }
-    .stack-tools-use .stack-tools-card .stack-card {
-        height: 215px;
-    }
-    .stack-tools-use .stack-tools-card {
-        column-gap: 10px;
-        row-gap: 45px;
-    }
-    .stack-card-tech {
-        padding: 30px 15px !important; 
-    }
-    .stack-label {
-        width: 150px;
-    }
-    .stack-label {
-        font-size: 20px !important;
-    }
-    .stack-card .stack-card-box ul li {
-        padding-left: 30px;
-    }
-}
-@media(max-width: 1200px){
-    .estimate-section-wrap {
-        padding: 0 60px 60px 60px;
-    }
-    .stack-tools-use .stack-tools-card {
-        justify-content: flex-start;
-        flex-direction: row;
-        overflow-x: auto;
-        width: 100%;
-        flex-wrap: unset;
-        padding-top: 40px;
-        padding-bottom: 20px;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 50px;
-    }
-    .stack-tools-use .stack-tools-card .stack-card {
-        width: 70%;
-        min-width: 70%;
-    }
-    .stack-tools-use {
-        padding: 60px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 32px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 32px;
-    }
-    .tranding-cover-cards {
-        margin-top: 65px;
-    }
-    .tranding-bar-cover .hiring-buttons {
-        margin-top: 70px;
-    }
-    .recommented-wrap {
-        padding: 60px;
-    }
-    .tranding-bar-cover {
-        padding: 80px 60px;
-    }
-    .our-team-wrap {
-        padding: 60px;
-    }
-    .our-team-wrap .our-tech-team {
-        flex-wrap: wrap;
-    }
-    .our-team-wrap .our-tech-team h1 {
-        width: 100%;
-    }
-    .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-        width: 100%;
-    }
-    .join-expertise .join-our-team {
-        width: 48%;
-    }
-    .stack-heading {
-        margin-bottom: 10px;
-    }
-    
-}
-@media(max-width: 1024px){
-    .estimate-section-wrap {
-        padding: 0 40px 40px 40px;
-    }
-    .our-team-wrap .join-expertise{
-        justify-content: flex-start;
-        flex-direction: row;
-        overflow-x: auto;
-        width: 100%;
-        flex-wrap: unset;
-        padding: 40px 10px 20px 10px;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 50px;
-    }
-    .our-team-wrap .our-tech-team {
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-    }
-    .join-expertise .join-our-team {
-        width: 50%;
-        min-width: 50%;
-    }
-    .stack-tools-use {
-        padding: 40px;
-    }
-    .recommented-wrap {
-        padding: 40px;
-    }
-    .our-team-wrap {
-        padding: 40px;
-    }
-    .tranding-bar-cover {
-        padding: 40px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 30px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 28px;
-    }
-    .recommend-section {
-        margin-bottom: 33px;
-    }
-    .recommend-wrap-box .approach-left-box p {
-        font-size: 18px;
-        padding: 24px;
-    }
-    .approach-right-box .approach-box h4 {
-        font-size: 24px;
-        line-height: 36px;
-        margin-bottom: 10px;
-    }
-    .trend-cover-wrap {
-        width: 100% !important;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 30px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 30px;
-    }
-    .our-team-wrap .our-tech-team h1 {
-        font-size: 30px;
-    }
-    .stack-heading {
-        font-size: 30px;
-    }
-    .trend-cover-wrap h5 {
-        font-size: 20px !important;
-    }
-    .recommented-wrap .recommend-wrap-box {
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .recommend-wrap-box .approach-left-box {
-         width: 100%;
-    }
-    .recommend-wrap-box .approach-right-box {
-        width: 100%;
-    }
-    .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-        font-size: 20px;
-    }
-}
-@media(max-width: 920px){
-    .tranding-bar-cover .hiring-buttons button {
-        width: 326px;
-        font-size: 14px;
-    }
-}
-@media(max-width: 768px){
-    .estimate-contact h3 {
-        font-size: 22px;
-        line-height: 33px;
-        margin-bottom: 24px;
-    }
-    .estimate-section-wrap {
-        padding: 40px 24px;
-    }
-    .stack-tools-use .stack-tools-card .stack-card {
-        width: 90%;
-        min-width: 90%;
-        height: 326px;
-    }
-    .stack-card .stack-card-box ul li {
-        float: none !important;
-        width: 100% !important;
-    }
-    .stack-tools-use {
-        padding: 40px 24px;
-    }
-    .our-team-wrap {
-        padding: 40px 24px;
-    }
-    .recommend-wrap-box .approach-left-box p {
-        font-size: 16px;
-        padding: 24px;
-        line-height: 27px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 24px;
-        text-align: center;
-    }
-    .recommented-wrap {
-        padding: 40px 24px;
-    }
-    .tranding-bar-cover {
-        padding: 40px 24px;
-    }
-    .tranding-bar-cover .hiring-buttons {
-        flex-direction: column;
-        margin-top: 30px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 24px;
-    }
-    .tranding-cover-cards {
-        margin-top: 48px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 28px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 28px;
-    }
-    .our-team-wrap .our-tech-team h1 {
-        font-size: 28px;
-        padding-right: 0 !important;
-    }
-    .stack-heading {
-        font-size: 28px;
-    }
-    .trend-cover-wrap h5 {
-        font-size: 18px !important;
-    }
-    .approach-right-box .approach-box h4 {
-        font-size: 20px;
-    }
-    .join-our-team h5 {
-        font-size: 20px !important;
-        margin-bottom: 5px !important;
-    }
-}
-@media(max-width: 600px){
-    .tranding-cover-cards {
-        margin-top: 48px;
-        flex-wrap: wrap;
-        flex-direction: column;
-        gap: 0;
-    }
-    .join-expertise .join-our-team {
-        width: 100%;
-        min-width: 100%;
-    }
-}
-@media(max-width: 460px){
-    .estimate-contact h3 {
-        font-size: 18px;
-        line-height: 28px;
-    }
-    .stack-label {
-        font-size: 18px !important;
-    }
-    .stack-card .stack-card-box ul li{
-        font-size: 14px !important;
-    }
-    .approach-right-box .approach-box p {
-        font-size: 14px;
-    }  
-    .join-our-team p {
-        font-size: 14px !important;
-    }
-    .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-        font-size: 18px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 22px;
-    }
-    .recommented-wrap .recommend-section h1 {
-        font-size: 22px;
-    }
-    .recommend-wrap-box .approach-left-box p {
-        font-size: 16px;
-        font-weight: 500;
-    }
-    .tranding-bar-cover .hiring-buttons button {
-        width: 100%;
-        font-size: 14px;
-        padding: 10px;
-    }
-    .tranding-bar-cover h1 {
-        font-size: 26px;
-    }
-    .our-team-wrap .our-tech-team h1 {
-        font-size: 22px;
-    }
-    .stack-heading {
-        font-size: 26px;
-    }
-    .stack-tools-use .stack-tools-card .stack-card {
-        width: 100%;
-        min-width: 100%;
-    }
+@media (max-width: 460px) {
+  .stack-label {
+    font-size: 18px !important;
+  }
+  .stack-card .stack-card-box ul li {
+    font-size: 14px !important;
+  }
+  .approach-right-box .approach-box p {
+    font-size: 14px;
+  }
+  .join-our-team p {
+    font-size: 14px !important;
+  }
+  .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
+    font-size: 18px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 22px;
+  }
+  .recommented-wrap .recommend-section h1 {
+    font-size: 22px;
+  }
+  .recommend-wrap-box .approach-left-box p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .tranding-bar-cover .hiring-buttons button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .tranding-bar-cover h1 {
+    font-size: 26px;
+  }
+  .our-team-wrap .our-tech-team h1 {
+    font-size: 22px;
+  }
+  .stack-heading {
+    font-size: 26px;
+  }
+  .stack-tools-use .stack-tools-card .stack-card {
+    width: 100%;
+    min-width: 100%;
+  }
 }
