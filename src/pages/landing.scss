@@ -1959,6 +1959,7 @@
       .contact-form {
         background-color: $white-color;
         padding: 14px;
+        position: relative;
         @include md {
           padding: 24px;
         }
@@ -1978,12 +1979,17 @@
             line-height: 24px;
             color: $text-color;
             width: 100%;
-            .input-icon {
-              position: absolute;
-              left: 12px;
-              top: 13px;
-              height: 24px;
-              width: 24px;
+          }
+          .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            height: 24px;
+            width: 24px;
+            > img {
+              max-width: 100%;
+              width: 20px;
+              height: 20px;
             }
           }
         }

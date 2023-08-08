@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
 import companyaboutimg from "../assets/images/companyabout.png";
 import covercode from "../assets/images/cover-code.png";
-import meanstack from "../assets/images/meanstack.png"; 
+import meanstack from "../assets/images/meanstack.png";
 import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
@@ -28,7 +28,7 @@ import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./style.scss";
-import "../hooks/TypingEffect.js"; 
+import "../hooks/TypingEffect.js";
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -578,9 +578,7 @@ const IndexPage = ({ data }) => {
             <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
-                  <div className="input-box">
-                    <div className="form-box">
-                      {/* <input
+                  {/* <input
                     type="text"
                     name="name"
                     onChange={(e)=>e.target.value}
@@ -588,22 +586,19 @@ const IndexPage = ({ data }) => {
                     className="contact-inputs"
                     img={userImg}  
                   /> */}
-                      <InputBox
-                        type="text"
-                        placeholder={"Full Name"}
-                        className="contact-inputs"
-                        img={userImg}
-                        name="name"
-                      />
-                      {/* {!window.location.pathname.includes('contact') ? (
+                  <InputBox
+                    type="text"
+                    placeholder={"Full Name"}
+                    className="contact-inputs"
+                    img={userImg}
+                    name="name"
+                  />
+                  {/* {!window.location.pathname.includes('contact') ? (
                   <span className="input-icon">
                     <img src={img} alt="St Logo" />
                   </span>) : <></>} */}
-                    </div>
-                  </div>
                 </div>
                 <div className="input-wrap">
-                   
                   <InputBox
                     type="email"
                     placeholder={"Email"}

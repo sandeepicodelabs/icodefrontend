@@ -110,20 +110,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-@media (max-width: 1200px) {
-  .all-article-card-description {
-    font-size: 20px;
-  }
-  .all-article-description {
-    font-size: 14px;
-  }
-}
-@media (max-width: 920px) {
-  .all-article-card-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}

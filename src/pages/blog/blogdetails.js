@@ -27,14 +27,14 @@ const settings = {
   autoplay: false,
   autoplaySpeed: 2000,
   slidesToShow: 3,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   centerPadding: "60px",
   responsive: [
     {
-      breakpoint: 1024,
+      breakpoint: 1280,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 2,
+        slidesToShow: 2,
+        slidesToScroll: 1,
         initialSlide: 1,
       },
     },
@@ -127,137 +127,157 @@ export default function BlogPage({ data, pageContext }) {
       <section className="blog-detail-box">
         <Header />
         <HeaderBar currentpage="Blog" pagetitle={article?.node?.Title} />
-        <div className="cover-full-box">
-          <div className="blog-detail-cover">
-            <div className="blog-application-cover-image">
-              <img src={article?.node?.Image[0].url} alt="St Logo" />
-            </div>
-            <div className="blog-description-data">
-              <div className="blog-detail-title">{article?.node?.Type}</div>
-              <div className="blog-detail-data">
-                <div className="blog-card-date">{article?.node?.createdAt}</div>
+        <div className="cover-full-box contentWidth">
+          <div className="article-main-box">
+            <div className="all-article-wrap">
+              <div className="article-list-wrap">
+                <div className="blog-detail-cover">
+                  <div className="blog-application-cover-image">
+                    <img src={article?.node?.Image[0].url} alt="St Logo" />
+                  </div>
+                  <div className="blog-description-data">
+                    <div className="blog-detail-title">
+                      {article?.node?.Type}
+                    </div>
+                    <div className="blog-detail-data">
+                      <div className="blog-card-date">
+                        {article?.node?.createdAt}
+                      </div>
 
-                <div className="blog-card-posted-name">
-                  <span>Posted by :</span>
-                  {article?.node?.Author}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="blog-detail-grid-wrap">
-            <div className="blog-detail-body">
-              {/* <div className="blog-detail-left-wrap">*/}
-              <div className="detail-description-wrap">
-                <ReactMarkdown>
-                  {article?.node?.Content.data.Content}
-                </ReactMarkdown>
-              </div>
-
-              {/* </div> */}
-              <div className="blog-detail-right-wrap">
-                <div className="most-polular">
-                  <h1>Most popular</h1>
-                  <div className="popular-wrap-box">
-                    {filteredData.map((item, i) => (
-                      <Link to={"/blog/" + item.node?.Slug}>
-                        <MostPopularCard
-                          key={i}
-                          //populartitle={item.node?.category.name}
-                          // profilename={item.node?.user.displayName}
-                          postdate={item.node?.createdAt}
-                          blogdescription={item.node?.Title}
-                        />
-                      </Link>
-                    ))}
+                      <div className="blog-card-posted-name">
+                        <span>Posted by :</span>
+                        {article?.node?.Author}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="blog-detail-sidebar-subscribe">
-                  {/* <SubscribeCard /> */}
-                  <form className="contact-right" onSubmit={handleSubmit}>
-                    <div className="contact-form">
-                      <h1>Let’s Build Your Dream App!</h1>
-                      <div className="input-wrap">
-                        <div className="input-box">
-                          <div className="form-box">
-                            <InputBox
-                              type="text"
-                              placeholder={"Full Name"}
-                              className="contact-inputs"
-                              img={userImg}
-                              name="name"
-                            />
-                          </div>
-                        </div>
+                <div className="blog-detail-grid-wrap">
+                  <div className="blog-detail-body">
+                    {/* <div className="blog-detail-left-wrap">*/}
+                    <div className="detail-description-wrap">
+                      <ReactMarkdown>
+                        {article?.node?.Content.data.Content}
+                      </ReactMarkdown>
+                    </div>
+
+                    {/* </div> */}
+                  </div>
+                  <div className="estimate-section-wrap">
+                    <div className="estimate-contact">
+                      <h3>Hire an experienced web development team?</h3>
+                      <a href="/contact">
+                        <ButtonBox
+                          buttonname="contact now"
+                          className="estimate-submit"
+                        />
+                      </a>
+                    </div>
+                    <div className="related-post-box">
+                      <h2 className="related-post-heading">Related Post</h2>
+                      <div className="related-slider">
+                        <Slider {...settings}>
+                          {filteredData.map((item, i) => (
+                            <Link
+                              className="article-slide"
+                              to={"/blog/" + item.node?.Slug}
+                            >
+                              <AllArticleCard
+                                key={i}
+                                img={item.node?.Image[0]?.url}
+                                articleTitle={item.node?.Type}
+                                articledescription={
+                                  item.node?.Content.data.Content
+                                }
+                                // postedname={item.node?.user.displayName}
+                                postdate={item.node?.createdAt}
+                                cardtitle={item.node?.Title}
+                                //cardprofile={item.node?.user.profileimage?.publicURL}
+                              />
+                            </Link>
+                          ))}
+                        </Slider>
                       </div>
-                      <div className="input-wrap">
-                        {/* <input type="text" placeholder='Email'  />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="most-popular-article">
+                <div className="blog-detail-right-wrap">
+                  <div className="most-polular">
+                    <h1>Most popular</h1>
+                    <div className="popular-wrap-box">
+                      {filteredData.map((item, i) => (
+                        <div className="popular-list">
+                          <Link to={"/blog/" + item.node?.Slug}>
+                            <MostPopularCard
+                              key={i}
+                              //populartitle={item.node?.category.name}
+                              // profilename={item.node?.user.displayName}
+                              postdate={item.node?.createdAt}
+                              blogdescription={item.node?.Title}
+                            />
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="blog-detail-sidebar-subscribe">
+                    {/* <SubscribeCard /> */}
+                    <form className="contact-right" onSubmit={handleSubmit}>
+                      <div className="contact-form">
+                        <h1>Let’s Build Your Dream App!</h1>
+                        <div className="input-wrap">
+                          <InputBox
+                            type="text"
+                            placeholder={"Full Name"}
+                            className="contact-inputs"
+                            img={userImg}
+                            name="name"
+                          />
+                        </div>
+                        <div className="input-wrap">
+                          {/* <input type="text" placeholder='Email'  />
 									<span className="input-icon">
 										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
 									</span> */}
-                        <InputBox
-                          type="email"
-                          placeholder={"Email"}
-                          className="contact-inputs"
-                          img={Emailicon}
-                          name="email"
-                        />
-                      </div>
-                      <div className="input-wrap">
-                        <InputBox
-                          type="number"
-                          placeholder={"Mobile No"}
-                          className="contact-inputs"
-                          //img={Emailicon}
-                          name="mobileno"
-                        />
-                      </div>
-                      <div className="input-wrap">
-                        <textarea
-                          placeholder="Write a message here"
-                          rows={5}
-                          name="message"
-                        ></textarea>
-                        <span className="input-icon">
-                          <img src={messageimg} alt="St Logo" name="message" />
-                        </span>
-                      </div>
-
-                      <div className="send-button">
-                        <ButtonBox type="submit" buttonname="Send message" />
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div className="blog-box-bottom-wrap">
-              <div className="blog-hire-contact-box">
-                <div className="hire-development-team-text">
-                  Hire an experienced web development team?
-                </div>
-                <button>CONTACT NOW</button>
-              </div>
-              <div className="related-post-box">
-                <span className="related-post-heading">Related Post</span>
-                <div className="related-slider">
-                  <Slider {...settings}>
-                    {filteredData.map((item, i) => (
-                      <Link to={"/blog/" + item.node?.Slug}>
-                        <div className="article-slide">
-                          <AllArticleCard
-                            key={i}
-                            img={item.node?.Image[0]?.url}
-                            articleTitle={item.node?.Type}
-                            articledescription={item.node?.Content.data.Content}
-                            // postedname={item.node?.user.displayName}
-                            postdate={item.node?.createdAt}
-                            cardtitle={item.node?.Title}
-                            //cardprofile={item.node?.user.profileimage?.publicURL}
+                          <InputBox
+                            type="email"
+                            placeholder={"Email"}
+                            className="contact-inputs"
+                            img={Emailicon}
+                            name="email"
                           />
                         </div>
-                      </Link>
-                    ))}
-                  </Slider>
+                        <div className="input-wrap">
+                          <InputBox
+                            type="number"
+                            placeholder={"Mobile No"}
+                            className="contact-inputs"
+                            //img={Emailicon}
+                            name="mobileno"
+                          />
+                        </div>
+                        <div className="input-wrap">
+                          <textarea
+                            placeholder="Write a message here"
+                            rows={5}
+                            name="message"
+                          ></textarea>
+                          <span className="input-icon">
+                            <img
+                              src={messageimg}
+                              alt="St Logo"
+                              name="message"
+                            />
+                          </span>
+                        </div>
+
+                        <div className="send-button">
+                          <ButtonBox type="submit" buttonname="Send message" />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

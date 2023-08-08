@@ -1,0 +1,45 @@
+@import "../../styles/customMediaQueries.scss";
+@import "../../styles/variables.scss";
+.input-wrap {
+  position: relative;
+  margin-bottom: 24px;
+  input {
+    background: #ffffff;
+    border: 1px solid #3e4348;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #101820;
+    padding: 12px 12px 12px 55px;
+    width: 100%;
+    position: relative;
+  }
+  textarea {
+    background: #ffffff;
+    border: 1px solid #3e4348;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #101820;
+    padding: 12px 12px 12px 55px;
+    width: 100%;
+    height: 150px;
+    position: relative;
+  }
+  .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    height: auto;
+    width: 18px;
+    > img {
+      max-width: 100%;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

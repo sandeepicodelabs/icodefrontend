@@ -95,7 +95,10 @@ export default function Blog({ data, pageContext }) {
                       filteredData.map((item, i) => (
                         <div className="popular-list">
                           <Link to={"/blog/" + item?.node?.Slug}>
-                            {item?.node?.Title}
+                            <h5 className="popular-blog-card-title">
+                              {" "}
+                              {item?.node?.Title}
+                            </h5>
                             <MostPopularCard
                               key={i}
                               //profilename={item.node?.user.displayName}
