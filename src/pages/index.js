@@ -4,10 +4,7 @@ import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
 import companyaboutimg from "../assets/images/companyabout.png";
 import covercode from "../assets/images/cover-code.png";
-import meanstack from "../assets/images/meanstack.png";
-// import webimg from '../assets/images/web.png';
-// import messageimg from '../assets/images/message.png';
-
+import meanstack from "../assets/images/meanstack.png"; 
 import WhyChooseCard from "../components/Cards/whychoosecard";
 import TechnologyCard from "../components/Cards/technologycard";
 import ExpertiseCard from "../components/Cards/expertisecard";
@@ -31,7 +28,7 @@ import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./style.scss";
-import "./TypingEffect.js";
+import "../hooks/TypingEffect.js"; 
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -606,10 +603,7 @@ const IndexPage = ({ data }) => {
                   </div>
                 </div>
                 <div className="input-wrap">
-                  {/* <input type="text" placeholder='Email'  />
-									<span className="input-icon">
-										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
-									</span> */}
+                   
                   <InputBox
                     type="email"
                     placeholder={"Email"}

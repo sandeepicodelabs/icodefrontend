@@ -41,6 +41,8 @@ TxtType.prototype.tick = function () {
   }, delta);
 };
 
+
+if (typeof window !== 'undefined') {
 window.onload = function () {
   var elements = document.getElementsByClassName("typewrite");
   for (var i = 0; i < elements.length; i++) {
@@ -50,6 +52,7 @@ window.onload = function () {
       new TxtType(elements[i], JSON.parse(toRotate), period);
     }
   }
+}
   // INJECT CSS
   var css = document.createElement("style");
   css.type = "text/css";

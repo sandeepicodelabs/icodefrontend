@@ -3,7 +3,7 @@ import './style.css'
 
 const StackToolsCard=(props)=> {
     const {name,techchild } = props;
-    console.log('techchild', techchild)
+   // console.log('techchild', techchild)
 
   return (
     <>

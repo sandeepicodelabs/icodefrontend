@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Footer from "../../components/Footer/Footer";
@@ -18,15 +18,17 @@ import "../blog.scss";
 import { graphql, Link } from "gatsby";
 import paginationNext from "../../assets/images/pagination-next-icon.png";
 import paginationprev from "../../assets/images/pagination-prev-icon.png";
+import InputBox from "../../components/input";
+import userImg from "../../assets/images/user.png";
+import Emailicon from "../../assets/images/email.png";
+import ButtonBox from "../../components/button";
+import messageimg from "../../assets/images/message.png";
+import axios from "axios";
 
 export default function Blog({ data, pageContext }) {
-  // const { currentPage, count } = pageContext;
-  // const isFirst = currentPage === 1;
-  // const isLast = currentPage === count;
-  // const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`;
-  // const nextPage = `/blog/${currentPage + 1}`;
-  //console.log("blog", data)
+  const { pageCount } = pageContext;
 
+  console.log(pageCount, "pagination");
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
@@ -43,89 +45,16 @@ export default function Blog({ data, pageContext }) {
     );
   });
 
-  // const query = typeof window !== `undefined` ? window.location.search.slice(8) : null;
-  // const posts = data?.allStrapiArticle?.edges;
-  // const filteredData = posts.filter(post => {
-  //   const { Content, Title, Slug, publishedAt, Type } = post.node
-  //   return (
-  //     Title?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //     Slug?.toLowerCase()?.includes(query?.toLowerCase()) ||
-  //     Content?.toLowerCase()?.includes(query?.toLowerCase())
-
-  //   )
-  // });
-
-  const blogcovercard = [
-    {
-      blogtitle: "Web development",
-      img: BlogCover,
-      profilename: "John deo",
-      postdate: "May 4,2022",
-      blogheading: "Developing Marketplace application with Sharetribe",
-      blogdescription:
-        "Ahead of time is a key aspect to sustain and grow an existing business. Most of the time persistence to change or adapt as per the changing market leads to potential gaps that give opportunities for...",
-      CardProfile: profileimg,
-    },
-  ];
-
   return (
     <>
       <section className="blog-box">
         <Header />
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box contentWidth">
-          <div className="blog-wrap-data">
-            <div className="blog-card-cover">
-              {blogcovercard.map((item, i) => (
-                <BlogCoverCard
-                  key={i}
-                  blogtitle={item.Title}
-                  img={item.img}
-                  profilename={item.profilename}
-                  postdate={item.postdate}
-                  blogheading={item.blogheading}
-                  CardProfile={item.CardProfile}
-                  blogdescription={item.blogdescription}
-                />
-              ))}
-            </div>
-            <div className="blog-card-article">
-              <div className="search-box">
-                <div className="input-box-wrap">
-                  <input type="text" placeholder="Search Topics..." />
-                  <span>
-                    <img src={SearchIcon} alt="St Logo" />
-                  </span>
-                </div>
-              </div>
-              <div className="article-box-wrap-card">
-                <div className="article-heading">Recent articles</div>
-                <div className="article-card">
-                  {filteredData &&
-                    filteredData.map((item, i) => (
-                      <>
-                        <Link to={"/blog/" + item?.node?.Slug}>
-                          <BlogArticleCard
-                            key={i}
-                            // cardprofileimg={item.node?.user.profileimage?.publicURL}
-                            img={item.node?.Image[0]?.url}
-                            cardtitle={item.node?.Title}
-                            // profilename={item.node?.user.displayName}
-                            postdate={item.node?.publishedAt}
-                            // carddescription={item.node?.Content}
-                          />{" "}
-                        </Link>
-                      </>
-                    ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div className="article-main-box">
-            <div className="all-article-heading">
+            {/* <div className="all-article-heading">
               <h3>All articles</h3>
-            </div>
+            </div> */}
             <div className="all-article-wrap">
               <div className="article-list-wrap">
                 <div className="article-card-list-most">
@@ -138,7 +67,7 @@ export default function Blog({ data, pageContext }) {
                           // cardprofile={item.node?.user.profileimage?.publicURL}
                           articleTitle={item.node?.Type}
                           // articledescription={item.node?.Content}
-                          //postedname={item.node?.user.displayName}
+                          postedname={item.node?.Author}
                           postdate={item.node?.publishedAt}
                           cardtitle={
                             <Link to={"/blog/" + item?.node?.Slug}>
@@ -151,6 +80,14 @@ export default function Blog({ data, pageContext }) {
                 </div>
               </div>
               <div className="most-popular-article">
+                <div className="search-box">
+                  <div className="input-box-wrap">
+                    <input type="text" placeholder="Search Topics..." />
+                    <span>
+                      <img src={SearchIcon} alt="St Logo" />
+                    </span>
+                  </div>
+                </div>
                 <div className="most-polular">
                   <h1>Most popular</h1>
                   <div className="popular-wrap-box">
@@ -175,33 +112,10 @@ export default function Blog({ data, pageContext }) {
                 </div>
               </div>
             </div>
-            {/* <div className="pagination-box">
-              <div className="pagination">
-                {!isFirst && (
-                  <Link to={prevPage} className="page-navigate-icon">
-                    <img src={paginationprev} alt="Previous Page" />
-                  </Link>
-                )}
-                {Array.from({ length: count }, (_, i) => (
-                  <Link
-                    key={`pagination-number${i + 1}`}
-                    to={`/blog/${i === 0 ? "" : i + 1}`}
-                    className={`pagination-count ${i + 1 === currentPage ? "active" : ""}`}
-                  >
-                    {i + 1}
-                  </Link>
-                ))}
-                {!isLast && (
-                  <Link to={nextPage} className="page-navigate-icon">
-                    <img src={paginationNext} alt="Next Page" />
-                  </Link>
-                )}
-              </div>
-            </div> */}
 
-            {/* <div className="pagination-box">
-              <PaginationBox  
-              /> */}
+            <div className="pagination-box">
+              <PaginationBox />
+            </div>
           </div>
         </div>
       </section>
@@ -212,10 +126,11 @@ export default function Blog({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 6, sort: { Title: DESC }) {
+    allStrapiArticle(limit: 6, skip: 6) {
       edges {
         node {
           Title
+          Author
           Slug
           Type
           Image {
@@ -230,15 +145,6 @@ export const query = graphql`
           createdAt(formatString: "DD MMMM, YYYY")
           publishedAt(formatString: "DD MMMM, YYYY")
         }
-      }
-      pageInfo {
-        pageCount
-        currentPage
-        hasNextPage
-        hasPreviousPage
-        itemCount
-        perPage
-        totalCount
       }
     }
   }
