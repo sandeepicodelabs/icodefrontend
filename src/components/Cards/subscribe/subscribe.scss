@@ -1,0 +1,71 @@
+@import "../../../styles/customMediaQueries.scss";
+@import "../../../styles/variables.scss";
+.subscribe-box-wrap {
+  padding: 24px;
+  background: $base-color;
+  border-radius: 10px;
+  text-align: center;
+  .subscribe-card-box {
+    h3 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 42px;
+      text-transform: capitalize;
+      color: $white-color;
+    }
+    p {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: capitalize;
+      color: $white-color;
+      margin-bottom: 24px;
+    }
+    button {
+      background: $white-color;
+      border-radius: 50px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      text-align: center;
+      letter-spacing: 0.025em;
+      text-transform: uppercase;
+      color: $base-color;
+      border: 1px solid $white-color;
+      cursor: pointer;
+      margin-top: 0;
+      font-size: 14px;
+      padding: 10px 20px;
+      @include md {
+        font-size: 16px;
+        padding: 12px 38px;
+      }
+    }
+    .subscribe-input-box {
+      margin-bottom: 24px;
+      input {
+        background: $white-color;
+        border-radius: 10px;
+        padding: 0px 14px;
+        font-style: normal;
+        height: 50px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: capitalize;
+        width: 100%;
+        border: 1px solid $white-color;
+        color: $black-color;
+        &:focus {
+          outline: none;
+        }
+        &::placeholder {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}

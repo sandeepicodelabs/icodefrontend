@@ -17,32 +17,6 @@
 
       .blog-card-article {
         width: 35%;
-        .search-box {
-          background: $base-color;
-          border-radius: 10px;
-          padding: 14px;
-          .input-box-wrap {
-            position: relative;
-            span {
-              position: absolute;
-              left: 24px;
-              top: 18px;
-            }
-            input {
-              font-style: normal;
-              font-weight: 500;
-              font-size: 16px;
-              line-height: 24px;
-              text-transform: capitalize;
-              color: $text-color;
-              background: $white-color;
-              border: 1px solid $base-color;
-              border-radius: 50px;
-              padding: 18px 18px 18px 60px !important;
-              width: 100%;
-            }
-          }
-        }
         .article-box-wrap-card {
           margin-top: 24px;
           .article-card {
@@ -100,10 +74,6 @@
 }
 
 .article-main-box {
-  margin-top: 50px;
-  @include lg {
-    margin-top: 80px;
-  }
   .all-article-heading {
     h3 {
       font-style: normal;
@@ -119,18 +89,26 @@
   }
 
   .all-article-wrap {
-    margin-top: 34px;
     display: flex;
-    margin-bottom: 96px;
-    gap: 68px;
+    gap: 48px;
+    flex-direction: column;
+    @include lg {
+      flex-direction: row;
+      gap: 68px;
+    }
     .article-list-wrap {
-      width: 70%;
+      width: 100%;
+      @include lg {
+        width: 70%;
+      }
 
       .article-card-list-most {
         display: grid;
-        grid-template-columns: repeat(2, 47%);
-        grid-gap: 60px;
-        gap: 60px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        @include md {
+          grid-template-columns: repeat(2, 1fr);
+        }
         .all-article-card {
           background-color: $white-color;
           border: solid 1px $border-color;
@@ -149,75 +127,159 @@
       }
     }
     .most-popular-article {
-      width: 30%;
+      width: 100%;
+      @include lg {
+        width: 30%;
+      }
+      .search-box {
+        background: $base-color;
+        border-radius: 10px;
+        padding: 14px;
+        margin-bottom: 24px;
+        .input-box-wrap {
+          position: relative;
+          span {
+            position: absolute;
+            left: 24px;
+            top: 18px;
+          }
+          input {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            text-transform: capitalize;
+            color: $black-color;
+            background: $white-color;
+            border: 1px solid $base-color;
+            border-radius: 50px;
+            padding: 18px 18px 18px 60px;
+            width: 100%;
+            &::placeholder {
+              color: $text-color;
+              opacity: 0.5;
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+    .most-polular {
+      background: $light-bg;
+      border-radius: 10px;
+      padding: 14px;
+
+      h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 130%;
+        text-transform: capitalize;
+        color: $text-color;
+        margin-bottom: 0;
+        position: relative;
+        padding-bottom: 12px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: 1px;
+          background: $text-color;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+        }
+      }
+
+      .popular-wrap-box {
+        margin-top: 20px;
+
+        .popular-list {
+          padding: 15px;
+          background-color: $white-color;
+
+          &:hover {
+            background: #e1f7f7;
+          }
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+          a {
+            text-decoration: none;
+            color: $black-color;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            display: inline-block;
+            line-height: 130%;
+            .popular-article-card-box {
+              .polular-card-data {
+                .popular-blog-card-title {
+                  font-style: normal;
+                  font-weight: 600;
+                  font-size: 16px;
+                  line-height: 24px;
+                  text-transform: capitalize;
+                  color: #005b58;
+                  margin-bottom: 0;
+                }
+                .blog-card-detail-box {
+                  margin-top: 12px;
+                  display: flex;
+                  flex-direction: column-reverse;
+                  .popular-profile-list {
+                    img {
+                      height: 48px;
+                      width: 48px;
+                      border-radius: 50%;
+                    }
+                    .popular-profile-name {
+                      font-style: normal;
+                      font-weight: 400;
+                      font-size: 14px;
+                      line-height: 130%;
+                      text-transform: capitalize;
+                      color: #101820;
+                      position: relative;
+                      span {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 130%;
+                        text-transform: capitalize;
+                        color: #3e4348;
+                      }
+                    }
+                    .popular-post-date {
+                      font-style: normal;
+                      font-weight: 400;
+                      font-size: 14px;
+                      line-height: 130%;
+                      text-transform: capitalize;
+                      color: #101820;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
+    .subscribe-box {
+      margin-top: 24px;
+    }
     .blog-card-box {
       width: 50%;
     }
   }
 }
 
-.popular-wrap-box .popular-article-card-box {
-  margin-bottom: 37px;
-  padding: 5px 10px;
-}
-.popular-list {
-  padding: 10px;
-}
-.popular-list:hover {
-  background: #e1f7f7;
-}
-.popular-wrap-box a {
-  text-decoration: none;
-  color: $black-color;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  text-transform: capitalize;
-}
-.popular-wrap-box .popular-article-card-box:after {
-  content: "";
-  background-color: $text-color;
-  height: 1px;
-  position: absolute;
-  width: 100%;
-  bottom: -17px;
-  left: 0;
-}
-
-.subscribe-box {
-  margin-top: 96px;
-}
-
-.most-popular-article .most-polular h1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 42px;
-  text-transform: capitalize;
-  color: $text-color;
-  margin-bottom: 0;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.most-popular-article .most-polular h1::after {
-  content: "";
-  position: absolute;
-  height: 1px;
-  background: $text-color;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
-
-.most-polular {
-  background: rgba(87, 248, 243, 0.12);
-  border-radius: 10px;
-  padding: 48px 24px;
-}
 section.blog-detail-box .blog-detail-header h1 {
   font-style: normal;
   font-weight: 600;

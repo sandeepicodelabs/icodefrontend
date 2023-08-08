@@ -113,9 +113,7 @@ export default function Blog({ data, pageContext }) {
               </div>
             </div>
 
-            <div className="pagination-box">
-              <PaginationBox />
-            </div>
+            <PaginationBox />
           </div>
         </div>
       </section>
