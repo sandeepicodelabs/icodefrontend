@@ -10,7 +10,7 @@ import AllArticleCard from "../../components/Cards/allarticlecard";
 import Footer from "../../components/Footer/Footer";
 import { Link, graphql } from "gatsby";
 import Commentimg from "../../assets/images/comment.png";
-import "./blog.scss";
+import "../blog.scss";
 import ReactMarkdown from "react-markdown";
 
 const settings = {
@@ -113,8 +113,9 @@ export default function BlogPage({ data, pageContext }) {
             <div className="blog-detail-body">
               {/* <div className="blog-detail-left-wrap">*/}
               <div className="detail-description-wrap">
-                
-                <ReactMarkdown>{article?.node?.Content.data.Content}</ReactMarkdown>
+                <ReactMarkdown>
+                  {article?.node?.Content.data.Content}
+                </ReactMarkdown>
               </div>
 
               {/* </div> */}
@@ -181,7 +182,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle{
+    allStrapiArticle {
       edges {
         node {
           Title

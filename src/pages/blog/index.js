@@ -14,7 +14,7 @@ import CardProfile from "../../assets/images/allarticleimg.png";
 import BlogCoverImg from "../../assets/images/articlecardimg.png";
 import CardProfileimg from "../../assets/images/covercardprofile.png";
 import SearchIcon from "../../assets/images/searchicon.svg";
-import "./blog.scss";
+import "../blog.scss";
 import { graphql, Link } from "gatsby";
 import paginationNext from "../../assets/images/pagination-next-icon.png";
 import paginationprev from "../../assets/images/pagination-prev-icon.png";
@@ -69,11 +69,11 @@ export default function Blog({ data, pageContext }) {
   ];
 
   return (
-    <div>
+    <>
       <section className="blog-box">
         <Header />
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
-        <div className="cover-full-box">
+        <div className="cover-full-box contentWidth">
           <div className="blog-wrap-data">
             <div className="blog-card-cover">
               {blogcovercard.map((item, i) => (
@@ -101,22 +101,22 @@ export default function Blog({ data, pageContext }) {
               <div className="article-box-wrap-card">
                 <div className="article-heading">Recent articles</div>
                 <div className="article-card">
-                  <div>
-                    {filteredData && filteredData.map((item, i) => (
-                      <div>
-                        <Link to={"/blog/" + item?.node?.Slug}> </Link>
-                        <BlogArticleCard
-                          key={i}
-                          // cardprofileimg={item.node?.user.profileimage?.publicURL}
-                          img={item.node?.Image[0]?.url}
-                          cardtitle={item.node?.Title}
-                          // profilename={item.node?.user.displayName}
-                          postdate={item.node?.publishedAt}
-                          // carddescription={item.node?.Content}
-                        />
-                      </div>
+                  {filteredData &&
+                    filteredData.map((item, i) => (
+                      <>
+                        <Link to={"/blog/" + item?.node?.Slug}>
+                          <BlogArticleCard
+                            key={i}
+                            // cardprofileimg={item.node?.user.profileimage?.publicURL}
+                            img={item.node?.Image[0]?.url}
+                            cardtitle={item.node?.Title}
+                            // profilename={item.node?.user.displayName}
+                            postdate={item.node?.publishedAt}
+                            // carddescription={item.node?.Content}
+                          />{" "}
+                        </Link>
+                      </>
                     ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -132,7 +132,7 @@ export default function Blog({ data, pageContext }) {
                   {filteredData &&
                     filteredData.map((item, i) => (
                       // console.log('map',item?.node?.Image[0]?.url)
-                      <div key={i}>
+                      <div className="all-article-card" key={i}>
                         <AllArticleCard
                           img={item?.node?.Image[0]?.url}
                           // cardprofile={item.node?.user.profileimage?.publicURL}
@@ -154,19 +154,20 @@ export default function Blog({ data, pageContext }) {
                 <div className="most-polular">
                   <h1>Most popular</h1>
                   <div className="popular-wrap-box">
-                    {filteredData && filteredData.map((item, i) => (
-                      <div className="popular-list">
-                        <Link to={"/blog/" + item?.node?.Slug}>
-                          {item?.node?.Title}
-                          <MostPopularCard
-                            key={i}
-                            //profilename={item.node?.user.displayName}
-                            postdate={item.node?.publishedAt}
-                            //blogdescription={item.node?.Title}
-                          />
-                        </Link>
-                      </div>
-                    ))}
+                    {filteredData &&
+                      filteredData.map((item, i) => (
+                        <div className="popular-list">
+                          <Link to={"/blog/" + item?.node?.Slug}>
+                            {item?.node?.Title}
+                            <MostPopularCard
+                              key={i}
+                              //profilename={item.node?.user.displayName}
+                              postdate={item.node?.publishedAt}
+                              //blogdescription={item.node?.Title}
+                            />
+                          </Link>
+                        </div>
+                      ))}
                   </div>
                 </div>
                 <div className="subscribe-box">
@@ -205,16 +206,13 @@ export default function Blog({ data, pageContext }) {
         </div>
       </section>
       <Footer />
-    </div>
+    </>
   );
 }
 
-
-
-
 export const query = graphql`
-query MyQuery{
-  allStrapiArticle(limit: 6, sort: {Title: DESC}){
+  query MyQuery {
+    allStrapiArticle(limit: 6, sort: { Title: DESC }) {
       edges {
         node {
           Title
