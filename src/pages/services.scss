@@ -77,6 +77,49 @@
     }
   }
 }
+.service-header {
+  display: flex;
+  .contentWidth {
+    padding: 50px 24px;
+    display: flex;
+    @include lg {
+      padding: 80px 24px;
+    }
+    .service-header-content {
+      width: 50%;
+      text-align: left;
+      padding-right: 48px;
+      h1 {
+        font-weight: 600;
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        line-height: 130%;
+        @include sm {
+          font-size: 28px;
+          line-height: 135%;
+        }
+        @include md {
+          font-size: 30px;
+          line-height: 140%;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 170%;
+        font-weight: 300;
+        @include lg {
+          font-size: 18px;
+        }
+      }
+    }
+    .service-header-image {
+      width: 50%;
+      & > img {
+        max-width: 100%;
+      }
+    }
+  }
+}
 .why-we-hire {
   background: rgba(87, 248, 243, 0.1);
   .contentWidth {

@@ -26,12 +26,20 @@ export default function Servicedetail({ data, pageContext }) {
                 <h1>{detail?.node?.Title}</h1>
                 <p>{detail?.node.Description.data.Description}</p>
               </div>
-              {/* <div className="service-hero-image">
+            </div>
+          </section>
+          <section className="service-header">
+            <div className="contentWidth">
+              <div className="service-header-content">
+                <h1>{detail?.node?.Title}</h1>
+                <p>{detail?.node.Description.data.Description}</p>
+              </div>
+              <div className="service-header-image">
                 <img
                   src={detail && detail?.node?.TopImage?.[0]?.url}
                   alt="st logo"
                 />
-              </div> */}
+              </div>
             </div>
           </section>
           <section className="why-we-hire">
