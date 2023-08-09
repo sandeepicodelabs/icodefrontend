@@ -213,6 +213,10 @@
     height: 100%;
     position: relative;
   }
+  .mapboxgl-marker {
+    position: absolute;
+    top: 0;
+  }
   .mapboxgl-ctrl-attrib-inner {
     a {
       font-size: 12px;
