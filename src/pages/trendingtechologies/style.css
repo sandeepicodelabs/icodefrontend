@@ -92,33 +92,6 @@
   color: #3e4348;
   margin-bottom: 0;
 }
-.our-team-wrap {
-  background: rgba(87, 248, 243, 0.1);
-  padding: 160px 200px;
-}
-.our-team-wrap .our-tech-team h1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 72px;
-  color: #000000;
-  width: 50%;
-  padding-right: 45px;
-}
-.our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 33px;
-  color: #3e4348;
-  width: 50%;
-  position: relative;
-  padding-left: 24px;
-}
-.our-team-wrap .our-tech-team {
-  display: flex;
-  margin-bottom: 96px;
-}
 .out-hiring-tech-subtext:before {
   content: "";
   background: #005b58;
@@ -127,12 +100,6 @@
   width: 4px;
   height: 110px;
   left: 0;
-}
-.our-team-wrap .join-expertise {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 64px;
-  justify-content: space-between;
 }
 .stack-tools-use {
   padding: 160px 200px;
@@ -163,18 +130,11 @@
   .recommented-wrap {
     padding: 120px;
   }
-  .our-team-wrap {
-    padding: 120px;
-  }
   .tranding-bar-cover h1 {
     font-size: 40px;
     line-height: 136%;
   }
   .recommented-wrap .recommend-section h1 {
-    font-size: 40px;
-    line-height: 136%;
-  }
-  .our-team-wrap .our-tech-team h1 {
     font-size: 40px;
     line-height: 136%;
   }
@@ -196,9 +156,6 @@
   .recommented-wrap .recommend-section h1 {
     font-size: 34px;
   }
-  .our-team-wrap .our-tech-team h1 {
-    font-size: 34px;
-  }
   .stack-heading {
     font-size: 34px;
   }
@@ -211,9 +168,6 @@
   }
   .tranding-bar-cover {
     padding: 80px 90px;
-  }
-  .our-team-wrap {
-    padding: 90px;
   }
   .out-hiring-tech-subtext:before {
     height: 100%;
@@ -276,18 +230,6 @@
   .tranding-bar-cover {
     padding: 80px 60px;
   }
-  .our-team-wrap {
-    padding: 60px;
-  }
-  .our-team-wrap .our-tech-team {
-    flex-wrap: wrap;
-  }
-  .our-team-wrap .our-tech-team h1 {
-    width: 100%;
-  }
-  .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-    width: 100%;
-  }
   .join-expertise .join-our-team {
     width: 48%;
   }
@@ -296,21 +238,6 @@
   }
 }
 @media (max-width: 1024px) {
-  .our-team-wrap .join-expertise {
-    justify-content: flex-start;
-    flex-direction: row;
-    overflow-x: auto;
-    width: 100%;
-    flex-wrap: unset;
-    padding: 40px 10px 20px 10px;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    gap: 50px;
-  }
-  .our-team-wrap .our-tech-team {
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
   .join-expertise .join-our-team {
     width: 50%;
     min-width: 50%;
@@ -319,9 +246,6 @@
     padding: 40px;
   }
   .recommented-wrap {
-    padding: 40px;
-  }
-  .our-team-wrap {
     padding: 40px;
   }
   .tranding-bar-cover {
@@ -354,9 +278,6 @@
   .recommented-wrap .recommend-section h1 {
     font-size: 30px;
   }
-  .our-team-wrap .our-tech-team h1 {
-    font-size: 30px;
-  }
   .stack-heading {
     font-size: 30px;
   }
@@ -372,9 +293,6 @@
   }
   .recommend-wrap-box .approach-right-box {
     width: 100%;
-  }
-  .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-    font-size: 20px;
   }
 }
 @media (max-width: 920px) {
@@ -394,9 +312,6 @@
     width: 100% !important;
   }
   .stack-tools-use {
-    padding: 40px 24px;
-  }
-  .our-team-wrap {
     padding: 40px 24px;
   }
   .recommend-wrap-box .approach-left-box p {
@@ -429,10 +344,6 @@
   }
   .recommented-wrap .recommend-section h1 {
     font-size: 28px;
-  }
-  .our-team-wrap .our-tech-team h1 {
-    font-size: 28px;
-    padding-right: 0 !important;
   }
   .stack-heading {
     font-size: 28px;
@@ -473,9 +384,6 @@
   .join-our-team p {
     font-size: 14px !important;
   }
-  .our-team-wrap .our-tech-team .out-hiring-tech-subtext {
-    font-size: 18px;
-  }
   .tranding-bar-cover h1 {
     font-size: 22px;
   }
@@ -493,9 +401,6 @@
   }
   .tranding-bar-cover h1 {
     font-size: 26px;
-  }
-  .our-team-wrap .our-tech-team h1 {
-    font-size: 22px;
   }
   .stack-heading {
     font-size: 26px;

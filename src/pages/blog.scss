@@ -74,6 +74,7 @@
 }
 
 .article-main-box {
+  width: 100%;
   .all-article-heading {
     h3 {
       font-style: normal;
@@ -90,18 +91,22 @@
 
   .all-article-wrap {
     display: flex;
-    gap: 48px;
-    flex-direction: column;
-    @include lg {
-      flex-direction: row;
-      gap: 68px;
-    }
+    // grid-gap: 48px;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // @include lg {
+    //   grid-gap: 48px;
+    //   grid-template-columns: 1fr 400px;
+    // }
+    // @include xl {
+    //   grid-gap: 68px;
+    // }
     .article-list-wrap {
       width: 100%;
       @include lg {
         width: calc(100% - 400px);
+        padding-right: 68px;
       }
-
       .article-card-list-most {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -126,9 +131,10 @@
         }
       }
       .blog-detail-cover {
+        width: 100%;
         .blog-application-cover-image {
           position: relative;
-          padding-bottom: 66.66%;
+          padding-bottom: 50%;
           overflow: hidden;
           border-radius: 20px;
           & > img {
@@ -225,7 +231,10 @@
           }
           .related-slider {
             margin-top: 24px;
-
+            width: 100%;
+            .slick-slider {
+              width: 100%;
+            }
             .article-slide {
               border: solid 1px $border-color;
               text-decoration: none;
@@ -275,9 +284,9 @@
                         object-fit: cover;
                       }
                       .all-article-profile-wrap {
-                        padding-left: 12px;
                         display: flex;
                         align-items: center;
+                        flex-wrap: wrap;
                         .all-article-name {
                           font-style: normal;
                           font-weight: 400;
@@ -378,9 +387,6 @@
       width: 100%;
       @include lg {
         width: 400px;
-        align-self: flex-start;
-        position: sticky;
-        top: 118px;
       }
       .search-box {
         background: $base-color;
@@ -547,6 +553,10 @@
       background-color: $light-bg;
       padding: 14px;
       border-radius: 10px;
+      position: sticky;
+      top: 100px;
+      @include lg {
+      }
       h1 {
         font-style: normal;
         font-weight: 600;
@@ -599,6 +609,8 @@
     }
     .subscribe-box {
       margin-top: 24px;
+      position: sticky;
+      top: 100px;
     }
     .blog-card-box {
       width: 50%;

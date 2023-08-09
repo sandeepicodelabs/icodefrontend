@@ -153,14 +153,11 @@ export default function BlogPage({ data, pageContext }) {
                 </div>
                 <div className="blog-detail-grid-wrap">
                   <div className="blog-detail-body">
-                    {/* <div className="blog-detail-left-wrap">*/}
                     <div className="detail-description-wrap">
                       <ReactMarkdown>
                         {article?.node?.Content.data.Content}
                       </ReactMarkdown>
                     </div>
-
-                    {/* </div> */}
                   </div>
                   <div className="estimate-section-wrap">
                     <div className="estimate-contact">

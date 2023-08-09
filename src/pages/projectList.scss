@@ -81,14 +81,7 @@
           padding: 10px 24px;
           font-size: 16px;
           white-space: nowrap;
-          @include md {
-            padding: 10px 30px;
-            font-size: 16px;
-          }
-          @include lg {
-            padding: 14px 38px;
-            font-size: 18px;
-          }
+
           &:hover,
           &:focus,
           &:active,

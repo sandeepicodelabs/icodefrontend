@@ -1,5 +1,99 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+.service-hero-section {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    background-image: url("../assets/images/linedin-lite-post-image.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+  &::before {
+    content: "";
+    background-color: $base-color;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 1;
+  }
+  .contentWidth {
+    padding: 50px 24px;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    @include lg {
+      padding: 80px 24px;
+    }
+    .service-hero-content {
+      width: 100%;
+      text-align: center;
+      color: $white-color;
+      h1 {
+        font-weight: 500;
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        line-height: 130%;
+        @include sm {
+          font-size: 28px;
+          line-height: 135%;
+        }
+        @include md {
+          font-size: 30px;
+          line-height: 140%;
+        }
+        @include lg {
+          font-size: 38px;
+          line-height: 145%;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 170%;
+        font-weight: 300;
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+        @include md {
+          max-width: 80%;
+        }
+        @include lg {
+          font-size: 18px;
+          max-width: 70%;
+        }
+      }
+    }
+  }
+}
+.why-we-hire {
+  background: rgba(87, 248, 243, 0.1);
+  .contentWidth {
+    padding: 50px 24px;
+    @include lg {
+      padding: 80px 24px;
+    }
+    .our-tech-team {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+}
 .project-list-cover {
-  background-image: url(../../assets/images/tranding-cover.png);
+  background-image: url("../assets/images/tranding-cover.png");
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
