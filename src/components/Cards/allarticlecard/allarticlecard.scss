@@ -1,0 +1,112 @@
+@import "../../../styles/customMediaQueries.scss";
+@import "../../../styles/variables.scss";
+.article-list-wrap {
+  .all-article-heading {
+    h3 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 42px;
+      text-transform: capitalize;
+      color: $black-color;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.all-article-card-box {
+  .all-article-cover-image {
+    width: 100%;
+    padding-bottom: 66.66%;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .all-article-card-data {
+    margin-top: 12px;
+    .all-article-card-title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-transform: capitalize;
+      color: $base-color;
+      margin-bottom: 0;
+    }
+    .all-article-card-detail-box {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 5px;
+      .all-article-profile-list {
+        margin-top: 14px;
+        display: flex;
+        & > img {
+          border-radius: 50%;
+          height: 48px;
+          width: 48px;
+          object-fit: cover;
+        }
+        .all-article-profile-wrap {
+          padding-left: 12px;
+          .all-article-name {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            text-transform: capitalize;
+            color: $black-color;
+            span {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 130%;
+              text-transform: capitalize;
+              color: $black-color;
+            }
+          }
+          .all-article-post-date {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            color: $black-color;
+            margin-top: 4px;
+          }
+        }
+      }
+      .all-article-card-description {
+        & > a {
+          display: inline-block;
+          text-decoration: none;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 130%;
+          color: $black-color;
+        }
+      }
+    }
+  }
+}
+
+.all-article-description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $black-color;
+  margin-top: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

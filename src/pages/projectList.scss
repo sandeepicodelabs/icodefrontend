@@ -26,18 +26,18 @@
     color: $black-color;
     font-weight: 600;
     margin: 0 0 10px 0;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 130%;
     @include sm {
-      font-size: 30px;
+      font-size: 28px;
       line-height: 135%;
     }
     @include md {
-      font-size: 34px;
+      font-size: 30px;
       line-height: 140%;
     }
     @include lg {
-      font-size: 38px;
+      font-size: 30px;
       line-height: 145%;
     }
   }

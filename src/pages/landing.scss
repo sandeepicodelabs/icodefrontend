@@ -66,7 +66,7 @@
           }
           @include xl {
             max-width: 70%;
-            font-size: 38px;
+            font-size: 30px;
             line-height: 140%;
           }
           &::before {
@@ -387,18 +387,18 @@
       text-transform: capitalize;
       color: $black-color;
       margin-bottom: 0;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 130%;
       @include sm {
-        font-size: 30px;
+        font-size: 28px;
         line-height: 135%;
       }
       @include md {
-        font-size: 34px;
+        font-size: 30px;
         line-height: 140%;
       }
       @include lg {
-        font-size: 38px;
+        font-size: 30px;
         line-height: 145%;
       }
     }
@@ -592,19 +592,21 @@
       width: 100%;
       position: relative;
       z-index: 1;
-      font-size: 26px;
+
+      font-size: 24px;
       line-height: 130%;
       @include sm {
-        font-size: 30px;
+        font-size: 28px;
+        line-height: 135%;
       }
-
       @include md {
-        font-size: 34px;
+        font-size: 30px;
+        line-height: 140%;
         margin-bottom: 20px;
       }
       @include lg {
-        font-size: 38px;
-        line-height: 135%;
+        font-size: 30px;
+        line-height: 145%;
       }
     }
     p {
@@ -784,18 +786,19 @@
       color: $black-color;
       margin-bottom: 12px;
       text-align: center;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 130%;
       @include sm {
-        font-size: 30px;
+        font-size: 28px;
         line-height: 135%;
       }
       @include md {
-        font-size: 34px;
+        font-size: 30px;
         line-height: 140%;
+        margin-bottom: 20px;
       }
       @include lg {
-        font-size: 38px;
+        font-size: 30px;
         line-height: 145%;
       }
     }
@@ -1022,18 +1025,19 @@
         color: $black-color;
         margin-bottom: 12px;
         text-align: center;
-        font-size: 28px;
+        font-size: 24px;
         line-height: 130%;
         @include sm {
-          font-size: 30px;
+          font-size: 28px;
           line-height: 135%;
         }
         @include md {
-          font-size: 34px;
+          font-size: 30px;
           line-height: 140%;
+          margin-bottom: 20px;
         }
         @include lg {
-          font-size: 38px;
+          font-size: 30px;
           line-height: 145%;
         }
       }
@@ -1527,18 +1531,19 @@
         text-transform: capitalize;
         color: $black-color;
         margin-bottom: 12px;
-        font-size: 28px;
+        font-size: 24px;
         line-height: 130%;
         @include sm {
-          font-size: 30px;
+          font-size: 28px;
           line-height: 135%;
         }
         @include md {
-          font-size: 34px;
+          font-size: 30px;
           line-height: 140%;
+          margin-bottom: 20px;
         }
         @include lg {
-          font-size: 38px;
+          font-size: 30px;
           line-height: 145%;
         }
       }
@@ -1746,7 +1751,7 @@
         }
         @include xl {
           max-width: 70%;
-          font-size: 38px;
+          font-size: 30px;
           line-height: 140%;
         }
       }
@@ -1902,24 +1907,25 @@
       h1 {
         font-style: normal;
         font-weight: 600;
-        font-size: 24px;
-        line-height: 128%;
         text-transform: capitalize;
         color: $black-color;
         position: relative;
         width: 100%;
         margin: auto;
+        font-size: 24px;
+        line-height: 130%;
         @include sm {
           font-size: 28px;
-          line-height: 130%;
+          line-height: 135%;
         }
         @include md {
           font-size: 30px;
-          line-height: 135%;
-        }
-        @include xl {
-          font-size: 38px;
           line-height: 140%;
+          margin-bottom: 20px;
+        }
+        @include lg {
+          font-size: 30px;
+          line-height: 145%;
         }
       }
       p {
@@ -1959,6 +1965,7 @@
       .contact-form {
         background-color: $white-color;
         padding: 14px;
+        position: relative;
         @include md {
           padding: 24px;
         }
@@ -1978,12 +1985,17 @@
             line-height: 24px;
             color: $text-color;
             width: 100%;
-            .input-icon {
-              position: absolute;
-              left: 12px;
-              top: 13px;
-              height: 24px;
-              width: 24px;
+          }
+          .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            height: 24px;
+            width: 24px;
+            > img {
+              max-width: 100%;
+              width: 20px;
+              height: 20px;
             }
           }
         }
