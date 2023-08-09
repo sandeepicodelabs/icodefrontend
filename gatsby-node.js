@@ -35,9 +35,13 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
+  if (result.errors) {
+    throw result.errors
+  }
 
-   const articles = result.data.articles.edges;
-
+  const technologies = result.data.technologies.edges
+  const services = result.data.services.edges
+   const articles = result.data.articles.edges; 
 
 
    const itemsPerPage =6; // Change this as needed
@@ -98,12 +102,7 @@ Array.from({ length: numPages }).forEach((_, i) => {
   //   resolve()
   // })
 
-  if (result.errors) {
-    throw result.errors
-  }
 
-  const technologies = result.data.technologies.edges
-  const services = result.data.services.edges
   
 
 
