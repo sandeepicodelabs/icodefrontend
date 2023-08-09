@@ -199,16 +199,17 @@ export const query = graphql`
               data {
                 ServiceDescription
               }
-            }
-            Servicetitle
-            TImage {
-              url
-            }
-          }
-          ToolService {
-            toolsDescription {
-              data {
-                toolsDescription
+
+              CTATitlte
+              CTADescription {
+                data {
+                  CTADescription
+                }
+              }
+              Description {
+                data {
+                  Description
+                }
               }
             }
             toolsTitle

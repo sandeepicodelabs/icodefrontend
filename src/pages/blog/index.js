@@ -89,6 +89,49 @@ export default function Blog({ data, pageContext }) {
     e.target.reset();
   };
 
+  console.log("blog", filteredData);
+
+  // for enquiry form
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    console.log(formData, "formData");
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+        MobileNo: bigInt(formData.get("mobileno")),
+      },
+    };
+    console.log(contactData, "contactData");
+    // Make the POST request to your Strapi backend
+    axios
+      .get(
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get(
+          "message"
+        )}&mobileno=${formData.get("mobileno")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
+      })
+      .catch((error) => {
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
+      });
+    e.target.reset();
+  };
+
   return (
     <>
       <section className="blog-box">
@@ -113,8 +156,11 @@ export default function Blog({ data, pageContext }) {
                           // articledescription={item.node?.Content}
                           postedname={item.node?.Author}
                           postdate={item.node?.createdAt}
-                          cardtitle={item.node?.Title}
-                          slug={item.node?.Slug}
+                          cardtitle={
+                            <Link to={"/blog/" + item?.node?.Slug}>
+                              {item.node?.Title}
+                            </Link>
+                          }
                         />
                       </div>
                     ))}
@@ -232,7 +278,33 @@ export default function Blog({ data, pageContext }) {
               />   */}
           </div>
 
-          <PaginationBox />
+          {/* <div className="pagination-box">
+        {hasPreviousPage && (
+          <Link to={`/blog/${currentPage - 1}`}>Previous</Link>
+        )}
+        {Array.from({ length: pageCount }).map((_, index) => (
+          <Link key={index} to={`/blog/${index + 1}`}>
+            {index + 1}
+          </Link>
+        ))}
+        {hasNextPage && (
+          <Link to={`/blog/${currentPage + 1}`}>Next</Link>
+        )}
+      </div> */}
+          {/* 
+            <div className="pagination-box">
+        {pageInfo.hasPreviousPage && (
+          <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
+        )}
+        {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
+          <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
+        ))}
+        {pageInfo.hasNextPage && (
+          <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
+        )}
+      </div> */}
+          {/* <PaginationBox  
+              />   */}
         </div>
       </section>
       <Footer />

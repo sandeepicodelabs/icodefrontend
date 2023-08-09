@@ -9,7 +9,7 @@ require("dotenv").config({
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const strapiConfig = {
-  apiURL: "https://icodelabsbackend.onrender.com/",
+  apiURL: "http://127.0.0.1:1337",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
     //"article",
