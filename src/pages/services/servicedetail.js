@@ -4,10 +4,10 @@ import "../services.scss";
 import Footer from "../../components/Footer/Footer";
 import { graphql } from "gatsby";
 import FAQ from "../../components/FAQ/FAQ";
-// import '../../assets/css/custom.css';
 import WhyWeJoinCard from "../../components/Cards/jointeamcard";
 import CompanyApproachCard from "../../components/Cards/companyapproachecard";
 import EstimateCard from "../../components/Cards/estimatecard";
+import ButtonBox from "../../components/button";
 
 export default function Servicedetail({ data, pageContext }) {
   const servicedetail = data && data?.allStrapiServiceDetail?.edges;
@@ -122,7 +122,16 @@ export default function Servicedetail({ data, pageContext }) {
           </section>
           <br />
           <section className="estimate-section-wrap">
-            <EstimateCard />
+            <div className="estimate-contact">
+              <h3>{detail?.node?.CTATitlte}</h3>
+              <p>{detail?.node?.CTADescription?.data.CTADescription}</p>
+              <a href="/contact">
+                <ButtonBox
+                  buttonname="contact now"
+                  className="estimate-submit"
+                />
+              </a>
+            </div>
           </section>
           <section>
             <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
@@ -175,16 +184,17 @@ export const query = graphql`
               data {
                 ServiceDescription
               }
-            }
-            Servicetitle
-            TImage {
-              url
-            }
-          }
-          ToolService {
-            toolsDescription {
-              data {
-                toolsDescription
+
+              CTATitlte
+              CTADescription {
+                data {
+                  CTADescription
+                }
+              }
+              Description {
+                data {
+                  Description
+                }
               }
             }
             toolsTitle
