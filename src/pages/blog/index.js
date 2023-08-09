@@ -27,9 +27,11 @@ import axios from "axios";
 
 export default function Blog({ data, pageContext }) {  
   const { allStrapiArticle } = data;
-  const { pageInfo } = allStrapiArticle;
-  console.log('pageingo',allStrapiArticle)
- 
+   const { pageInfo } = allStrapiArticle;
+  
+  const { currentPage, hasNextPage, hasPreviousPage } = pageInfo;
+  const pageCount = Math.ceil(pageInfo.totalCount / pageInfo.perPage);
+     console.log('pageingo',allStrapiArticle)
   
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
@@ -119,8 +121,20 @@ export default function Blog({ data, pageContext }) {
               </div>
             </div>
              
-  
-
+            <div className="pagination-box">
+        {hasPreviousPage && (
+          <Link to={`/blog/${currentPage - 1}`}>Previous</Link>
+        )}
+        {Array.from({ length: pageCount }).map((_, index) => (
+          <Link key={index} to={`/blog/${index + 1}`}>
+            {index + 1}
+          </Link>
+        ))}
+        {hasNextPage && (
+          <Link to={`/blog/${currentPage + 1}`}>Next</Link>
+        )}
+      </div>
+{/* 
             <div className="pagination-box">
         {pageInfo.hasPreviousPage && (
           <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
@@ -131,7 +145,7 @@ export default function Blog({ data, pageContext }) {
         {pageInfo.hasNextPage && (
           <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
         )}
-      </div>
+      </div> */}
               {/* <PaginationBox  
               />   */}
           </div>  
@@ -145,26 +159,22 @@ export default function Blog({ data, pageContext }) {
 
 
 
+
+
+
 export const query=graphql`
 query MyQuery {
-  allStrapiArticle(limit: 6, skip: 0,sort: {Title: DESC}) {
-    edges {
-      node {
-        Title
-       
-        Slug
-        Type
-        Image {
-          url
+  allStrapiArticle(limit: 6, skip: 0, sort: {Title: DESC}) {
+    nodes {
+      Title
+      Slug
+      Content {
+        data {
+          Content
         }
-        Content {
-          data {
-            Content
-          }
-        }
-        createdAt(formatString: "DD MMMM, YYYY")
-        publishedAt(formatString: "DD MMMM, YYYY")
       }
+      createdAt(formatString: "DD MMMM, YYYY")
+      publishedAt(formatString: "DD MMMM, YYYY")
     }
     pageInfo {
       currentPage
@@ -176,10 +186,45 @@ query MyQuery {
       totalCount
     }
   }
-}
-
-
+} 
 `
+
+
+
+
+// query MyQuery {
+//   allStrapiArticle(limit: 6, skip: 0,sort: {Title: DESC}) {
+//     edges {
+//       node {
+//         Title
+       
+//         Slug
+//         Type
+//         Image {
+//           url
+//         }
+//         Content {
+//           data {
+//             Content
+//           }
+//         }
+//         createdAt(formatString: "DD MMMM, YYYY")
+//         publishedAt(formatString: "DD MMMM, YYYY")
+//       }
+//     }
+//     pageInfo {
+//       currentPage
+//       hasNextPage
+//       hasPreviousPage
+//       itemCount
+//       pageCount
+//       perPage
+//       totalCount
+//     }
+//   }
+// }
+
+
 
 // export const query = graphql`
 //   query ($limit: Int!, $skip: Int!) {
