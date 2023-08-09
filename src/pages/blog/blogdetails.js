@@ -134,9 +134,9 @@ export default function BlogPage({ data, pageContext }) {
               <div className="blog-detail-data">
                 <div className="blog-card-date">{article?.node?.createdAt}</div>
 
-                <div className="blog-card-posted-name">
+                {/* <div className="blog-card-posted-name">
                   <span>Posted by :</span>{article?.node?.Author}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -271,7 +271,7 @@ export const query = graphql`
       edges {
         node {
           Title
-          Author
+          
           Slug
           Type
           Content {

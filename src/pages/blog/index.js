@@ -26,9 +26,11 @@ import messageimg from "../../assets/images/message.png";
 import axios from "axios";
 
 export default function Blog({ data, pageContext }) {  
-  const {pageCount}=pageContext 
+  const { allStrapiArticle } = data;
+  const { pageInfo } = allStrapiArticle;
+  console.log('pageingo',allStrapiArticle)
  
- console.log(pageCount,"pagination")
+  
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
@@ -71,7 +73,7 @@ export default function Blog({ data, pageContext }) {
                           // cardprofile={item.node?.user.profileimage?.publicURL}
                           articleTitle={item.node?.Type}
                           // articledescription={item.node?.Content}
-                          postedname={item.node?.Author}
+                          // postedname={item.node?.Author}
                           postdate={item.node?.publishedAt}
                           cardtitle={
                             <Link to={"/blog/" + item?.node?.Slug}>
@@ -117,13 +119,24 @@ export default function Blog({ data, pageContext }) {
               </div>
             </div>
              
- 
+  
+
             <div className="pagination-box">
-              <PaginationBox  
-              />  
+        {pageInfo.hasPreviousPage && (
+          <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
+        )}
+        {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
+          <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
+        ))}
+        {pageInfo.hasNextPage && (
+          <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
+        )}
+      </div>
+              {/* <PaginationBox  
+              />   */}
           </div>  
           </div>
-        </div>
+       
       </section>
       <Footer />
     </div>
@@ -132,33 +145,66 @@ export default function Blog({ data, pageContext }) {
 
 
 
-
-export const query = graphql`
-query MyQuery  {
-  allStrapiArticle  {
-      edges {
-        node {
-          Title
-          Author
-          Slug
-          Type
-          Image {
-            url
-          }
-
-          Content {
-            data {
-              Content
-            }
-          }
-          createdAt(formatString: "DD MMMM, YYYY")
-          publishedAt(formatString: "DD MMMM, YYYY")
+export const query=graphql`
+query MyQuery {
+  allStrapiArticle(limit: 6, skip: 0,sort: {Title: DESC}) {
+    edges {
+      node {
+        Title
+       
+        Slug
+        Type
+        Image {
+          url
         }
+        Content {
+          data {
+            Content
+          }
+        }
+        createdAt(formatString: "DD MMMM, YYYY")
+        publishedAt(formatString: "DD MMMM, YYYY")
       }
-     
+    }
+    pageInfo {
+      currentPage
+      hasNextPage
+      hasPreviousPage
+      itemCount
+      pageCount
+      perPage
+      totalCount
     }
   }
-`;
+}
+
+
+`
+
+// export const query = graphql`
+//   query ($limit: Int!, $skip: Int!) {
+//     allStrapiArticle(limit: $limit, skip: $skip) {
+//       edges {
+//         node {
+//           Title
+          
+//           Slug
+//           Type
+//           Image {
+//             url
+//           }
+//           Content {
+//             data {
+//               Content
+//             }
+//           }
+//           createdAt(formatString: "DD MMMM, YYYY")
+//           publishedAt(formatString: "DD MMMM, YYYY")
+//         }
+//       }
+//     }
+//   }
+// `;
 
 
  
