@@ -91,6 +91,7 @@
 
   .all-article-wrap {
     display: flex;
+    flex-direction: column;
     // grid-gap: 48px;
     // display: grid;
     // grid-template-columns: 1fr;
@@ -101,10 +102,16 @@
     // @include xl {
     //   grid-gap: 68px;
     // }
+    @include lg {
+      flex-direction: row;
+    }
     .article-list-wrap {
       width: 100%;
       @include lg {
         width: calc(100% - 400px);
+        padding-right: 48px;
+      }
+      @include xl {
         padding-right: 68px;
       }
       .article-card-list-most {
@@ -121,12 +128,117 @@
           &:hover {
             box-shadow: $box-shadow;
             transition: $transiton;
+            a {
+              .all-article-card-box {
+                .all-article-card-data {
+                  .all-article-card-detail-box {
+                    .all-article-card-description {
+                      color: $base-color;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          a {
+            text-decoration: none;
           }
           .all-article-card-box {
             cursor: pointer;
             box-shadow: none;
             padding: 14px;
             transition: all 0.2s ease;
+            .all-article-cover-image {
+              width: 100%;
+              padding-bottom: 66.66%;
+              position: relative;
+              img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 5px;
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .all-article-card-data {
+              margin-top: 12px;
+              .all-article-card-title {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 24px;
+                text-transform: capitalize;
+                color: $black-color;
+                margin-bottom: 0;
+              }
+              .all-article-card-detail-box {
+                display: flex;
+                flex-direction: column-reverse;
+                margin-top: 5px;
+                .all-article-profile-list {
+                  margin-top: 14px;
+                  display: flex;
+                  & > img {
+                    border-radius: 50%;
+                    height: 48px;
+                    width: 48px;
+                    object-fit: cover;
+                  }
+                  .all-article-profile-wrap {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    justify-content: space-between;
+                    .all-article-name {
+                      font-style: normal;
+                      font-weight: 400;
+                      font-size: 14px;
+                      line-height: 130%;
+                      text-transform: capitalize;
+                      color: $black-color;
+                      span {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 130%;
+                        text-transform: capitalize;
+                        color: $black-color;
+                      }
+                    }
+                    .all-article-post-date {
+                      font-style: normal;
+                      font-weight: 400;
+                      font-size: 14px;
+                      line-height: 130%;
+                      color: $black-color;
+                      margin-top: 0;
+                    }
+                  }
+                }
+                .all-article-card-description {
+                  display: inline-block;
+                  text-decoration: none;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 18px;
+                  line-height: 130%;
+                  color: $black-color;
+                  & > a {
+                    display: inline-block;
+                    text-decoration: none;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 130%;
+                    color: $black-color;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -198,6 +310,9 @@
                 width: 100%;
               }
             }
+            img {
+              max-width: 100%;
+            }
             ul {
               padding-left: 30px;
               li {
@@ -205,7 +320,7 @@
                 color: $text-color;
                 font-weight: 400;
                 line-height: 160%;
-                margin-bottom: 20px;
+                margin-bottom: 5px;
                 width: 100%;
                 & > strong {
                   font-size: 16px;
@@ -214,6 +329,9 @@
                   width: 100%;
                   color: $black-color;
                 }
+              }
+              & + p {
+                padding-left: 30px;
               }
             }
           }
@@ -287,6 +405,8 @@
                         display: flex;
                         align-items: center;
                         flex-wrap: wrap;
+                        justify-content: space-between;
+                        width: 100%;
                         .all-article-name {
                           font-style: normal;
                           font-weight: 400;
@@ -309,7 +429,6 @@
                           font-size: 14px;
                           line-height: 130%;
                           color: $black-color;
-                          padding-left: 5px;
                           margin-top: 0;
                         }
                       }
@@ -385,7 +504,9 @@
     }
     .most-popular-article {
       width: 100%;
+      margin-top: 40px;
       @include lg {
+        margin-top: 0;
         width: 400px;
       }
       .search-box {

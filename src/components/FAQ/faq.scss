@@ -1,0 +1,105 @@
+@import "../../styles/customMediaQueries.scss";
+@import "../../styles/variables.scss";
+
+.faq-content {
+  .faq-head {
+    margin-bottom: 30px;
+    text-align: center;
+    h1 {
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      line-height: 130%;
+      @include sm {
+        font-size: 28px;
+        line-height: 135%;
+      }
+      @include md {
+        font-size: 30px;
+        line-height: 140%;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 170%;
+      font-weight: 300;
+      max-width: 100%;
+      @include lg {
+        font-size: 18px;
+        max-width: 80%;
+      }
+    }
+  }
+  .faq-accordian-sec {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 24px;
+    @include xl {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .faq-accordian {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+
+      &[open] {
+        background-color: $white-color;
+        border: solid 1px $border-color;
+        border-radius: 10px;
+        .faq-accordian-body {
+          padding-top: 0;
+          height: 100%;
+          transition: $transiton;
+        }
+        .faq-accordian-head {
+          border-color: transparent;
+          background-color: $white-color;
+          padding-bottom: 10px;
+          color: $base-color;
+          &::after {
+            position: absolute;
+            content: "-";
+            right: 20px;
+            top: 20px;
+            font-size: 30px;
+            line-height: 100%;
+          }
+        }
+      }
+      .faq-accordian-head {
+        background-color: $light-bg;
+        border: solid 1px $border-color;
+        border-radius: 10px;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        color: $black-color;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        cursor: pointer;
+        &::after {
+          position: absolute;
+          content: "+";
+          right: 20px;
+          top: 20px;
+          font-size: 30px;
+          line-height: 100%;
+        }
+      }
+      .faq-accordian-body {
+        font-size: 16px;
+        font-weight: 400;
+        color: $text-color;
+        padding: 20px;
+        font-style: normal;
+        height: 0;
+        transition: $transiton;
+        & > strong {
+          font-weight: 500;
+          color: $black-color;
+        }
+      }
+    }
+  }
+}

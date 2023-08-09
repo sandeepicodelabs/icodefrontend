@@ -8,6 +8,8 @@ import WhyWeJoinCard from "../../components/Cards/jointeamcard";
 import CompanyApproachCard from "../../components/Cards/companyapproachecard";
 import EstimateCard from "../../components/Cards/estimatecard";
 import ButtonBox from "../../components/button";
+import technologies from "../../assets/images/technologies.png";
+import appBenefits from "../../assets/images/android-app-benefits.webp";
 
 export default function Servicedetail({ data, pageContext }) {
   const servicedetail = data && data?.allStrapiServiceDetail?.edges;
@@ -20,14 +22,20 @@ export default function Servicedetail({ data, pageContext }) {
       <div className="project-list-page">
         <Header />
         <div className="project-wrap-box">
-          <section className="service-hero-section">
+          {/* <section className="service-hero-section">
             <div className="contentWidth">
               <div className="service-hero-content">
                 <h1>{detail?.node?.Title}</h1>
-                <p>{detail?.node.Description.data.Description}</p>
+                <p>{detail?.node.Description.data.Description}</p>{" "}
+                <a href="/contact">
+                  <ButtonBox
+                    buttonname="contact now"
+                    className="estimate-submit"
+                  />
+                </a>
               </div>
             </div>
-          </section>
+          </section> */}
           <section className="service-header">
             <div className="contentWidth">
               <div className="service-header-content">
@@ -70,42 +78,40 @@ export default function Servicedetail({ data, pageContext }) {
           </section>
 
           <section id="process">
-            <div className="how-do-we-do">
-              <div className="inner-timeline-box">
-                <div className="timeline-heading">
-                  <h1>{detail?.node?.ToolsTitle}</h1>
-                  <p>{detail?.node?.ToolsDescription.data.ToolsDescription}</p>
+            <div className="contentWidth tools-and-technologies">
+              <div className="our-tech-team">
+                <h1>{detail?.node?.ToolsTitle}</h1>
+                <p>{detail?.node?.ToolsDescription.data.ToolsDescription}</p>
+              </div>
+              <div className="technologies-block">
+                <div className="technologies-img">
+                  <img src={technologies} alt="technologies" />
                 </div>
-                <div className="timeline-content">
-                  <div className="timeline">
-                    {detail &&
-                      detail?.node?.ToolService.map((item, i) => (
-                        <div className="container-wrap-box steps">
-                          <div className="content">
-                            <h3>{item?.toolsTitle}</h3>
-                            <p>
-                              {item?.toolsDescription.data.toolsDescription}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
+                <div className="technologies-content">
+                  {detail &&
+                    detail?.node?.ToolService.map((item, i) => (
+                      <div className="technologies">
+                        <h3>{item?.toolsTitle}</h3>
+                        <p>{item?.toolsDescription.data.toolsDescription}</p>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
           </section>
           <section id="process">
-            <div className="how-do-we-do">
-              <div className="inner-timeline-box">
-                <div className="timeline-heading">
-                  <h1>{detail?.node?.EnhanceTitle}</h1>
-                  <p>
-                    {detail?.node?.EnhanceDescription.data.EnhanceDescription}
-                  </p>
-                </div>
+            <div className="contentWidth why-choose-us">
+              <div className="our-tech-team">
+                <h1>{detail?.node?.EnhanceTitle}</h1>
+                <p>
+                  {detail?.node?.EnhanceDescription.data.EnhanceDescription}
+                </p>
               </div>
-              <div className="our-approach">
-                <div className="company-approach-card">
+              <div className="advantage-section">
+                <div className="app-benefits-img">
+                  <img src={appBenefits} alt="img" />
+                </div>
+                <div className="advantage-block">
                   {detail &&
                     detail?.node.EnhanceService.map((item, i) => (
                       <CompanyApproachCard
@@ -120,21 +126,24 @@ export default function Servicedetail({ data, pageContext }) {
               </div>
             </div>
           </section>
-          <br />
-          <section className="estimate-section-wrap">
-            <div className="estimate-contact">
-              <h3>{detail?.node?.CTATitlte}</h3>
-              <p>{detail?.node?.CTADescription?.data.CTADescription}</p>
-              <a href="/contact">
-                <ButtonBox
-                  buttonname="contact now"
-                  className="estimate-submit"
-                />
-              </a>
-            </div>
-          </section>
-          <section>
-            <div style={{ paddingLeft: 600, paddingBottom: 100 }}>
+          <div className="contentWidth">
+            <section className="estimate-section-wrap">
+              <div className="estimate-contact">
+                <div className="estimate-content">
+                  <h3>{detail?.node?.CTATitlte}</h3>
+                  <p>{detail?.node?.CTADescription?.data.CTADescription}</p>
+                </div>
+                <a href="/contact">
+                  <ButtonBox
+                    buttonname="contact now"
+                    className="estimate-submit"
+                  />
+                </a>
+              </div>
+            </section>
+          </div>
+          <section className="faq-section">
+            <div className="contentWidth">
               <FAQ />
             </div>
           </section>
@@ -155,6 +164,12 @@ export const query = graphql`
           Title
           TopImage {
             url
+          }
+          CTATitlte
+          CTADescription {
+            data {
+              CTADescription
+            }
           }
           Description {
             data {
@@ -184,17 +199,16 @@ export const query = graphql`
               data {
                 ServiceDescription
               }
-
-              CTATitlte
-              CTADescription {
-                data {
-                  CTADescription
-                }
-              }
-              Description {
-                data {
-                  Description
-                }
+            }
+            Servicetitle
+            TImage {
+              url
+            }
+          }
+          ToolService {
+            toolsDescription {
+              data {
+                toolsDescription
               }
             }
             toolsTitle
@@ -213,7 +227,6 @@ export const query = graphql`
         }
       }
     }
-
     allStrapiProcess {
       edges {
         node {

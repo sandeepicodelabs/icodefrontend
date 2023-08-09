@@ -1,35 +1,73 @@
-import React from 'react'
+import React from "react";
+import "./faq.scss";
 
 function FAQ() {
   return (
-    <div class="container">
-    <h1>Frequently Asked Questions</h1>
-    <details>
-    <summary>How do I create accordion?</summary>
-    <div>
-   The tags <em>details</em> and <em>summary</em> have you covered.
+    <div class="faq-content">
+      <div class="faq-head">
+        <h1>Frequently Asked Questions</h1>
+      </div>
+      <div className="faq-accordian-sec">
+        <details className="faq-accordian">
+          <summary className="faq-accordian-head">
+            How do I create accordion?
+          </summary>
+          <div className="faq-accordian-body">
+            The tags <strong>details</strong> and <strong>summary</strong> have
+            you covered.
+          </div>
+        </details>
+        <details className="faq-accordian">
+          <summary className="faq-accordian-head">
+            How do I create accordion?
+          </summary>
+          <div className="faq-accordian-body">
+            The tags <strong>details</strong> and <strong>summary</strong> have
+            you covered.
+          </div>
+        </details>
+        <details className="faq-accordian">
+          <summary className="faq-accordian-head">
+            How do I create accordion?
+          </summary>
+          <div className="faq-accordian-body">
+            The tags <strong>details</strong> and <strong>summary</strong> have
+            you covered.
+          </div>
+        </details>
+        <details className="faq-accordian">
+          <summary className="faq-accordian-head">
+            How do I create accordion?
+          </summary>
+          <div className="faq-accordian-body">
+            The tags <strong>details</strong> and <strong>summary</strong> have
+            you covered.
+          </div>
+        </details>
+        <details className="faq-accordian">
+          <summary className="faq-accordian-head">
+            How do I create accordion?
+          </summary>
+          <div className="faq-accordian-body">
+            The tags <strong>details</strong> and <strong>summary</strong> have
+            you covered.
+          </div>
+        </details>
+        <details className="faq-accordian">
+          <summary className="faq-accordian-head">
+            How do I create accordion?
+          </summary>
+          <div className="faq-accordian-body">
+            The tags <strong>details</strong> and <strong>summary</strong> have
+            you covered.
+          </div>
+        </details>
+      </div>
     </div>
-  </details>
-  </div>
-  )
+  );
 }
 
-export default FAQ
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default FAQ;
 
 // import React, { useState } from 'react';
 // import {Link} from 'gatsby'
@@ -48,7 +86,7 @@ export default FAQ
 //   return (
 //     <div className="faq-container">
 //       <div className="question" onClick={() => handleToggle(0)}>
-//      Question : How can we test my software 
+//      Question : How can we test my software
 //       </div>
 //       {expanded === 0 && <div className="answer">Answer : You check this process on google</div>}
 

@@ -74,6 +74,16 @@
           max-width: 70%;
         }
       }
+      a {
+        button {
+          background-color: $white-color;
+          color: $base-color;
+          &:hover {
+            background-color: $base-color;
+            color: $white-color;
+          }
+        }
+      }
     }
   }
 }
@@ -82,13 +92,22 @@
   .contentWidth {
     padding: 50px 24px;
     display: flex;
+    align-items: center;
+    flex-direction: column;
     @include lg {
       padding: 80px 24px;
+      flex-direction: row;
     }
     .service-header-content {
-      width: 50%;
-      text-align: left;
-      padding-right: 48px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+      @include lg {
+        width: 50%;
+        text-align: left;
+        padding-right: 48px;
+        margin: 0;
+      }
       h1 {
         font-weight: 600;
         margin: 0 0 10px 0;
@@ -113,9 +132,24 @@
       }
     }
     .service-header-image {
-      width: 50%;
+      width: 100%;
+      border-radius: 10px;
+      border: solid 10px $white-color;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0px -4px 20px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: stretch;
+      margin: 0 auto;
+      @include md {
+        width: 50%;
+      }
       & > img {
         max-width: 100%;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+        margin: 0 auto;
       }
     }
   }
@@ -132,137 +166,323 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      text-align: center;
+      margin-bottom: 80px;
+      h1 {
+        font-weight: 600;
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        line-height: 130%;
+        @include sm {
+          font-size: 28px;
+          line-height: 135%;
+        }
+        @include md {
+          font-size: 30px;
+          line-height: 140%;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 170%;
+        font-weight: 300;
+        max-width: 100%;
+        @include lg {
+          font-size: 18px;
+          max-width: 80%;
+        }
+      }
+    }
+    .join-expertise {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 24px;
+      grid-row-gap: 80px;
+      @include md {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include lg {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include xl {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .join-our-team {
+        width: 100%;
+      }
     }
   }
 }
-.project-list-cover {
-  background-image: url("../assets/images/tranding-cover.png");
-  height: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  padding: 10em 15em;
-  text-align: center;
-  border-top: 1px solid rgba(0, 152, 162, 0.3);
-  position: relative;
-}
-.project-list-cover h1 {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 160%;
-  text-align: center;
-  color: #101820;
-  margin-bottom: 48px;
-}
-.project-list-cover p {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 33px;
-  color: #3e4348;
-  margin-bottom: 0;
-}
-.project-list-cover .hiring-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 48px;
-}
-.deliver-service {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  align-items: center;
-}
-
-@media (max-width: 1600px) {
-  .project-list-cover {
-    padding: 80px 120px;
-  }
-  .projectlist-main-box {
-    padding: 80px 120px;
-  }
-  .project-list-cover h1 {
-    font-size: 40px;
-    line-height: 136%;
-  }
-}
-@media (max-width: 1440px) {
-  .project-list-cover {
-    padding: 90px;
-  }
-  .projectlist-main-box {
-    padding: 90px;
-  }
-  .project-list-cover .hiring-buttons .button-box button {
-    padding: 18px 40px;
-  }
-  .project-list-cover h1 {
-    font-size: 34px;
-  }
-  .project-box img {
-    height: 230px;
-  }
-}
-@media (max-width: 1200px) {
-  .project-list-cover {
-    padding: 60px;
-  }
-  .projectlist-main-box {
-    padding: 60px;
-  }
-  .project-list-cover .hiring-buttons {
-    flex-wrap: wrap;
-  }
-
-  .project-list-cover .hiring-buttons .button-box button {
-    width: 335px;
-  }
-}
-@media (max-width: 1024px) {
-  .project-list-cover {
-    padding: 40px;
-  }
-  .projectlist-main-box {
-    padding: 40px;
-  }
-  .project-list-cover h1 {
-    font-size: 30px;
-    margin-bottom: 28px;
-  }
-  .project-list-cover p {
-    font-size: 18px;
-  }
-}
-@media (max-width: 768px) {
-  .project-list-cover {
-    padding: 24px;
-  }
-  .projectlist-main-box {
-    padding: 24px;
-  }
-  .project-list-cover h1 {
-    font-size: 28px;
-  }
-}
-
-@media (max-width: 460px) {
-  .project-list-cover h1 {
-    font-size: 26px;
-  }
-}
-.project-list-cover {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-
-  & .col-md-7 {
-    width: 60%;
-  }
-  & .deliver-image-mobile {
-    & img {
-      width: 600px;
+.tools-and-technologies {
+  &.contentWidth {
+    padding: 50px 24px;
+    @include lg {
+      padding: 80px 24px;
     }
+    .our-tech-team {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 80px;
+      h1 {
+        font-weight: 600;
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        line-height: 130%;
+        @include sm {
+          font-size: 28px;
+          line-height: 135%;
+        }
+        @include md {
+          font-size: 30px;
+          line-height: 140%;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 170%;
+        font-weight: 300;
+        max-width: 100%;
+        @include lg {
+          font-size: 18px;
+          max-width: 80%;
+        }
+      }
+    }
+    .technologies-block {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      @include lg {
+        flex-direction: row;
+      }
+      .technologies-img {
+        display: none;
+        @include lg {
+          display: block;
+        }
+        & > img {
+          max-width: 100%;
+        }
+      }
+      .technologies-content {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+        grid-gap: 24px;
+        @include sm {
+          text-align: center;
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include lg {
+          width: 60%;
+          padding-left: 48px;
+        }
+        & .technologies {
+          h3 {
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            line-height: 120%;
+            @include sm {
+              font-size: 16px;
+              line-height: 125%;
+            }
+          }
+          p {
+            font-size: 15px;
+            line-height: 170%;
+            font-weight: 300;
+            @include lg {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.why-choose-us {
+  &.contentWidth {
+    padding: 0 24px;
+    @include lg {
+      padding: 0px 24px;
+    }
+    .our-tech-team {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 40px;
+      @include xl {
+        margin-bottom: 80px;
+      }
+      h1 {
+        font-weight: 600;
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        line-height: 130%;
+        @include sm {
+          font-size: 28px;
+          line-height: 135%;
+        }
+        @include md {
+          font-size: 30px;
+          line-height: 140%;
+        }
+      }
+      p {
+        font-size: 16px;
+        line-height: 170%;
+        font-weight: 300;
+        max-width: 100%;
+        @include lg {
+          font-size: 18px;
+          max-width: 80%;
+        }
+      }
+    }
+    .advantage-section {
+      position: relative;
+      .app-benefits-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 40px;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        @include xl {
+          display: flex;
+        }
+        & > img {
+          max-width: 100%;
+          width: 70%;
+          margin: 0 auto;
+          -webkit-animation: mover 1s infinite alternate;
+          animation: mover 1s infinite alternate;
+        }
+      }
+      .advantage-block {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 48px;
+        @include lg {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include xl {
+          grid-template-columns: repeat(6, 1fr);
+        }
+        .company-approach-box {
+          padding: 20px;
+          border-radius: 10px;
+          background-color: $white-color;
+          transition: $transiton;
+          &:hover {
+            transition: $transiton;
+            box-shadow: $box-shadow-large;
+          }
+          &:nth-child(1n) {
+            @include xl {
+              text-align: right;
+              grid-column-start: 1;
+              grid-column-end: 3;
+            }
+            & > a {
+              @include xl {
+                flex-direction: row-reverse;
+              }
+              .apporoach-description {
+                padding-left: 20px;
+              }
+            }
+          }
+          &:nth-child(2n) {
+            @include xl {
+              text-align: left;
+              grid-column-start: 5;
+              grid-column-end: 7;
+            }
+            & > a {
+              flex-direction: initial;
+              .approach-logo {
+                text-align: right;
+              }
+              .apporoach-description {
+                padding-left: 20px;
+              }
+            }
+          }
+          & > a {
+            display: flex;
+            text-decoration: none;
+            color: $black-color;
+            .approach-logo {
+              width: 50px;
+              @include md {
+                width: 80px;
+              }
+              @include lg {
+                width: 100px;
+              }
+              & > img {
+                max-width: 100%;
+              }
+            }
+            .apporoach-description {
+              width: calc(100% - 50px);
+              @include md {
+                width: calc(100% - 80px);
+              }
+              @include lg {
+                width: calc(100% - 100px);
+              }
+              .approach-heading {
+                font-weight: 600;
+                margin: 0 0 5px 0;
+                font-size: 16px;
+                line-height: 120%;
+                color: $black-color;
+                @include sm {
+                  font-size: 18px;
+                  line-height: 125%;
+                }
+              }
+              .approach-subheading {
+                font-size: 15px;
+                line-height: 150%;
+                font-weight: 400;
+                color: $text-color;
+                @include lg {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.faq-section {
+  & .contentWidth {
+    padding-bottom: 50px;
+    @include lg {
+      padding-bottom: 80px;
+    }
+  }
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
   }
 }

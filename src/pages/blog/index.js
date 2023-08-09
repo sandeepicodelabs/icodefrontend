@@ -45,8 +45,8 @@ export default function Blog({ data, pageContext }) {
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
-   
-  console.log("blog",filteredData)
+
+  console.log("blog", filteredData);
 
   // for enquiry form
   const handleSubmit = (e) => {
@@ -89,7 +89,6 @@ export default function Blog({ data, pageContext }) {
     e.target.reset();
   };
 
-
   return (
     <>
       <section className="blog-box">
@@ -112,13 +111,10 @@ export default function Blog({ data, pageContext }) {
                           // cardprofile={item.node?.user.profileimage?.publicURL}
                           articleTitle={item.node?.Type}
                           // articledescription={item.node?.Content}
-                           postedname={item.node?.Author}
+                          postedname={item.node?.Author}
                           postdate={item.node?.createdAt}
-                          cardtitle={
-                            <Link to={"/blog/" + item?.node?.Slug}>
-                              {item.node?.Title}
-                            </Link>
-                          }
+                          cardtitle={item.node?.Title}
+                          slug={item.node?.Slug}
                         />
                       </div>
                     ))}
@@ -156,62 +152,57 @@ export default function Blog({ data, pageContext }) {
                   </div>
                 </div>
                 <div className="blog-detail-sidebar-subscribe">
-                    {/* <SubscribeCard /> */}
-                    <form className="contact-right" onSubmit={handleSubmit}>
-                      <div className="contact-form">
-                        <h1>Let’s Build Your Dream App!</h1>
-                        <div className="input-wrap">
-                          <InputBox
-                            type="text"
-                            placeholder={"Full Name"}
-                            className="contact-inputs"
-                            img={userImg}
-                            name="name"
-                          />
-                        </div>
-                        <div className="input-wrap"> 
-                   
-                          <InputBox
-                            type="email"
-                            placeholder={"Email"}
-                            className="contact-inputs"
-                            img={Emailicon}
-                            name="email"
-                          />
-                        </div>
-                        <div className="input-wrap">
-                          <InputBox
-                            type="number"
-                            placeholder={"Mobile No"}
-                            className="contact-inputs"
-                            //img={Emailicon}
-                            name="mobileno"
-                          />
-                        </div>
-                        <div className="input-wrap">
-                          <textarea
-                            placeholder="Write a message here"
-                            rows={5}
-                            name="message"
-                          ></textarea>
-                          <span className="input-icon">
-                            <img
-                              src={messageimg}
-                              alt="St Logo"
-                              name="message"
-                            />
-                          </span>
-                        </div>
-
-                        <div className="send-button">
-                          <ButtonBox type="submit" buttonname="Send message" />
-                        </div>
+                  {/* <SubscribeCard /> */}
+                  <form className="contact-right" onSubmit={handleSubmit}>
+                    <div className="contact-form">
+                      <h1>Let’s Build Your Dream App!</h1>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="text"
+                          placeholder={"Full Name"}
+                          className="contact-inputs"
+                          img={userImg}
+                          name="name"
+                        />
                       </div>
-                    </form>
-                  </div>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="email"
+                          placeholder={"Email"}
+                          className="contact-inputs"
+                          img={Emailicon}
+                          name="email"
+                        />
+                      </div>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="number"
+                          placeholder={"Mobile No"}
+                          className="contact-inputs"
+                          //img={Emailicon}
+                          name="mobileno"
+                        />
+                      </div>
+                      <div className="input-wrap">
+                        <textarea
+                          placeholder="Write a message here"
+                          rows={5}
+                          name="message"
+                        ></textarea>
+                        <span className="input-icon">
+                          <img src={messageimg} alt="St Logo" name="message" />
+                        </span>
+                      </div>
+
+                      <div className="send-button">
+                        <ButtonBox type="submit" buttonname="Send message" />
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-             
+
             {/* <div className="pagination-box">
         {hasPreviousPage && (
           <Link to={`/blog/${currentPage - 1}`}>Previous</Link>
@@ -225,7 +216,7 @@ export default function Blog({ data, pageContext }) {
           <Link to={`/blog/${currentPage + 1}`}>Next</Link>
         )}
       </div> */}
-{/* 
+            {/* 
             <div className="pagination-box">
         {pageInfo.hasPreviousPage && (
           <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
@@ -237,13 +228,12 @@ export default function Blog({ data, pageContext }) {
           <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
         )}
       </div> */}
-              {/* <PaginationBox  
+            {/* <PaginationBox  
               />   */}
-          </div>  
-
-            <PaginationBox />
           </div>
-       
+
+          <PaginationBox />
+        </div>
       </section>
       <Footer />
     </>
@@ -252,11 +242,11 @@ export default function Blog({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle( sort: { Title: DESC }) {
+    allStrapiArticle(sort: { Title: DESC }) {
       edges {
         node {
           Title
-           Author
+          Author
           Slug
           Type
           Content {
@@ -275,4 +265,3 @@ export const query = graphql`
     }
   }
 `;
-
