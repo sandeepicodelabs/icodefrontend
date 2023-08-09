@@ -24,6 +24,7 @@ import Emailicon from "../../assets/images/email.png";
 import ButtonBox from "../../components/button";
 import messageimg from "../../assets/images/message.png";
 import axios from "axios";
+import bigInt from "big-integer";
 
 export default function Blog({ data, pageContext }) {
   const { pageCount } = pageContext;
@@ -44,6 +45,50 @@ export default function Blog({ data, pageContext }) {
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
+   
+  console.log("blog",filteredData)
+
+  // for enquiry form
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    console.log(formData, "formData");
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+        MobileNo: bigInt(formData.get("mobileno")),
+      },
+    };
+    console.log(contactData, "contactData");
+    // Make the POST request to your Strapi backend
+    axios
+      .get(
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get(
+          "message"
+        )}&mobileno=${formData.get("mobileno")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
+      })
+      .catch((error) => {
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
+      });
+    e.target.reset();
+  };
+
 
   return (
     <>
@@ -67,8 +112,8 @@ export default function Blog({ data, pageContext }) {
                           // cardprofile={item.node?.user.profileimage?.publicURL}
                           articleTitle={item.node?.Type}
                           // articledescription={item.node?.Content}
-                          // postedname={item.node?.Author}
-                          postdate={item.node?.publishedAt}
+                           postedname={item.node?.Author}
+                          postdate={item.node?.createdAt}
                           cardtitle={
                             <Link to={"/blog/" + item?.node?.Slug}>
                               {item.node?.Title}
@@ -101,8 +146,8 @@ export default function Blog({ data, pageContext }) {
                             </h5>
                             <MostPopularCard
                               key={i}
-                              //profilename={item.node?.user.displayName}
-                              postdate={item.node?.publishedAt}
+                              profilename={item?.node?.Author}
+                              postdate={item?.node?.createdAt}
                               //blogdescription={item.node?.Title}
                             />
                           </Link>
@@ -110,9 +155,60 @@ export default function Blog({ data, pageContext }) {
                       ))}
                   </div>
                 </div>
-                <div className="subscribe-box">
-                  <SubscribeCard />
-                </div>
+                <div className="blog-detail-sidebar-subscribe">
+                    {/* <SubscribeCard /> */}
+                    <form className="contact-right" onSubmit={handleSubmit}>
+                      <div className="contact-form">
+                        <h1>Let’s Build Your Dream App!</h1>
+                        <div className="input-wrap">
+                          <InputBox
+                            type="text"
+                            placeholder={"Full Name"}
+                            className="contact-inputs"
+                            img={userImg}
+                            name="name"
+                          />
+                        </div>
+                        <div className="input-wrap"> 
+                   
+                          <InputBox
+                            type="email"
+                            placeholder={"Email"}
+                            className="contact-inputs"
+                            img={Emailicon}
+                            name="email"
+                          />
+                        </div>
+                        <div className="input-wrap">
+                          <InputBox
+                            type="number"
+                            placeholder={"Mobile No"}
+                            className="contact-inputs"
+                            //img={Emailicon}
+                            name="mobileno"
+                          />
+                        </div>
+                        <div className="input-wrap">
+                          <textarea
+                            placeholder="Write a message here"
+                            rows={5}
+                            name="message"
+                          ></textarea>
+                          <span className="input-icon">
+                            <img
+                              src={messageimg}
+                              alt="St Logo"
+                              name="message"
+                            />
+                          </span>
+                        </div>
+
+                        <div className="send-button">
+                          <ButtonBox type="submit" buttonname="Send message" />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
               </div>
             </div>
              
@@ -156,13 +252,21 @@ export default function Blog({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 6, skip: 6) {
+    allStrapiArticle( sort: { Title: DESC }) {
       edges {
         node {
           Title
-          Author
+           Author
           Slug
           Type
+          Content {
+            data {
+              Content
+            }
+          }
+          createdAt(formatString: "DD MMMM, YYYY")
+          updatedAt(formatString: "DD MMMM, YYYY")
+          Promotext
           Image {
             url
           }
@@ -170,7 +274,5 @@ export const query = graphql`
       }
     }
   }
+`;
 
-
- 
-`

@@ -120,8 +120,8 @@ export default function BlogPage({ data, pageContext }) {
   const article = posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
-
-  //console.log('article',article)
+  console.log("all data",posts)
+  console.log('article',article)
   return (
     <div>
       <section className="blog-detail-box">
@@ -156,7 +156,7 @@ export default function BlogPage({ data, pageContext }) {
                     {/* <div className="blog-detail-left-wrap">*/}
                     <div className="detail-description-wrap">
                       <ReactMarkdown>
-                        {article?.node?.Content.data.Content}
+                        {article?.node?.Content?.data?.Content}
                       </ReactMarkdown>
                     </div>
 
@@ -185,10 +185,8 @@ export default function BlogPage({ data, pageContext }) {
                                 key={i}
                                 img={item.node?.Image[0]?.url}
                                 articleTitle={item.node?.Type}
-                                articledescription={
-                                  item.node?.Content.data.Content
-                                }
-                                // postedname={item.node?.user.displayName}
+                                articledescription={item?.node?.Content?.data?.Content}
+                                 postedname={item?.node?.Author}
                                 postdate={item.node?.createdAt}
                                 cardtitle={item.node?.Title}
                                 //cardprofile={item.node?.user.profileimage?.publicURL}
@@ -212,8 +210,8 @@ export default function BlogPage({ data, pageContext }) {
                             <MostPopularCard
                               key={i}
                               //populartitle={item.node?.category.name}
-                              // profilename={item.node?.user.displayName}
-                              postdate={item.node?.createdAt}
+                               profilename={item?.node?.Author}
+                              postdate={item?.node?.createdAt}
                               blogdescription={item.node?.Title}
                             />
                           </Link>
@@ -235,11 +233,8 @@ export default function BlogPage({ data, pageContext }) {
                             name="name"
                           />
                         </div>
-                        <div className="input-wrap">
-                          {/* <input type="text" placeholder='Email'  />
-									<span className="input-icon">
-										<img src={require('../../assets/images/email.png')} alt="St Logo"/>
-									</span> */}
+                        <div className="input-wrap"> 
+                   
                           <InputBox
                             type="email"
                             placeholder={"Email"}
@@ -291,11 +286,11 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 6, sort: { Title: DESC }) {
+    allStrapiArticle( sort: { Title: DESC }) {
       edges {
         node {
           Title
-          
+           Author
           Slug
           Type
           Content {
