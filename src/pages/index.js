@@ -20,8 +20,6 @@ import InputBox from "../components/input";
 import Slider from "react-slick";
 import "../assets/css/slick/slick-theme.css";
 import "../assets/css/slick/slick.css";
-// import "../assets/css/custom.css";
-// import "../assets/css/bootstrap.min.css";
 import Footer from "../components/Footer/Footer";
 import "../assets/css/carousel.css";
 import axios from "axios";
@@ -332,20 +330,7 @@ const IndexPage = ({ data }) => {
                 the competitive landscape and achieve remarkable success.
               </p>
             </div>
-            <div className="partner-slider">
-              {/* <Slider {...technologyslide}>
-                {technologyPartners &&
-                  technologyPartners.map((item, i) => (
-                    <TechnologyCard
-                      key={i}
-                      technologyheading={item?.node?.Title}
-                      img={item?.node?.Image[0]?.url}
-                      technologydescription={
-                        item?.node?.Description?.data?.Description
-                      }
-                    />
-                  ))}
-              </Slider> */}
+            <div className="join-expertise">
               {technologyPartners &&
                 technologyPartners.map((item, i) => (
                   <TechnologyCard

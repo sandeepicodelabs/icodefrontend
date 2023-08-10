@@ -3,11 +3,10 @@ import "./style.scss";
 
 export default function HeaderBar(props) {
   const { currentpage, pagetitle } = props;
-  //console.log("hearderbar",props)
   return (
-    <>
-      <div className="blog-header-wrap">
-        <div className="contentWidth">
+    <section className="service-hero-section">
+      <div className="contentWidth">
+        <div className="service-hero-content ">
           <nav aria-label="breadcrumb">
             <ul className="breadcrumb top-breadcrump">
               <li className="breadcrumb-item">
@@ -18,11 +17,9 @@ export default function HeaderBar(props) {
               </li>
             </ul>
           </nav>
-          <div className="blog-header">
-            <h1>{pagetitle}</h1>
-          </div>
+          <h1>{pagetitle}</h1>
         </div>
       </div>
-    </>
+    </section>
   );
 }

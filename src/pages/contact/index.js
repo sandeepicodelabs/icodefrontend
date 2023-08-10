@@ -116,8 +116,8 @@ export default function ContactPage() {
             <div className="getintouch-links">
               <div className="contact-data">
                 <div className="contact-details-right">
-                  <div className="contact-heading">Get in touch with us</div>
                   <div className="contact-social-details">
+                    <div className="contact-heading">Get in touch with us</div>
                     <ul>
                       <li>
                         <div className="contact-social-icon">

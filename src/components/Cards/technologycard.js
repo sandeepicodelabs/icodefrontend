@@ -1,29 +1,20 @@
-import React from "react"
-//import {graphql } from "gatsby"
-import '../../assets/css/custom.css';
-// import Subtract from '../images/Subtract.png';
+import React from "react";
+import IconUIUXDesign from "../IconUIUXDesign/IconUIUXDesign";
+import IconDevelopment from "../IconDevelopment/IconDevelopment";
 
 const TechnologyCard = (props) => {
   const { img, technologyheading, technologydescription } = props;
-   //console.log('tec',technologyheading);
 
   return (
-    
-      <div className="technology-box">
-        <div className="technology-image">
-          <img src={img} alt="St Logo" />
-          <span>{technologyheading}</span>
-        </div>
-        <div className="technology-body">
-          <p>
-            {technologydescription}
-          </p>
-        </div>
-      </div>
-   
-  )
+    <div className="join-our-team">
+      <span>
+        <img src={img} alt="St Logo" />
+        {/* <IconUIUXDesign /> */}
+      </span>
+      <h5>{technologyheading}</h5>
+      <p>{technologydescription}</p>
+    </div>
+  );
+};
 
-}
-
-
-export default TechnologyCard
+export default TechnologyCard;

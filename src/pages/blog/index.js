@@ -118,14 +118,74 @@ export default function Blog({ data, pageContext }) {
                           // articledescription={item.node?.Content}
                           postedname={item?.node?.Author}
                           postdate={item?.node?.createdAt}
-                          cardtitle={
-                            <Link to={"/blog/" + item?.node?.Slug}>
-                              {item.node?.Title}
-                            </Link>
-                          }
+                          cardtitle={item.node?.Title}
+                          slug={item.node?.Slug}
                         />
                       </div>
                     ))}
+                </div>
+
+                <div className="custom-pagination-box">
+                  {/* <<<<<<<<<< Prev And Next Button for Pagination  >>>>>>>>>>>>>>>>> */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setPage(pageNum - 1);
+                    }}
+                    className={`prev  ${startIndex > 0 ? "active" : null}`}
+                  >
+                    Prev
+                  </button>
+
+                  <button
+                    type="button"
+                    buttonname="next"
+                    onClick={() => {
+                      console.log("khusxa");
+                      setPage(pageNum + 1);
+                    }}
+                    className={`next  ${
+                      endIndex < posts.length - 1 ? "active" : null
+                    }`}
+                  >
+                    Next
+                  </button>
+
+                  {/* {startIndex > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPage(pageNum - 1);
+                      }}
+                    >
+                      Prev
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  {endIndex < posts.length - 1 ? (
+                    <button
+                      type="button"
+                      buttonname="next"
+                      onClick={() => {
+                        console.log("khusxa");
+                        setPage(pageNum + 1);
+                      }}
+                    >
+                      Next
+                    </button>
+                  ) : (
+                    ""
+                  )} */}
+                  {/* {pageInfo.hasPreviousPage && (
+    <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
+  )}
+  {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
+    <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
+  ))}
+  {pageInfo.hasNextPage && (
+    <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
+  )} */}
                 </div>
               </div>
               <div className="most-popular-article">
@@ -207,47 +267,6 @@ export default function Blog({ data, pageContext }) {
                       </div>
                     </div>
                   </form>
-                </div>
-
-                <div className="pagination-box">
-                  {/* <<<<<<<<<< Prev And Next Button for Pagination  >>>>>>>>>>>>>>>>> */}
-
-                  {startIndex > 0 ? (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setPage(pageNum - 1);
-                      }}
-                    >
-                      Prev
-                    </button>
-                  ) : (
-                    ""
-                  )}
-                  <br />
-                  {endIndex < posts.length - 1 ? (
-                    <button
-                      type="button"
-                      buttonname="next"
-                      onClick={() => {
-                        console.log("khusxa");
-                        setPage(pageNum + 1);
-                      }}
-                    >
-                      Next
-                    </button>
-                  ) : (
-                    ""
-                  )}
-                  {/* {pageInfo.hasPreviousPage && (
-                    <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
-                  )}
-                  {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
-                    <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
-                  ))}
-                  {pageInfo.hasNextPage && (
-                    <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
-                  )} */}
                 </div>
               </div>
             </div>

@@ -2,10 +2,13 @@
 @import "../../../styles/variables.scss";
 .join-our-team {
   background: $white-color;
-  padding: 64px 24px 49px 24px;
+  padding: 24px;
   box-shadow: 0px 0px 15px rgba(0, 91, 88, 0.3);
   border-radius: 10px;
   position: relative;
+  @include md {
+    padding: 64px 24px 49px 24px;
+  }
   h5 {
     font-style: normal;
     font-weight: 600;
@@ -27,14 +30,20 @@
     text-align: justify;
   }
   span {
-    position: absolute;
-    top: -50px;
-    left: 24px;
     background-color: $base-color;
     padding: 20px;
     border-radius: 100px;
     width: 100px;
     height: 100px;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 20px;
+    @include md {
+      position: absolute;
+      top: -50px;
+      left: 24px;
+      margin-bottom: 0;
+    }
     & > img {
       max-width: 100%;
     }

@@ -6,7 +6,6 @@ import Footer from "../../components/Footer/Footer";
 import ProjectListCard from "../../components/Cards/projectcard";
 import { graphql } from "gatsby";
 import "../projectList.scss";
-// import "../../assets/css/custom.css";
 
 export default function ProjectList({ data }) {
   const projectlist = data?.allStrapiProjectList?.edges;
@@ -16,26 +15,31 @@ export default function ProjectList({ data }) {
     <div className="project-list-page">
       <Header />
       <div className="project-wrap-box">
-        <section className="cover-background">
+        <section className="service-hero-section">
           <div className="contentWidth">
-            <h1>
-              Successfully developed and delivered 300+ web and mobile
-              application
-            </h1>
-            <div className="selectCategory">
-              <h4>{projectlist && projectlist?.node?.Heading}</h4>
-              <p>Select your marketplace type</p>
-              <div className="hiring-buttons">
-                <ButtonBox
-                  buttonname="Events and experiences"
-                  className="hire-dev-button"
-                />
-                <ButtonBox
-                  buttonname="E-Commerce & retail"
-                  className="hire-dev-button"
-                />
-                <ButtonBox buttonname="Rentals" className="hire-dev-button" />
-                <ButtonBox buttonname="Services" className="hire-dev-button" />
+            <div className="service-hero-content ">
+              <h1>
+                Successfully developed and delivered 300+ web and mobile
+                application
+              </h1>
+              <div className="selectCategory">
+                <h4>{projectlist && projectlist?.node?.Heading}</h4>
+                <p>Select your marketplace type</p>
+                <div className="hiring-buttons">
+                  <ButtonBox
+                    buttonname="Events and experiences"
+                    className="hire-dev-button"
+                  />
+                  <ButtonBox
+                    buttonname="E-Commerce & retail"
+                    className="hire-dev-button"
+                  />
+                  <ButtonBox buttonname="Rentals" className="hire-dev-button" />
+                  <ButtonBox
+                    buttonname="Services"
+                    className="hire-dev-button"
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -22,20 +22,6 @@ export default function Servicedetail({ data, pageContext }) {
       <div className="project-list-page">
         <Header />
         <div className="project-wrap-box">
-          <section className="service-hero-section">
-            <div className="contentWidth">
-              <div className="service-hero-content">
-                <h1>{detail?.node?.Title}</h1>
-                <p>{detail?.node.Description.data.Description}</p>{" "}
-                <a href="/contact">
-                  <ButtonBox
-                    buttonname="contact now"
-                    className="estimate-submit"
-                  />
-                </a>
-              </div>
-            </div>
-          </section>
           <section className="service-header">
             <div className="contentWidth">
               <div className="service-header-content">
@@ -77,7 +63,7 @@ export default function Servicedetail({ data, pageContext }) {
             </div>
           </section>
 
-          <section id="process">
+          <section id="process" className="tools-and-technologies-section">
             <div className="contentWidth tools-and-technologies">
               <div className="our-tech-team">
                 <h1>{detail?.node?.ToolsTitle}</h1>
