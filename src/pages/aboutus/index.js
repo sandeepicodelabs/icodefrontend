@@ -15,14 +15,16 @@ export default function Aboutus() {
   return (
     <>
       <Header />
-      <section className="cover-background">
+      <section className="service-hero-section">
         <div className="contentWidth">
-          <h1>Ideate. Innovate. Create. Your Tech Solutions Experts</h1>
-          <p>
-            With our ‘Get Things Done’ philosophy, entrust your app or web
-            project to us. We excel in tackling complexities, providing optimal
-            solutions, and delivering within agreed timelines
-          </p>
+          <div className="service-hero-content ">
+            <h1>Ideate. Innovate. Create. Your Tech Solutions Experts</h1>
+            <p>
+              With our ‘Get Things Done’ philosophy, entrust your app or web
+              project to us. We excel in tackling complexities, providing
+              optimal solutions, and delivering within agreed timelines
+            </p>
+          </div>
         </div>
       </section>
       <section className="our-company-about">

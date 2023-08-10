@@ -9,44 +9,49 @@ import WhyWeJoinCard from "../../components/Cards/jointeamcard";
 import { graphql } from "gatsby";
 import Footer from "../../components/Footer/Footer";
 import EstimateCard from "../../components/Cards/estimatecard";
-import "./style.css";
+import "../trendingtechologies.scss";
 import StackToolsCard from "../../components/Cards/StackToolsCard";
 
 export default function ExpertiseCard({ data, props, pageContext }) {
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
-  const technology = technologycard.find(item => { return item.node.Slug === pageContext?.technology?.node?.Slug })
-   console.log(technology, "---technology")
+  const technology = technologycard.find((item) => {
+    return item.node.Slug === pageContext?.technology?.node?.Slug;
+  });
+  console.log(technology, "---technology");
   return (
     <div className="outer-trading-box">
       <Header />
-      <section className="tranding-tech">
-        <div className="tranding-bar-cover">
-          <h1>{technology?.node?.Title}</h1>
-
-          <div className="tranding-cover-cards">
-            <TrandingCover
-              img={satisfactionGuaranteed}
-              trandingCoverHeading="100% satisfaction guaranteed"
-            />
-            <TrandingCover
-              img={QualityCode}
-              trandingCoverHeading="Quality code & on time delivery guaranteed"
-            />
-            <TrandingCover
-              img={Enableprocess}
-              trandingCoverHeading="Agile & DevOps enabled processes"
-            />
-          </div>
-          <div className="hiring-buttons">
-            <ButtonBox
-              buttonname="Book free consutation"
-              className="hire-dev-button"
-            />
-            <ButtonBox
-              buttonname="Hire developer"
-              className="hire-dev-button"
-            />
+      <section className="service-hero-section">
+        <div className="contentWidth">
+          <div className="service-hero-content ">
+            <h1>{technology?.node?.Title}</h1>
+            <div className="tranding-cover-cards">
+              <TrandingCover
+                img={satisfactionGuaranteed}
+                trandingCoverHeading="100% satisfaction guaranteed"
+              />
+              <TrandingCover
+                img={QualityCode}
+                trandingCoverHeading="Quality code & on time delivery guaranteed"
+              />
+              <TrandingCover
+                img={Enableprocess}
+                trandingCoverHeading="Agile & DevOps enabled processes"
+              />
+            </div>
+            <div className="selectCategory">
+              <div className="hiring-buttons">
+                <ButtonBox
+                  buttonname="Book free consutation"
+                  className="hire-dev-button"
+                />
+                <ButtonBox
+                  buttonname="Hire developer"
+                  className="hire-dev-button"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -86,7 +91,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
           <div className="our-tech-team">
             <h1>{technology?.node?.Valuetitle}</h1>
             <div className="out-hiring-tech-subtext">
-            {technology?.node?.Valuedescription?.data.Valuedescription}
+              {technology?.node?.Valuedescription?.data.Valuedescription}
             </div>
           </div>
           <div className="join-expertise">

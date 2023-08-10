@@ -1,3 +1,5 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
 .contentWidth {
   max-width: 1520px;
   width: 100%;
@@ -511,32 +513,6 @@
   z-index: 0;
   gap: 10px;
   background-color: $base-color;
-
-  // &::after {
-  //   background-image: url("../assets/images/dotted-background.png");
-  //   content: "";
-  //   position: absolute;
-  //   bottom: 35px;
-  //   right: 10%;
-  //   width: 392px;
-  //   height: 296px;
-  //   z-index: 0;
-  // }
-  // &::before {
-  //   content: "";
-  //   background-color: $base-color;
-  //   height: 100%;
-  //   width: 100%;
-  //   border-top-right-radius: 100px;
-  //   top: 0;
-  //   left: 0;
-  //   position: absolute;
-  //   z-index: 0;
-  //   @include xl {
-  //     width: 100%;
-  //     border-top-right-radius: 200px;
-  //   }
-  // }
   .service-content-wrapper {
     display: flex;
     align-items: center;
@@ -547,32 +523,25 @@
       padding: 80px 24px;
     }
   }
+  .join-expertise {
+    .join-our-team {
+      & > span {
+        border: solid 2px $white-color;
+      }
+    }
+  }
   .partner-content {
     z-index: 1;
     position: relative;
     text-align: center;
     width: 100%;
-    margin: 0 auto 50px;
+    margin: 0 auto 40px;
+    @include md {
+      margin: 0 auto 80px;
+    }
     @include lg {
       max-width: 75%;
     }
-    // &::after {
-    //   background-image: url("../assets/images/dotted-background.png");
-    //   content: "";
-    //   position: absolute;
-    //   top: -80px;
-    //   right: 0%;
-    //   width: 392px;
-    //   height: 296px;
-    //   z-index: 0;
-    //   display: none;
-    //   @include md {
-    //     display: block;
-    //   }
-    //   @include xl {
-    //     top: -110px;
-    //   }
-    // }
     .sectionHeading {
       text-align: center;
       margin-bottom: 40px;

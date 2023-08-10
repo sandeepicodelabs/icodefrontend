@@ -1,16 +1,16 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import "./tradingcover.scss";
 
 export default function TrandingCover(props) {
-    const { img, trandingCoverHeading } = props;
+  const { img, trandingCoverHeading } = props;
   return (
     <>
-    <div className="trend-cover-wrap">
-      <img src={img} alt='st logo' />
-      <div className="tranding-text-head">
-        <h5>{trandingCoverHeading}</h5>
+      <div className="trend-cover-wrap">
+        <img src={img} alt="st logo" />
+        <div className="tranding-text-head">
+          <h5>{trandingCoverHeading}</h5>
+        </div>
       </div>
-    </div>
-  </>
-  )
+    </>
+  );
 }

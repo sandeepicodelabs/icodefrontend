@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/css/custom.css";
+// import "../../assets/css/custom.css";
 
 export default function testimonialcard(props) {
   const { testimonialmessage, img, clientname, clientaddress, commaimage } =

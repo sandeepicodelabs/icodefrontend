@@ -2,22 +2,11 @@ import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Footer from "../../components/Footer/Footer";
-import profileimg from "../../assets/images/covercardprofile.png";
-import BlogCover from "../../assets/images/blog-cover.png";
-import BlogCoverCard from "../../components/blogcover";
-import BlogArticleCard from "../../components/Cards/articlecard";
 import MostPopularCard from "../../components/Cards/mostpopularcard";
 import AllArticleCard from "../../components/Cards/allarticlecard";
-import SubscribeCard from "../../components/Cards/subscribe";
-import PaginationBox from "../../components/pagination";
-import CardProfile from "../../assets/images/allarticleimg.png";
-import BlogCoverImg from "../../assets/images/articlecardimg.png";
-import CardProfileimg from "../../assets/images/covercardprofile.png";
 import SearchIcon from "../../assets/images/searchicon.svg";
 import "../blog.scss";
 import { graphql, Link } from "gatsby";
-import paginationNext from "../../assets/images/pagination-next-icon.png";
-import paginationprev from "../../assets/images/pagination-prev-icon.png";
 import InputBox from "../../components/input";
 import userImg from "../../assets/images/user.png";
 import Emailicon from "../../assets/images/email.png";
@@ -31,7 +20,7 @@ export default function Blog({ data, pageContext }) {
   const [page, setPage] = useState(1);
   const { pageInfo } = allStrapiArticle;
 
- // console.log(pageInfo, "pagination");
+  // console.log(pageInfo, "pagination");
 
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
@@ -48,8 +37,6 @@ export default function Blog({ data, pageContext }) {
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
-
-  console.log("blog", filteredData)
 
   // for enquiry form
   const handleSubmit = (e) => {
@@ -92,13 +79,20 @@ export default function Blog({ data, pageContext }) {
     e.target.reset();
   };
 
- 
-// <<<<<<<<<<<<< prev and next Button Pagination >>>>>>>>>
-   let pageNum=+page;
-   let size=6;
-   let startIndex = (pageNum-1) * size;
-   let endIndex = (filteredData.length > (startIndex+size-1) ) ? (startIndex+size)-1 : (filteredData.length)-1;
-   filteredData = (filteredData.length>size) ? filteredData.filter((lt,index)=> index>=startIndex && index<=endIndex) : filteredData;
+  // <<<<<<<<<<<<< prev and next Button Pagination >>>>>>>>>
+  let pageNum = +page;
+  let size = 6;
+  let startIndex = (pageNum - 1) * size;
+  let endIndex =
+    filteredData.length > startIndex + size - 1
+      ? startIndex + size - 1
+      : filteredData.length - 1;
+  filteredData =
+    filteredData.length > size
+      ? filteredData.filter(
+          (lt, index) => index >= startIndex && index <= endIndex
+        )
+      : filteredData;
 
   return (
     <>
@@ -122,16 +116,76 @@ export default function Blog({ data, pageContext }) {
                           // cardprofile={item.node?.user.profileimage?.publicURL}
                           articleTitle={item?.node?.Type}
                           // articledescription={item.node?.Content}
-                          postedname={item?.node?.Author} 
+                          postedname={item?.node?.Author}
                           postdate={item?.node?.createdAt}
-                          cardtitle={
-                            <Link to={"/blog/" + item?.node?.Slug}>
-                              {item.node?.Title}
-                            </Link>
-                          }
+                          cardtitle={item.node?.Title}
+                          slug={item.node?.Slug}
                         />
                       </div>
                     ))}
+                </div>
+
+                <div className="custom-pagination-box">
+                  {/* <<<<<<<<<< Prev And Next Button for Pagination  >>>>>>>>>>>>>>>>> */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setPage(pageNum - 1);
+                    }}
+                    className={`prev  ${startIndex > 0 ? "active" : null}`}
+                  >
+                    Prev
+                  </button>
+
+                  <button
+                    type="button"
+                    buttonname="next"
+                    onClick={() => {
+                      console.log("khusxa");
+                      setPage(pageNum + 1);
+                    }}
+                    className={`next  ${
+                      endIndex < posts.length - 1 ? "active" : null
+                    }`}
+                  >
+                    Next
+                  </button>
+
+                  {/* {startIndex > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPage(pageNum - 1);
+                      }}
+                    >
+                      Prev
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  {endIndex < posts.length - 1 ? (
+                    <button
+                      type="button"
+                      buttonname="next"
+                      onClick={() => {
+                        console.log("khusxa");
+                        setPage(pageNum + 1);
+                      }}
+                    >
+                      Next
+                    </button>
+                  ) : (
+                    ""
+                  )} */}
+                  {/* {pageInfo.hasPreviousPage && (
+    <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
+  )}
+  {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
+    <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
+  ))}
+  {pageInfo.hasNextPage && (
+    <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
+  )} */}
                 </div>
               </div>
               <div className="most-popular-article">
@@ -158,7 +212,7 @@ export default function Blog({ data, pageContext }) {
                               key={i}
                               profilename={item?.node?.Author}
                               postdate={item?.node?.createdAt}
-                            //blogdescription={item.node?.Title}
+                              //blogdescription={item.node?.Title}
                             />
                           </Link>
                         </div>
@@ -180,7 +234,6 @@ export default function Blog({ data, pageContext }) {
                         />
                       </div>
                       <div className="input-wrap">
-
                         <InputBox
                           type="email"
                           placeholder={"Email"}
@@ -205,11 +258,7 @@ export default function Blog({ data, pageContext }) {
                           name="message"
                         ></textarea>
                         <span className="input-icon">
-                          <img
-                            src={messageimg}
-                            alt="St Logo"
-                            name="message"
-                          />
+                          <img src={messageimg} alt="St Logo" name="message" />
                         </span>
                       </div>
 
@@ -219,89 +268,47 @@ export default function Blog({ data, pageContext }) {
                     </div>
                   </form>
                 </div>
-
-                <div className="pagination-box">
-                  {/* <<<<<<<<<< Prev And Next Button for Pagination  >>>>>>>>>>>>>>>>> */}
-          
-                  {startIndex > 0 ?
-                    <button
-                      type="button"
-                      onClick={() => { setPage(pageNum - 1) }} >
-                      Prev
-                    </button>
-                    : ""}
-                    <br/>
-                  {endIndex < (posts.length - 1 )?
-                    <button type="button" buttonname="next"
-                      onClick={() => { console.log("khusxa"); setPage(pageNum + 1) }}>
-                      Next
-                    </button>
-                    : ""}
-                  {/* {pageInfo.hasPreviousPage && (
-                    <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
-                  )}
-                  {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
-                    <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
-                  ))}
-                  {pageInfo.hasNextPage && (
-                    <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
-                  )} */}
-
-                </div>
               </div>
-
             </div>
-
-
           </div>
-
-
         </div>
-
       </section>
-
 
       <Footer />
     </>
   );
 }
 
-
-
-
-
 export const query = graphql`
- 
-      query MyQuery {
-        allStrapiArticle(limit:100, skip:0,sort: {Title: DESC}) {
-          edges {
-            node {
-              Title
-              Author
-              Slug
-              Type
-              Image {
-                url
-              }
-              Content {
-                data {
-                  Content
-                }
-              }
-              createdAt(formatString: "DD MMMM, YYYY")
-              publishedAt(formatString: "DD MMMM, YYYY")
+  query MyQuery {
+    allStrapiArticle(limit: 100, skip: 0, sort: { Title: DESC }) {
+      edges {
+        node {
+          Title
+          Author
+          Slug
+          Type
+          Image {
+            url
+          }
+          Content {
+            data {
+              Content
             }
           }
-          pageInfo {
-            currentPage
-            hasNextPage
-            hasPreviousPage
-            itemCount
-            pageCount
-            perPage
-            totalCount
-          }
+          createdAt(formatString: "DD MMMM, YYYY")
+          publishedAt(formatString: "DD MMMM, YYYY")
         }
       }
-      
+      pageInfo {
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        itemCount
+        pageCount
+        perPage
+        totalCount
+      }
+    }
+  }
 `;

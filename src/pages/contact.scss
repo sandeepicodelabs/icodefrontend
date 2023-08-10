@@ -1,7 +1,7 @@
 @import "../styles/customMediaQueries.scss";
 @import "../styles/variables.scss";
 .getintouch-box {
-  background-color: $base-color;
+  background-color: $white-color;
   padding: 50px 0;
   @include lg {
     padding: 80px 0;
@@ -9,7 +9,7 @@
 
   .getbox-form {
     display: flex;
-    background: $white-color;
+    background: $light-bg;
     border-radius: 10px;
     flex-direction: column;
     @include lg {
@@ -69,7 +69,7 @@
               .contact-input {
                 padding: 0 24px;
                 height: 50px;
-                background: rgb(203 203 203 / 5%);
+                background: $white-color;
                 border: 1px solid $border-color;
                 border-radius: 4px;
                 font-weight: 400;
@@ -90,7 +90,7 @@
             .contact-input {
               padding: 0 16px;
               height: 50px;
-              background: rgb(203 203 203 / 5%);
+              background: $white-color;
               border: 1px solid $border-color;
               border-radius: 4px;
               font-weight: 400;
@@ -124,32 +124,28 @@
     }
     .contact-data {
       background: rgba(0, 91, 88, 0.8);
-      border: 2px solid #ffffff;
-      box-shadow: 0px 0px 50px rgb(0 91 88 / 40%);
+      // border: 2px solid #ffffff;
+      // box-shadow: 0px 0px 50px rgb(0 91 88 / 40%);
       border-radius: 0px 10px 10px 0px;
       height: 100%;
       .contact-details-right {
-        padding: 50px 0;
+        padding: 48px;
         .contact-heading {
-          background-color: $white-color;
-          color: $black-color;
-          font-size: 24px;
+          // background-color: $white-color;
+          color: $white-color;
+          font-size: 22px;
+          text-align: center;
           line-height: 130%;
-          font-weight: 500;
-          max-width: 90%;
-          width: 100%;
-          margin-left: auto;
-          padding: 10px 30px;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          font-weight: 600;
+          padding: 0 0 10px 0;
+          display: inline-block;
+          margin-bottom: 48px;
+          border-bottom: solid 2px $white-color;
           @include xl {
-            font-size: 28px;
-            padding: 10px 40px;
+            font-size: 26px;
           }
         }
         .contact-social-details {
-          padding: 0 48px;
-          margin-top: 48px;
           ul {
             list-style-type: none;
 
@@ -157,7 +153,10 @@
               margin-bottom: 24px;
               display: flex;
               align-items: center;
-
+              .contact-social-icon {
+                width: 48px;
+                height: 48px;
+              }
               span {
                 padding-left: 24px;
                 font-style: normal;
@@ -165,6 +164,7 @@
                 font-size: 16px;
                 line-height: 24px;
                 color: $white-color;
+                width: calc(100% - 48px);
 
                 a {
                   font-style: normal;

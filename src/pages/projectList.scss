@@ -49,53 +49,53 @@
       font-size: 20px;
     }
   }
-  .selectCategory {
-    margin-top: 20px;
-    h4 {
-      font-size: 24px;
-      color: $black-color;
-      line-height: 130%;
-      font-weight: 500;
-      margin: 0 0 10px 0;
+}
+
+.selectCategory {
+  margin-top: 20px;
+  h4 {
+    font-size: 24px;
+    color: $white-color;
+    line-height: 130%;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+  }
+  .hiring-buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 48px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    @media (min-width: 805px) {
+      justify-content: center;
+      padding-bottom: 0;
     }
-    .hiring-buttons {
-      display: flex;
-      gap: 14px;
-      margin-top: 48px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      @media (min-width: 805px) {
-        justify-content: center;
-        padding-bottom: 0;
-      }
-      @include lg {
-        gap: 24px;
-      }
+    @include lg {
+      gap: 24px;
+    }
 
-      .button-box {
-        margin-top: 0;
-        .hire-dev-button {
-          background-color: $white-color;
-          color: $base-color;
+    .button-box {
+      margin-top: 0;
+      .hire-dev-button {
+        background-color: $white-color;
+        color: $base-color;
+        transition: $transiton;
+        padding: 10px 24px;
+        font-size: 16px;
+        white-space: nowrap;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          background-color: $base-color;
+          color: $white-color;
           transition: $transiton;
-          padding: 10px 24px;
-          font-size: 16px;
-          white-space: nowrap;
-
-          &:hover,
-          &:focus,
-          &:active,
-          &.active {
-            background-color: $base-color;
-            color: $white-color;
-            transition: $transiton;
-          }
         }
       }
     }
   }
 }
-
 .projectlist-main-box {
   padding: 50px 0;
   @include lg {

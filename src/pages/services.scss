@@ -155,7 +155,7 @@
   }
 }
 .why-we-hire {
-  background: rgba(87, 248, 243, 0.1);
+  background: $base-color;
   .contentWidth {
     padding: 50px 24px;
     @include lg {
@@ -173,6 +173,7 @@
         margin: 0 0 10px 0;
         font-size: 24px;
         line-height: 130%;
+        color: $white-color;
         @include sm {
           font-size: 28px;
           line-height: 135%;
@@ -187,6 +188,7 @@
         line-height: 170%;
         font-weight: 300;
         max-width: 100%;
+        color: $white-color;
         @include lg {
           font-size: 18px;
           max-width: 80%;
@@ -194,24 +196,48 @@
       }
     }
     .join-expertise {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-column-gap: 24px;
-      grid-row-gap: 80px;
-      @include md {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      @include lg {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      @include xl {
-        grid-template-columns: repeat(4, 1fr);
-      }
       .join-our-team {
-        width: 100%;
+        & > span {
+          border: solid 2px $white-color;
+        }
       }
     }
   }
+}
+.join-expertise {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  @include md {
+    display: grid;
+    flex-wrap: wrap;
+    grid-column-gap: 24px;
+    grid-row-gap: 80px;
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: visible;
+  }
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include xl {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .join-our-team {
+    width: 100%;
+    min-width: calc(100% / 1);
+    margin-right: 24px;
+    scroll-snap-align: start;
+    @include md {
+      margin-right: 0px;
+      min-width: auto;
+      width: 100%;
+    }
+  }
+}
+.tools-and-technologies-section {
+  border-bottom: solid 1px $border-color;
 }
 .tools-and-technologies {
   &.contentWidth {
@@ -307,9 +333,9 @@
 }
 .why-choose-us {
   &.contentWidth {
-    padding: 0 24px;
+    padding: 50px 24px 0;
     @include lg {
-      padding: 0px 24px;
+      padding: 80px 24px 0;
     }
     .our-tech-team {
       display: flex;
