@@ -22,7 +22,7 @@ export default function Servicedetail({ data, pageContext }) {
       <div className="project-list-page">
         <Header />
         <div className="project-wrap-box">
-          {/* <section className="service-hero-section">
+          <section className="service-hero-section">
             <div className="contentWidth">
               <div className="service-hero-content">
                 <h1>{detail?.node?.Title}</h1>
@@ -35,7 +35,7 @@ export default function Servicedetail({ data, pageContext }) {
                 </a>
               </div>
             </div>
-          </section> */}
+          </section>
           <section className="service-header">
             <div className="contentWidth">
               <div className="service-header-content">
@@ -130,8 +130,11 @@ export default function Servicedetail({ data, pageContext }) {
             <section className="estimate-section-wrap">
               <div className="estimate-contact">
                 <div className="estimate-content">
-                  <h3>{detail?.node?.CTATitlte}</h3>
-                  <p>{detail?.node?.CTADescription?.data.CTADescription}</p>
+                  <h3>{detail && detail?.node?.CTATitlte}</h3>
+                  <p>
+                    {detail &&
+                      detail?.node?.CTADescription?.data?.CTADescription}
+                  </p>
                 </div>
                 <a href="/contact">
                   <ButtonBox
@@ -199,20 +202,15 @@ export const query = graphql`
               data {
                 ServiceDescription
               }
-
-              CTATitlte
-              CTADescription {
-                data {
-                  CTADescription
-                }
-              }
-              Description {
-                data {
-                  Description
-                }
+            }
+          }
+          ToolService {
+            toolsTitle
+            toolsDescription {
+              data {
+                toolsDescription
               }
             }
-            toolsTitle
           }
           EnhanceService {
             EImage {

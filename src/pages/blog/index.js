@@ -1,23 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Footer from "../../components/Footer/Footer";
-import profileimg from "../../assets/images/covercardprofile.png";
-import BlogCover from "../../assets/images/blog-cover.png";
-import BlogCoverCard from "../../components/blogcover";
-import BlogArticleCard from "../../components/Cards/articlecard";
 import MostPopularCard from "../../components/Cards/mostpopularcard";
 import AllArticleCard from "../../components/Cards/allarticlecard";
-import SubscribeCard from "../../components/Cards/subscribe";
-import PaginationBox from "../../components/pagination";
-import CardProfile from "../../assets/images/allarticleimg.png";
-import BlogCoverImg from "../../assets/images/articlecardimg.png";
-import CardProfileimg from "../../assets/images/covercardprofile.png";
 import SearchIcon from "../../assets/images/searchicon.svg";
 import "../blog.scss";
 import { graphql, Link } from "gatsby";
-import paginationNext from "../../assets/images/pagination-next-icon.png";
-import paginationprev from "../../assets/images/pagination-prev-icon.png";
 import InputBox from "../../components/input";
 import userImg from "../../assets/images/user.png";
 import Emailicon from "../../assets/images/email.png";
@@ -45,51 +34,6 @@ export default function Blog({ data, pageContext }) {
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
-
-  console.log("blog", filteredData);
-
-  // for enquiry form
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Get the form data from the event target
-    const formData = new FormData(e.target);
-    console.log(formData, "formData");
-    const contactData = {
-      data: {
-        Name: formData.get("name"),
-        Email: formData.get("email"),
-        Message: formData.get("message"),
-        MobileNo: bigInt(formData.get("mobileno")),
-      },
-    };
-    console.log(contactData, "contactData");
-    // Make the POST request to your Strapi backend
-    axios
-      .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get(
-          "message"
-        )}&mobileno=${formData.get("mobileno")}`
-      )
-      .then(async (response) => {
-        console.log("Form data sent successfully:", response);
-        return axios.post(
-          "https://icodelabsbackend.onrender.com/api/contact-uses",
-          contactData
-        );
-      })
-      .then((response2) => {
-        console.log(response2, "response2");
-      })
-      .catch((error) => {
-        console.log("Error sending form data:", error);
-        // Optionally, you can show an error message here or handle the error gracefully
-      });
-    e.target.reset();
-  };
-
-  console.log("blog", filteredData);
 
   // for enquiry form
   const handleSubmit = (e) => {
