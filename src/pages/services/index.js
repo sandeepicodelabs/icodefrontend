@@ -1,16 +1,17 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import "./style.css";
+import "../services.scss";
 import deliveryImage from "../../assets/images/professional-programmer-working-late-dark-office.png";
 import mobileImge from "../../assets/images/linedin-lite-post-image.png";
 import img from "../../assets/images/graphql.png";
-import "../../assets/css/custom.css";
+import "../services.scss";
 // import '../../assets/css/bootstrap.min.css';
 import Footer from "../../components/Footer/Footer";
 import EstimateCard from "../../components/Cards/estimatecard";
 import { graphql, Link } from "gatsby";
-import Servicedetail from "./servicedetail";
+// import Servicedetail from "./servicedetail";
 import FAQ from "../../components/FAQ/FAQ";
+import ButtonBox from "../../components/button";
 
 export default function Services({ data }) {
   // console.log("servicedatail",data)
@@ -21,31 +22,6 @@ export default function Services({ data }) {
     <div className="project-list-page">
       <Header />
       <div className="project-wrap-box">
-        <section>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="project-list-cover">
-                <div className="col-md-7">
-                  <h1>Android App Development Company</h1>
-                  <p>
-                    Are you in need of bespoke Android app development services?
-                    Are you searching for a leading Android mobile app
-                    development company to create a tailored Android app? We are
-                    a distinguished company specializing in Android app
-                    development, backed by a wealth of industry experience. Our
-                    mission is to enable businesses to adopt a mobile-first
-                    approach and provide exceptional, well-established Android
-                    app development services.
-                  </p>
-                </div>
-                <div className="deliver-image-mobile">
-                  <img src={mobileImge} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section>
           <div className="deliver-qualitywork">
             <div className="deliver-description">

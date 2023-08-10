@@ -36,12 +36,11 @@ const strapiConfig = {
         populate: {
           image: "*",
           images: "*",
-          TopImage:"*",
+          TopImage: "*",
           Titleservice: {
             populate: {
               servicedescription: "*",
-              TImage: "*"
-
+              TImage: "*",
             },
           },
           ToolService: {
@@ -163,7 +162,7 @@ module.exports = {
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-strapi",
-      options: { 
+      options: {
         ...strapiConfig,
       },
     },

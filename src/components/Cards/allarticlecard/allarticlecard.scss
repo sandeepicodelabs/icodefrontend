@@ -48,6 +48,7 @@
       .all-article-profile-list {
         margin-top: 14px;
         display: flex;
+        align-items: center;
         & > img {
           border-radius: 50%;
           height: 48px;
@@ -55,7 +56,9 @@
           object-fit: cover;
         }
         .all-article-profile-wrap {
-          padding-left: 12px;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
           .all-article-name {
             font-style: normal;
             font-weight: 400;
@@ -78,7 +81,7 @@
             font-size: 14px;
             line-height: 130%;
             color: $black-color;
-            margin-top: 4px;
+            margin-top: 0px;
           }
         }
       }

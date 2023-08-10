@@ -120,8 +120,8 @@ export default function BlogPage({ data, pageContext }) {
   const article = posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
-  console.log("all data",posts)
-  console.log('article',article)
+  console.log("all data", posts);
+  console.log("article", article);
   return (
     <div>
       <section className="blog-detail-box">
@@ -153,18 +153,17 @@ export default function BlogPage({ data, pageContext }) {
                 </div>
                 <div className="blog-detail-grid-wrap">
                   <div className="blog-detail-body">
-                    {/* <div className="blog-detail-left-wrap">*/}
                     <div className="detail-description-wrap">
                       <ReactMarkdown>
                         {article?.node?.Content?.data?.Content}
                       </ReactMarkdown>
                     </div>
-
-                    {/* </div> */}
                   </div>
                   <div className="estimate-section-wrap">
                     <div className="estimate-contact">
-                      <h3>Hire an experienced web development team?</h3>
+                      <div className="estimate-content">
+                        <h3>Hire an experienced web development team?</h3>
+                      </div>
                       <a href="/contact">
                         <ButtonBox
                           buttonname="contact now"
@@ -185,8 +184,10 @@ export default function BlogPage({ data, pageContext }) {
                                 key={i}
                                 img={item.node?.Image[0]?.url}
                                 articleTitle={item.node?.Type}
-                                articledescription={item?.node?.Content?.data?.Content}
-                                 postedname={item?.node?.Author}
+                                articledescription={
+                                  item?.node?.Content?.data?.Content
+                                }
+                                postedname={item?.node?.Author}
                                 postdate={item.node?.createdAt}
                                 cardtitle={item.node?.Title}
                                 //cardprofile={item.node?.user.profileimage?.publicURL}
@@ -210,7 +211,7 @@ export default function BlogPage({ data, pageContext }) {
                             <MostPopularCard
                               key={i}
                               //populartitle={item.node?.category.name}
-                               profilename={item?.node?.Author}
+                              profilename={item?.node?.Author}
                               postdate={item?.node?.createdAt}
                               blogdescription={item.node?.Title}
                             />
@@ -233,8 +234,7 @@ export default function BlogPage({ data, pageContext }) {
                             name="name"
                           />
                         </div>
-                        <div className="input-wrap"> 
-                   
+                        <div className="input-wrap">
                           <InputBox
                             type="email"
                             placeholder={"Email"}
@@ -286,11 +286,11 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle( sort: { Title: DESC }) {
+    allStrapiArticle(sort: { Title: DESC }) {
       edges {
         node {
           Title
-           Author
+          Author
           Slug
           Type
           Content {

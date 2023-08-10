@@ -31,7 +31,7 @@ export default function Blog({ data, pageContext }) {
   const [page, setPage] = useState(1);
   const { pageInfo } = allStrapiArticle;
 
-  console.log(pageInfo, "pagination");
+ // console.log(pageInfo, "pagination");
 
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
@@ -98,7 +98,7 @@ console.log(pageInfo,"pageInfo")
 console.log(filteredData,"filteredData")
 // <<<<<<<<<<<<< prev and next Button Pagination >>>>>>>>>
    let pageNum=+page;
-   let size=5;
+   let size=6;
    let startIndex = (pageNum-1) * size;
    let endIndex = (filteredData.length > (startIndex+size-1) ) ? (startIndex+size)-1 : (filteredData.length)-1;
    filteredData = (filteredData.length>size) ? filteredData.filter((lt,index)=> index>=startIndex && index<=endIndex) : filteredData;
@@ -123,10 +123,10 @@ console.log(filteredData,"filteredData")
                         <AllArticleCard
                           img={item?.node?.Image[0]?.url}
                           // cardprofile={item.node?.user.profileimage?.publicURL}
-                          articleTitle={item.node?.Type}
+                          articleTitle={item?.node?.Type}
                           // articledescription={item.node?.Content}
-                          postedname={item.node?.Author}
-                          postdate={item.node?.createdAt}
+                          postedname={item?.node?.Author} 
+                          postdate={item?.node?.createdAt}
                           cardtitle={
                             <Link to={"/blog/" + item?.node?.Slug}>
                               {item.node?.Title}
@@ -308,4 +308,3 @@ export const query = graphql`
       }
       
 `;
-
