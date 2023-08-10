@@ -15,3 +15,177 @@
     max-width: 70%;
   }
 }
+
+.recomment-box {
+  .contentWidth {
+    padding: 50px 24px;
+    @include lg {
+      padding: 80px 24px;
+    }
+    .recommented-wrap {
+      .recommend-section {
+        margin-bottom: 24px;
+        @include lg {
+          margin-bottom: 48px;
+        }
+        h1 {
+          font-style: normal;
+          font-weight: 600;
+          text-transform: capitalize;
+          color: $black-color;
+          margin-bottom: 16px;
+          width: 100%;
+          font-size: 24px;
+          line-height: 130%;
+
+          @include sm {
+            font-size: 28px;
+            line-height: 135%;
+          }
+          @include md {
+            font-size: 30px;
+            line-height: 140%;
+            margin-bottom: 20px;
+          }
+          @include lg {
+            font-size: 30px;
+            line-height: 145%;
+          }
+        }
+      }
+      .recommend-wrap-box {
+        display: flex;
+        flex-direction: column;
+        @include lg {
+          flex-direction: row;
+        }
+        .approach-left-box {
+          background-color: $base-color;
+          color: $white-color;
+          border-radius: 10px;
+          padding: 24px;
+          width: 100%;
+          margin-bottom: 40px;
+          @include lg {
+            padding: 48px 24px;
+            width: auto;
+            margin: 0;
+          }
+
+          p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 180%;
+            color: $white-color;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+          }
+        }
+        .approach-right-box {
+          width: 100%;
+          @include lg {
+            padding-left: 48px;
+            width: auto;
+          }
+          .approach-box {
+            &:not(:last-child) {
+              margin-bottom: 24px;
+            }
+            h4 {
+              font-style: normal;
+              font-weight: 600;
+              text-transform: capitalize;
+              color: $black-color;
+              margin-bottom: 6px;
+              width: 100%;
+              font-size: 18px;
+              line-height: 130%;
+
+              @include md {
+                font-size: 20px;
+                line-height: 140%;
+              }
+            }
+            p {
+              font-style: normal;
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 180%;
+              color: $text-color;
+              margin-bottom: 0;
+              position: relative;
+              z-index: 1;
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.why-we-hire {
+  &.reason-to-hire {
+    background-color: $base-light-color;
+    .our-team-wrap {
+      .our-tech-team {
+        h1 {
+          color: $black-color;
+        }
+        p {
+          color: $black-color;
+        }
+      }
+      .join-expertise {
+        .join-our-team {
+          & > span {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+.stack-tools-use {
+  &.contentWidth {
+    padding: 50px 24px 0;
+    @include lg {
+      padding: 80px 24px 0;
+    }
+    h1 {
+      font-style: normal;
+      font-weight: 600;
+      text-transform: capitalize;
+      color: $black-color;
+      margin-bottom: 28px;
+      width: 100%;
+      font-size: 24px;
+      line-height: 130%;
+
+      @include sm {
+        font-size: 28px;
+        line-height: 135%;
+      }
+      @include md {
+        font-size: 30px;
+        line-height: 140%;
+        margin-bottom: 48px;
+      }
+      @include lg {
+        font-size: 30px;
+        line-height: 145%;
+      }
+    }
+    .stack-tools-card {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 48px;
+      @include lg {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 68px;
+      }
+    }
+  }
+}

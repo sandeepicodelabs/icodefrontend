@@ -1,0 +1,98 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+.stack-card {
+  background: #ffffff;
+  border: 8px solid rgba(0, 91, 88, 0.6);
+  border-radius: 10px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+      262.34deg,
+      rgba(0, 91, 88, 0.6) -9.24%,
+      rgba(87, 248, 243, 0.28) 99.6%
+    );
+    border-radius: 10px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    top: 15px;
+    height: 100%;
+    width: 100%;
+    left: -21px;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+      262.34deg,
+      rgba(0, 91, 88, 0.6) -9.24%,
+      rgba(87, 248, 243, 0.28) 99.6%
+    );
+    border-radius: 10px;
+    top: -21px;
+    height: 100%;
+    width: 100%;
+    left: 15px;
+    z-index: -1;
+  }
+  .stack-card-box {
+    display: flex;
+    height: 100%;
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        position: relative;
+        float: left;
+        padding-left: 36px;
+        width: 100%;
+        margin-bottom: 14px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 140%;
+        text-transform: capitalize;
+        color: #3e4348;
+        @include md {
+          width: 50%;
+          font-size: 16px;
+        }
+        &::before {
+          background-image: url("../assets/images/checkdev.png");
+          content: "";
+          position: absolute;
+          height: 24px;
+          width: 24px;
+          background-size: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.stack-card-tech {
+  padding: 30px 24px;
+  background: #fff;
+  width: 100%;
+}
+.stack-label {
+  background: #005b58;
+  border-radius: 4px 0px 0px 4px;
+  padding: 24px 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 140%;
+  color: #ffffff;
+  border: 1px solid #fff;
+  width: 230px;
+  text-align: center;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
