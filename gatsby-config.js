@@ -23,7 +23,7 @@ const strapiConfig = {
     // "technology",
     // "jointeche",
     "project-list",
-    "service",
+    //"service",
     "component-skillset",
     "component-skilltool",
     "contact-us",
