@@ -92,10 +92,7 @@ export default function Blog({ data, pageContext }) {
     e.target.reset();
   };
 
-console.log(pageInfo,"pageInfo")
-
-
-console.log(filteredData,"filteredData")
+ 
 // <<<<<<<<<<<<< prev and next Button Pagination >>>>>>>>>
    let pageNum=+page;
    let size=6;
@@ -194,7 +191,7 @@ console.log(filteredData,"filteredData")
                       </div>
                       <div className="input-wrap">
                         <InputBox
-                          type="number"
+                          type="text"
                           placeholder={"Mobile No"}
                           className="contact-inputs"
                           //img={Emailicon}
