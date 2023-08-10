@@ -1,0 +1,29 @@
+@import "../../../styles/customMediaQueries.scss";
+@import "../../../styles/variables.scss";
+.trend-cover-wrap {
+  text-align: center;
+  min-width: 250px;
+  max-width: 280px;
+  & > img {
+    width: 100px;
+    height: 100px;
+  }
+  h5 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    color: $white-color;
+    margin-bottom: 0;
+    @include md {
+      font-size: 18px;
+    }
+    @include lg {
+      font-size: 20px;
+    }
+  }
+  .tranding-text-head {
+    height: 75px;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+
+.tranding-cover-cards {
+  display: flex;
+  align-items: center;
+  margin: 30px auto;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  @include lg {
+    justify-content: center;
+  }
+  @include xl {
+    max-width: 70%;
+  }
+}
