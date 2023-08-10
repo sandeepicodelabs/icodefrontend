@@ -16,13 +16,16 @@ import axios from "axios";
 import bigInt from "big-integer";
 
 export default function Blog({ data, pageContext }) {
-  const { pageCount } = pageContext;
+  const { allStrapiArticle } = data;
+  const [page, setPage] = useState(1);
+  const { pageInfo } = allStrapiArticle;
 
-  console.log(pageCount, "pagination");
+  // console.log(pageInfo, "pagination");
+
   const query =
     typeof window !== "undefined" ? window.location.search.slice(8) : null;
   const posts = data?.allStrapiArticle?.edges;
-  const filteredData = posts?.filter((post) => {
+  let filteredData = posts?.filter((post) => {
     const { Content, Title, Slug, Type } = post.node;
     const validContent = typeof Content === "string" ? Content : "";
     const validTitle = typeof Title === "string" ? Title : "";
@@ -76,6 +79,21 @@ export default function Blog({ data, pageContext }) {
     e.target.reset();
   };
 
+  // <<<<<<<<<<<<< prev and next Button Pagination >>>>>>>>>
+  let pageNum = +page;
+  let size = 6;
+  let startIndex = (pageNum - 1) * size;
+  let endIndex =
+    filteredData.length > startIndex + size - 1
+      ? startIndex + size - 1
+      : filteredData.length - 1;
+  filteredData =
+    filteredData.length > size
+      ? filteredData.filter(
+          (lt, index) => index >= startIndex && index <= endIndex
+        )
+      : filteredData;
+
   return (
     <>
       <section className="blog-box">
@@ -96,10 +114,10 @@ export default function Blog({ data, pageContext }) {
                         <AllArticleCard
                           img={item?.node?.Image[0]?.url}
                           // cardprofile={item.node?.user.profileimage?.publicURL}
-                          articleTitle={item.node?.Type}
+                          articleTitle={item?.node?.Type}
                           // articledescription={item.node?.Content}
-                          postedname={item.node?.Author}
-                          postdate={item.node?.createdAt}
+                          postedname={item?.node?.Author}
+                          postdate={item?.node?.createdAt}
                           cardtitle={
                             <Link to={"/blog/" + item?.node?.Slug}>
                               {item.node?.Title}
@@ -145,7 +163,7 @@ export default function Blog({ data, pageContext }) {
                   {/* <SubscribeCard /> */}
                   <form className="contact-right" onSubmit={handleSubmit}>
                     <div className="contact-form">
-                      <h1>Let’s Build Your Dream App!</h1>
+                      <h1>Let’s Build Your Dream Web/App!</h1>
                       <div className="input-wrap">
                         <InputBox
                           type="text"
@@ -190,67 +208,53 @@ export default function Blog({ data, pageContext }) {
                     </div>
                   </form>
                 </div>
+
+                <div className="pagination-box">
+                  {/* <<<<<<<<<< Prev And Next Button for Pagination  >>>>>>>>>>>>>>>>> */}
+
+                  {startIndex > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setPage(pageNum - 1);
+                      }}
+                    >
+                      Prev
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  <br />
+                  {endIndex < posts.length - 1 ? (
+                    <button
+                      type="button"
+                      buttonname="next"
+                      onClick={() => {
+                        console.log("khusxa");
+                        setPage(pageNum + 1);
+                      }}
+                    >
+                      Next
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  {/* {pageInfo.hasPreviousPage && (
+                    <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
+                  )}
+                  {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
+                    <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
+                  ))}
+                  {pageInfo.hasNextPage && (
+                    <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
+                  )} */}
+                </div>
               </div>
             </div>
-
-            {/* <div className="pagination-box">
-        {hasPreviousPage && (
-          <Link to={`/blog/${currentPage - 1}`}>Previous</Link>
-        )}
-        {Array.from({ length: pageCount }).map((_, index) => (
-          <Link key={index} to={`/blog/${index + 1}`}>
-            {index + 1}
-          </Link>
-        ))}
-        {hasNextPage && (
-          <Link to={`/blog/${currentPage + 1}`}>Next</Link>
-        )}
-      </div> */}
-            {/* 
-            <div className="pagination-box">
-        {pageInfo.hasPreviousPage && (
-          <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
-        )}
-        {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
-          <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
-        ))}
-        {pageInfo.hasNextPage && (
-          <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
-        )}
-      </div> */}
-            {/* <PaginationBox  
-              />   */}
           </div>
-
-          {/* <div className="pagination-box">
-        {hasPreviousPage && (
-          <Link to={`/blog/${currentPage - 1}`}>Previous</Link>
-        )}
-        {Array.from({ length: pageCount }).map((_, index) => (
-          <Link key={index} to={`/blog/${index + 1}`}>
-            {index + 1}
-          </Link>
-        ))}
-        {hasNextPage && (
-          <Link to={`/blog/${currentPage + 1}`}>Next</Link>
-        )}
-      </div> */}
-          {/* 
-            <div className="pagination-box">
-        {pageInfo.hasPreviousPage && (
-          <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
-        )}
-        {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
-          <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
-        ))}
-        {pageInfo.hasNextPage && (
-          <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
-        )}
-      </div> */}
-          {/* <PaginationBox  
-              />   */}
         </div>
       </section>
+
       <Footer />
     </>
   );
@@ -258,25 +262,33 @@ export default function Blog({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(sort: { Title: DESC }) {
+    allStrapiArticle(limit: 100, skip: 0, sort: { Title: DESC }) {
       edges {
         node {
           Title
           Author
           Slug
           Type
+          Image {
+            url
+          }
           Content {
             data {
               Content
             }
           }
           createdAt(formatString: "DD MMMM, YYYY")
-          updatedAt(formatString: "DD MMMM, YYYY")
-          Promotext
-          Image {
-            url
-          }
+          publishedAt(formatString: "DD MMMM, YYYY")
         }
+      }
+      pageInfo {
+        currentPage
+        hasNextPage
+        hasPreviousPage
+        itemCount
+        pageCount
+        perPage
+        totalCount
       }
     }
   }

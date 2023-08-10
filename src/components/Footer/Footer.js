@@ -57,9 +57,9 @@ const Footer = () => {
                               <Link
                                 to={"/trendingtechologies/" + item?.node?.Slug}
                               >
-                                {item.node.SubTitle.length > 50
-                                  ? item.node.SubTitle.substring(0, 50) + "" // Limit the title to 15 characters and add ellipsis
-                                  : item.node.SubTitle}
+                                {item?.node?.SubTitle.length > 50
+                                  ? item?.node?.SubTitle.substring(0, 50) + "" // Limit the title to 15 characters and add ellipsis
+                                  : item?.node?.SubTitle}
                               </Link>
                             </li>
                           </ul>
@@ -78,9 +78,9 @@ const Footer = () => {
                               <Link
                                 to={"/trendingtechologies/" + item?.node?.Slug}
                               >
-                                {item.node.SubTitle.length > 50
-                                  ? item.node.SubTitle.substring(0, 50) + "" // Limit the title to 15 characters and add ellipsis
-                                  : item.node.SubTitle}
+                                {item?.node?.SubTitle.length > 50
+                                  ? item?.node?.SubTitle.substring(0, 50) + "" // Limit the title to 15 characters and add ellipsis
+                                  : item?.node?.SubTitle}
                               </Link>
                             </li>
                           </ul>

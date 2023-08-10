@@ -39,8 +39,8 @@ export default function Servicedetail({ data, pageContext }) {
           <section className="service-header">
             <div className="contentWidth">
               <div className="service-header-content">
-                <h1>{detail?.node?.Title}</h1>
-                <p>{detail?.node.Description.data.Description}</p>
+                <h1>{detail && detail?.node?.Title}</h1>
+                <p>{detail && detail?.node?.Description?.data?.Description}</p>
               </div>
               <div className="service-header-image">
                 <img
@@ -56,8 +56,8 @@ export default function Servicedetail({ data, pageContext }) {
                 <h1>{detail?.node?.DevlopmentTitle}</h1>
                 <p className="choose-description">
                   {
-                    detail?.node?.DevelopmentDescription.data
-                      .DevelopmentDescription
+                    detail?.node?.DevelopmentDescription?.data
+                      ?.DevelopmentDescription
                   }
                 </p>
               </div>
@@ -92,7 +92,7 @@ export default function Servicedetail({ data, pageContext }) {
                     detail?.node?.ToolService.map((item, i) => (
                       <div className="technologies">
                         <h3>{item?.toolsTitle}</h3>
-                        <p>{item?.toolsDescription.data.toolsDescription}</p>
+                        <p>{item?.toolsDescription?.data?.toolsDescription}</p>
                       </div>
                     ))}
                 </div>

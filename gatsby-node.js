@@ -44,21 +44,21 @@ exports.createPages = async ({ graphql, actions }) => {
    const articles = result.data.articles.edges; 
 
 
-   const itemsPerPage =6; // Change this as needed
-const numPages = Math.ceil(articles.length / itemsPerPage);
-
-Array.from({ length: numPages }).forEach((_, i) => {
-  createPage({
-    path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-    component: path.resolve("./src/pages/blog/index.js"),
-    context: {
-      limit: itemsPerPage,
-      skip: i * itemsPerPage,
-      numPages,
-      currentPage: i + 1,
-    },
+  const itemsPerPage = 6; // Change this as needed
+  const numPages = Math.ceil(articles.length / itemsPerPage);
+  console.log(numPages, "numPages")
+  Array(articles.length||0).fill(",").forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      component: path.resolve("./src/pages/blog/index.js"),
+      context: {
+        limit: itemsPerPage,
+        skip: i * itemsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
   });
-});
 
   // createPaginatedPages({
   //   edges: articles,
