@@ -436,7 +436,7 @@ const IndexPage = ({ data }) => {
                 </h1>
                 <span className="line">&nbsp;</span>
               </div>
-              <ButtonBox type="button" buttonname="Reade more reviews" />
+              {/* <ButtonBox type="button" buttonname="Reade more reviews" /> */}
             </div>
             <div className="about-slide">
               <Slider {...testimonialslide}>
@@ -563,14 +563,7 @@ const IndexPage = ({ data }) => {
             <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
-                  {/* <input
-                    type="text"
-                    name="name"
-                    onChange={(e)=>e.target.value}
-                    placeholder={"Full Name"}
-                    className="contact-inputs"
-                    img={userImg}  
-                  /> */}
+                
                   <InputBox
                     type="text"
                     placeholder={"Full Name"}
@@ -578,10 +571,7 @@ const IndexPage = ({ data }) => {
                     img={userImg}
                     name="name"
                   />
-                  {/* {!window.location.pathname.includes('contact') ? (
-                  <span className="input-icon">
-                    <img src={img} alt="St Logo" />
-                  </span>) : <></>} */}
+                  
                 </div>
                 <div className="input-wrap">
                   <InputBox
@@ -602,7 +592,7 @@ const IndexPage = ({ data }) => {
                     <img src={messageimg} alt="St Logo" name="message" />
                   </span>
                 </div>
-                <div className="term-policy">
+                {/* <div className="term-policy">
                   <input type="checkbox" name="vehicle1" value="Bike" />
                   <label>
                     {" "}
@@ -611,7 +601,7 @@ const IndexPage = ({ data }) => {
                     </a>{" "}
                     and <a href="#">Privacy Policy</a>
                   </label>
-                </div>
+                </div> */}
                 <div className="send-button">
                   <ButtonBox type="submit" buttonname="Send message" />
                 </div>
