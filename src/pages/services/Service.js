@@ -143,6 +143,10 @@ export default function Service({ data, pageContext }) {
   );
 }
 
+
+
+
+
 export const query = graphql`
   query MyQuery {
     allStrapiServiceDetail(sort: { strapi_id: ASC }) {
