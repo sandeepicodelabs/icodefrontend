@@ -7,6 +7,7 @@ const ButtonBox = (props) => {
     <>
       <div className="button-box">
         <button type={type} className={className}>
+          <span className="rippleEffect">&nbsp;</span>
           {buttonname}
         </button>
       </div>
