@@ -309,12 +309,20 @@
                 color: $black-color;
                 width: 100%;
               }
+              & > a {
+                color: $base-color;
+                text-decoration: underline;
+                &:hover {
+                  color: $black-color;
+                }
+              }
             }
             img {
               max-width: 100%;
             }
             ul {
               padding-left: 30px;
+              margin-bottom: 24px;
               li {
                 font-size: 16px;
                 color: $text-color;
@@ -322,17 +330,31 @@
                 line-height: 160%;
                 margin-bottom: 5px;
                 width: 100%;
-                & > strong {
-                  font-size: 16px;
-                  font-weight: 600;
-                  margin-bottom: 0;
-                  width: 100%;
-                  color: $black-color;
+                display: inline-block;
+                position: relative;
+                &::before {
+                  content: " ";
+                  position: absolute;
+                  top: 10px;
+                  left: -20px;
+                  background-color: $black-color;
+                  width: 5px;
+                  height: 5px;
+                  border-radius: 100px;
+                }
+                p {
+                  & > strong {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                    width: 100%;
+                    color: $black-color;
+                  }
                 }
               }
-              & + p {
-                padding-left: 30px;
-              }
+              // & + p {
+              //   padding-left: 30px;
+              // }
             }
           }
         }
@@ -357,6 +379,9 @@
               border: solid 1px $border-color;
               text-decoration: none;
               height: 100%;
+              a {
+                text-decoration: none;
+              }
               .all-article-card-box {
                 cursor: pointer;
                 box-shadow: none;
@@ -438,7 +463,7 @@
                       text-decoration: none;
                       font-style: normal;
                       font-weight: 500;
-                      font-size: 18px;
+                      font-size: 16px;
                       line-height: 130%;
                       color: $black-color;
                       & > a {

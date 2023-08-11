@@ -184,6 +184,10 @@ export const query = graphql`
             }
           }
           Titleservice {
+            TImage {
+              url
+            }
+            Servicetitle
             ServiceDescription {
               data {
                 ServiceDescription
