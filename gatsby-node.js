@@ -136,11 +136,10 @@ exports.createPages = async ({ graphql, actions }) => {
         article,
       },
     })
-  })
-
+  }) 
   services.forEach((service, index) => {
     createPage({
-      path: `/services/${service.node.Slug}`,
+      path: `/servicedetail/${service.node.Slug}`,
       component: require.resolve("./src/pages/services/servicedetail.js"),
       context: {
         id: service.node.strapi_id,

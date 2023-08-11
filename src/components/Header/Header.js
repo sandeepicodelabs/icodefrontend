@@ -23,7 +23,7 @@ const Header = () => {
   const serviceDropdownList = service?.map((item) => {
     return {
       text: item?.node?.TitleMain,
-      link: `/services/${item?.node?.Slug}`,
+      link: `/servicedetail/${item?.node?.Slug}`,
     };
   });
 
