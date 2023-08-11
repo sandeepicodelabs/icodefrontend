@@ -245,7 +245,7 @@ export default function BlogPage({ data, pageContext }) {
                         </div>
                         <div className="input-wrap">
                           <InputBox
-                            type="number"
+                            type="text"
                             placeholder={"Mobile No"}
                             className="contact-inputs"
                             //img={Emailicon}
@@ -265,8 +265,7 @@ export default function BlogPage({ data, pageContext }) {
                               name="message"
                             />
                           </span>
-                        </div>
-
+                        </div> 
                         <div className="send-button">
                           <ButtonBox type="submit" buttonname="Send message" />
                         </div>
@@ -286,7 +285,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(sort: { Title: DESC }) {
+    allStrapiArticle(limit: 6, skip: 0, sort: { Title: DESC }) {
       edges {
         node {
           Title
@@ -309,6 +308,10 @@ export const query = graphql`
     }
   }
 `;
+
+
+
+
 
 
 
