@@ -628,6 +628,10 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
+
+
+
+
 export const query = graphql`
   query MyQuery {
     allStrapiCompanyLogo(sort: { strapi_id: ASC }) {
