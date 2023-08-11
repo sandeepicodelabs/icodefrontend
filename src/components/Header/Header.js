@@ -5,6 +5,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 const Header = () => {
+
   const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(graphql`
     query {
@@ -23,7 +24,7 @@ const Header = () => {
   const serviceDropdownList = service?.map((item) => {
     return {
       text: item?.node?.TitleMain,
-      link: `/services/${item?.node?.Slug}`,
+      link: `/servicedetail/${item?.node?.Slug}`,
     };
   });
 
