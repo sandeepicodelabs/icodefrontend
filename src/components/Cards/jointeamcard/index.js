@@ -3,6 +3,7 @@ import "./jointeamcard.scss";
 
 export default function WhyWeJoinCard(props) {
   const { img, teamdescription, teamheading } = props;
+  console.log(props,"whywejoin")
   return (
     <>
       <div className="join-our-team">
