@@ -335,16 +335,26 @@
         }
         @include lg {
           width: 60%;
-          padding-left: 48px;
+          padding-left: 24px;
         }
         & .technologies {
+          border: solid 1px $border-color;
+          background-color: $white-color;
+          padding: 24px;
+          border-radius: 10px;
+          text-align: left;
+          transition: $transiton;
+          &:hover {
+            box-shadow: $box-shadow-large;
+            transition: $transiton;
+          }
           h3 {
             font-weight: 600;
-            margin: 0 0 5px 0;
-            font-size: 16px;
+            margin: 0 0 10px 0;
+            font-size: 18px;
             line-height: 120%;
             @include sm {
-              font-size: 16px;
+              font-size: 18px;
               line-height: 125%;
             }
           }
@@ -500,7 +510,7 @@
               }
               .approach-heading {
                 font-weight: 600;
-                margin: 0 0 5px 0;
+                margin: 0 0 10px 0;
                 font-size: 16px;
                 line-height: 120%;
                 color: $black-color;
@@ -511,9 +521,9 @@
               }
               .approach-subheading {
                 font-size: 15px;
-                line-height: 150%;
+                line-height: 170%;
                 font-weight: 400;
-                color: $text-color;
+                color: $black-color;
                 @include lg {
                   font-size: 16px;
                 }
