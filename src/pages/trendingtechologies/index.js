@@ -56,82 +56,88 @@ export default function ExpertiseCard({ data, props, pageContext }) {
         </div>
       </section>
       <section className="recomment-box">
-        <div className="recommented-wrap">
-          <div className="recommend-section">
-            <h1>{technology?.node?.Benefittitle.data.Benefittitle}</h1>
-          </div>
-          <div className="recommend-wrap-box">
-            <div className="approach-left-box">
-              <p>
-                {technology?.node?.Benifitdescription.data.Benifitdescription}
-              </p>
+        <div className="contentWidth">
+          <div className="recommented-wrap">
+            <div className="recommend-section">
+              <h1>{technology?.node?.Benefittitle.data.Benefittitle}</h1>
             </div>
-            <div className="approach-right-box">
-              <div className="approach-box">
-                <h4>{technology?.node?.StartupTitle}</h4>
+            <div className="recommend-wrap-box">
+              <div className="approach-left-box">
                 <p>
-                  {technology?.node?.Startupdescription.data.Startupdescription}
+                  {technology?.node?.Benifitdescription.data.Benifitdescription}
                 </p>
               </div>
-              <div className="approach-box">
-                <h4>{technology?.node?.Developmenttitle}</h4>
-                <p>
-                  {
-                    technology?.node?.Developmentdescription.data
-                      .Developmentdescription
-                  }
-                </p>
+              <div className="approach-right-box">
+                <div className="approach-box">
+                  <h4>{technology?.node?.StartupTitle}</h4>
+                  <p>
+                    {
+                      technology?.node?.Startupdescription.data
+                        .Startupdescription
+                    }
+                  </p>
+                </div>
+                <div className="approach-box">
+                  <h4>{technology?.node?.Developmenttitle}</h4>
+                  <p>
+                    {
+                      technology?.node?.Developmentdescription.data
+                        .Developmentdescription
+                    }
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="why-we-hire">
-        <div className="our-team-wrap">
-          <div className="our-tech-team">
-            <h1>{technology?.node?.Valuetitle}</h1>
-            <div className="out-hiring-tech-subtext">
-              {technology?.node?.Valuedescription?.data.Valuedescription}
-            </div>
-          </div>
-          <div className="join-expertise">
-            {jointTechs &&
-              jointTechs.map((item, i) => (
-                <WhyWeJoinCard
-                  key={i}
-                  img={item.node?.Image[0]?.url}
-                  teamheading={item.node?.Title}
-                  teamdescription={item.node?.Description.data.Description}
-                />
-              ))}
-          </div>
-          <section>
-            <div className="stack-tools-use">
-              <div className="stack-heading">
-                {" "}
-                {technology?.node?.Toolstitle}
-              </div>
-              <div className="stack-tools-card">
-                {technology &&
-                  technology.node.stack.map((item, i) => {
-                    return (
-                      <>
-                        <StackToolsCard
-                          key={i}
-                          name={item.stackName}
-                          techchild={item?.stacktools}
-                        />
-                      </>
-                    );
-                  })}
+      <section className="why-we-hire reason-to-hire">
+        <div className="contentWidth">
+          <div className="our-team-wrap">
+            <div className="our-tech-team">
+              <h1>{technology?.node?.Valuetitle}</h1>
+              <div className="out-hiring-tech-subtext">
+                {technology?.node?.Valuedescription?.data.Valuedescription}
               </div>
             </div>
-          </section>
+            <div className="join-expertise">
+              {jointTechs &&
+                jointTechs.map((item, i) => (
+                  <WhyWeJoinCard
+                    key={i}
+                    img={item.node?.Image[0]?.url}
+                    teamheading={item.node?.Title}
+                    teamdescription={item.node?.Description.data.Description}
+                  />
+                ))}
+            </div>
+          </div>
         </div>
       </section>
-      <section className="estimate-section-wrap">
-        <EstimateCard />
+      <section>
+        <div className="contentWidth stack-tools-use">
+          <h1> {technology?.node?.Toolstitle}</h1>
+          <div className="stack-tools-card">
+            {technology &&
+              technology.node.stack.map((item, i) => {
+                return (
+                  <>
+                    <StackToolsCard
+                      key={i}
+                      name={item.stackName}
+                      techchild={item?.stacktools}
+                    />
+                  </>
+                );
+              })}
+          </div>
+        </div>
       </section>
+      <div className="contentWidth">
+        <section className="estimate-section-wrap">
+          <EstimateCard />
+        </section>
+      </div>
       <Footer />
     </div>
   );

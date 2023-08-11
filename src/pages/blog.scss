@@ -718,8 +718,13 @@
           }
           .send-button {
             margin-bottom: 12px;
-            button {
-              width: 100%;
+            margin-top: 24px;
+            .button-box {
+              margin: 0;
+
+              button {
+                width: 100%;
+              }
             }
           }
         }
