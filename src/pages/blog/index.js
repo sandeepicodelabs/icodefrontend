@@ -279,6 +279,10 @@ export default function Blog({ data, pageContext }) {
   );
 }
 
+
+
+
+
 export const query = graphql`
   query MyQuery {
     allStrapiArticle(limit: 100, skip: 0, sort: { Title: DESC }) {
