@@ -12,8 +12,8 @@ import technologies from "../../assets/images/technologies.png";
 import appBenefits from "../../assets/images/android-app-benefits.webp";
 
 export default function Servicedetail({ data, pageContext }) {
-  const servicedetail = data && data?.allStrapiServiceDetail?.edges;
-  const detail = servicedetail?.find((item) => {
+  const servicedata = data && data?.allStrapiServiceDetail?.edges;
+  const detail = servicedata?.find((item) => {
     return item?.node?.Slug === pageContext.service?.node?.Slug;
   });
   //console.log('servicedetail', servicedetail);
