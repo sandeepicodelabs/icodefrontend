@@ -14,15 +14,15 @@
         text-decoration: none;
         transition: background-color 0.3s;
         margin: 0 12px;
-        background: #ffffff;
-        border: 1px solid #005b58;
+        background: $white-color;
+        border: 1px solid $base-color;
         border-radius: 50%;
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
         text-transform: capitalize;
-        color: #101820;
+        color: $black-color;
         height: 40px;
         width: 40px;
         display: flex;
@@ -33,7 +33,7 @@
         }
       }
       &:hover:not(.active) {
-        background-color: #ddd;
+        background-color: $light-bg;
       }
       &.pagination-count {
         float: left;
@@ -41,15 +41,15 @@
         text-decoration: none;
         transition: background-color 0.3s;
         margin: 0 12px;
-        background: #ffffff;
-        border: 1px solid #005b58;
+        background: $white-color;
+        border: 1px solid $base-color;
         border-radius: 10px;
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
         text-transform: capitalize;
-        color: #101820;
+        color: $black-color;
         height: 48px;
         width: 48px;
         display: flex;
@@ -57,8 +57,8 @@
         justify-content: center;
         &.active {
           color: white;
-          border: 1px solid #005b58;
-          background: #005b58;
+          border: 1px solid $base-color;
+          background: $base-color;
           border-radius: 10px;
         }
       }

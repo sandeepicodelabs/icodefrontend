@@ -185,6 +185,17 @@
           font-weight: 600;
           background-color: $white-color;
           border: 1px solid $white-color;
+          transition: $transiton;
+          &:hover {
+            background-color: $hover-bg;
+            border: 1px solid $hover-bg;
+            transition: $transiton;
+            color: $white-color;
+            .rippleEffect {
+              border-color: $white-color;
+              animation: rippleWhite 2s infinite;
+            }
+          }
           .rippleEffect {
             border-color: $base-color;
             animation: rippleGreen 2s infinite;
