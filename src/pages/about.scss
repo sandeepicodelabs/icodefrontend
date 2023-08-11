@@ -42,7 +42,7 @@
     }
   }
   p {
-    color: $text-color;
+    color: $black-color;
     font-size: 18px;
     line-height: 150%;
     @include sm {
@@ -101,7 +101,7 @@
         font-size: 16px;
         line-height: 24px;
         margin-bottom: 0;
-        color: $text-color;
+        color: $black-color;
       }
       .join-icon {
         position: absolute;

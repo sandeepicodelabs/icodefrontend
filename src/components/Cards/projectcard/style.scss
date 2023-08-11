@@ -44,7 +44,7 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
-      color: $text-color;
+      color: $black-color;
     }
     .poroject-box-list {
       display: flex;
@@ -60,7 +60,7 @@
         font-size: 16px;
         line-height: 24px;
         text-align: center;
-        color: $text-color;
+        color: $black-color;
         border-radius: 10px;
         z-index: 0;
         margin-bottom: 10px;
@@ -71,7 +71,7 @@
           position: relative;
           z-index: 1;
           background-color: $white-color;
-          color: $text-color;
+          color: $black-color;
           padding: 5px 10px;
           display: inline-block;
           border: 2px solid #005b5899;

@@ -111,7 +111,7 @@
           font-weight: 500;
           font-size: 16px;
           line-height: 24px;
-          color: $text-color;
+          color: $black-color;
           margin-top: 12px;
           margin-bottom: 24px;
         }
@@ -345,7 +345,7 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 155%;
-        color: $text-color;
+        color: $black-color;
         position: relative;
         text-align: justify;
         &:not(:last-of-type) {
@@ -410,7 +410,7 @@
       font-size: 18px;
       line-height: 120%;
       text-transform: capitalize;
-      color: $text-color;
+      color: $black-color;
       margin: 12px 0 20px;
     }
 
@@ -419,7 +419,7 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 24px;
-      color: $text-color;
+      color: $black-color;
     }
   }
   .choose-card-wrap-box {
@@ -678,7 +678,7 @@
           text-align: justify;
           margin: 0;
           padding: 24px;
-          color: $text-color;
+          color: $black-color;
         }
       }
     }
@@ -778,7 +778,7 @@
       font-size: 16px;
       line-height: 130%;
       text-transform: capitalize;
-      color: $text-color;
+      color: $black-color;
       text-align: center;
       margin-bottom: 0;
       @include md {
@@ -1017,7 +1017,7 @@
         font-size: 16px;
         line-height: 160%;
         text-transform: capitalize;
-        color: $text-color;
+        color: $black-color;
         text-align: center;
         margin-bottom: 0;
         @include md {
@@ -1175,7 +1175,7 @@
               display: flex;
               align-items: center;
               text-transform: capitalize;
-              color: $text-color;
+              color: $black-color;
               margin-bottom: 0;
               display: -webkit-box;
               -webkit-line-clamp: 3;
@@ -1362,7 +1362,7 @@
         font-style: normal;
         font-weight: 300;
         font-size: 16px;
-        line-height: 160%;
+        line-height: 170%;
         letter-spacing: 0.03em;
         opacity: 0.9;
         color: $white-color;
@@ -1575,7 +1575,7 @@
             line-height: 150%;
             text-align: center;
             text-transform: lowercase;
-            color: $text-color;
+            color: $black-color;
             margin-bottom: 48px;
             display: -webkit-box;
             -webkit-line-clamp: 4;
@@ -1619,7 +1619,7 @@
                 font-size: 16px;
                 line-height: 24px;
                 text-transform: capitalize;
-                color: $text-color;
+                color: $black-color;
                 margin-bottom: 0;
               }
             }
@@ -1906,7 +1906,7 @@
         font-weight: 400;
         font-size: 18px;
         line-height: 180%;
-        color: $text-color;
+        color: $black-color;
         margin-bottom: 0;
         position: relative;
       }
@@ -1949,14 +1949,14 @@
           position: relative;
           textarea {
             background: $white-color;
-            border: 1px solid $text-color;
+            border: 1px solid $black-color;
             border-radius: 10px;
             padding: 12px 12px 12px 55px;
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
-            color: $text-color;
+            color: $black-color;
             width: 100%;
           }
           .input-icon {
