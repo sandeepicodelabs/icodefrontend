@@ -5,6 +5,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 const Header = () => {
+
   const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(graphql`
     query {
