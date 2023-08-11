@@ -115,23 +115,23 @@ export default function ExpertiseCard({ data, props, pageContext }) {
         </div>
       </section>
       <section>
-        <div className="contentWidth stack-tools-use">
+        {technology && technology.node.stack.length ? <div className="contentWidth stack-tools-use">
           <h1> {technology?.node?.Toolstitle}</h1>
           <div className="stack-tools-card">
-            {technology &&
-              technology.node.stack.map((item, i) => {
-                return (
-                  <>
-                    <StackToolsCard
-                      key={i}
-                      name={item.stackName}
-                      techchild={item?.stacktools}
-                    />
-                  </>
-                );
-              })}
+            {technology.node.stack.map((item, i) => {
+              return (
+                <>
+                  <StackToolsCard
+                    key={i}
+                    name={item.stackName}
+                    techchild={item?.stacktools}
+                  />
+                </>
+              );
+            })
+            }
           </div>
-        </div>
+        </div> : null}
       </section>
       <div className="contentWidth">
         <section className="estimate-section-wrap">
