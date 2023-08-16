@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import icodelogo from "../../assets/images/logo/icodelab-logo.png";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
+import footerlogo from "../../assets/images/footerlogo.png";
 
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 const Header = () => {
@@ -44,7 +45,7 @@ const Header = () => {
       <div className="contentWidth">
         <div className="topbarNavigation">
           <a href="/" className="logo">
-            <img src={icodelogo} alt="St Logo" />
+            <img src={footerlogo} alt="St Logo" />
           </a>
           <span className="toggleBtn" onClick={toggle}>
             &nbsp;

@@ -14,7 +14,7 @@ export default function AllArticleCard(props) {
     slug,
 
   } = props;
-  console.log("article all",slug  )
+ // console.log("article all",slug  )
   return (
     <Link to={"/blog/" + slug}>
       <div className="all-article-card-box">

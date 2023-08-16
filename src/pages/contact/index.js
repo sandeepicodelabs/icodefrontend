@@ -58,12 +58,12 @@ export default function ContactPage() {
     const map = new mapboxgl.Map({
       container: "st_google_map",
       style: "mapbox://styles/mapbox/streets-v11", // Replace with the desired map style URL
-      center: [76.7179, 30.7046], // Longitude, Latitude
+      center: [76.6862, 30.7100], // Longitude, Latitude
       zoom: 15,
     });
-
+ 
     // Optional: Add markers or any other map-related customization
-    new mapboxgl.Marker().setLngLat([76.7179, 30.7046]).addTo(map);
+    new mapboxgl.Marker().setLngLat([76.6862, 30.7100]).addTo(map);
     // Cleanup the map instance when the component unmounts
     return () => map.remove();
   }, []);
@@ -124,8 +124,7 @@ export default function ContactPage() {
                           <img src={contactLocation} alt="st logo" />
                         </div>
                         <span>
-                          F-465, K&B Tower,III Floor, Phase 8B Industrial Area,
-                          Sector 74 SAS Nagar (Mohali), Punjab, India 140307
+                        D-176, Phase 8B, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160055
                         </span>
                       </li>
                       <li>
