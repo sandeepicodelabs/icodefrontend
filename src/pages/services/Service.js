@@ -64,6 +64,7 @@ export default function Service({ data, pageContext }) {
         Email: formData.get("email"),
         Message: formData.get("message"),
         MobileNo: bigInt(formData.get("mobileno")),
+        Title:formData.get("title")
       },
     };
     console.log(contactData, "contactData");
@@ -193,10 +194,8 @@ export default function Service({ data, pageContext }) {
           </section>
 
 
-          {modal && (
-
-            <div>
-
+          {modal && ( 
+            <div> 
               <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}> </ModalHeader>
                 <ModalBody>
@@ -228,33 +227,20 @@ export default function Service({ data, pageContext }) {
                           name="mobileno"
                         />
                       </div>
-                      <FormGroup>
-                        <Label for="exampleSelect">Select</Label>
-                        <select>
-                          {servicedata.map((option, index) => (
-                            <option key={index} value={option.node.Slug}>
-                              {option.node.TitleMain}
-                            </option>
-                          ))}
-                        </select>
-                      </FormGroup>
+                       <div>
+                       <input type="hidden" name="title" value={detail && detail?.node?.Title} />{detail && detail?.node?.Title}
+                       </div>
+                      
                     </div>
                     <div className="send-button">
-                      <ButtonBox type="submit" buttonname="Send message" />
+                      <ButtonBox type="submit" buttonname="Submit" />
                     </div>
                   </Form>
-                </ModalBody>
-                <ModalFooter>
-
-                  <Button color="secondary" onClick={toggle}>
-                    Cancel
-                  </Button>
-                </ModalFooter>
+                </ModalBody> 
               </Modal>
             </div>
-          )}
-
-          {/* <Button color="danger" onClick={toggle}>
+          )}  
+          <Button color="danger" onClick={toggle}>
             Get Quote
           </Button>
           {typeof window !== "undefined" && window.location.href.includes("innovative-digital-marketing") ? (
@@ -263,7 +249,7 @@ export default function Service({ data, pageContext }) {
             </Button>
           ) : <Button color="danger" onClick={toggle}>
             Free Consult
-          </Button>} */}
+          </Button>}
 
 
           <section className="why-we-hire">
