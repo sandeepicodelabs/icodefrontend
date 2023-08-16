@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   const { width } = useWindowDimensions();
-  const isTabLayout = width < 992;
+  const isTabLayout = width < 1024;
   const isMobileLayout = width < 768;
   return (
     <header className="topbar">

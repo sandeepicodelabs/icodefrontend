@@ -2,6 +2,17 @@
 @import "../../styles/customMediaQueries.scss";
 .dropDownMenu {
   position: relative;
+  transition: visibility 0s, opacity 0.2s linear;
+  @include lg {
+    &:hover {
+      transition: visibility 0s, opacity 0.2s linear;
+      .menuList {
+        transition: visibility 0s, opacity 0.2s linear;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
   .dropdownBtn {
     cursor: pointer;
     display: inline-flex;
@@ -11,6 +22,7 @@
     @include lg {
       justify-content: flex-start;
       width: auto;
+      padding: 30px 0;
     }
     &:hover {
       color: $base-color;
@@ -38,8 +50,12 @@
     background-color: $white-color;
     background-clip: padding-box;
     @include lg {
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.5s linear;
       position: absolute;
-      top: calc(100% + 24px);
+      top: 100%;
       border-radius: 0.25rem;
       border: 1px solid rgba(0, 0, 0, 0.15);
     }
@@ -49,7 +65,7 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 24px;
-      color: #101820;
+      color: $black-color;
       padding: 8px 20px;
       text-decoration: none;
       display: inline-block;
@@ -57,14 +73,14 @@
       position: relative;
       &:hover {
         background-color: #f6f6f6;
-        color: #1e2125;
+        color: $black-color;
         &::before {
           position: absolute;
           left: 0;
           top: 0;
           height: 100%;
           width: 3px;
-          background-color: #005b58;
+          background-color: $base-color;
           content: "";
         }
       }

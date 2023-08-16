@@ -1420,6 +1420,10 @@
           &:hover {
             background-color: $hover-bg;
             color: $white-color;
+            .rippleEffect {
+              border-color: $white-color;
+              animation: rippleWhite 2s infinite;
+            }
           }
           .rippleEffect {
             border-color: $base-color;
