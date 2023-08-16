@@ -254,7 +254,7 @@ export default function Service({ data, pageContext }) {
             </div>
           )}
 
-          <Button color="danger" onClick={toggle}>
+          {/* <Button color="danger" onClick={toggle}>
             Get Quote
           </Button>
           {typeof window !== "undefined" && window.location.href.includes("innovative-digital-marketing") ? (
@@ -263,7 +263,7 @@ export default function Service({ data, pageContext }) {
             </Button>
           ) : <Button color="danger" onClick={toggle}>
             Free Consult
-          </Button>}
+          </Button>} */}
 
 
           <section className="why-we-hire">
