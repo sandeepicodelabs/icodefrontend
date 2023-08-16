@@ -37,11 +37,14 @@ const strapiConfig = {
           image: "*",
           images: "*",
           TopImage: "*",
+          ExpertiseImage:"*",
+          ServiceImage:"*",
           Titleservice: {
             populate: {
               servicedescription: "*",
               TImage: "*",
             },
+            
           },
           ToolService: {
             populate: {
