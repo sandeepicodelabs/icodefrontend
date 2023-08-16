@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import "../services.scss";
 import Footer from "../../components/Footer/Footer";
@@ -10,24 +10,93 @@ import EstimateCard from "../../components/Cards/estimatecard";
 import ButtonBox from "../../components/button";
 import technologies from "../../assets/images/technologies.png";
 import appBenefits from "../../assets/images/android-app-benefits.webp";
+import { Button, Form, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, FormText } from 'reactstrap';
+import axios from "axios";
+import bigInt from "big-integer";
 
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import "./Modal.css";
+import InputBox from "../../components/input";
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+
 
 export default function Service({ data, pageContext }) {
+
+
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+
+
   const servicedata = data && data?.allStrapiServiceDetail?.edges;
   const detail = servicedata?.find((item) => {
     return item?.node?.Slug === pageContext.service?.node?.Slug;
   });
   const particlesInit = async (main) => {
-   // console.log(main);
+    // console.log(main);
     await loadFull(main);
   };
 
   const particlesLoaded = (container) => {
-   // console.log(container);
+    // console.log(container);
   };
-  console.log("service",detail)
+  //console.log("service",detail)
+
+  // for enquiry form
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    console.log(formData, "formData");
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+        MobileNo: bigInt(formData.get("mobileno")),
+      },
+    };
+    console.log(contactData, "contactData");
+    // Make the POST request to your Strapi backend
+    axios
+      .get(
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get(
+          "message"
+        )}&mobileno=${formData.get("mobileno")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
+      })
+      .catch((error) => {
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
+      });
+    e.target.reset();
+  };
+
+
+
+ // console.log(typeof window != "undefined" && window.location.href.includes("android-app-development-company"))
+
   return (
     <>
       <div className="project-list-page">
@@ -118,23 +187,85 @@ export default function Service({ data, pageContext }) {
                   src={detail && detail?.node?.TopImage?.[0]?.url}
                   alt="st logo"
                 />
-              </div>  
+              </div>
             </div>
-          
+
           </section>
-          {/* <a href="/contact">
-                  <ButtonBox
-                    buttonname="Free Website/app"
-                    className="estimate-submit"
-                  />
-              </a>
-          <a href="/contact">
-                  <ButtonBox
-                    buttonname="Get Quote"
-                    className="estimate-submit"
-                  />
-              </a> */}
-             
+
+
+          {modal && (
+
+            <div>
+
+              <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}> </ModalHeader>
+                <ModalBody>
+                  <Form className="contact-right" onSubmit={handleSubmit} >
+                    <div className="contact-form">
+                      {/* <h1>Let’s Build Your Dream App!</h1> */}
+                      <div className="input-wrap">
+                        <InputBox
+                          type="text"
+                          placeholder={"Full Name"}
+                          className="contact-inputs"
+                          name="name"
+                        />
+                      </div>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="email"
+                          placeholder={"Email"}
+                          className="contact-inputs"
+                          name="email"
+                        />
+                      </div>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="text"
+                          placeholder={"Mobile No"}
+                          className="contact-inputs"
+                          //img={Emailicon}
+                          name="mobileno"
+                        />
+                      </div>
+                      <FormGroup>
+                        <Label for="exampleSelect">Select</Label>
+                        <select>
+                          {servicedata.map((option, index) => (
+                            <option key={index} value={option.node.Slug}>
+                              {option.node.TitleMain}
+                            </option>
+                          ))}
+                        </select>
+                      </FormGroup>
+                    </div>
+                    <div className="send-button">
+                      <ButtonBox type="submit" buttonname="Send message" />
+                    </div>
+                  </Form>
+                </ModalBody>
+                <ModalFooter>
+
+                  <Button color="secondary" onClick={toggle}>
+                    Cancel
+                  </Button>
+                </ModalFooter>
+              </Modal>
+            </div>
+          )}
+
+          <Button color="danger" onClick={toggle}>
+            Get Quote
+          </Button>
+          {typeof window !== "undefined" && window.location.href.includes("innovative-digital-marketing") ? (
+            <Button color="danger" onClick={toggle}>
+              Free Website
+            </Button>
+          ) : <Button color="danger" onClick={toggle}>
+            Free Consult
+          </Button>}
+
+
           <section className="why-we-hire">
             <div className="contentWidth our-team-wrap">
               <div className="our-tech-team">
