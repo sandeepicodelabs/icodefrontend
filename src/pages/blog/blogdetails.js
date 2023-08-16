@@ -120,8 +120,8 @@ export default function BlogPage({ data, pageContext }) {
   const article = posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
-  console.log("all data", posts);
-  console.log("article", article);
+  console.log("all data", filteredData);
+  // console.log("posts", posts);
   return (
     <div>
       <section className="blog-detail-box">
@@ -175,25 +175,25 @@ export default function BlogPage({ data, pageContext }) {
                       <h2 className="related-post-heading">Related Post</h2>
                       <div className="related-slider">
                         <Slider {...settings}>
-                          {filteredData.map((item, i) => (
-                            <Link
-                              className="article-slide"
-                              to={"/blog/" + item.node?.Slug}
-                            >
-                              <AllArticleCard
-                                key={i}
-                                img={item.node?.Image[0]?.url}
-                                articleTitle={item.node?.Type}
-                                articledescription={
-                                  item?.node?.Content?.data?.Content
-                                }
-                                postedname={item?.node?.Author}
-                                postdate={item.node?.createdAt}
-                                cardtitle={item.node?.Title}
+                          {filteredData && filteredData.map((item, i) => {
+
+                            return (
+                              <Link className="article-slide"  >
+                                <AllArticleCard
+                                  img={item.node?.Image[0]?.url}
+                                  key={i}
+                                  slug={item?.node?.Slug}
+                                  articleTitle={item.node?.Type}
+                                  articledescription={item?.node?.Content?.data?.Content}
+                                  postedname={item?.node?.Author}
+                                  postdate={item.node?.createdAt}
+                                  cardtitle={item.node?.Title}
                                 //cardprofile={item.node?.user.profileimage?.publicURL}
-                              />
-                            </Link>
-                          ))}
+                                />
+                              </Link>
+                            );
+                          })}
+
                         </Slider>
                       </div>
                     </div>
@@ -207,7 +207,7 @@ export default function BlogPage({ data, pageContext }) {
                     <div className="popular-wrap-box">
                       {filteredData.map((item, i) => (
                         <div className="popular-list">
-                          <Link to={"/blog/" + item.node?.Slug}>
+                          <Link to={"/blog/" + item?.node?.Slug}>
                             <MostPopularCard
                               key={i}
                               //populartitle={item.node?.category.name}
@@ -265,7 +265,7 @@ export default function BlogPage({ data, pageContext }) {
                               name="message"
                             />
                           </span>
-                        </div> 
+                        </div>
                         <div className="send-button">
                           <ButtonBox type="submit" buttonname="Send message" />
                         </div>
@@ -285,7 +285,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 6, skip: 0, sort: { Title: DESC }) {
+    allStrapiArticle(limit: 100, skip: 0, sort: { Title: DESC }) {
       edges {
         node {
           Title

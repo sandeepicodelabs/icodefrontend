@@ -20,13 +20,14 @@ export default function Service({ data, pageContext }) {
     return item?.node?.Slug === pageContext.service?.node?.Slug;
   });
   const particlesInit = async (main) => {
-    console.log(main);
+   // console.log(main);
     await loadFull(main);
   };
 
   const particlesLoaded = (container) => {
-    console.log(container);
+   // console.log(container);
   };
+  console.log("service",detail)
   return (
     <>
       <div className="project-list-page">
@@ -117,9 +118,23 @@ export default function Service({ data, pageContext }) {
                   src={detail && detail?.node?.TopImage?.[0]?.url}
                   alt="st logo"
                 />
-              </div>
+              </div>  
             </div>
+          
           </section>
+          <a href="/contact">
+                  <ButtonBox
+                    buttonname="Free Website/app"
+                    className="estimate-submit"
+                  />
+              </a>
+          <a href="/contact">
+                  <ButtonBox
+                    buttonname="Get Quote"
+                    className="estimate-submit"
+                  />
+              </a>
+             
           <section className="why-we-hire">
             <div className="contentWidth our-team-wrap">
               <div className="our-tech-team">
@@ -155,7 +170,7 @@ export default function Service({ data, pageContext }) {
               </div>
               <div className="technologies-block">
                 <div className="technologies-img">
-                  <img src={technologies} alt="technologies" />
+                  <img src={detail?.node?.ExpertiseImage?.url} alt="technologies" />
                 </div>
                 <div className="technologies-content">
                   {detail &&
@@ -179,7 +194,7 @@ export default function Service({ data, pageContext }) {
               </div>
               <div className="advantage-section">
                 <div className="app-benefits-img">
-                  <img src={appBenefits} alt="img" />
+                  <img src={detail?.node?.ServiceImage?.url} alt="img" />
                 </div>
                 <div className="advantage-block">
                   {detail &&
@@ -286,6 +301,13 @@ export const query = graphql`
               }
             }
           }
+          ExpertiseImage {
+            url
+          }
+          ServiceImage {
+            url
+          }
+
           EnhanceService {
             EImage {
               url
