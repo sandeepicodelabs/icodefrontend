@@ -122,7 +122,7 @@ export default function Service({ data, pageContext }) {
             </div>
           
           </section>
-          <a href="/contact">
+          {/* <a href="/contact">
                   <ButtonBox
                     buttonname="Free Website/app"
                     className="estimate-submit"
@@ -133,7 +133,7 @@ export default function Service({ data, pageContext }) {
                     buttonname="Get Quote"
                     className="estimate-submit"
                   />
-              </a>
+              </a> */}
              
           <section className="why-we-hire">
             <div className="contentWidth our-team-wrap">
