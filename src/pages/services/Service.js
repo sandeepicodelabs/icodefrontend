@@ -61,6 +61,7 @@ export default function Service({ data, pageContext }) {
         Message: formData.get("message"),
         MobileNo: bigInt(formData.get("mobileno")),
         Title: formData.get("title"),
+        Url:formData.get("url"),
       },
     };
     console.log(contactData, "contactData");
@@ -71,7 +72,7 @@ export default function Service({ data, pageContext }) {
           "name"
         )}&email=${formData.get("email")}&message=${formData.get(
           "message"
-        )}&mobileno=${formData.get("mobileno")}`
+        )}&mobileno=${formData.get("mobileno")}&url=${formData.get("url")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -178,20 +179,16 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   <Button className="getQuote" onClick={toggle}>
-                    Get Quote
+                    Get Started
                   </Button>
                   {typeof window !== "undefined" &&
                   window.location.href.includes(
                     "innovative-digital-marketing"
                   ) ? (
                     <Button className="freeConsult" onClick={toggle}>
-                      Free Website
+                      Free Website Analysis
                     </Button>
-                  ) : (
-                    <Button className="freeConsult" onClick={toggle}>
-                      Free Consult
-                    </Button>
-                  )}
+                  ) : " "}
                 </div>
               </div>
               <div className="service-header-image">
@@ -232,9 +229,16 @@ export default function Service({ data, pageContext }) {
                       <InputBox
                         type="text"
                         placeholder={"Mobile No"}
-                        className="contact-inputs"
-                        //img={Emailicon}
+                        className="contact-inputs" 
                         name="mobileno"
+                      />
+                    </div>
+                    <div className="input-wrap">
+                      <InputBox
+                        type="text"
+                        placeholder={"Website Url"}
+                        className="contact-inputs" 
+                        name="url"
                       />
                     </div>
                     <div>
@@ -242,8 +246,7 @@ export default function Service({ data, pageContext }) {
                         type="hidden"
                         name="title"
                         value={detail && detail?.node?.Title}
-                      />
-                      {detail && detail?.node?.Title}
+                      /> 
                     </div>
                   </div>
                   <div className="send-button">
@@ -359,7 +362,7 @@ export default function Service({ data, pageContext }) {
           </section>
         </div>
         <Footer />
-      </div>
+      </div> 
     </>
   );
 }
