@@ -207,7 +207,7 @@ export default function Service({ data, pageContext }) {
 
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}> </ModalHeader>
+              <ModalHeader toggle={toggle}>Get Quote</ModalHeader>
               <ModalBody>
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">

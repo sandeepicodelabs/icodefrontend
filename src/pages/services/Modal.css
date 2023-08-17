@@ -28,7 +28,6 @@ body.active-modal {
 .modal-dialog {
   width: 100%;
   max-width: 600px;
-  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,18 +35,98 @@ body.active-modal {
   margin: 20px auto;
 }
 .modal-content {
-  line-height: 1.4;
-  background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
-  z-index: 99999;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 0.3rem;
+  outline: 0;
 }
-
 .close-modal {
   position: absolute;
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+.btn-close {
+  box-sizing: content-box;
+  width: 30px;
+  height: 30px;
+  color: #000;
+  background: transparent
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e")
+    center/18px auto no-repeat;
+  filter: invert(1);
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0.5;
+}
+.btn-close:hover {
+  color: #000;
+  text-decoration: none;
+  opacity: 0.75;
+  cursor: pointer;
+}
+.modal-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+  background-color: #005b58;
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 24px;
+}
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+.modal-footer > * {
+  margin: 0.25rem;
+}
+
+@media (max-width: 767px) {
+  .modal,
+  .overlay {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .modal-dialog {
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: none;
+    margin: 0px auto;
+    border-radius: 0;
+  }
+  .modal-content,
+  .modal-header {
+    border-radius: 0;
+  }
 }
