@@ -103,6 +103,7 @@ export default function Service({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      setPhoneNumber("+91");
     e.target.reset();
   };
  
