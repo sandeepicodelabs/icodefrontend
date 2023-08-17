@@ -172,7 +172,8 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
-    `gatsby-plugin-modal-routing`,
+    `gatsby-plugin-modal-routing`, 
+   
     {
       resolve: "gatsby-source-strapi",
       options: {
