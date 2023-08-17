@@ -10,7 +10,18 @@ import EstimateCard from "../../components/Cards/estimatecard";
 import ButtonBox from "../../components/button";
 import technologies from "../../assets/images/technologies.png";
 import appBenefits from "../../assets/images/android-app-benefits.webp";
-import { Button, Form, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {
+  Button,
+  Form,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+} from "reactstrap";
 import axios from "axios";
 import bigInt from "big-integer";
 
@@ -18,25 +29,10 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./Modal.css";
 import InputBox from "../../components/input";
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-
 
 export default function Service({ data, pageContext }) {
-
-
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-
 
   const servicedata = data && data?.allStrapiServiceDetail?.edges;
   const detail = servicedata?.find((item) => {
@@ -93,9 +89,7 @@ export default function Service({ data, pageContext }) {
     e.target.reset();
   };
 
-
-
- // console.log(typeof window != "undefined" && window.location.href.includes("android-app-development-company"))
+  // console.log(typeof window != "undefined" && window.location.href.includes("android-app-development-company"))
 
   return (
     <>
@@ -128,7 +122,7 @@ export default function Service({ data, pageContext }) {
                       },
                       repulse: {
                         distance: 800,
-                        duration: 0.4,
+                        duration: 0.2,
                       },
                     },
                   },
@@ -140,7 +134,7 @@ export default function Service({ data, pageContext }) {
                       color: "#005b58",
                       distance: 150,
                       enable: true,
-                      opacity: 0.5,
+                      opacity: 0.2,
                       width: 1,
                     },
                     collisions: {
@@ -164,7 +158,7 @@ export default function Service({ data, pageContext }) {
                       value: 100,
                     },
                     opacity: {
-                      value: 0.5,
+                      value: 0.2,
                     },
                     shape: {
                       type: "circle",
@@ -189,18 +183,14 @@ export default function Service({ data, pageContext }) {
                 />
               </div>
             </div>
-
           </section>
 
-
           {modal && (
-
             <div>
-
               <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}> </ModalHeader>
                 <ModalBody>
-                  <Form className="contact-right" onSubmit={handleSubmit} >
+                  <Form className="contact-right" onSubmit={handleSubmit}>
                     <div className="contact-form">
                       {/* <h1>Let’s Build Your Dream App!</h1> */}
                       <div className="input-wrap">
@@ -245,7 +235,6 @@ export default function Service({ data, pageContext }) {
                   </Form>
                 </ModalBody>
                 <ModalFooter>
-
                   <Button color="secondary" onClick={toggle}>
                     Cancel
                   </Button>
@@ -264,7 +253,6 @@ export default function Service({ data, pageContext }) {
           ) : <Button color="danger" onClick={toggle}>
             Free Consult
           </Button>} */}
-
 
           <section className="why-we-hire">
             <div className="contentWidth our-team-wrap">
@@ -301,7 +289,10 @@ export default function Service({ data, pageContext }) {
               </div>
               <div className="technologies-block">
                 <div className="technologies-img">
-                  <img src={detail?.node?.ExpertiseImage?.url} alt="technologies" />
+                  <img
+                    src={detail?.node?.ExpertiseImage?.url}
+                    alt="technologies"
+                  />
                 </div>
                 <div className="technologies-content">
                   {detail &&
