@@ -29,11 +29,8 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./Modal.css";
 import InputBox from "../../components/input";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-
-
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function Service({ data, pageContext }) {
   const [modal, setModal] = useState(false);
@@ -45,9 +42,6 @@ export default function Service({ data, pageContext }) {
     console.log("New phone number:", value);
     setPhoneNumber(value);
   };
-
-
-
 
   const servicedata = data && data?.allStrapiServiceDetail?.edges;
   const detail = servicedata?.find((item) => {
@@ -87,7 +81,9 @@ export default function Service({ data, pageContext }) {
           "name"
         )}&email=${formData.get("email")}&message=${formData.get(
           "message"
-        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get("url")}`
+        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get(
+          "url"
+        )}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -103,10 +99,10 @@ export default function Service({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-      setPhoneNumber("+91");
+    setPhoneNumber("+91");
     e.target.reset();
   };
- 
+
   //console.log("mobile", phoneNumber)
   return (
     <>
@@ -197,13 +193,15 @@ export default function Service({ data, pageContext }) {
                     Get Started
                   </Button>
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "innovative-digital-marketing"
-                    ) ? (
+                  window.location.href.includes(
+                    "innovative-digital-marketing"
+                  ) ? (
                     <Button className="freeConsult" onClick={toggle}>
                       Free Website Analysis
                     </Button>
-                  ) : " "}
+                  ) : (
+                    " "
+                  )}
                 </div>
               </div>
               <div className="service-header-image">
@@ -241,13 +239,13 @@ export default function Service({ data, pageContext }) {
                       />
                     </div>
                     <div className="input-wrap">
-                      <PhoneInput 
+                      <PhoneInput
                         placeholder="Enter phone number"
                         countryCode="+91"
                         value={phoneNumber}
                         onChange={setPhoneNumber}
-                        name="phoneNumber" 
-                        />
+                        name="phoneNumber"
+                      />
 
                       {/* <PhoneInput
                         disabled={false} // Set to true if you want to disable the input

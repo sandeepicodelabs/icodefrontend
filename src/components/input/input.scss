@@ -43,3 +43,19 @@
     }
   }
 }
+.react-tel-input {
+  & input {
+    width: 100% !important;
+    height: 50px !important;
+    background: #fff !important;
+    border: 1px solid #e1e1e1 !important;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    padding: 12px 12px 12px 55px;
+    position: relative;
+  }
+}
