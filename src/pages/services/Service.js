@@ -176,6 +176,23 @@ export default function Service({ data, pageContext }) {
               <div className="service-header-content">
                 <h1>{detail && detail?.node?.Title}</h1>
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
+                <div className="getActionBtn">
+                  <Button className="getQuote" onClick={toggle}>
+                    Get Quote
+                  </Button>
+                  {typeof window !== "undefined" &&
+                  window.location.href.includes(
+                    "innovative-digital-marketing"
+                  ) ? (
+                    <Button className="freeConsult" onClick={toggle}>
+                      Free Website
+                    </Button>
+                  ) : (
+                    <Button className="freeConsult" onClick={toggle}>
+                      Free Consult
+                    </Button>
+                  )}
+                </div>
               </div>
               <div className="service-header-image">
                 <div className="imgSec">
@@ -189,67 +206,52 @@ export default function Service({ data, pageContext }) {
           </section>
 
           {modal && (
-            <div>
-              <Modal isOpen={modal} toggle={toggle}>
-                <ModalHeader toggle={toggle}> </ModalHeader>
-                <ModalBody>
-                  <Form className="contact-right" onSubmit={handleSubmit}>
-                    <div className="contact-form">
-                      {/* <h1>Let’s Build Your Dream App!</h1> */}
-                      <div className="input-wrap">
-                        <InputBox
-                          type="text"
-                          placeholder={"Full Name"}
-                          className="contact-inputs"
-                          name="name"
-                        />
-                      </div>
-                      <div className="input-wrap">
-                        <InputBox
-                          type="email"
-                          placeholder={"Email"}
-                          className="contact-inputs"
-                          name="email"
-                        />
-                      </div>
-                      <div className="input-wrap">
-                        <InputBox
-                          type="text"
-                          placeholder={"Mobile No"}
-                          className="contact-inputs"
-                          //img={Emailicon}
-                          name="mobileno"
-                        />
-                      </div>
-                      <div>
-                        <input
-                          type="hidden"
-                          name="title"
-                          value={detail && detail?.node?.Title}
-                        />
-                        {detail && detail?.node?.Title}
-                      </div>
+            <Modal isOpen={modal} toggle={toggle}>
+              <ModalHeader toggle={toggle}> </ModalHeader>
+              <ModalBody>
+                <Form className="contact-right" onSubmit={handleSubmit}>
+                  <div className="contact-form">
+                    {/* <h1>Let’s Build Your Dream App!</h1> */}
+                    <div className="input-wrap">
+                      <InputBox
+                        type="text"
+                        placeholder={"Full Name"}
+                        className="contact-inputs"
+                        name="name"
+                      />
                     </div>
-                    <div className="send-button">
-                      <ButtonBox type="submit" buttonname="Submit" />
+                    <div className="input-wrap">
+                      <InputBox
+                        type="email"
+                        placeholder={"Email"}
+                        className="contact-inputs"
+                        name="email"
+                      />
                     </div>
-                  </Form>
-                </ModalBody>
-              </Modal>
-            </div>
-          )}
-          <Button color="danger" onClick={toggle}>
-            Get Quote
-          </Button>
-          {typeof window !== "undefined" &&
-          window.location.href.includes("innovative-digital-marketing") ? (
-            <Button color="danger" onClick={toggle}>
-              Free Website
-            </Button>
-          ) : (
-            <Button color="danger" onClick={toggle}>
-              Free Consult
-            </Button>
+                    <div className="input-wrap">
+                      <InputBox
+                        type="text"
+                        placeholder={"Mobile No"}
+                        className="contact-inputs"
+                        //img={Emailicon}
+                        name="mobileno"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="hidden"
+                        name="title"
+                        value={detail && detail?.node?.Title}
+                      />
+                      {detail && detail?.node?.Title}
+                    </div>
+                  </div>
+                  <div className="send-button">
+                    <ButtonBox type="submit" buttonname="Submit" />
+                  </div>
+                </Form>
+              </ModalBody>
+            </Modal>
           )}
 
           <section className="why-we-hire">

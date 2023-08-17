@@ -573,3 +573,22 @@
     transform: translateY(-10px);
   }
 }
+.getActionBtn {
+  margin-top: 30px;
+  & > button {
+    border: solid 1px $base-color;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+    &.freeConsult {
+      background-color: $white-color;
+      color: $base-color;
+      border: solid 1px $base-color;
+      &:hover {
+        background-color: $base-color;
+        color: $white-color;
+      }
+    }
+  }
+}
