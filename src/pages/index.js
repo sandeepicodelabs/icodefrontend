@@ -534,11 +534,11 @@ const IndexPage = ({ data }) => {
                 <div className="gallery-controls"></div>
               </div> */}
             </div>
-            <div className="view-work">
+            {/* <div className="view-work">
               <a href="/projectlist">
                 <ButtonBox type="button" buttonname="View all work" />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
