@@ -57,7 +57,7 @@ const Header = () => {
             <div className="navlink">
               <DropdownMenu title={"Services"} options={serviceDropdownList} />
             </div>
-            <div className="navlink">
+            {/* <div className="navlink">
               <a onClick={toggle} href="#technologies">
                 Technologies
               </a>
@@ -66,13 +66,23 @@ const Header = () => {
               <a onClick={toggle} href="/projectlist">
                 Portfolio
               </a>
-            </div>
+            </div> */}
+            <div className="navlink">
+              <a onClick={toggle} href="/aboutus">
+                About
+              </a>
+            </div>{" "}
+            <div className="navlink">
+              <a onClick={toggle} href="/contact">
+                Contact Us
+              </a>
+            </div>{" "}
             <div className="navlink">
               <a onClick={toggle} href="/blog">
                 Blog
               </a>
             </div>
-            <div className="navlink">
+            {/* <div className="navlink">
               <DropdownMenu
                 title={"Company"}
                 options={[
@@ -81,7 +91,7 @@ const Header = () => {
                   { text: "Process", link: "#process" },
                 ]}
               />
-            </div>
+            </div> */}
             <div className="navlink">
               <a href="/contact" className="hiringButton btn">
                 <span className="rippleEffect">&nbsp;</span>
