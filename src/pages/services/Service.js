@@ -97,7 +97,7 @@ export default function Service({ data, pageContext }) {
         <Header />
         <div className="project-wrap-box">
           <section className="service-header">
-            <div className="particles" id="particles-js">
+            {/* <div className="particles" id="particles-js">
               <Particles
                 id="tsparticles"
                 init={particlesInit}
@@ -170,17 +170,19 @@ export default function Service({ data, pageContext }) {
                   detectRetina: true,
                 }}
               />
-            </div>
+            </div> */}
             <div className="contentWidth">
               <div className="service-header-content">
                 <h1>{detail && detail?.node?.Title}</h1>
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
               </div>
               <div className="service-header-image">
-                <img
-                  src={detail && detail?.node?.TopImage?.[0]?.url}
-                  alt="st logo"
-                />
+                <div className="imgSec">
+                  <img
+                    src={detail && detail?.node?.TopImage?.[0]?.url}
+                    alt="st logo"
+                  />
+                </div>
               </div>
             </div>
           </section>
