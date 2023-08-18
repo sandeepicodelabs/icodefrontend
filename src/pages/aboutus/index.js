@@ -124,7 +124,7 @@ export default function Aboutus() {
               <span className="line">&nbsp;</span>
             </div>
             <p className="choose-description">
-              At Icode Laps, our foundation is built by passionate individuals
+              At iCode Laps, our foundation is built by passionate individuals
               who are both dreamers and doers. Guided by a core set of values,
               everything we accomplish is a testament to the dedication and
               commitment of our exceptional team. Here are our core values that

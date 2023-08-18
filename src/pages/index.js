@@ -172,6 +172,63 @@ const IndexPage = ({ data }) => {
       clientaddress: "Raver fans,uk",
       commaimage: commaimage,
     },
+
+
+    {
+      testimonialmessage:
+        "Jay and his team are amazing to work with and they create a very high quality, faultless product. I have worked with them in the past and they are always efficient, creative, accurate and great communicators. I will be coming back again to work with them soon.",
+      img: testimonialPicture,
+      clientname: "Troy Lane",
+      clientaddress: "Australia",
+      commaimage: commaimage,
+    },
+
+
+    {
+      testimonialmessage:
+        "I would strongly recommend him for software engineering and technical leadership. He has a good understanding about Sharetribe and React.",
+      img: testimonialPicture,
+      clientname: "Edgar Santiago",
+      clientaddress: "Rentalo South America",
+      commaimage: commaimage,
+    },
+
+
+    {
+      testimonialmessage:
+        "Dhananjay (Jay) Tiwary did an excellent job with our website development project. He delivered the project tasks as expected and on time, and his pricing was very reasonable. He also made suggestions that I found very helpful. I will definitely hire him again when we need front or backend development work done. I highly recommend Jay for web development projects!",
+      img: testimonialPicture,
+      clientname: "Holly Manzano",
+      clientaddress: "USA",
+      commaimage: commaimage,
+    },
+
+    {
+      testimonialmessage:
+        "It was an out most pleasure working eith Jay. highly skilled, professional and passionate about what he does. Jay'sprogramming skills has helped our startup come to fruition and I highly recommend him for any project which i believe will be delivered to a high standard",
+      img: testimonialPicture,
+      clientname: "William Kwakye",
+      clientaddress: "Australia",
+      commaimage: commaimage,
+    },
+    {
+      testimonialmessage:
+        "Jay is extremely hard working and dedicated. Not only does he implement all ideas quickly and efficiently, he also provided us with his own unique solutions to the problems that we were experiencing. He goes above and beyond the scope of work to advise us what steps need to be taken. He also understands our needs and works tirelessly to produce top quality work. We had issues with our website, servers and bugs that needed to be sorted. He promptly addressed our problems and fixed everything required, and then some. Highly recommend working with Jay as he brings a different perspective from his knowledge and expertise.",
+      img: testimonialPicture,
+      clientname: "Olive Shamon",
+      clientaddress: "Australia",
+      commaimage: commaimage,
+    },
+
+    {
+      testimonialmessage:
+        "Jay is just incredible! He is a truly a Sharetribe expert and was able to go above and beyond to ensure my project was executed at the highest level while also being extremely efficient and fast. He quickly understands what you’re looking to accomplish and always asks the right questions while presenting different technical approaches we could take for the project. He was a thought partner with me during the project and I truly cannot thank him enough. I needed someone who would be able to quickly jump in to help me work on a prototype I was planning to present and he went above and beyond to make sure everything was great for the meeting. He also helped me understand the power of Sharetribe Flex and the fact that almost any idea is possible with custom code, it’s just about picking the best approach to do it. I 100% highly recommend working with Jay! He’s an awesome freelancer and I’m excited to work with him again on future projects!!",
+      img: testimonialPicture,
+      clientname: "Fatima",
+      clientaddress: "USA",
+      commaimage: commaimage,
+    },
+
   ];
 
   const testimonialslide = {
@@ -281,7 +338,7 @@ const IndexPage = ({ data }) => {
         <div className="contentWidth">
           <div className="company-description">
             <div className="sectionHeading">
-              <h2>ICode Labs: Igniting Ideas And Engineering Excellence.</h2>
+              <h2>iCode Labs: Igniting Ideas And Engineering Excellence.</h2>
               <span className="line">&nbsp;</span>
             </div>
             <p>
@@ -309,7 +366,7 @@ const IndexPage = ({ data }) => {
         <div className="contentWidth why-choose-us">
           <div className="heading-main">
             <div className="sectionHeading">
-              <h1 className="choose-heading">Why Choose Icode Labs?</h1>
+              <h1 className="choose-heading">Why Choose iCode Labs?</h1>
               <span className="line">&nbsp;</span>
             </div>
             <div className="choose-subheading">
