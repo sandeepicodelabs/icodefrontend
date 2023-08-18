@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import ButtonBox from "../../components/button";
@@ -12,8 +12,11 @@ import "../contact.scss";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
 import { Link } from "gatsby";
 import axios from "axios";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css'
 
 export default function ContactPage() {
+  const [phoneNumber, setPhoneNumber] = useState("+91");
   const handleSubmit = (e) => {
     e.preventDefault();
     // Get the form data from the event target
@@ -24,6 +27,8 @@ export default function ContactPage() {
         Name: formData.get("name"),
         Email: formData.get("email"),
         Message: formData.get("message"),
+        MobileNo:phoneNumber,
+        Title: formData.get("title"),
       },
     };
     console.log(contactData, "contactData");
@@ -32,7 +37,8 @@ export default function ContactPage() {
       .get(
         `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
           "name"
-        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+        )}&email=${formData.get("email")}&message=${formData.get("message")}&phoneNumber=${formData.get("phoneNumber")}
+        &title=${formData.get("title")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -48,6 +54,7 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      setPhoneNumber("+91");
     e.target.reset();
   };
 
@@ -100,7 +107,30 @@ export default function ContactPage() {
                         name="email"
                       />
                     </div>
+                    
                   </div>
+                  <div className="form-row-box">
+                    <div className="form-main-group">
+                      <label>Skype Id</label>
+                      <input
+                        type="text"
+                        className="contact-input"
+                        name="title"
+                      />
+                    </div>
+                    <div className="form-main-group">
+                      <label>Mobile No.</label>
+                      <PhoneInput 
+                        placeholder="Enter phone number"
+                        countryCode="+91"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        name="phoneNumber" 
+                        />
+                    </div>
+                    
+                  </div>
+
                   <div className="form-main-group">
                     <label>Your Message</label>
                     <textarea

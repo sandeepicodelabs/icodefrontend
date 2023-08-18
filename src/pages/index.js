@@ -30,7 +30,7 @@ import "../hooks/TypingEffect.js";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-
+import Lumela from "../assets/images/portfolio/Lumela.png"
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -484,7 +484,7 @@ const IndexPage = ({ data }) => {
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-1"
-                    src={webimg}
+                    src={Lumela}
                     data-index="1"
                   />
                 </div>
