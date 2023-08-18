@@ -14,11 +14,22 @@ import ButtonBox from "../../components/button";
 import messageimg from "../../assets/images/message.png";
 import axios from "axios";
 import bigInt from "big-integer";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 
 export default function Blog({ data, pageContext }) {
   const { allStrapiArticle } = data;
   const [page, setPage] = useState(1);
-  const { pageInfo } = allStrapiArticle;
+  const { pageInfo } = allStrapiArticle; 
+  const [phoneNumber, setPhoneNumber] = useState("+91");
+
+  const handleOnChange = (value) => {
+    // Handle the value change
+   // console.log("New phone number:", value);
+    setPhoneNumber(value);
+  };
+
 
   // console.log(pageInfo, "pagination");
 
@@ -49,7 +60,7 @@ export default function Blog({ data, pageContext }) {
         Name: formData.get("name"),
         Email: formData.get("email"),
         Message: formData.get("message"),
-        MobileNo: bigInt(formData.get("mobileno")),
+        MobileNo:phoneNumber,
       },
     };
     console.log(contactData, "contactData");
@@ -60,7 +71,7 @@ export default function Blog({ data, pageContext }) {
           "name"
         )}&email=${formData.get("email")}&message=${formData.get(
           "message"
-        )}&mobileno=${formData.get("mobileno")}`
+        )}&phoneNumber=${formData.get("phoneNumber")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -76,6 +87,7 @@ export default function Blog({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      setPhoneNumber("+91");
     e.target.reset();
   };
 
@@ -151,41 +163,7 @@ export default function Blog({ data, pageContext }) {
                     Next
                   </button>
 
-                  {/* {startIndex > 0 ? (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setPage(pageNum - 1);
-                      }}
-                    >
-                      Prev
-                    </button>
-                  ) : (
-                    ""
-                  )}
-                  {endIndex < posts.length - 1 ? (
-                    <button
-                      type="button"
-                      buttonname="next"
-                      onClick={() => {
-                        console.log("khusxa");
-                        setPage(pageNum + 1);
-                      }}
-                    >
-                      Next
-                    </button>
-                  ) : (
-                    ""
-                  )} */}
-                  {/* {pageInfo.hasPreviousPage && (
-    <Link to={`/blog/${pageInfo.currentPage - 1}`}>Previous</Link>
-  )}
-  {Array.from({ length: pageInfo.pageCount }).map((_, index) => (
-    <Link to={`/blog/${index + 1}`}>{index + 1}</Link>
-  ))}
-  {pageInfo.hasNextPage && (
-    <Link to={`/blog/${pageInfo.currentPage + 1}`}>Next</Link>
-  )} */}
+                  
                 </div>
               </div>
               <div className="most-popular-article">
@@ -243,12 +221,12 @@ export default function Blog({ data, pageContext }) {
                         />
                       </div>
                       <div className="input-wrap">
-                        <InputBox
-                          type="text"
-                          placeholder={"Mobile No"}
-                          className="contact-inputs"
-                          //img={Emailicon}
-                          name="mobileno"
+                      <PhoneInput 
+                        placeholder="Enter phone number"
+                        countryCode="+91"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        name="phoneNumber" 
                         />
                       </div>
                       <div className="input-wrap">

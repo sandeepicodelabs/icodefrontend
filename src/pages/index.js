@@ -1,4 +1,4 @@
-import * as React from "react";
+import  React, {useState} from "react";
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
@@ -26,7 +26,11 @@ import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./style.scss";
-import "../hooks/TypingEffect.js";
+import "../hooks/TypingEffect.js"; 
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
+import Lumela from "../assets/images/portfolio/Lumela.png"
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -35,6 +39,14 @@ const IndexPage = ({ data }) => {
   const expertTech = data?.allStrapiExpertise?.edges;
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
+
+  const [phoneNumber, setPhoneNumber] = useState("+91"); 
+  const handleOnChange = (value) => {
+    // Handle the value change
+   // console.log("New phone number:", value);
+    setPhoneNumber(value);
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,6 +58,7 @@ const IndexPage = ({ data }) => {
         Name: formData.get("name"),
         Email: formData.get("email"),
         Message: formData.get("message"),
+        MobileNo: phoneNumber,
       },
     };
     console.log(contactData, "contactData");
@@ -54,7 +67,7 @@ const IndexPage = ({ data }) => {
       .get(
         `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
           "name"
-        )}&email=${formData.get("email")}&message=${formData.get("message")}`
+        )}&email=${formData.get("email")}&message=${formData.get("message")}&phoneNumber=${formData.get("phoneNumber")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -70,6 +83,7 @@ const IndexPage = ({ data }) => {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+    setPhoneNumber("+91");
     e.target.reset();
   };
 
@@ -470,7 +484,7 @@ const IndexPage = ({ data }) => {
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-1"
-                    src={webimg}
+                    src={Lumela}
                     data-index="1"
                   />
                 </div>
@@ -582,6 +596,15 @@ const IndexPage = ({ data }) => {
                     name="email"
                   />
                 </div>
+                <div className="input-wrap">
+                      <PhoneInput 
+                        placeholder="Enter phone number"
+                        countryCode="+91"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        name="phoneNumber" 
+                        />
+                   </div>
                 <div className="input-wrap">
                   <textarea
                     placeholder="Write a message here"

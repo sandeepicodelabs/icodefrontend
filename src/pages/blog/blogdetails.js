@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Chronologyimg from "../../assets/images/Chronology.png";
@@ -19,6 +19,8 @@ import ButtonBox from "../../components/button";
 import messageimg from "../../assets/images/message.png";
 import axios from "axios";
 import bigInt from "big-integer";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const settings = {
   dots: false,
@@ -58,7 +60,13 @@ const settings = {
 };
 
 export default function BlogPage({ data, pageContext }) {
-  // console.log('artile',data)
+  const [phoneNumber, setPhoneNumber] = useState("+91");
+
+  const handleOnChange = (value) => {
+    // Handle the value change
+   // console.log("New phone number:", value);
+    setPhoneNumber(value);
+  };
 
   // for enquiry form
   const handleSubmit = (e) => {
@@ -71,7 +79,7 @@ export default function BlogPage({ data, pageContext }) {
         Name: formData.get("name"),
         Email: formData.get("email"),
         Message: formData.get("message"),
-        MobileNo: bigInt(formData.get("mobileno")),
+        MobileNo:phoneNumber,
       },
     };
     console.log(contactData, "contactData");
@@ -82,7 +90,7 @@ export default function BlogPage({ data, pageContext }) {
           "name"
         )}&email=${formData.get("email")}&message=${formData.get(
           "message"
-        )}&mobileno=${formData.get("mobileno")}`
+        )}&phoneNumber=${formData.get("phoneNumber")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -98,6 +106,7 @@ export default function BlogPage({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      setPhoneNumber("+91");
     e.target.reset();
   };
 
@@ -120,7 +129,7 @@ export default function BlogPage({ data, pageContext }) {
   const article = posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
-  console.log("all data", filteredData);
+ // console.log("all data", filteredData);
   // console.log("posts", posts);
   return (
     <div>
@@ -244,14 +253,14 @@ export default function BlogPage({ data, pageContext }) {
                           />
                         </div>
                         <div className="input-wrap">
-                          <InputBox
-                            type="text"
-                            placeholder={"Mobile No"}
-                            className="contact-inputs"
-                            //img={Emailicon}
-                            name="mobileno"
-                          />
-                        </div>
+                      <PhoneInput 
+                        placeholder="Enter phone number"
+                        countryCode="+91"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        name="phoneNumber" 
+                        />
+                      </div>
                         <div className="input-wrap">
                           <textarea
                             placeholder="Write a message here"
@@ -285,7 +294,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 100, skip: 0, sort: { Title: DESC }) {
+    allStrapiArticle(limit: 6, skip: 0, sort: { Title: DESC }) {
       edges {
         node {
           Title

@@ -39,7 +39,7 @@ export default function Service({ data, pageContext }) {
 
   const handleOnChange = (value) => {
     // Handle the value change
-    console.log("New phone number:", value);
+   // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
 
