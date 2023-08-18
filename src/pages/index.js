@@ -363,7 +363,7 @@ const IndexPage = ({ data }) => {
       </section>
 
       <section id="about">
-        <div className="contentWidth why-choose-us">
+        <div className="contentWidth why-choose-us landingSec">
           <div className="heading-main">
             <div className="sectionHeading">
               <h1 className="choose-heading">Why Choose iCode Labs?</h1>
@@ -452,7 +452,7 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section id="process">
+      <section>
         <div className="how-do-we-do">
           <div className="inner-timeline-box contentWidth">
             <div className="timeline-heading">

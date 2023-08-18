@@ -91,6 +91,14 @@
           background-color: $base-color;
           color: $white-color;
           transition: $transiton;
+          .rippleEffect {
+            border-color: $white-color;
+            animation: rippleWhite 2s infinite;
+          }
+        }
+        .rippleEffect {
+          border-color: $base-color;
+          animation: rippleGreen 2s infinite;
         }
       }
     }
@@ -160,18 +168,18 @@
       }
       p {
         color: $white-color;
-        font-size: 16px;
-        line-height: 145%;
+        font-size: 14px;
+        line-height: 165%;
         max-width: 100%;
         font-weight: 400;
         width: 100%;
         margin: 0 auto;
         @include lg {
           max-width: 70%;
-          font-size: 18px;
+          font-size: 16px;
         }
         @include xl {
-          max-width: 50%;
+          max-width: 80%;
         }
       }
     }

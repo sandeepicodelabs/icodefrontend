@@ -18,9 +18,9 @@
 
 .recomment-box {
   .contentWidth {
-    padding: 50px 24px;
+    padding: 40px 24px;
     @include lg {
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
     .recommented-wrap {
       .recommend-section {
@@ -150,9 +150,9 @@
 }
 .stack-tools-use {
   &.contentWidth {
-    padding: 50px 24px 0;
+    padding: 40px 24px 0;
     @include lg {
-      padding: 80px 24px 0;
+      padding: 60px 24px 0;
     }
     h1 {
       font-style: normal;

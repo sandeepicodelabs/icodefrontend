@@ -10,6 +10,10 @@ import EstimateCard from "../../components/Cards/estimatecard";
 import ButtonBox from "../../components/button";
 import technologies from "../../assets/images/technologies.png";
 import appBenefits from "../../assets/images/android-app-benefits.webp";
+import commaimage from "../../assets/images/comma.png";
+import userImg from "../../assets/images/user.png";
+import Emailicon from "../../assets/images/email.png";
+import messageimg from "../../assets/images/message.png";
 import {
   Button,
   Form,
@@ -39,7 +43,7 @@ export default function Service({ data, pageContext }) {
 
   const handleOnChange = (value) => {
     // Handle the value change
-   // console.log("New phone number:", value);
+    // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
 
@@ -102,7 +106,6 @@ export default function Service({ data, pageContext }) {
     setPhoneNumber("+91");
     e.target.reset();
   };
-
   //console.log("mobile", phoneNumber)
   return (
     <>
@@ -190,14 +193,15 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   <Button className="getQuote" onClick={toggle}>
-                    Get Started
+                    <span className="rippleEffect">&nbsp;</span> Get Started
                   </Button>
                   {typeof window !== "undefined" &&
                   window.location.href.includes(
                     "innovative-digital-marketing"
                   ) ? (
                     <Button className="freeConsult" onClick={toggle}>
-                      Free Website Analysis
+                      <span className="rippleEffect">&nbsp;</span> Free Website
+                      Analysis
                     </Button>
                   ) : (
                     " "
@@ -228,6 +232,7 @@ export default function Service({ data, pageContext }) {
                         placeholder={"Full Name"}
                         className="contact-inputs"
                         name="name"
+                        img={userImg}
                       />
                     </div>
                     <div className="input-wrap">
@@ -236,6 +241,7 @@ export default function Service({ data, pageContext }) {
                         placeholder={"Email"}
                         className="contact-inputs"
                         name="email"
+                        img={Emailicon}
                       />
                     </div>
                     <div className="input-wrap">
@@ -245,6 +251,7 @@ export default function Service({ data, pageContext }) {
                         value={phoneNumber}
                         onChange={setPhoneNumber}
                         name="phoneNumber"
+                  
                       />
 
                       {/* <PhoneInput
@@ -268,22 +275,28 @@ export default function Service({ data, pageContext }) {
                       "innovative-digital-marketing"
                     ) ? (
                       <div className="input-wrap">
-                      <InputBox
-                        type="text"
-                        placeholder={"Website Url"}
-                        className="contact-inputs"
-                        name="url"
-                      />
-                    </div>
-                  ) :  <div className="form-main-group">
-                  <label>Your Message</label>
-                  <textarea
-                    className="contact-input"
-                    rows={10}
-                    name="message"
-                  />
-                </div>} 
-                    
+                        <InputBox
+                          type="text"
+                          placeholder={"Website Url"}
+                          className="contact-inputs"
+                          name="url"
+                          img={Emailicon}
+                        />
+                      </div>
+                    ) : (
+                      <div className="input-wrap">
+                        <textarea
+                          className="contact-input"
+                          rows={10}
+                          name="message"
+                          placeholder="Message"
+                        />
+                         <span className="input-icon">
+                    <img src={messageimg} alt="St Logo" name="message" />
+                  </span>
+                      </div>
+                    )}
+
                     <div>
                       <input
                         type="hidden"
@@ -327,7 +340,7 @@ export default function Service({ data, pageContext }) {
             </div>
           </section>
 
-          <section id="process" className="tools-and-technologies-section">
+          <section className="tools-and-technologies-section">
             <div className="contentWidth tools-and-technologies">
               <div className="our-tech-team">
                 <h1>{detail?.node?.ToolsTitle}</h1>
@@ -352,7 +365,7 @@ export default function Service({ data, pageContext }) {
               </div>
             </div>
           </section>
-          <section id="process">
+          <section>
             <div className="contentWidth why-choose-us">
               <div className="our-tech-team">
                 <h1>{detail?.node?.EnhanceTitle}</h1>
@@ -361,9 +374,9 @@ export default function Service({ data, pageContext }) {
                 </p>
               </div>
               <div className="advantage-section">
-                <div className="app-benefits-img">
+                {/* <div className="app-benefits-img">
                   <img src={detail?.node?.ServiceImage?.url} alt="img" />
-                </div>
+                </div> */}
                 <div className="advantage-block">
                   {detail &&
                     detail?.node.EnhanceService.map((item, i) => (
