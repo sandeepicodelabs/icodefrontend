@@ -1,4 +1,4 @@
-import  React, {useState} from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
@@ -12,7 +12,6 @@ import CompanyApproachCard from "../components/Cards/companyapproachecard";
 import TestimonialCard from "../components/Cards/testimonialcard";
 import testimonialPicture from "../assets/images/testimonialPic.png";
 import commaimage from "../assets/images/comma.png";
-import webimg from "../assets/images/web.png";
 import userImg from "../assets/images/user.png";
 import Emailicon from "../assets/images/email.png";
 import messageimg from "../assets/images/message.png";
@@ -26,11 +25,21 @@ import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "./style.scss";
-import "../hooks/TypingEffect.js"; 
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import "../hooks/TypingEffect.js";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
-import Lumela from "../assets/images/portfolio/Lumela.png"
+import Lumela from "../assets/images/portfolio/Lumela.png";
+import Branded from "../assets/images/portfolio/Branded.png";
+import Buus from "../assets/images/portfolio/Buus.png";
+import EquipmentNow from "../assets/images/portfolio/EquipmentNow.png";
+import GridBid from "../assets/images/portfolio/GridBid.png";
+import kojo from "../assets/images/portfolio/kojo.png";
+import Mesahat from "../assets/images/portfolio/Mesahat.png";
+import ShopRove from "../assets/images/portfolio/ShopRove.png";
+import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
+import Taxable from "../assets/images/portfolio/Taxable.png";
+import VendorTree from "../assets/images/portfolio/VendorTree.png";
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -40,13 +49,12 @@ const IndexPage = ({ data }) => {
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
-  const [phoneNumber, setPhoneNumber] = useState("+91"); 
+  const [phoneNumber, setPhoneNumber] = useState("+91");
   const handleOnChange = (value) => {
     // Handle the value change
-   // console.log("New phone number:", value);
+    // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,7 +75,9 @@ const IndexPage = ({ data }) => {
       .get(
         `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
           "name"
-        )}&email=${formData.get("email")}&message=${formData.get("message")}&phoneNumber=${formData.get("phoneNumber")}`
+        )}&email=${formData.get("email")}&message=${formData.get(
+          "message"
+        )}&phoneNumber=${formData.get("phoneNumber")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -484,69 +494,81 @@ const IndexPage = ({ data }) => {
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-1"
-                    src={Lumela}
+                    src={Branded}
                     data-index="1"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-2"
-                    src={webimg}
+                    src={Buus}
                     data-index="2"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-3"
-                    src={webimg}
+                    src={EquipmentNow}
                     data-index="3"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-4"
-                    src={webimg}
+                    src={GridBid}
                     data-index="4"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-5"
-                    src={webimg}
+                    src={kojo}
                     data-index="5"
                   />
                 </div>
-              </Slider>
-              {/* <div className="gallery">
-                <div className="gallery-container">
+                <div className="work-slider-item">
                   <img
-                    className="gallery-item gallery-item-1"
-                    src={webimg}
-                    data-index="1" alt=" "
-                  />
-                  <img
-                    className="gallery-item gallery-item-2"
-                    src={webimg}
-                    data-index="2" alt=" "
-                  />
-                  <img
-                    className="gallery-item gallery-item-3"
-                    src={webimg}
-                    data-index="3" alt=" "
-                  />
-                  <img
-                    className="gallery-item gallery-item-4"
-                    src={webimg}
-                    data-index="4" alt=" "
-                  />
-                  <img
-                    className="gallery-item gallery-item-5"
-                    src={webimg}
-                    data-index="5" alt=" "
+                    className="work-item work-item-6"
+                    src={Lumela}
+                    data-index="6"
                   />
                 </div>
-                <div className="gallery-controls"></div>
-              </div> */}
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-7"
+                    src={Mesahat}
+                    data-index="7"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-8"
+                    src={ShopRove}
+                    data-index="8"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-9"
+                    src={SpaceFoundry}
+                    data-index="9"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-10"
+                    src={Taxable}
+                    data-index="10"
+                  />
+                </div>
+                <div className="work-slider-item">
+                  <img
+                    className="work-item work-item-11"
+                    src={VendorTree}
+                    data-index="11"
+                  />
+                </div>
+              </Slider>
             </div>
             {/* <div className="view-work">
               <a href="/projectlist">
@@ -577,7 +599,6 @@ const IndexPage = ({ data }) => {
             <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
-                
                   <InputBox
                     type="text"
                     placeholder={"Full Name"}
@@ -585,7 +606,6 @@ const IndexPage = ({ data }) => {
                     img={userImg}
                     name="name"
                   />
-                  
                 </div>
                 <div className="input-wrap">
                   <InputBox
@@ -597,14 +617,14 @@ const IndexPage = ({ data }) => {
                   />
                 </div>
                 <div className="input-wrap">
-                      <PhoneInput 
-                        placeholder="Enter phone number"
-                        countryCode="+91"
-                        value={phoneNumber}
-                        onChange={setPhoneNumber}
-                        name="phoneNumber" 
-                        />
-                   </div>
+                  <PhoneInput
+                    placeholder="Enter phone number"
+                    countryCode="+91"
+                    value={phoneNumber}
+                    onChange={setPhoneNumber}
+                    name="phoneNumber"
+                  />
+                </div>
                 <div className="input-wrap">
                   <textarea
                     placeholder="Write a message here"
@@ -640,10 +660,6 @@ const IndexPage = ({ data }) => {
 };
 
 export default IndexPage;
-
-
-
-
 
 export const query = graphql`
   query MyQuery {
