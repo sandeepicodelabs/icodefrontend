@@ -219,7 +219,7 @@ export default function Service({ data, pageContext }) {
 
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>Get Quote</ModalHeader>
+              <ModalHeader toggle={toggle}>For Your Business!</ModalHeader>
               <ModalBody>
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">
@@ -264,7 +264,12 @@ export default function Service({ data, pageContext }) {
                         name="mobileno"
                       /> */}
                     </div>
-                    <div className="input-wrap">
+
+                    {typeof window !== "undefined" &&
+                    window.location.href.includes(
+                      "innovative-digital-marketing"
+                    ) ? (
+                      <div className="input-wrap">
                       <InputBox
                         type="text"
                         placeholder={"Website Url"}
@@ -272,6 +277,15 @@ export default function Service({ data, pageContext }) {
                         name="url"
                       />
                     </div>
+                  ) :  <div className="form-main-group">
+                  <label>Your Message</label>
+                  <textarea
+                    className="contact-input"
+                    rows={10}
+                    name="message"
+                  />
+                </div>} 
+                    
                     <div>
                       <input
                         type="hidden"
