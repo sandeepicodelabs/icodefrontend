@@ -30,12 +30,12 @@
     z-index: 1;
   }
   .contentWidth {
-    padding: 50px 24px;
+    padding: 40px 24px;
     display: flex;
     position: relative;
     z-index: 1;
     @include lg {
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
     .service-hero-content {
       width: 100%;
@@ -61,7 +61,7 @@
         }
       }
       p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 170%;
         font-weight: 300;
         max-width: 100%;
@@ -72,7 +72,7 @@
           max-width: 80%;
         }
         @include lg {
-          font-size: 18px;
+          font-size: 16px;
           max-width: 70%;
         }
       }
@@ -100,14 +100,14 @@
     transform: translateZ(10px);
   }
   .contentWidth {
-    padding: 50px 24px;
+    padding: 40px 24px;
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
     z-index: 1;
     @include lg {
-      padding: 80px 24px;
+      padding: 60px 24px;
       flex-direction: row;
     }
     .service-header-content {
@@ -136,12 +136,12 @@
         }
       }
       p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 170%;
         font-weight: 300;
         text-align: justify;
         @include lg {
-          font-size: 18px;
+          font-size: 16px;
         }
       }
     }
@@ -209,9 +209,9 @@
 .why-we-hire {
   background: $base-color;
   .contentWidth {
-    padding: 50px 24px;
+    padding: 40px 24px;
     @include lg {
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
     .our-tech-team {
       display: flex;
@@ -236,13 +236,13 @@
         }
       }
       p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 170%;
         font-weight: 300;
         max-width: 100%;
         color: $white-color;
         @include lg {
-          font-size: 18px;
+          font-size: 16px;
           max-width: 80%;
         }
       }
@@ -293,9 +293,9 @@
 }
 .tools-and-technologies {
   &.contentWidth {
-    padding: 50px 24px;
+    padding: 40px 24px;
     @include lg {
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
     .our-tech-team {
       display: flex;
@@ -324,7 +324,7 @@
         font-weight: 300;
         max-width: 100%;
         @include lg {
-          font-size: 18px;
+          font-size: 16px;
           max-width: 80%;
         }
       }
@@ -337,8 +337,11 @@
         flex-direction: row;
       }
       .technologies-img {
+        align-self: flex-start;
+        position: sticky;
+        top: 120px;
         display: none;
-        width: 50%;
+        width: 40%;
         @include lg {
           display: block;
           text-align: center;
@@ -348,7 +351,7 @@
         }
       }
       .technologies-content {
-        width: 50%;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         text-align: center;
@@ -378,7 +381,6 @@
             font-size: 18px;
             line-height: 120%;
             @include sm {
-              font-size: 18px;
               line-height: 125%;
             }
           }
@@ -386,6 +388,7 @@
             font-size: 15px;
             line-height: 170%;
             font-weight: 300;
+            text-align: justify;
             @include lg {
               font-size: 16px;
             }
@@ -397,9 +400,9 @@
 }
 .why-choose-us {
   &.contentWidth {
-    padding: 50px 24px 0;
+    padding: 40px 24px;
     @include lg {
-      padding: 80px 24px 0;
+      padding: 60px 24px;
     }
     .our-tech-team {
       display: flex;
@@ -407,7 +410,7 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
       @include xl {
         margin-bottom: 80px;
       }
@@ -426,12 +429,12 @@
         }
       }
       p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 170%;
         font-weight: 300;
         max-width: 100%;
         @include lg {
-          font-size: 18px;
+          font-size: 16px;
           max-width: 80%;
         }
       }
@@ -461,78 +464,89 @@
       .advantage-block {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-gap: 48px;
+        grid-column-gap: 48px;
+        grid-row-gap: 48px;
         @include lg {
           grid-template-columns: repeat(2, 1fr);
+          grid-row-gap: 80px;
         }
         @include xl {
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         }
         .company-approach-box {
           padding: 20px;
           border-radius: 10px;
           background-color: $white-color;
           transition: $transiton;
+          border: solid 1px $border-color;
           &:hover {
             transition: $transiton;
             box-shadow: $box-shadow-large;
           }
-          &:nth-child(1n) {
-            @include xl {
-              text-align: right;
-              grid-column-start: 1;
-              grid-column-end: 3;
-            }
-            & > a {
-              @include xl {
-                flex-direction: row-reverse;
-              }
-              .apporoach-description {
-                padding-right: 20px;
-              }
-            }
-          }
-          &:nth-child(2n) {
-            @include xl {
-              text-align: left;
-              grid-column-start: 5;
-              grid-column-end: 7;
-            }
-            & > a {
-              flex-direction: initial;
-              .approach-logo {
-                text-align: right;
-              }
-              .apporoach-description {
-                padding-left: 20px;
-                padding-right: 0px;
-              }
-            }
-          }
+          // &:nth-child(1n) {
+          //   @include xl {
+          //     text-align: right;
+          //     grid-column-start: 1;
+          //     grid-column-end: 3;
+          //   }
+          //   & > a {
+          //     @include xl {
+          //       flex-direction: row-reverse;
+          //     }
+          //     .apporoach-description {
+          //       padding-right: 20px;
+          //     }
+          //   }
+          // }
+          // &:nth-child(2n) {
+          //   @include xl {
+          //     text-align: left;
+          //     grid-column-start: 5;
+          //     grid-column-end: 7;
+          //   }
+          //   & > a {
+          //     flex-direction: initial;
+          //     .approach-logo {
+          //       text-align: right;
+          //     }
+          //     .apporoach-description {
+          //       padding-left: 20px;
+          //       padding-right: 0px;
+          //     }
+          //   }
+          // }
           & > a {
             display: flex;
+            flex-direction: column;
             text-decoration: none;
             color: $black-color;
             .approach-logo {
-              width: 50px;
-              @include md {
-                width: 80px;
-              }
+              width: 80px;
+              height: 80px;
+              border-radius: 100px;
+              overflow: hidden;
+              border: solid 3px $base-color;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 20px;
+              background-color: $white-color;
+              margin-top: -50px;
+
               @include lg {
+                margin-top: -70px;
                 width: 100px;
+                height: 100px;
               }
               & > img {
                 max-width: 100%;
+                object-fit: contain;
               }
             }
             .apporoach-description {
-              width: calc(100% - 50px);
-              @include md {
-                width: calc(100% - 80px);
-              }
-              @include lg {
-                width: calc(100% - 100px);
-              }
+              width: 100%;
+              margin-top: 20px;
+
               .approach-heading {
                 font-weight: 600;
                 margin: 0 0 10px 0;
@@ -545,12 +559,13 @@
                 }
               }
               .approach-subheading {
-                font-size: 15px;
+                font-size: 14px;
                 line-height: 170%;
                 font-weight: 400;
                 color: $black-color;
+                text-align: justify;
                 @include lg {
-                  font-size: 16px;
+                  font-size: 14px;
                 }
               }
             }
@@ -581,9 +596,12 @@
   margin-top: 30px;
   & > button {
     font-size: 14px;
-    line-height: 100%;
-    padding: 10px 14px;
+    line-height: 130%;
+    padding: 12px 14px;
     border: solid 1px $base-color;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     @include md {
       padding: 12px 24px;
       font-size: 16px;
@@ -599,6 +617,14 @@
       &:hover {
         background-color: $base-color;
         color: $white-color;
+        .rippleEffect {
+          border-color: $white-color;
+          animation: rippleWhite 2s infinite;
+        }
+      }
+      .rippleEffect {
+        border-color: $base-color;
+        animation: rippleGreen 2s infinite;
       }
     }
   }

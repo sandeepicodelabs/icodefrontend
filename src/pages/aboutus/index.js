@@ -115,7 +115,7 @@ export default function Aboutus() {
         </div>
       </section>
 
-      <section id="process" className="how-do-we-do  ourStrength">
+      <section className="how-do-we-do  ourStrength">
         <div className="inner-timeline-box contentWidth">
           <div className="timeline-heading">
             {" "}
@@ -142,10 +142,13 @@ export default function Aboutus() {
                     <img src={lowCost} alt="St Logo" />
                   </div>
                   <div className="apporoach-description">
-                    <div className="approach-heading">Smooth and Effortless Delivery</div>
+                    <div className="approach-heading">
+                      Smooth and Effortless Delivery
+                    </div>
                     <div className="approach-subheading">
-                    We prioritize exceptional project delivery, providing constant 
-                    status updates, scope control, and active customer engagement.{" "}
+                      We prioritize exceptional project delivery, providing
+                      constant status updates, scope control, and active
+                      customer engagement.{" "}
                     </div>
                   </div>
                 </a>

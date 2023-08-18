@@ -6,11 +6,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 24px;
+    padding: 40px 24px;
     flex-direction: column;
     @include lg {
       flex-direction: row;
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
     .deliver-description {
       width: 100%;
@@ -22,24 +22,24 @@
         margin: 0;
       }
       h1 {
-        margin-bottom: 14px;
-        font-size: 30px;
+        margin-bottom: 10px;
+        font-size: 28px;
         font-weight: 600;
         line-height: 140%;
         color: $black-color;
         @include lg {
-          margin-bottom: 20px;
-          font-size: 34px;
+          margin-bottom: 15px;
+          font-size: 30px;
         }
       }
       p {
         font-style: normal;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 160%;
         color: $black-color;
         @include lg {
-          font-size: 24px;
+          font-size: 20px;
         }
         strong {
           color: $black-color;
@@ -63,9 +63,9 @@
 .explore-box-wrap {
   background: rgba(87, 248, 243, 0.1);
   .contentWidth {
-    padding: 50px 24px;
+    padding: 40px 24px;
     @include lg {
-      padding: 80px 24px;
+      padding: 60px 24px;
     }
     .explore-tab-viewbox {
       .card-background-wrap {

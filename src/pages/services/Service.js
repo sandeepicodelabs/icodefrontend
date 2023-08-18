@@ -39,7 +39,7 @@ export default function Service({ data, pageContext }) {
 
   const handleOnChange = (value) => {
     // Handle the value change
-   // console.log("New phone number:", value);
+    // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
 
@@ -102,7 +102,6 @@ export default function Service({ data, pageContext }) {
     setPhoneNumber("+91");
     e.target.reset();
   };
-
   //console.log("mobile", phoneNumber)
   return (
     <>
@@ -190,14 +189,15 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   <Button className="getQuote" onClick={toggle}>
-                    Get Started
+                    <span className="rippleEffect">&nbsp;</span> Get Started
                   </Button>
                   {typeof window !== "undefined" &&
                   window.location.href.includes(
                     "innovative-digital-marketing"
                   ) ? (
                     <Button className="freeConsult" onClick={toggle}>
-                      Free Website Analysis
+                      <span className="rippleEffect">&nbsp;</span> Free Website
+                      Analysis
                     </Button>
                   ) : (
                     " "
@@ -268,22 +268,24 @@ export default function Service({ data, pageContext }) {
                       "innovative-digital-marketing"
                     ) ? (
                       <div className="input-wrap">
-                      <InputBox
-                        type="text"
-                        placeholder={"Website Url"}
-                        className="contact-inputs"
-                        name="url"
-                      />
-                    </div>
-                  ) :  <div className="form-main-group">
-                  <label>Your Message</label>
-                  <textarea
-                    className="contact-input"
-                    rows={10}
-                    name="message"
-                  />
-                </div>} 
-                    
+                        <InputBox
+                          type="text"
+                          placeholder={"Website Url"}
+                          className="contact-inputs"
+                          name="url"
+                        />
+                      </div>
+                    ) : (
+                      <div className="input-wrap">
+                        <textarea
+                          className="contact-input"
+                          rows={10}
+                          name="message"
+                          placeholder="Message"
+                        />
+                      </div>
+                    )}
+
                     <div>
                       <input
                         type="hidden"
@@ -327,7 +329,7 @@ export default function Service({ data, pageContext }) {
             </div>
           </section>
 
-          <section id="process" className="tools-and-technologies-section">
+          <section className="tools-and-technologies-section">
             <div className="contentWidth tools-and-technologies">
               <div className="our-tech-team">
                 <h1>{detail?.node?.ToolsTitle}</h1>
@@ -352,7 +354,7 @@ export default function Service({ data, pageContext }) {
               </div>
             </div>
           </section>
-          <section id="process">
+          <section>
             <div className="contentWidth why-choose-us">
               <div className="our-tech-team">
                 <h1>{detail?.node?.EnhanceTitle}</h1>
@@ -361,9 +363,9 @@ export default function Service({ data, pageContext }) {
                 </p>
               </div>
               <div className="advantage-section">
-                <div className="app-benefits-img">
+                {/* <div className="app-benefits-img">
                   <img src={detail?.node?.ServiceImage?.url} alt="img" />
-                </div>
+                </div> */}
                 <div className="advantage-block">
                   {detail &&
                     detail?.node.EnhanceService.map((item, i) => (

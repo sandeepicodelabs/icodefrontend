@@ -4,9 +4,6 @@
 .cover-full-box {
   &.contentWidth {
     padding: 50px 24px;
-    // @include lg {
-    //   padding: 80px 24px;
-    // }
 
     .blog-wrap-data {
       display: flex;
@@ -651,13 +648,14 @@
                     .popular-card-profile-wrap {
                       display: flex;
                       align-items: center;
+                      justify-content: space-between;
                       .popular-profile-name {
                         font-style: normal;
                         font-weight: 400;
                         font-size: 14px;
                         line-height: 130%;
                         text-transform: capitalize;
-                        color: $black-color;
+                        color: $label-color;
                         position: relative;
                         span {
                           font-style: normal;
@@ -665,7 +663,7 @@
                           font-size: 14px;
                           line-height: 130%;
                           text-transform: capitalize;
-                          color: $black-color;
+                          color: $label-color;
                         }
                       }
                       .popular-post-date {
@@ -674,7 +672,7 @@
                         font-size: 14px;
                         line-height: 130%;
                         text-transform: capitalize;
-                        color: $black-color;
+                        color: $label-color;
                         padding-left: 5px;
                       }
                     }

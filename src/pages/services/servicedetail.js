@@ -63,7 +63,7 @@ export default function Servicedetail({ data, pageContext }) {
             </div>
           </section>
 
-          <section id="process" className="tools-and-technologies-section">
+          <section className="tools-and-technologies-section">
             <div className="contentWidth tools-and-technologies">
               <div className="our-tech-team">
                 <h1>{detail?.node?.ToolsTitle}</h1>
@@ -85,7 +85,7 @@ export default function Servicedetail({ data, pageContext }) {
               </div>
             </div>
           </section>
-          <section id="process">
+          <section>
             <div className="contentWidth why-choose-us">
               <div className="our-tech-team">
                 <h1>{detail?.node?.EnhanceTitle}</h1>
@@ -94,9 +94,9 @@ export default function Servicedetail({ data, pageContext }) {
                 </p>
               </div>
               <div className="advantage-section">
-                <div className="app-benefits-img">
+                {/* <div className="app-benefits-img">
                   <img src={appBenefits} alt="img" />
-                </div>
+                </div> */}
                 <div className="advantage-block">
                   {detail &&
                     detail?.node.EnhanceService.map((item, i) => (
