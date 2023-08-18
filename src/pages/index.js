@@ -605,6 +605,7 @@ const IndexPage = ({ data }) => {
                     className="contact-inputs"
                     img={userImg}
                     name="name"
+                    required
                   />
                 </div>
                 <div className="input-wrap">
