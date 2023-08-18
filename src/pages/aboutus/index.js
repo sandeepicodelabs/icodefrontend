@@ -6,7 +6,7 @@ import "../about.scss";
 import IconExpert from "../../components/IconExpert/IconExpert";
 import IconMission from "../../components/IconMission/IconMission";
 import IconVision from "../../components/IconVision/IconVision";
-import lowCost from "../../assets/images/lower-cost.svg";
+import lowCost from "../../assets/images/SmoothandEffortlessDelivery.svg";
 import pioneerSolution from "../../assets/images/pioneer-solution.svg";
 import relationship from "../../assets/images/relationship.svg";
 import delivery from "../../assets/images/target.svg";
