@@ -15,7 +15,7 @@ export default function InputBox(props) {
         name={name}
       />
 
-      {demo ? (
+      {!demo ? (
         <span className="input-icon">
           <img src={img} alt="St Logo" />
         </span>
