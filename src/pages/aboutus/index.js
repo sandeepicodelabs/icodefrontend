@@ -142,13 +142,10 @@ export default function Aboutus() {
                     <img src={lowCost} alt="St Logo" />
                   </div>
                   <div className="apporoach-description">
-                    <div className="approach-heading">Lower Costs</div>
+                    <div className="approach-heading">Smooth and Effortless Delivery</div>
                     <div className="approach-subheading">
-                      One major benefit of hiring Android developers is that
-                      they can leverage the powerful Software Development Kit
-                      (SDK) to build apps more efficiently. This not only
-                      reduces development time but also minimizes licensing and
-                      overall development costs.{" "}
+                    We prioritize exceptional project delivery, providing constant 
+                    status updates, scope control, and active customer engagement.{" "}
                     </div>
                   </div>
                 </a>
