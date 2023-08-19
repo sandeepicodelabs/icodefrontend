@@ -306,31 +306,29 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="cover-stack-heading">
               <img src={meanstack} alt="St Logo" />
-              <div>
-                <ReactTyped
-                  // typedRef={typedRef()}
-                  loop
-                  typeSpeed={50}
-                  backSpeed={50}
-                  strings={[
-                    "Flutter App Development",
-                    "Angular Development",
-                    "MEAN Stack Development",
-                    "MERN Stack Development",
-                    "JAM Stack Development",
-                    "React Native Development",
-                  ]}
-                  smartBackspace
-                  shuffle={false}
-                  backDelay={1}
-                  fadeOut={false}
-                  fadeOutDelay={100}
-                  loopCount={0}
-                  showCursor
-                  cursorChar="|"
-                  className="cover-stack"
-                />
-              </div>
+              <ReactTyped
+                // typedRef={typedRef()}
+                loop
+                typeSpeed={50}
+                backSpeed={50}
+                strings={[
+                  "Flutter App Development",
+                  "Angular Development",
+                  "MEAN Stack Development",
+                  "MERN Stack Development",
+                  "JAM Stack Development",
+                  "React Native Development",
+                ]}
+                smartBackspace
+                shuffle={false}
+                backDelay={1}
+                fadeOut={false}
+                fadeOutDelay={100}
+                loopCount={0}
+                showCursor
+                cursorChar="|"
+                className="cover-stack"
+              />
             </div>
             <div className="booking-button">
               <a href="https://calendly.com/jaytiwary">
