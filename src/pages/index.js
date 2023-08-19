@@ -24,7 +24,6 @@ import "../assets/css/carousel.css";
 import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import "./style.scss";
 import "../hooks/TypingEffect.js";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
@@ -41,6 +40,8 @@ import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
 import Taxable from "../assets/images/portfolio/Taxable.png";
 import VendorTree from "../assets/images/portfolio/VendorTree.png";
 
+import "./style.scss";
+
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes;
@@ -49,49 +50,37 @@ const IndexPage = ({ data }) => {
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
-  const [phoneNumber, setPhoneNumber] = useState("+91");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const handleOnChange = (value) => {
-    // Handle the value change
-    // console.log("New phone number:", value);
-    setPhoneNumber(value);
-  };
-
-  
-  
-  const validateName = (name) => {
-    return name.trim() !==" ";
-  };
-
-  const validateEmail = (email) => {
-    // Use a simple regex for basic email validation
-    const emailPattern =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
-    return emailPattern.test(email);
-  };
+  const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-      // Validate the required fields
-      if (!validateName(name)) {
-        setName("Name is required");
-        return;
-      }
-  
-      if (!validateEmail(email)) {
-        setEmail("Please enter a valid email address");
-        return;
-      }
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    }
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
     const contactData = {
       data: {
-         name : formData.get("name"),
-         email :formData.get("email"),
-        Message: formData.get("message"),
+        name: name,
+        email: email,
+        Message: message,
         MobileNo: phoneNumber,
       },
     };
@@ -99,11 +88,7 @@ const IndexPage = ({ data }) => {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get(
-          "message"
-        )}&phoneNumber=${formData.get("phoneNumber")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -119,10 +104,13 @@ const IndexPage = ({ data }) => {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-    setPhoneNumber("+91");
+
+    // Clear the form
     setName("");
     setEmail("");
-    e.target.reset();
+    setPhoneNumber("");
+    setMessage("");
+    setErrors({});
   };
 
   const settings = {
@@ -688,22 +676,24 @@ const IndexPage = ({ data }) => {
                     type="text"
                     placeholder={"Full Name"}
                     className="contact-inputs"
+                    value={name}
                     img={userImg}
-                    name="name"  
-                   
-                  />  
-                {name && <p className="error-message">{name}</p>}
+                    name="name"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  {errors.name && <p className="error-message">{errors.name}</p>}
                 </div>
                 <div className="input-wrap">
                   <InputBox
                     type="email"
                     placeholder={"Email"}
                     className="contact-inputs"
+                    value={email}
                     img={Emailicon}
                     name="email"
-                    required
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                   {email && <p className="error-message">{email}</p>}
+                  {errors.email && <p className="error-message">{errors.email}</p>}
                 </div>
                 <div className="input-wrap">
                   <PhoneInput
@@ -719,6 +709,8 @@ const IndexPage = ({ data }) => {
                     placeholder="Write a message here"
                     rows={5}
                     name="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                   ></textarea>
                   <span className="input-icon">
                     <img src={messageimg} alt="St Logo" name="message" />
