@@ -69,7 +69,7 @@ const Header = () => {
             </div> */}
             <div className="navlink">
               <a onClick={toggle} href="/aboutus">
-                About
+                About Us
               </a>
             </div>{" "}
             <div className="navlink">
