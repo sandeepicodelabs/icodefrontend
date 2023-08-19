@@ -37,9 +37,8 @@ import Mesahat from "../assets/images/portfolio/Mesahat.png";
 import ShopRove from "../assets/images/portfolio/ShopRove.png";
 import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
 //import Taxable from "../assets/images/portfolio/Taxable.png";
-import VendorTree from "../assets/images/portfolio/VendorTree.png";
-
-
+import VendorTree from "../assets/images/portfolio/VendorTree.png"; 
+//latest project
 import briller from "../assets/images/portfolioslider/brillr.png"; 
 import Buus from "../assets/images/portfolioslider/Buus.png"  
 import insightgig from  "../assets/images/portfolioslider/Insightgig.png"
