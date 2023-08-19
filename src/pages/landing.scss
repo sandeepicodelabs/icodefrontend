@@ -225,9 +225,9 @@
     .trusted-brand-box {
       background: $white-color;
       border-radius: 10px;
-      padding: 14px 48px;
+      padding: 6px 48px;
       @include md {
-        padding: 24px 48px;
+        padding: 6px 48px;
       }
       .slick-track {
         display: flex;
