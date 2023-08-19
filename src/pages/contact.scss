@@ -2,9 +2,9 @@
 @import "../styles/variables.scss";
 .getintouch-box {
   background-color: $white-color;
-  padding: 50px 0;
+  padding: 30px 0;
   @include lg {
-    padding: 80px 0;
+    padding: 50px 0;
   }
 
   .getbox-form {

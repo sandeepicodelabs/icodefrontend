@@ -24,7 +24,6 @@ import "../assets/css/carousel.css";
 import axios from "axios";
 import contactimg from "../assets/images/contact-img.png";
 //import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import "../hooks/TypingEffect.js";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
@@ -41,6 +40,7 @@ import Taxable from "../assets/images/portfolio/Taxable.png";
 import VendorTree from "../assets/images/portfolio/VendorTree.png";
 
 import "./style.scss";
+import ReactTyped from "react-typed";
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -49,7 +49,6 @@ const IndexPage = ({ data }) => {
   const expertTech = data?.allStrapiExpertise?.edges;
   const process = data?.allStrapiProcess?.edges;
   const ourApproaches = data?.allStrapiOurapproache.edges;
-
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -189,7 +188,6 @@ const IndexPage = ({ data }) => {
       commaimage: commaimage,
     },
 
-
     {
       testimonialmessage:
         "Jay and his team are amazing to work with and they create a very high quality, faultless product. I have worked with them in the past and they are always efficient, creative, accurate and great communicators. I will be coming back again to work with them soon.",
@@ -199,7 +197,6 @@ const IndexPage = ({ data }) => {
       commaimage: commaimage,
     },
 
-
     {
       testimonialmessage:
         "I would strongly recommend him for software engineering and technical leadership. He has a good understanding about Sharetribe and React.",
@@ -208,7 +205,6 @@ const IndexPage = ({ data }) => {
       clientaddress: "Rentalo South America",
       commaimage: commaimage,
     },
-
 
     {
       testimonialmessage:
@@ -244,7 +240,6 @@ const IndexPage = ({ data }) => {
       clientaddress: "USA",
       commaimage: commaimage,
     },
-
   ];
 
   const testimonialslide = {
@@ -311,15 +306,31 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="cover-stack-heading">
               <img src={meanstack} alt="St Logo" />
-              {/* <span className="cover-stack">Mean stack development</span> */}
-              <a
-                href=""
-                class="typewrite"
-                data-period="2000"
-                data-type='[ "Flutter App Development", "Angular Development", "MEAN Stack Development", "MERN Stack Development", "JAM Stack Development", "React Native Development" ]'
-              >
-                <span class="cover-stack"></span>
-              </a>
+              <div>
+                <ReactTyped
+                  // typedRef={typedRef()}
+                  loop
+                  typeSpeed={50}
+                  backSpeed={50}
+                  strings={[
+                    "Flutter App Development",
+                    "Angular Development",
+                    "MEAN Stack Development",
+                    "MERN Stack Development",
+                    "JAM Stack Development",
+                    "React Native Development",
+                  ]}
+                  smartBackspace
+                  shuffle={false}
+                  backDelay={1}
+                  fadeOut={false}
+                  fadeOutDelay={100}
+                  loopCount={0}
+                  showCursor
+                  cursorChar="|"
+                  className="cover-stack"
+                />
+              </div>
             </div>
             <div className="booking-button">
               <a href="https://calendly.com/jaytiwary">
@@ -681,7 +692,9 @@ const IndexPage = ({ data }) => {
                     name="name"
                     onChange={(e) => setName(e.target.value)}
                   />
-                  {errors.name && <p className="error-message">{errors.name}</p>}
+                  {errors.name && (
+                    <p className="error-message">{errors.name}</p>
+                  )}
                 </div>
                 <div className="input-wrap">
                   <InputBox
@@ -693,7 +706,9 @@ const IndexPage = ({ data }) => {
                     name="email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  {errors.email && <p className="error-message">{errors.email}</p>}
+                  {errors.email && (
+                    <p className="error-message">{errors.email}</p>
+                  )}
                 </div>
                 <div className="input-wrap">
                   <PhoneInput

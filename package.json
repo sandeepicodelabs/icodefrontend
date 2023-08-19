@@ -46,6 +46,7 @@
     "react-phone-number-input": "^3.3.2",
     "react-slick": "^0.29.0",
     "react-tsparticles": "^2.12.2",
+    "react-typed": "^1.2.0",
     "reactstrap": "^9.2.0",
     "sass": "^1.64.2",
     "tsparticles": "2.1.0"
