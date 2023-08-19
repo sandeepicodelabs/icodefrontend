@@ -316,7 +316,7 @@ const IndexPage = ({ data }) => {
                 href=""
                 class="typewrite"
                 data-period="2000"
-                data-type='[ "Flutter App Development", "Angular Development", "MEAN Stack Development", "MERN Stack Development", "JAM Stack Development", "React Native Development" ]'
+                data-type='[  "React Native Development" ,"MEAN/MERN Stack Development", "Shartribe Flex Development","eCommerce Development","Digital Marketing | SEO | PPC","Flutter App Development", "Angular Development",  "JAM Stack Development",]'
               >
                 <span class="cover-stack"></span>
               </a>

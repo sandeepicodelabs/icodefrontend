@@ -289,7 +289,7 @@ export default function Service({ data, pageContext }) {
                           className="contact-input"
                           rows={10}
                           name="message"
-                          placeholder="Message"
+                          placeholder="What's your Project about?"
                         />
                          <span className="input-icon">
                     <img src={messageimg} alt="St Logo" name="message" />
