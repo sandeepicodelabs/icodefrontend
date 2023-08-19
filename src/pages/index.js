@@ -29,16 +29,27 @@ import "react-phone-input-2/lib/style.css";
 
 import Lumela from "../assets/images/portfolio/Lumela.png";
 import Branded from "../assets/images/portfolio/Branded.png";
-import Buus from "../assets/images/portfolio/Buus.png";
-import EquipmentNow from "../assets/images/portfolio/EquipmentNow.png";
+//import Buus from "../assets/images/portfolio/Buus.png";
+//import EquipmentNow from "../assets/images/portfolio/EquipmentNow.png";
 import GridBid from "../assets/images/portfolio/GridBid.png";
 import kojo from "../assets/images/portfolio/kojo.png";
 import Mesahat from "../assets/images/portfolio/Mesahat.png";
 import ShopRove from "../assets/images/portfolio/ShopRove.png";
 import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
-import Taxable from "../assets/images/portfolio/Taxable.png";
+//import Taxable from "../assets/images/portfolio/Taxable.png";
 import VendorTree from "../assets/images/portfolio/VendorTree.png";
 
+
+import briller from "../assets/images/portfolioslider/brillr.png"; 
+import Buus from "../assets/images/portfolioslider/Buus.png"  
+import insightgig from  "../assets/images/portfolioslider/Insightgig.png"
+import lafig from "../assets/images/portfolioslider/lafig.png"
+import pinktada from"../assets/images/portfolioslider/pinktada.png"
+import poopsekl from "../assets/images/portfolioslider/Popseekl.png"
+import smarthire from "../assets/images/portfolioslider/smarthire.png"
+import Taxable from "../assets/images/portfolioslider/Taxable.png"
+import thebillets from "../assets/images/portfolioslider/thebillets.png"
+ 
 import "./style.scss";
 import ReactTyped from "react-typed";
 import Popup from "../components/Popup/Modal";
@@ -575,13 +586,13 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="work-slider">
               <Slider {...workSlider}>
-                <div className="work-slider-item">
+                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-1"
-                    src={Branded}
+                    src={briller}
                     data-index="1"
                   />
-                </div>
+                </div>  
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-2"
@@ -589,66 +600,66 @@ const IndexPage = ({ data }) => {
                     data-index="2"
                   />
                 </div>
-                <div className="work-slider-item">
+                {/* <div className="work-slider-item">
                   <img
                     className="work-item work-item-3"
                     src={EquipmentNow}
                     data-index="3"
                   />
-                </div>
+                </div> */}
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-4"
-                    src={GridBid}
+                    src={insightgig}
                     data-index="4"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-5"
-                    src={kojo}
+                    src={lafig}
                     data-index="5"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-6"
-                    src={Lumela}
+                    src={pinktada}
                     data-index="6"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-7"
-                    src={Mesahat}
+                    src={poopsekl}
                     data-index="7"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-8"
-                    src={ShopRove}
+                    src={smarthire}
                     data-index="8"
                   />
                 </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-9"
-                    src={SpaceFoundry}
+                    src={Taxable}
                     data-index="9"
                   />
                 </div>
-                <div className="work-slider-item">
+                {/* <div className="work-slider-item">
                   <img
                     className="work-item work-item-10"
                     src={Taxable}
                     data-index="10"
                   />
-                </div>
+                </div> */}
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-11"
-                    src={VendorTree}
+                    src={thebillets}
                     data-index="11"
                   />
                 </div>

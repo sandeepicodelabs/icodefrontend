@@ -67,11 +67,11 @@ const Header = () => {
                 Portfolio
               </a>
             </div> */}
-            <div className="navlink">
+            {/* <div className="navlink">
               <a onClick={toggle} href="/projectlist">
                 Portfolio
               </a>
-            </div> 
+            </div>  */}
             <div className="navlink">
               <a onClick={toggle} href="/aboutus">
                 About Us
