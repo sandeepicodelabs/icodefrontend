@@ -40,7 +40,7 @@ export default function Aboutus() {
               <span className="line">&nbsp;</span>
             </div>
             <p>
-              iCode Labs Solutions is a leading digital solutions provider
+              iCode Labs  is a leading digital solutions provider
               specializing in Web & Custom Software Development, Mobile App
               Development (iOS & Android), Marketplace Development, UI/UX
               Design, Sharetribe Flex, and Digital Marketing services.
