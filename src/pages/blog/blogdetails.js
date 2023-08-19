@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Chronologyimg from "../../assets/images/Chronology.png";
@@ -19,8 +19,8 @@ import ButtonBox from "../../components/button";
 import messageimg from "../../assets/images/message.png";
 import axios from "axios";
 import bigInt from "big-integer";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const settings = {
   dots: false,
@@ -64,7 +64,7 @@ export default function BlogPage({ data, pageContext }) {
 
   const handleOnChange = (value) => {
     // Handle the value change
-   // console.log("New phone number:", value);
+    // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
 
@@ -79,7 +79,7 @@ export default function BlogPage({ data, pageContext }) {
         Name: formData.get("name"),
         Email: formData.get("email"),
         Message: formData.get("message"),
-        MobileNo:phoneNumber,
+        MobileNo: phoneNumber,
       },
     };
     console.log(contactData, "contactData");
@@ -106,7 +106,7 @@ export default function BlogPage({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-      setPhoneNumber("+91");
+    setPhoneNumber("+91");
     e.target.reset();
   };
 
@@ -129,7 +129,7 @@ export default function BlogPage({ data, pageContext }) {
   const article = posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
- // console.log("all data", filteredData);
+  // console.log("all data", filteredData);
   // console.log("posts", posts);
   return (
     <div>
@@ -184,25 +184,26 @@ export default function BlogPage({ data, pageContext }) {
                       <h2 className="related-post-heading">Related Post</h2>
                       <div className="related-slider">
                         <Slider {...settings}>
-                          {filteredData && filteredData.map((item, i) => {
-
-                            return (
-                              <Link className="article-slide"  >
-                                <AllArticleCard
-                                  img={item.node?.Image[0]?.url}
-                                  key={i}
-                                  slug={item?.node?.Slug}
-                                  articleTitle={item.node?.Type}
-                                  articledescription={item?.node?.Content?.data?.Content}
-                                  postedname={item?.node?.Author}
-                                  postdate={item.node?.createdAt}
-                                  cardtitle={item.node?.Title}
-                                //cardprofile={item.node?.user.profileimage?.publicURL}
-                                />
-                              </Link>
-                            );
-                          })}
-
+                          {filteredData &&
+                            filteredData.map((item, i) => {
+                              return (
+                                <Link className="article-slide">
+                                  <AllArticleCard
+                                    img={item.node?.Image[0]?.url}
+                                    key={i}
+                                    slug={item?.node?.Slug}
+                                    articleTitle={item.node?.Type}
+                                    articledescription={
+                                      item?.node?.Content?.data?.Content
+                                    }
+                                    postedname={item?.node?.Author}
+                                    postdate={item.node?.createdAt}
+                                    cardtitle={item.node?.Title}
+                                    //cardprofile={item.node?.user.profileimage?.publicURL}
+                                  />
+                                </Link>
+                              );
+                            })}
                         </Slider>
                       </div>
                     </div>
@@ -210,77 +211,71 @@ export default function BlogPage({ data, pageContext }) {
                 </div>
               </div>
               <div className="most-popular-article">
-                <div className="blog-detail-right-wrap">
-                  <div className="most-polular">
-                    <h1>Most popular</h1>
-                    <div className="popular-wrap-box">
-                      {filteredData.map((item, i) => (
-                        <div className="popular-list">
-                          <Link to={"/blog/" + item?.node?.Slug}>
-                            <MostPopularCard
-                              key={i}
-                              //populartitle={item.node?.category.name}
-                              profilename={item?.node?.Author}
-                              postdate={item?.node?.createdAt}
-                              blogdescription={item.node?.Title}
-                            />
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
+                <div className="most-polular">
+                  <h1>Most popular</h1>
+                  <div className="popular-wrap-box">
+                    {filteredData.map((item, i) => (
+                      <div className="popular-list">
+                        <Link to={"/blog/" + item?.node?.Slug}>
+                          <MostPopularCard
+                            key={i}
+                            //populartitle={item.node?.category.name}
+                            profilename={item?.node?.Author}
+                            postdate={item?.node?.createdAt}
+                            blogdescription={item.node?.Title}
+                          />
+                        </Link>
+                      </div>
+                    ))}
                   </div>
-                  <div className="blog-detail-sidebar-subscribe">
-                    {/* <SubscribeCard /> */}
-                    <form className="contact-right" onSubmit={handleSubmit}>
-                      <div className="contact-form">
-                        <h1>Let’s Build Your Dream App!</h1>
-                        <div className="input-wrap">
-                          <InputBox
-                            type="text"
-                            placeholder={"Full Name"}
-                            className="contact-inputs"
-                            img={userImg}
-                            name="name"
-                          />
-                        </div>
-                        <div className="input-wrap">
-                          <InputBox
-                            type="email"
-                            placeholder={"Email"}
-                            className="contact-inputs"
-                            img={Emailicon}
-                            name="email"
-                          />
-                        </div>
-                        <div className="input-wrap">
-                      <PhoneInput 
-                        placeholder="Enter phone number"
-                        countryCode="+91"
-                        value={phoneNumber}
-                        onChange={setPhoneNumber}
-                        name="phoneNumber" 
+                </div>
+                <div className="blog-detail-sidebar-subscribe">
+                  {/* <SubscribeCard /> */}
+                  <form className="contact-right" onSubmit={handleSubmit}>
+                    <div className="contact-form">
+                      <h1>Let’s Build Your Dream App!</h1>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="text"
+                          placeholder={"Full Name"}
+                          className="contact-inputs"
+                          img={userImg}
+                          name="name"
                         />
                       </div>
-                        <div className="input-wrap">
-                          <textarea
-                            placeholder="Write a message here"
-                            rows={5}
-                            name="message"
-                          ></textarea>
-                          <span className="input-icon">
-                            <img
-                              src={messageimg}
-                              alt="St Logo"
-                              name="message"
-                            />
-                          </span>
-                        </div>
-                        <div className="send-button">
-                          <ButtonBox type="submit" buttonname="Send message" />
-                        </div>
+                      <div className="input-wrap">
+                        <InputBox
+                          type="email"
+                          placeholder={"Email"}
+                          className="contact-inputs"
+                          img={Emailicon}
+                          name="email"
+                        />
                       </div>
-                    </form>
-                  </div>
+                      <div className="input-wrap">
+                        <PhoneInput
+                          placeholder="Enter phone number"
+                          countryCode="+91"
+                          value={phoneNumber}
+                          onChange={setPhoneNumber}
+                          name="phoneNumber"
+                        />
+                      </div>
+                      <div className="input-wrap">
+                        <textarea
+                          placeholder="Write a message here"
+                          rows={5}
+                          name="message"
+                        ></textarea>
+                        <span className="input-icon">
+                          <img src={messageimg} alt="St Logo" name="message" />
+                        </span>
+                      </div>
+                      <div className="send-button">
+                        <ButtonBox type="submit" buttonname="Send message" />
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -317,12 +312,3 @@ export const query = graphql`
     }
   }
 `;
-
-
-
-
-
-
-
-
-

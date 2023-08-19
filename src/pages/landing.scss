@@ -374,6 +374,11 @@
   }
   &.landingSec {
     padding-top: 0;
+    & .sectionHeading {
+      h1 {
+        text-transform: none;
+      }
+    }
   }
 
   .heading-main {
@@ -1021,7 +1026,6 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 160%;
-        text-transform: capitalize;
         color: $black-color;
         text-align: center;
         margin-bottom: 0;
