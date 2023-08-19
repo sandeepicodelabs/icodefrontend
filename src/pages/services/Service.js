@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import "../services.scss";
 import Footer from "../../components/Footer/Footer";
@@ -39,6 +39,12 @@ import "react-phone-input-2/lib/style.css";
 export default function Service({ data, pageContext }) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  useEffect(() => {
+    setTimeout(function () {
+      setModal(true);
+    }, 5000);
+  }, []);
+
   const [phoneNumber, setPhoneNumber] = useState("+91");
 
   const handleOnChange = (value) => {
@@ -251,7 +257,6 @@ export default function Service({ data, pageContext }) {
                         value={phoneNumber}
                         onChange={setPhoneNumber}
                         name="phoneNumber"
-                  
                       />
 
                       {/* <PhoneInput
@@ -291,9 +296,9 @@ export default function Service({ data, pageContext }) {
                           name="message"
                           placeholder="What's your Project about?"
                         />
-                         <span className="input-icon">
-                    <img src={messageimg} alt="St Logo" name="message" />
-                  </span>
+                        <span className="input-icon">
+                          <img src={messageimg} alt="St Logo" name="message" />
+                        </span>
                       </div>
                     )}
 
@@ -412,9 +417,7 @@ export default function Service({ data, pageContext }) {
             </section>
           </div>
           <section className="faq-section">
-            <div className="contentWidth">
-              {/* <FAQ /> */}
-            </div>
+            <div className="contentWidth">{/* <FAQ /> */}</div>
           </section>
         </div>
         <Footer />
