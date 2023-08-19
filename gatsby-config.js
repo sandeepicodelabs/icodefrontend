@@ -37,13 +37,12 @@ const strapiConfig = {
           image: "*",
           images: "*",
           TopImage: "*",
-           
+
           Titleservice: {
             populate: {
               servicedescription: "*",
               TImage: "*",
             },
-            
           },
           ToolService: {
             populate: {
@@ -58,14 +57,14 @@ const strapiConfig = {
           },
           ExpertiseImage: {
             populate: {
-              url: "*"
-            }
+              url: "*",
+            },
           },
           ServiceImage: {
             populate: {
-              url: "*"
-            }
-          }
+              url: "*",
+            },
+          },
         },
       },
     },
@@ -172,8 +171,8 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sass",
-    `gatsby-plugin-modal-routing`, 
-   
+    `gatsby-plugin-modal-routing`,
+
     {
       resolve: "gatsby-source-strapi",
       options: {
@@ -192,6 +191,3 @@ module.exports = {
     // },
   ],
 };
-
-
-
