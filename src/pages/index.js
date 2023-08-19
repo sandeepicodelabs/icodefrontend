@@ -50,21 +50,47 @@ const IndexPage = ({ data }) => {
   const ourApproaches = data?.allStrapiOurapproache.edges;
 
   const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const handleOnChange = (value) => {
     // Handle the value change
     // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
 
+  
+  
+  const validateName = (name) => {
+    return name.trim() !==" ";
+  };
+
+  const validateEmail = (email) => {
+    // Use a simple regex for basic email validation
+    const emailPattern =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$/;
+    return emailPattern.test(email);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+      // Validate the required fields
+      if (!validateName(name)) {
+        setName("Name is required");
+        return;
+      }
+  
+      if (!validateEmail(email)) {
+        setEmail("Please enter a valid email address");
+        return;
+      }
+
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
     const contactData = {
       data: {
-        Name: formData.get("name"),
-        Email: formData.get("email"),
+         name : formData.get("name"),
+         email :formData.get("email"),
         Message: formData.get("message"),
         MobileNo: phoneNumber,
       },
@@ -94,6 +120,8 @@ const IndexPage = ({ data }) => {
         // Optionally, you can show an error message here or handle the error gracefully
       });
     setPhoneNumber("+91");
+    setName("");
+    setEmail("");
     e.target.reset();
   };
 
@@ -661,9 +689,10 @@ const IndexPage = ({ data }) => {
                     placeholder={"Full Name"}
                     className="contact-inputs"
                     img={userImg}
-                    name="name"
-                    required
-                  />
+                    name="name"  
+                   
+                  />  
+                {name && <p className="error-message">{name}</p>}
                 </div>
                 <div className="input-wrap">
                   <InputBox
@@ -672,7 +701,9 @@ const IndexPage = ({ data }) => {
                     className="contact-inputs"
                     img={Emailicon}
                     name="email"
+                    required
                   />
+                   {email && <p className="error-message">{email}</p>}
                 </div>
                 <div className="input-wrap">
                   <PhoneInput
