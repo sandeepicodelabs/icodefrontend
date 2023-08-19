@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Header from "../../components/Header/Header";
 import companyaboutimg from "../../assets/images/companyabout.png";
 import Footer from "../../components/Footer/Footer";
@@ -13,6 +13,9 @@ import delivery from "../../assets/images/target.svg";
 import Popup from "../../components/Popup/Modal";
 
 export default function Aboutus() {
+  useEffect(()=>{
+    typeof window!="undefined" && window.scrollTo(0,0);
+    },[]);
   return (
     <>
       <Header />

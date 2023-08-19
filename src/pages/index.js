@@ -67,6 +67,10 @@ const IndexPage = ({ data }) => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
 
+  useEffect(()=>{
+  typeof window!="undefined" && window.scrollTo(0,0);
+  },[]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Footer from "../../components/Footer/Footer";
@@ -25,6 +25,10 @@ export default function Blog({ data, pageContext }) {
   const { pageInfo } = allStrapiArticle; 
   const [phoneNumber, setPhoneNumber] = useState("+91");
 
+
+  useEffect(()=>{
+    typeof window!="undefined" && window.scrollTo(0,0);
+    },[]);
   const handleOnChange = (value) => {
     // Handle the value change
    // console.log("New phone number:", value);
@@ -111,7 +115,7 @@ export default function Blog({ data, pageContext }) {
     <>
       <section className="blog-box">
         <Header />
-        <Popup/>
+        
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box contentWidth">
           <div className="article-main-box">

@@ -45,6 +45,8 @@ export default function Service({ data, pageContext }) {
     setTimeout(function () {
       setModal(true);
     }, 10000);
+  
+    typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []);
 
   const [phoneNumber, setPhoneNumber] = useState("+91");

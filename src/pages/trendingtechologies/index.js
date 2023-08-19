@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Header from "../../components/Header/Header";
 import satisfactionGuaranteed from "../../assets/images/satisfaction-guaranteed.png";
 import QualityCode from "../../assets/images/quality-code.png";
@@ -13,6 +13,10 @@ import "../trendingtechologies.scss";
 import StackToolsCard from "../../components/Cards/StackToolsCard";
 
 export default function ExpertiseCard({ data, props, pageContext }) {
+
+  useEffect(()=>{
+    typeof window!="undefined" && window.scrollTo(0,0);
+    },[]);
   const technologycard = data && data?.allStrapiTechnology?.edges;
   const jointTechs = data?.allStrapiJointeche?.edges;
   const technology = technologycard.find((item) => {

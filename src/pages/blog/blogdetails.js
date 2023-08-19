@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Chronologyimg from "../../assets/images/Chronology.png";
@@ -62,6 +62,10 @@ const settings = {
 
 export default function BlogPage({ data, pageContext }) {
   const [phoneNumber, setPhoneNumber] = useState("+91");
+
+  useEffect(()=>{
+    typeof window!="undefined" && window.scrollTo(0,0);
+    },[]);
 
   const handleOnChange = (value) => {
     // Handle the value change
@@ -136,7 +140,7 @@ export default function BlogPage({ data, pageContext }) {
     <div>
       <section className="blog-detail-box">
         <Header />
-        <Popup/>
+        
         <HeaderBar currentpage="Blog" pagetitle={article?.node?.Title} />
         <div className="cover-full-box contentWidth">
           <div className="article-main-box">
