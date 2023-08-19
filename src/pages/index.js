@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
