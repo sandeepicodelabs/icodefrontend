@@ -19,12 +19,14 @@ body.active-modal {
   bottom: 0;
   position: fixed;
   z-index: 9;
-  background: rgb(0 0 0 / 40%);
+  background: rgb(0 0 0 / 50%);
+  backdrop-filter: blur(3px);
 }
 
 .overlay,
 .show {
-  background: rgb(0 0 0 / 40%);
+  background: rgb(0 0 0 / 50%);
+  backdrop-filter: blur(3px);
 }
 .modal-dialog {
   width: 100%;
@@ -34,6 +36,8 @@ body.active-modal {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .modal-content {
   position: relative;
