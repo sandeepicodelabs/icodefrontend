@@ -41,6 +41,7 @@ import VendorTree from "../assets/images/portfolio/VendorTree.png";
 
 import "./style.scss";
 import ReactTyped from "react-typed";
+import Popup from "../components/Popup/Modal";
 
 const IndexPage = ({ data }) => {
   const companylogo = data?.allStrapiCompanyLogo?.edges;
@@ -288,6 +289,7 @@ const IndexPage = ({ data }) => {
   return (
     <div className="pageWrapper">
       <Header />
+      <Popup/>
       <section className="heroSection">
         <div className="cover-background">
           <div className="contentWidth">
@@ -312,12 +314,12 @@ const IndexPage = ({ data }) => {
                 typeSpeed={50}
                 backSpeed={50}
                 strings={[
+                  "React Native Development",
+                  "MEAN/MERN Stack Development",
+                  "Sharetribe Web Development",
+                  "JAM Stack Development", 
                   "Flutter App Development",
                   "Angular Development",
-                  "MEAN Stack Development",
-                  "MERN Stack Development",
-                  "JAM Stack Development",
-                  "React Native Development",
                 ]}
                 smartBackspace
                 shuffle={false}

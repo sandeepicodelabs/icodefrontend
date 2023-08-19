@@ -10,11 +10,13 @@ import lowCost from "../../assets/images/SmoothandEffortlessDelivery.svg";
 import pioneerSolution from "../../assets/images/pioneer-solution.svg";
 import relationship from "../../assets/images/relationship.svg";
 import delivery from "../../assets/images/target.svg";
+import Popup from "../../components/Popup/Modal";
 
 export default function Aboutus() {
   return (
     <>
       <Header />
+      <Popup/>
       <section className="service-hero-section">
         <div className="contentWidth">
           <div className="service-hero-content ">

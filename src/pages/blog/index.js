@@ -16,6 +16,7 @@ import axios from "axios";
 import bigInt from "big-integer";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import Popup from "../../components/Popup/Modal";
 
 
 export default function Blog({ data, pageContext }) {
@@ -110,6 +111,7 @@ export default function Blog({ data, pageContext }) {
     <>
       <section className="blog-box">
         <Header />
+        <Popup/>
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box contentWidth">
           <div className="article-main-box">

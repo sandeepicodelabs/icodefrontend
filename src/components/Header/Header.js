@@ -68,6 +68,11 @@ const Header = () => {
               </a>
             </div> */}
             <div className="navlink">
+              <a onClick={toggle} href="/projectlist">
+                Portfolio
+              </a>
+            </div> 
+            <div className="navlink">
               <a onClick={toggle} href="/aboutus">
                 About Us
               </a>

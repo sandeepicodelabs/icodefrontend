@@ -14,6 +14,8 @@ import commaimage from "../../assets/images/comma.png";
 import userImg from "../../assets/images/user.png";
 import Emailicon from "../../assets/images/email.png";
 import messageimg from "../../assets/images/message.png";
+import linkicon from "../../assets/images/link.png"
+
 import {
   Button,
   Form,
@@ -42,7 +44,7 @@ export default function Service({ data, pageContext }) {
   useEffect(() => {
     setTimeout(function () {
       setModal(true);
-    }, 5000);
+    }, 10000);
   }, []);
 
   const [phoneNumber, setPhoneNumber] = useState("+91");
@@ -285,7 +287,7 @@ export default function Service({ data, pageContext }) {
                           placeholder={"Website Url"}
                           className="contact-inputs"
                           name="url"
-                          img={Emailicon}
+                          img={linkicon}
                         />
                       </div>
                     ) : (

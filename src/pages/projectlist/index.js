@@ -6,14 +6,16 @@ import Footer from "../../components/Footer/Footer";
 import ProjectListCard from "../../components/Cards/projectcard";
 import { graphql } from "gatsby";
 import "../projectList.scss";
+import Modal from "../../components/Popup/Modal";
 
 export default function ProjectList({ data }) {
   const projectlist = data?.allStrapiProjectList?.edges;
-  //console.log('projectlist',projectlist)
+  console.log('projectlist',projectlist)
 
   return (
     <div className="project-list-page">
       <Header />
+     {/* // <Modal/> */}
       <div className="project-wrap-box">
         <section className="service-hero-section">
           <div className="contentWidth">
@@ -50,7 +52,7 @@ export default function ProjectList({ data }) {
               {projectlist?.map((item, i) => (
                 <ProjectListCard
                   key={i}
-                  img={item?.node?.Image?.url}
+                  img={item?.node?.Image[0]?.url}
                   boxList={item?.node?.Boxlist.boxlist}
                 />
               ))}

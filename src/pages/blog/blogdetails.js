@@ -21,6 +21,7 @@ import axios from "axios";
 import bigInt from "big-integer";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import Popup from "../../components/Popup/Modal";
 
 const settings = {
   dots: false,
@@ -135,6 +136,7 @@ export default function BlogPage({ data, pageContext }) {
     <div>
       <section className="blog-detail-box">
         <Header />
+        <Popup/>
         <HeaderBar currentpage="Blog" pagetitle={article?.node?.Title} />
         <div className="cover-full-box contentWidth">
           <div className="article-main-box">
