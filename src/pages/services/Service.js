@@ -413,7 +413,7 @@ export default function Service({ data, pageContext }) {
           </div>
           <section className="faq-section">
             <div className="contentWidth">
-              <FAQ />
+              {/* <FAQ /> */}
             </div>
           </section>
         </div>

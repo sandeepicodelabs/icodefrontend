@@ -12,7 +12,7 @@ export default function testimonialcard(props) {
           <div className="testimonial-message">{testimonialmessage}</div>
           <div className="testimonial-profile">
             <div className="testimonial-detail">
-              <img src={img} alt="St Logo" />
+              {/* <img src={img} alt="St Logo" /> */}
               <div className="testimonial-data">
                 <h5>{clientname}</h5>
                 <p>{clientaddress}</p>
