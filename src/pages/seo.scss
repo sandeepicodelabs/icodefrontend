@@ -37,14 +37,19 @@
               text-align: left;
               padding: 10px;
               color: $white-color;
-              font-size: 14px;
+              font-size: 18px;
               font-weight: 500;
               background-color: $base-color;
+              width: calc(100% / 4);
+              &:first-child {
+                width: calc(100% / 3);
+              }
               @include lg {
                 padding: 20px;
-                font-size: 16px;
+                font-size: 24px;
                 font-weight: 600;
               }
+
               .pricePlan {
                 color: $white-color;
                 & > h3 {
