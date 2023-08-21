@@ -269,7 +269,7 @@ export default function BlogPage({ data, pageContext }) {
                       </div>
                       <div className="input-wrap">
                         <textarea
-                          placeholder="Write a message here"
+                          placeholder="What's your Project about?"
                           rows={5}
                           name="message"
                         ></textarea>

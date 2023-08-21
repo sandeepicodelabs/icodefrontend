@@ -74,10 +74,15 @@ const IndexPage = ({ data }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newErrors = {};
-    if (name.trim() === "") {
-      newErrors.name = "Name is required";
-    }
+    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
+  
+    const newErrors = {}; 
+     if (name.trim() === "") {
+    newErrors.name = "Name is required";
+  } else if (!namePattern.test(name)) {
+    newErrors.name = "Please enter a valid name with alphabetic characters.";
+  }
+    
     if (email.trim() === "") {
       newErrors.email = "Please enter email address";
     }
@@ -102,7 +107,8 @@ const IndexPage = ({ data }) => {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}&email=${email}
+        &message=${message}&phoneNumber=${phoneNumber}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);

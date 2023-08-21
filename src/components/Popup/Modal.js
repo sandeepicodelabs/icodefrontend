@@ -28,12 +28,15 @@ function Popup({data,pageContext}) {
     const servicedata = data && data?.allStrapiServiceDetail?.edges;
     const detail = servicedata?.find((item) => {
       return item?.node?.Slug === pageContext.service?.node?.Slug;
-    });
+    }); 
 
-
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("+91");
+    const [message, setMessage] = useState("");
+    const [errors, setErrors] = useState({});
     const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal); 
-  const [phoneNumber, setPhoneNumber] = useState("+91");
+    const toggle = () => setModal(!modal);  
 
 
     useEffect(() => {
@@ -43,56 +46,72 @@ function Popup({data,pageContext}) {
     }, []);
 
     const handleOnChange = (value) => {
-        // Handle the value change
-        // console.log("New phone number:", value);
+        // Handle the value change 
         setPhoneNumber(value);
       };
 
       // for enquiry form
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Get the form data from the event target
-    const formData = new FormData(e.target);
-    console.log(formData, "formData");
-    const contactData = {
-      data: {
-        Name: formData.get("name"),
-        Email: formData.get("email"),
-        Message: formData.get("message"),
-        MobileNo: phoneNumber,
-        Title: formData.get("title"),
-        Url: formData.get("url"),
-      },
-    };
-    console.log(contactData, "contactData");
-    // Make the POST request to your Strapi backend
-    axios
-      .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get(
-          "message"
-        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get(
-          "url"
-        )}`
-      )
-      .then(async (response) => {
-        console.log("Form data sent successfully:", response);
-        return axios.post(
-          "https://icodelabsbackend.onrender.com/api/contact-uses",
-          contactData
-        );
-      })
-      .then((response2) => {
-        console.log(response2, "response2");
-      })
-      .catch((error) => {
-        console.log("Error sending form data:", error);
-        // Optionally, you can show an error message here or handle the error gracefully
-      });
-    setPhoneNumber("+91");
-    e.target.reset();
-  };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
+      
+        const newErrors = {}; 
+         if (name.trim() === "") {
+        newErrors.name = "Name is required";
+      } else if (!namePattern.test(name)) {
+        newErrors.name = "Please enter a valid name with alphabetic characters.";
+      }
+        
+        if (email.trim() === "") {
+          newErrors.email = "Please enter email address";
+        }
+    
+        if (Object.keys(newErrors).length > 0) {
+          setErrors(newErrors);
+          return;
+        }
+    
+        // Get the form data from the event target
+        const formData = new FormData(e.target);
+        console.log(formData, "formData");
+        const contactData = {
+          data: {
+            name: name,
+            email: email,
+            Message: message,
+            MobileNo: phoneNumber,
+          },
+        };
+        console.log(contactData, "contactData");
+        // Make the POST request to your Strapi backend
+        axios
+          .get(
+            `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}`
+          )
+          .then(async (response) => {
+            console.log("Form data sent successfully:", response);
+            return axios.post(
+              "https://icodelabsbackend.onrender.com/api/contact-uses",
+              contactData
+            );
+          })
+          .then((response2) => {
+            console.log(response2, "response2");
+          })
+          .catch((error) => {
+            console.log("Error sending form data:", error);
+            // Optionally, you can show an error message here or handle the error gracefully
+          });
+    
+        // Clear the form
+        setName("");
+        setEmail("");
+        setPhoneNumber("");
+        setMessage("");
+        setErrors({});
+      };
+    
   return (
     <div>
           {modal && (
@@ -109,7 +128,11 @@ function Popup({data,pageContext}) {
                         className="contact-inputs"
                         name="name"
                         img={userImg}
-                      />
+                        onChange={(e) => setName(e.target.value)}
+                        />
+                        {errors.name && (
+                          <p className="error-message">{errors.name}</p>
+                        )}
                     </div>
                     <div className="input-wrap">
                       <InputBox
@@ -118,7 +141,11 @@ function Popup({data,pageContext}) {
                         className="contact-inputs"
                         name="email"
                         img={Emailicon}
-                      />
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+                        {errors.email && (
+                          <p className="error-message">{errors.email}</p>
+                        )}
                     </div>
                     <div className="input-wrap">
                       <PhoneInput
