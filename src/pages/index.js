@@ -52,7 +52,7 @@ import thebillets from "../assets/images/portfolioslider/thebillets.png";
 import "./style.scss";
 import ReactTyped from "react-typed";
 import Popup from "../components/Popup/Modal"; 
-import { SEO } from "../components/Seo/SEO";
+// import { SEO } from "../components/Seo/SEO";
 
 const IndexPage = ({ data }) => {
       
