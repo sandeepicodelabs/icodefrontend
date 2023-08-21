@@ -27,7 +27,7 @@ const Header = () => {
       link: `/services/${item?.node?.Slug}`,
     };
   });
- 
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -78,6 +78,11 @@ const Header = () => {
               </a>
             </div>{" "}
             <div className="navlink">
+              <a onClick={toggle} href="/seoPackages">
+                Seo Packages
+              </a>
+            </div>{" "}
+            <div className="navlink">
               <a onClick={toggle} href="/contact">
                 Contact Us
               </a>
@@ -108,13 +113,6 @@ const Header = () => {
       </div>
     </header>
   );
-}; 
+};
 
 export default Header;
-
-
-
-
-
-
-

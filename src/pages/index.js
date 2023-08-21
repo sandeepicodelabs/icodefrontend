@@ -37,18 +37,18 @@ import Mesahat from "../assets/images/portfolio/Mesahat.png";
 import ShopRove from "../assets/images/portfolio/ShopRove.png";
 import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
 //import Taxable from "../assets/images/portfolio/Taxable.png";
-import VendorTree from "../assets/images/portfolio/VendorTree.png"; 
+import VendorTree from "../assets/images/portfolio/VendorTree.png";
 //latest project
-import briller from "../assets/images/portfolioslider/brillr.png"; 
-import Buus from "../assets/images/portfolioslider/Buus.png"  
-import insightgig from  "../assets/images/portfolioslider/Insightgig.png"
-import lafig from "../assets/images/portfolioslider/lafig.png"
-import pinktada from"../assets/images/portfolioslider/pinktada.png"
-import poopsekl from "../assets/images/portfolioslider/Popseekl.png"
-import smarthire from "../assets/images/portfolioslider/smarthire.png"
-import Taxable from "../assets/images/portfolioslider/Taxable.png"
-import thebillets from "../assets/images/portfolioslider/thebillets.png"
- 
+import briller from "../assets/images/portfolioslider/brillr.png";
+import Buus from "../assets/images/portfolioslider/Buus.png";
+import insightgig from "../assets/images/portfolioslider/Insightgig.png";
+import lafig from "../assets/images/portfolioslider/lafig.png";
+import pinktada from "../assets/images/portfolioslider/pinktada.png";
+import poopsekl from "../assets/images/portfolioslider/Popseekl.png";
+import smarthire from "../assets/images/portfolioslider/smarthire.png";
+import Taxable from "../assets/images/portfolioslider/Taxable.png";
+import thebillets from "../assets/images/portfolioslider/thebillets.png";
+
 import "./style.scss";
 import ReactTyped from "react-typed";
 import Popup from "../components/Popup/Modal";
@@ -67,9 +67,9 @@ const IndexPage = ({ data }) => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
 
-  useEffect(()=>{
-  typeof window!="undefined" && window.scrollTo(0,0);
-  },[]);
+  useEffect(() => {
+    typeof window != "undefined" && window.scrollTo(0, 0);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -303,7 +303,7 @@ const IndexPage = ({ data }) => {
   return (
     <div className="pageWrapper">
       <Header />
-      <Popup/>
+      <Popup />
       <section className="heroSection">
         <div className="cover-background">
           <div className="contentWidth">
@@ -323,15 +323,14 @@ const IndexPage = ({ data }) => {
             <div className="cover-stack-heading">
               <img src={meanstack} alt="St Logo" />
               <ReactTyped
-                // typedRef={typedRef()}
                 loop
-                typeSpeed={50}
-                backSpeed={50}
+                typeSpeed={70}
+                backSpeed={70}
                 strings={[
                   "React Native Development",
                   "MEAN/MERN Stack Development",
                   "Sharetribe Web Development",
-                  "JAM Stack Development", 
+                  "JAM Stack Development",
                   "Flutter App Development",
                   "Angular Development",
                 ]}
@@ -589,13 +588,13 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="work-slider">
               <Slider {...workSlider}>
-                 <div className="work-slider-item">
+                <div className="work-slider-item">
                   <img
                     className="work-item work-item-1"
                     src={briller}
                     data-index="1"
                   />
-                </div>  
+                </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-2"
