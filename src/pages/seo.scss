@@ -1,0 +1,86 @@
+@import "../styles/customMediaQueries.scss";
+@import "../styles/variables.scss";
+.seoPlanSec {
+  background-color: $light-bg;
+  padding: 24px;
+  @include lg {
+    padding: 50px 24px;
+  }
+
+  & .contentWidth {
+    background-color: $white-color;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: $box-shadow;
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      color: $base-color;
+      margin: 0 0 30px 0;
+      @include lg {
+        font-size: 30px;
+      }
+    }
+    .secoTable {
+      overflow-x: auto;
+      width: 100%;
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        border: solid 1px $border-color;
+        min-width: 1000px;
+        thead {
+          tr {
+            th {
+              text-align: left;
+              padding: 10px;
+              color: $white-color;
+              font-size: 14px;
+              font-weight: 500;
+              background-color: $base-color;
+              @include lg {
+                padding: 20px;
+                font-size: 16px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:not(:last-child) {
+              border-bottom: solid 1px $border-color;
+            }
+            td {
+              text-align: left;
+              padding: 10px;
+              color: $black-color;
+              font-size: 14px;
+              @include lg {
+                padding: 20px;
+              }
+              & > strong {
+                font-weight: 600;
+              }
+              &.sectionHeading {
+                background-color: $light-bg;
+                padding: 10px 20px;
+                h2 {
+                  font-size: 16px;
+                  font-weight: 600;
+                  text-align: center;
+                  color: $black-color;
+                  @include lg {
+                    font-size: 18px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

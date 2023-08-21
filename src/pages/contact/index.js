@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import ButtonBox from "../../components/button";
@@ -12,27 +12,27 @@ import "../contact.scss";
 import mapboxgl from "!mapbox-gl"; // Note the exclamation mark before "mapbox-gl" to avoid Webpack bundling issues
 import { Link } from "gatsby";
 import axios from "axios";
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [message, setMessage] = useState("");
-  const[title,setTitle]=useState("")
+  const [title, setTitle] = useState("");
   const [errors, setErrors] = useState({});
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
-  
-    const newErrors = {}; 
-     if (name.trim() === "") {
-    newErrors.name = "Name is required";
-  } else if (!namePattern.test(name)) {
-    newErrors.name = "Please enter a valid name with alphabetic characters.";
-  }
-    
+
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
     if (email.trim() === "") {
       newErrors.email = "Please enter email address";
     }
@@ -42,17 +42,16 @@ export default function ContactPage() {
       return;
     }
 
-
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
     const contactData = {
       data: {
-        name:name,
-        email:email,
-        Message:message,
-        MobileNo:phoneNumber,
-        Title:title,
+        name: name,
+        email: email,
+        Message: message,
+        MobileNo: phoneNumber,
+        Title: title,
       },
     };
     console.log(contactData, "contactData");
@@ -78,29 +77,29 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-       // Clear the form
+    // Clear the form
     setName("");
     setEmail("");
     setPhoneNumber("");
     setMessage("");
     setTitle("");
     setErrors({});
-    
   };
 
   useEffect(() => {
+    typeof window != "undefined" && window.scrollTo(0, 0);
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYXRhbDI1IiwiYSI6ImNsazZzaTlpeDAxZGUzZXBoN2tkdGtwZjUifQ.fY8VAIrCr371iMHsf4eKyQ"; // Replace with your Mapbox access token
 
     const map = new mapboxgl.Map({
       container: "st_google_map",
       style: "mapbox://styles/mapbox/streets-v11", // Replace with the desired map style URL
-      center: [76.6862, 30.7100], // Longitude, Latitude
+      center: [76.6862, 30.71], // Longitude, Latitude
       zoom: 15,
     });
- 
+
     // Optional: Add markers or any other map-related customization
-    new mapboxgl.Marker().setLngLat([76.6862, 30.7100]).addTo(map);
+    new mapboxgl.Marker().setLngLat([76.6862, 30.71]).addTo(map);
     // Cleanup the map instance when the component unmounts
     return () => map.remove();
   }, []);
@@ -128,10 +127,10 @@ export default function ContactPage() {
                         className="contact-input"
                         name="name"
                         onChange={(e) => setName(e.target.value)}
-                        />
-                        {errors.name && (
-                          <p className="error-message">{errors.name}</p>
-                        )}
+                      />
+                      {errors.name && (
+                        <p className="error-message">{errors.name}</p>
+                      )}
                     </div>
                     <div className="form-main-group">
                       <label>Your Email</label>
@@ -140,12 +139,11 @@ export default function ContactPage() {
                         className="contact-input"
                         name="email"
                         onChange={(e) => setEmail(e.target.value)}
-                        />
-                        {errors.email && (
-                          <p className="error-message">{errors.email}</p>
-                        )}
+                      />
+                      {errors.email && (
+                        <p className="error-message">{errors.email}</p>
+                      )}
                     </div>
-                    
                   </div>
                   <div className="form-row-box">
                     <div className="form-main-group">
@@ -158,15 +156,14 @@ export default function ContactPage() {
                     </div>
                     <div className="form-main-group">
                       <label>Mobile No.</label>
-                      <PhoneInput 
+                      <PhoneInput
                         placeholder="Enter phone number"
                         countryCode="+91"
                         value={phoneNumber}
                         onChange={setPhoneNumber}
-                        name="phoneNumber" 
-                        />
+                        name="phoneNumber"
+                      />
                     </div>
-                    
                   </div>
 
                   <div className="form-main-group">
@@ -192,7 +189,8 @@ export default function ContactPage() {
                           <img src={contactLocation} alt="st logo" />
                         </div>
                         <span>
-                        D-176, Phase 8B, Industrial Area, Sector 74, Sahibzada Ajit Singh Nagar, Punjab 160055
+                          D-176, Phase 8B, Industrial Area, Sector 74, Sahibzada
+                          Ajit Singh Nagar, Punjab 160055
                         </span>
                       </li>
                       <li>

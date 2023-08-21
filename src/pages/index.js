@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { graphql,Link } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
 import companyaboutimg from "../assets/images/companyabout.png";
@@ -37,18 +37,18 @@ import Mesahat from "../assets/images/portfolio/Mesahat.png";
 import ShopRove from "../assets/images/portfolio/ShopRove.png";
 import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
 //import Taxable from "../assets/images/portfolio/Taxable.png";
-import VendorTree from "../assets/images/portfolio/VendorTree.png"; 
+import VendorTree from "../assets/images/portfolio/VendorTree.png";
 //latest project
-import briller from "../assets/images/portfolioslider/brillr.png"; 
-import Buus from "../assets/images/portfolioslider/Buus.png"  
-import insightgig from  "../assets/images/portfolioslider/Insightgig.png"
-import lafig from "../assets/images/portfolioslider/lafig.png"
-import pinktada from"../assets/images/portfolioslider/pinktada.png"
-import poopsekl from "../assets/images/portfolioslider/Popseekl.png"
-import smarthire from "../assets/images/portfolioslider/smarthire.png"
-import Taxable from "../assets/images/portfolioslider/Taxable.png"
-import thebillets from "../assets/images/portfolioslider/thebillets.png"
- 
+import briller from "../assets/images/portfolioslider/brillr.png";
+import Buus from "../assets/images/portfolioslider/Buus.png";
+import insightgig from "../assets/images/portfolioslider/Insightgig.png";
+import lafig from "../assets/images/portfolioslider/lafig.png";
+import pinktada from "../assets/images/portfolioslider/pinktada.png";
+import poopsekl from "../assets/images/portfolioslider/Popseekl.png";
+import smarthire from "../assets/images/portfolioslider/smarthire.png";
+import Taxable from "../assets/images/portfolioslider/Taxable.png";
+import thebillets from "../assets/images/portfolioslider/thebillets.png";
+
 import "./style.scss";
 import ReactTyped from "react-typed";
 import Popup from "../components/Popup/Modal";
@@ -67,21 +67,21 @@ const IndexPage = ({ data }) => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
 
-  useEffect(()=>{
-  typeof window!="undefined" && window.scrollTo(0,0);
-  },[]);
+  useEffect(() => {
+    typeof window != "undefined" && window.scrollTo(0, 0);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault(); 
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
-  
-    const newErrors = {}; 
-     if (name.trim() === "") {
-    newErrors.name = "Name is required";
-  } else if (!namePattern.test(name)) {
-    newErrors.name = "Please enter a valid name with alphabetic characters.";
-  }
-    
+
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
     if (email.trim() === "") {
       newErrors.email = "Please enter email address";
     }
@@ -300,7 +300,7 @@ const IndexPage = ({ data }) => {
   return (
     <div className="pageWrapper">
       <Header />
-      <Popup/>
+      <Popup />
       <section className="heroSection">
         <div className="cover-background">
           <div className="contentWidth">
@@ -320,15 +320,14 @@ const IndexPage = ({ data }) => {
             <div className="cover-stack-heading">
               <img src={meanstack} alt="St Logo" />
               <ReactTyped
-                // typedRef={typedRef()}
                 loop
-                typeSpeed={20}
-                backSpeed={20}
+                typeSpeed={70}
+                backSpeed={70}
                 strings={[
                   "React Native Development",
                   "MEAN/MERN Stack Development",
                   "Sharetribe Web Development",
-                  "JAM Stack Development", 
+                  "JAM Stack Development",
                   "Digital Marketing | SEO | PPC",
                   "Flutter App Development",
                   "Angular Development",
@@ -381,10 +380,10 @@ const IndexPage = ({ data }) => {
               <span className="line">&nbsp;</span>
             </div>
             <p>
-              iCode Labs is a leading digital solutions provider
-              specializing in Web & Custom Software Development, Mobile App
-              Development (iOS & Android), Marketplace Development, UI/UX
-              Design, Sharetribe Flex, and Digital Marketing services.
+              iCode Labs is a leading digital solutions provider specializing in
+              Web & Custom Software Development, Mobile App Development (iOS &
+              Android), Marketplace Development, UI/UX Design, Sharetribe Flex,
+              and Digital Marketing services.
             </p>
             <p>
               Our team of skilled professionals is dedicated to delivering
@@ -392,8 +391,8 @@ const IndexPage = ({ data }) => {
               businesses of all sizes and budgets. With a focus on adaptation
               and growth, we understand the challenges small businesses face and
               offer tailored solutions to help them succeed in the online
-              marketplace. 
-             <a href="/aboutus">Continue Reading...</a>
+              marketplace.
+              <a href="/aboutus">Continue Reading...</a>
             </p>
           </div>
           <div className="company-images">
@@ -588,13 +587,13 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="work-slider">
               <Slider {...workSlider}>
-                 <div className="work-slider-item">
+                <div className="work-slider-item">
                   <img
                     className="work-item work-item-1"
                     src={briller}
                     data-index="1"
                   />
-                </div>  
+                </div>
                 <div className="work-slider-item">
                   <img
                     className="work-item work-item-2"
