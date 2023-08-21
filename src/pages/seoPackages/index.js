@@ -975,18 +975,18 @@ export default function Seo() {
               <ul>
                 <li>
                   <IconCheckmark />
-                  20+ Years SEO Focussed Company
+                  5+ Years SEO Focussed Company
                 </li>
                 <li>
                   <IconCheckmark />
-                  10+ Internationally Certified SEO Experts
+                  5+ Internationally Certified SEO Experts
                 </li>
                 {/* <li>
                   <IconCheckmark />5 Million + Keywords Optimized
                 </li> */}
                 <li>
                   <IconCheckmark />
-                  20+ Successful SEO Campaigns Delivered
+                5+ Successful SEO Campaigns Delivered
                 </li>
               </ul>
                <div className="accreditedSec">
