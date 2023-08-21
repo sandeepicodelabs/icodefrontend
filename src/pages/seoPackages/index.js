@@ -1086,8 +1086,9 @@ export default function Seo() {
                   <ButtonBox type="submit" buttonname="Submit" />
                 </div>
                 <div className="alternativeContact">
-                  Alternatively you can contact us at: sales@pagetraffic.in * We
-                  don’t share your information with third party.
+                  Alternatively you can contact us at:{" "}
+                  <a href="mailto:sales@icodelabs.co">sales@icodelabs.co</a> *
+                  We don’t share your information with third party.
                 </div>
               </Form>
             </div>

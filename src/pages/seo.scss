@@ -436,7 +436,11 @@
             }
             .alternativeContact {
               color: $white-color;
+              text-align: center;
               font-size: 14px;
+              & > a {
+                color: rgb(255, 120, 0);
+              }
             }
           }
         }
