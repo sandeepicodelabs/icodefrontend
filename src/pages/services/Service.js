@@ -39,6 +39,9 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { SEO } from "../../components/Seo/SEO";
 
+
+
+
 export default function Service({ data, pageContext }) {
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [modal, setModal] = useState(false);
@@ -46,7 +49,8 @@ export default function Service({ data, pageContext }) {
   useEffect(() => {
     setTimeout(function () {
       setModal(true);
-    }, 10000);
+    }, 10000); 
+
 
     typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []); 
@@ -68,6 +72,8 @@ export default function Service({ data, pageContext }) {
     // console.log(container);
   };
 
+
+  
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
