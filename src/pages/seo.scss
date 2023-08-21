@@ -161,6 +161,10 @@
     }
     .modal-content {
       position: relative;
+      margin-bottom: 24px;
+      @include lg {
+        margin-bottom: 40px;
+      }
       .modal-header {
         position: absolute;
         top: 0;
