@@ -436,6 +436,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
+      
 
       <section id="service">
         <div className="tech-partner">
@@ -746,7 +747,7 @@ const IndexPage = ({ data }) => {
                   ></textarea>
                   <span className="input-icon">
                     <img src={messageimg} alt="St Logo" name="message" />
-                  </span>
+                  </span> 
                 </div>
                 {/* <div className="term-policy">
                   <input type="checkbox" name="vehicle1" value="Bike" />
@@ -812,6 +813,7 @@ export const query = graphql`
       }
     }
 
+
     allStrapiExpertise(sort: { strapi_id: ASC }) {
       edges {
         node {
@@ -854,8 +856,13 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => {
-  return (
-    <SEO title="Web & Mobile App Development | Custom Software Development Company"  description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing." />
-  );
-};
+
+
+
+
+
+// export const Head = () => {
+//   return (
+//     <SEO title="Web & Mobile App Development | Custom Software Development Company"  description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing." />
+//   );
+// };
