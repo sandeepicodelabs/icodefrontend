@@ -37,7 +37,7 @@ import "./Modal.css";
 import InputBox from "../../components/input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { SEO } from "../../components/Seo/SEO";
+import  SEO  from "../../components/Seo/SEO";
 
 
 
@@ -73,7 +73,7 @@ export default function Service({ data, pageContext }) {
   };
 
 
-  
+
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
