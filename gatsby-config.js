@@ -9,7 +9,7 @@ require("dotenv").config({
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const strapiConfig = {
-  apiURL: " https://icodelabsbackend.onrender.com/",
+  apiURL: "https://icodelabsbackend.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
     //"article",
@@ -182,7 +182,21 @@ const strapiConfig = {
   queryLimit: 1000,
 };
 
-module.exports = {
+ 
+
+module.exports = { 
+  siteMetadata: {
+    title: `Web & Mobile App Development | Custom Software Development Company`,
+    siteUrl: "https://icodelabs.com",
+    description: "iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing.",
+    theme_color: {
+      color: '#333333',
+      in_head: false
+    }
+  },
+
+
+
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
