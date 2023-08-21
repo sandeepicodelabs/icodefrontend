@@ -72,8 +72,7 @@ const IndexPage = ({ data }) => {
   }, []);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
+    e.preventDefault(); 
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
 
     const newErrors = {};
@@ -199,15 +198,7 @@ const IndexPage = ({ data }) => {
     ],
   };
 
-  const testimonialCard = [
-    {
-      testimonialmessage:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      img: testimonialPicture,
-      clientname: "Sophia",
-      clientaddress: "Raver fans,uk",
-      commaimage: commaimage,
-    },
+  const testimonialCard = [ 
 
     {
       testimonialmessage:
