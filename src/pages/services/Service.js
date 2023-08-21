@@ -516,6 +516,8 @@ export const query = graphql`
 `;
 
 
+
+
 export const Head = ({data,pageContext}) => {
   //console.log('data', data)
   const servicedata = data && data?.allStrapiServiceDetail?.edges;
