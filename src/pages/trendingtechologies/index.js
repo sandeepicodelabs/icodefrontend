@@ -169,11 +169,7 @@ export const query = graphql`
               Description
             }
           }
-          Metadescription {
-            data {
-              Metadescription
-            }
-          }
+          
           Benefittitle {
             data {
               Benefittitle
