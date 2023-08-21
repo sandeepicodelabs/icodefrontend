@@ -370,10 +370,10 @@
           padding: 24px;
           border-radius: 10px;
           text-align: left;
-          transition: $transiton;
+          transition: $transition;
           &:hover {
             box-shadow: $box-shadow-large;
-            transition: $transiton;
+            transition: $transition;
           }
           h3 {
             font-weight: 600;
@@ -477,10 +477,10 @@
           padding: 20px;
           border-radius: 10px;
           background-color: $white-color;
-          transition: $transiton;
+          transition: $transition;
           border: solid 1px $border-color;
           &:hover {
-            transition: $transiton;
+            transition: $transition;
             box-shadow: $box-shadow-large;
           }
           // &:nth-child(1n) {

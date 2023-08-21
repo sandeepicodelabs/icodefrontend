@@ -2,11 +2,22 @@ import React from "react";
 import "./input.scss";
 
 export default function InputBox(props) {
-  const { type, value, placeholder, className, img, demo, name, onChange } = props;
+  const {
+    type,
+    label,
+    value,
+    placeholder,
+    className,
+    img,
+    demo,
+    name,
+    onChange,
+  } = props;
   //console.log("demo",demo)
   //const isClient = typeof window !== 'undefined';
   return (
     <div className="form-box">
+      <label htmlFor={label}>{label}</label>
       <input
         type={type}
         value={value}

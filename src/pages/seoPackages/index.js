@@ -1,13 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "../seo.scss";
 import Popup from "../../components/Popup/Modal";
+import ButtonBox from "../../components/button";
+import { Button, Form, Modal, ModalBody, ModalHeader } from "reactstrap";
+import InputBox from "../../components/input";
+import PhoneInput from "react-phone-input-2";
+import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
+import IconGreenCheck from "../../components/IconGreenCheck/IconGreenCheck";
+import IconRedCross from "../../components/IconRedCross/IconRedCross";
 
 export default function Seo() {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
   }, []);
+  const [phoneNumber, setPhoneNumber] = useState("+91");
+
+  const handleOnChange = (value) => {
+    // Handle the value change
+    // console.log("New phone number:", value);
+    setPhoneNumber(value);
+  };
+
   return (
     <>
       <Header />
@@ -20,7 +37,6 @@ export default function Seo() {
           </div>
         </div>
       </section>
-
       <section className="seoPlanSec">
         <div className="contentWidth">
           <h1>SEO Packages</h1>
@@ -29,9 +45,30 @@ export default function Seo() {
               <thead>
                 <tr>
                   <th>Packages Price</th>
-                  <th>Essential USD 299/m</th>
-                  <th>Advanced USD 699/m</th>
-                  <th>Millennial USD 1399/m</th>
+                  <th>
+                    Essential USD 299/m <br />
+                    <div className="getQuoteBtnSec">
+                      <Button className="getQuoteBtn" onClick={toggle}>
+                        <span className="rippleEffect">&nbsp;</span> Get a Quote
+                      </Button>
+                    </div>
+                  </th>
+                  <th>
+                    Advanced USD 699/m <br />
+                    <div className="getQuoteBtnSec">
+                      <Button className="getQuoteBtn" onClick={toggle}>
+                        <span className="rippleEffect">&nbsp;</span> Get a Quote
+                      </Button>
+                    </div>
+                  </th>
+                  <th>
+                    Millennial USD 1399/m <br />
+                    <div className="getQuoteBtnSec">
+                      <Button className="getQuoteBtn" onClick={toggle}>
+                        <span className="rippleEffect">&nbsp;</span> Get a Quote
+                      </Button>
+                    </div>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -60,25 +97,43 @@ export default function Seo() {
                   <td>
                     <strong>SEO Strategy and Plan</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Keywords Analysis Report</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Competitor Analysis Report</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -92,89 +147,155 @@ export default function Seo() {
                   <td>
                     <strong>Google Search Console Setup</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Google Analytics Setup & Analysis</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Cross Browser Compatibility Check</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Competitor Backlink Analysis</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Duplicate Content Checking</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Broken Links Check</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Resolve Canonical Error</strong>
                   </td>
-                  <td>____</td>
-                  <td>____</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Onsite blog optimization</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>W3c Validation</strong>
                   </td>
-                  <td>____</td>
-                  <td>&nbsp;</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Website Load Time Checking</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Website Speed Check</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -188,15 +309,23 @@ export default function Seo() {
                   <td>
                     <strong>URL Mapping and Rewriting</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Existing content optimization</strong>
                   </td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>Upto 10 pages</td>
                   <td>Upto 15 pages</td>
                 </tr>
@@ -204,15 +333,23 @@ export default function Seo() {
                   <td>
                     <strong>Robots.txt Optimization</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Check website structure</strong>
                   </td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>Upto 10 pages</td>
                   <td>Upto 15 pages</td>
                 </tr>
@@ -220,9 +357,15 @@ export default function Seo() {
                   <td>
                     <strong>Heading Tag optimization</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -236,7 +379,9 @@ export default function Seo() {
                   <td>
                     <strong>Schema Codes</strong>
                   </td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>Upto 10 pages</td>
                   <td>Upto 15 pages</td>
                 </tr>
@@ -244,9 +389,15 @@ export default function Seo() {
                   <td>
                     <strong>XML Sitemap Creation</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -260,9 +411,15 @@ export default function Seo() {
                   <td>
                     <strong>404 error correction</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td className="sectionHeading" colSpan={4}>
@@ -281,15 +438,23 @@ export default function Seo() {
                   <td>
                     <strong>Social Bookmarking Submission</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Blog Comment</strong>
                   </td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>Upto 10 pages</td>
                   <td>Upto 15 pages</td>
                 </tr>
@@ -297,79 +462,133 @@ export default function Seo() {
                   <td>
                     <strong>Slide Submissions</strong>
                   </td>
-                  <td>____</td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>Upto 15 pages</td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Image Sharing</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Document sharing</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Local Listing submission</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Press Release Submission</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Classified Submission</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Video Creation and Sharing</strong>
                   </td>
-                  <td>YES (only sharing)</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck /> (only sharing)
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Link Building on Competitors backlinks</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Content Marketing</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Guest Blog posting</strong>
                   </td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>1 per month (from 2nd month onwards)</td>
                   <td>2 per month (from 2nd month onwards)</td>
                 </tr>
@@ -377,25 +596,43 @@ export default function Seo() {
                   <td>
                     <strong>Infographic creation & promotion</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Reddit comments</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Search engine submissions</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -409,41 +646,71 @@ export default function Seo() {
                   <td>
                     <strong>Video Promotions</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Blog Submission</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Social Media Post Sharing</strong>
                   </td>
-                  <td>____</td>
-                  <td>____</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Quora Question and Answer</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Article submission</strong>
                   </td>
-                  <td>YES </td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />{" "}
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td className="sectionHeading" colSpan={4}>
@@ -470,7 +737,9 @@ export default function Seo() {
                   <td>
                     <strong>Guest Blog Content (1000 to 2000 words)</strong>
                   </td>
-                  <td>____</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
                   <td>1 (from 2nd month)</td>
                   <td>2 (from 2nd month)</td>
                 </tr>
@@ -483,25 +752,43 @@ export default function Seo() {
                   <td>
                     <strong>Local Search Engine Submissions</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Google My Business Listing</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Bing Business Listing</strong>
                   </td>
-                  <td>&nbsp;</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td className="sectionHeading" colSpan={4}>
@@ -512,33 +799,57 @@ export default function Seo() {
                   <td>
                     <strong>Facebook</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Twitter</strong>
                   </td>
-                  <td>____</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Instagram</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Pinterest</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td className="sectionHeading" colSpan={4}>
@@ -557,47 +868,232 @@ export default function Seo() {
                   <td>
                     <strong>SEO Ranking Reports</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Report of On-Page SEO</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Google Webmaster Report & Analysis</strong>
                   </td>
-                  <td>____</td>
-                  <td>____</td>
-                  <td>YES</td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconRedCross />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Google Analytical Report and Analysis</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
                 <tr>
                   <td>
                     <strong>E-mail/Call/Skype Support</strong>
                   </td>
-                  <td>YES</td>
-                  <td>YES</td>
-                  <td>YES</td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
+                  <td>
+                    <IconGreenCheck />
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <div className="getQuoteSec">
+            <Button onClick={toggle}>
+              <span className="rippleEffect">&nbsp;</span> Get a Quote
+            </Button>
+          </div>
         </div>
-      </section>
+      </section>{" "}
+      {modal && (
+        <Modal modalClassName="getQuoteModal" isOpen={modal} toggle={toggle}>
+          <ModalHeader toggle={toggle}></ModalHeader>
+          <ModalBody>
+            <div className="quoteLeftSec">
+              <h3>NEED AN ANSWER NOW?</h3>
+              <p>GET IN TOUCH TO GET STARTED FASTER</p>
+              <h2>GIVE US A RING</h2>
+              <h1>
+                <a href="tel:+919212521444">+91 92125 21444</a>
+              </h1>
+              <ul>
+                <li>
+                  <IconCheckmark />
+                  20+ Years SEO Focussed Company
+                </li>
+                <li>
+                  <IconCheckmark />
+                  120+ Internationally Certified SEO Experts
+                </li>
+                <li>
+                  <IconCheckmark />5 Million + Keywords Optimized
+                </li>
+                <li>
+                  <IconCheckmark />
+                  10000+ Successful SEO Campaigns Delivered
+                </li>
+              </ul>
+              <div className="accreditedSec">
+                <h2>Accredited By</h2>
+                <ul class="partner_list">
+                  <li>
+                    <img
+                      src="https://www.pagetraffic.in/wp-content/uploads/2022/04/google-partner-withshadow.png"
+                      alt="google-partner"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://www.pagetraffic.in/wp-content/uploads/2022/03/bbb-logo-with-rating.png"
+                      alt="bbb-logo"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://www.pagetraffic.in/wp-content/uploads/2022/03/clutch-full-logo-1.png"
+                      alt="clutch-full-logo"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://www.pagetraffic.in/wp-content/uploads/2022/04/red-herring-asia.png"
+                      alt="red-herring-asia"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="quoteRightSec">
+              <Form className="contact-right">
+                <div className="formHeader">
+                  <h1>Get a free SEO Audit</h1>
+                  <p>
+                    We are ready to help you. Fill out the form below to get
+                    started.
+                  </p>
+                </div>
+                <div className="contact-form">
+                  <div className="input-wrap halfWidth">
+                    <InputBox
+                      type="text"
+                      label="First Name *"
+                      placeholder={""}
+                      className="contact-inputs"
+                      name="name"
+                    />{" "}
+                    <InputBox
+                      label="Last Name"
+                      type="text"
+                      placeholder={"Name"}
+                      className="contact-inputs"
+                      name="name"
+                    />
+                  </div>
+                  <div className="input-wrap halfWidth">
+                    <InputBox
+                      label="What's Your Email? *"
+                      type="email"
+                      placeholder=""
+                      className="contact-inputs"
+                      name="email"
+                    />{" "}
+                    <div className="form-box">
+                      <label htmlFor="phone">What's Your Phone?"</label>
+                      <PhoneInput
+                        placeholder=""
+                        countryCode="+91"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        name="phoneNumber"
+                      />
+                    </div>
+                  </div>
+                  <div className="input-wrap">
+                    <InputBox
+                      label="What's Your Company's Website? *"
+                      type="text"
+                      placeholder=""
+                      className="contact-inputs"
+                      name="company"
+                    />{" "}
+                  </div>
+                  <div className="input-wrap">
+                    <div className="form-box">
+                      <label htmlFor="package">
+                        Package you are interested in: *
+                      </label>
+                      <select name="package" id="package">
+                        <option value="1">Interest 1</option>
+                        <option value="1">Interest 2</option>
+                        <option value="1">Interest 3</option>
+                        <option value="1">Interest 4</option>
+                        <option value="1">Interest 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="input-wrap">
+                    <div className="form-box">
+                      <label htmlFor="package">How Can We Help You? *</label>
+                      <textarea
+                        name="help"
+                        id="help"
+                        cols="30"
+                        rows="10"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div className="send-button">
+                  <ButtonBox type="submit" buttonname="Submit" />
+                </div>
+                <div className="alternativeContact">
+                  Alternatively you can contact us at: sales@pagetraffic.in * We
+                  don’t share your information with third party.
+                </div>
+              </Form>
+            </div>
+          </ModalBody>
+        </Modal>
+      )}
       <Footer />
     </>
   );

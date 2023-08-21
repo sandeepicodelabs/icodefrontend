@@ -79,7 +79,7 @@
       .hire-dev-button {
         background-color: $white-color;
         color: $base-color;
-        transition: $transiton;
+        transition: $transition;
         padding: 10px 24px;
         font-size: 16px;
         white-space: nowrap;
@@ -90,7 +90,7 @@
         &.active {
           background-color: $base-color;
           color: $white-color;
-          transition: $transiton;
+          transition: $transition;
           .rippleEffect {
             border-color: $white-color;
             animation: rippleWhite 2s infinite;
@@ -193,11 +193,11 @@
           font-weight: 600;
           background-color: $white-color;
           border: 1px solid $white-color;
-          transition: $transiton;
+          transition: $transition;
           &:hover {
             background-color: $hover-bg;
             border: 1px solid $hover-bg;
-            transition: $transiton;
+            transition: $transition;
             color: $white-color;
             .rippleEffect {
               border-color: $white-color;

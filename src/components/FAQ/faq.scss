@@ -49,7 +49,7 @@
         .faq-accordian-body {
           padding-top: 0;
           height: 100%;
-          transition: $transiton;
+          transition: $transition;
         }
         .faq-accordian-head {
           border-color: transparent;
@@ -94,7 +94,7 @@
         padding: 20px;
         font-style: normal;
         height: 0;
-        transition: $transiton;
+        transition: $transition;
         & > strong {
           font-weight: 500;
           color: $black-color;

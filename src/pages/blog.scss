@@ -121,10 +121,10 @@
         .all-article-card {
           background-color: $white-color;
           border: solid 1px $border-color;
-          transition: $transiton;
+          transition: $transition;
           &:hover {
             box-shadow: $box-shadow;
-            transition: $transiton;
+            transition: $transition;
             a {
               .all-article-card-box {
                 .all-article-card-data {
