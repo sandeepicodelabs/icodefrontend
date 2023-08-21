@@ -79,7 +79,7 @@ const Header = () => {
             </div>{" "}
             <div className="navlink">
               <a onClick={toggle} href="/seoPackages">
-                Seo Packages
+                SEO Packages
               </a>
             </div>{" "}
             <div className="navlink">

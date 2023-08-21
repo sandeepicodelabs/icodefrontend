@@ -37,6 +37,7 @@ import "./Modal.css";
 import InputBox from "../../components/input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { SEO } from "../../components/Seo/SEO";
 
 export default function Service({ data, pageContext }) {
   const [phoneNumber, setPhoneNumber] = useState("+91");
@@ -419,6 +420,8 @@ export const query = graphql`
           Slug
           TitleMain
           Title
+          Metatitle
+          Metadescription
           TopImage {
             url
           }
@@ -505,3 +508,23 @@ export const query = graphql`
     }
   }
 `;
+
+
+export const Head = ({data,pageContext}) => {
+  //console.log('data', data)
+  const servicedata = data && data?.allStrapiServiceDetail?.edges;
+  const detail = servicedata?.find((item) => {
+    return item?.node?.Slug === pageContext.service?.node?.Slug;
+  });
+  const  HeaderContent =detail || {};
+ // console.log('first', HeaderContent)
+  return (
+    <SEO title={HeaderContent.node.Metatitle} description={HeaderContent.node.Metadescription} />
+  );
+ };
+
+// export const Head = () => {
+//   return (
+//     // <SEO title={}  description={}/>
+//   )
+// }

@@ -10,6 +10,8 @@ import PhoneInput from "react-phone-input-2";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import IconGreenCheck from "../../components/IconGreenCheck/IconGreenCheck";
 import IconRedCross from "../../components/IconRedCross/IconRedCross";
+import seopopup from "../../assets/images/SEO/seo-services-agency.png";
+ 
 
 export default function Seo() {
   const [modal, setModal] = useState(false);
@@ -28,12 +30,12 @@ export default function Seo() {
   return (
     <>
       <Header />
-      <Popup />
+     
       <section className="service-hero-section">
         <div className="contentWidth">
-          <div className="service-hero-content ">
-            <h1>Affordable seo plans for all size business!</h1>
-            <p>Minimum seo contract period: month to month</p>
+          <div className="service-hero-content">
+            <h1>Affordable SEO Packages For All Enterprises To Boost Business Traffic & Revenue</h1>
+            <p>Skyrocket your sales with customisable SEO packages</p>
           </div>
         </div>
       </section>
@@ -91,21 +93,21 @@ export default function Seo() {
                   <td>
                     <strong>Pages Managed</strong>
                   </td>
-                  <td>Upto 10 pages</td>
-                  <td>Upto 25 pages</td>
-                  <td>Upto 50 pages</td>
+                  <td>Upto 10 Pages</td>
+                  <td>Upto 25 Pages</td>
+                  <td>Upto 50 Pages</td>
                 </tr>
                 <tr>
                   <td>
                     <strong>Final Keywords</strong>
                   </td>
                   <td>10 to 20 Keywords</td>
-                  <td>21 to 50 keywords</td>
-                  <td>50 to 100 keywords</td>
+                  <td>21 to 50 Keywords</td>
+                  <td>50 to 100 Keywords</td>
                 </tr>
                 <tr>
                   <td className="sectionHeading" colSpan={4}>
-                    <h2>One-time tasks as On-page Optimization</h2>
+                    <h2>One-Time Tasks As On-Page SEO Optimization</h2>
                   </td>
                 </tr>
                 <tr>
@@ -438,7 +440,7 @@ export default function Seo() {
                 </tr>
                 <tr>
                   <td className="sectionHeading" colSpan={4}>
-                    <h2>Off-page optimization & link building</h2>
+                    <h2>Off-Page SEO Optimization & Link Building</h2>
                   </td>
                 </tr>
                 <tr>
@@ -966,10 +968,10 @@ export default function Seo() {
             <div className="quoteLeftSec">
               <h3>NEED AN ANSWER NOW?</h3>
               <p>GET IN TOUCH TO GET STARTED FASTER</p>
-              <h2>GIVE US A RING</h2>
-              <h1>
+              {/* <h2>GIVE US A RING</h2> */}
+              {/* <h1>
                 <a href="tel:+919212521444">+91 92125 21444</a>
-              </h1>
+              </h1> */}
               <ul>
                 <li>
                   <IconCheckmark />
@@ -977,18 +979,19 @@ export default function Seo() {
                 </li>
                 <li>
                   <IconCheckmark />
-                  120+ Internationally Certified SEO Experts
+                  10+ Internationally Certified SEO Experts
                 </li>
-                <li>
+                {/* <li>
                   <IconCheckmark />5 Million + Keywords Optimized
-                </li>
+                </li> */}
                 <li>
                   <IconCheckmark />
-                  10000+ Successful SEO Campaigns Delivered
+                  20+ Successful SEO Campaigns Delivered
                 </li>
               </ul>
-              <div className="accreditedSec">
-                <h2>Accredited By</h2>
+               <div className="accreditedSec">
+                <img src={seopopup} alt="st logo"/>
+                {/* <h2>Accredited By</h2>
                 <ul class="partner_list">
                   <li>
                     <img
@@ -1014,8 +1017,8 @@ export default function Seo() {
                       alt="red-herring-asia"
                     />
                   </li>
-                </ul>
-              </div>
+                </ul> */}
+              </div> 
             </div>
             <div className="quoteRightSec">
               <Form className="contact-right">
@@ -1077,11 +1080,10 @@ export default function Seo() {
                         Package you are interested in: *
                       </label>
                       <select name="package" id="package">
-                        <option value="1">Interest 1</option>
-                        <option value="1">Interest 2</option>
-                        <option value="1">Interest 3</option>
-                        <option value="1">Interest 4</option>
-                        <option value="1">Interest 5</option>
+                        <option value="1">Essential</option>
+                        <option value="1">Advanced</option>
+                        <option value="1">Millennial</option>
+                        <option value="1">Customize Package</option> 
                       </select>
                     </div>
                   </div>
@@ -1102,7 +1104,7 @@ export default function Seo() {
                 </div>
                 <div className="alternativeContact">
                   Alternatively you can contact us at:{" "}
-                  <a href="mailto:sales@icodelabs.co">sales@icodelabs.co</a> *
+                  <a href="mailto:hello@icodelabs.co">hello@icodelabs.co</a> *
                   We don’t share your information with third party.
                 </div>
               </Form>
