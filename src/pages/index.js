@@ -51,9 +51,12 @@ import thebillets from "../assets/images/portfolioslider/thebillets.png";
 
 import "./style.scss";
 import ReactTyped from "react-typed";
-import Popup from "../components/Popup/Modal";
+import Popup from "../components/Popup/Modal"; 
+import { SEO } from "../components/Seo/SEO";
 
 const IndexPage = ({ data }) => {
+      
+  
   const companylogo = data?.allStrapiCompanyLogo?.edges;
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes;
   const technologyPartners = data?.allStrapiTechnologyPartner?.edges;
@@ -299,8 +302,10 @@ const IndexPage = ({ data }) => {
   };
   return (
     <div className="pageWrapper">
+      {/* <SEO metatitle={"Web & Mobile App Development | Custom Software Development Company"}  metadescription={"iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing."}/> */}
+
       <Header />
-      <Popup />
+      <Popup /> 
       <section className="heroSection">
         <div className="cover-background">
           <div className="contentWidth">
@@ -848,3 +853,9 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => {
+  return (
+    <SEO title="Web & Mobile App Development | Custom Software Development Company"  description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing." />
+  );
+};
