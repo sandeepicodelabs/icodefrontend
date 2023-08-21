@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Header from "../components/Header/Header";
 import ButtonBox from "../components/button";
 import companyaboutimg from "../assets/images/companyabout.png";
@@ -74,10 +74,15 @@ const IndexPage = ({ data }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
+
     const newErrors = {};
     if (name.trim() === "") {
       newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
     }
+
     if (email.trim() === "") {
       newErrors.email = "Please enter email address";
     }
@@ -102,7 +107,8 @@ const IndexPage = ({ data }) => {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}&email=${email}
+        &message=${message}&phoneNumber=${phoneNumber}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -247,14 +253,14 @@ const IndexPage = ({ data }) => {
       commaimage: commaimage,
     },
 
-    {
-      testimonialmessage:
-        "Jay is just incredible! He is a truly a Sharetribe expert and was able to go above and beyond to ensure my project was executed at the highest level while also being extremely efficient and fast. He quickly understands what you’re looking to accomplish and always asks the right questions while presenting different technical approaches we could take for the project. He was a thought partner with me during the project and I truly cannot thank him enough. I needed someone who would be able to quickly jump in to help me work on a prototype I was planning to present and he went above and beyond to make sure everything was great for the meeting. He also helped me understand the power of Sharetribe Flex and the fact that almost any idea is possible with custom code, it’s just about picking the best approach to do it. I 100% highly recommend working with Jay! He’s an awesome freelancer and I’m excited to work with him again on future projects!!",
-      img: testimonialPicture,
-      clientname: "Fatima",
-      clientaddress: "USA",
-      commaimage: commaimage,
-    },
+    // {
+    //   testimonialmessage:
+    //     "Jay is just incredible! He is a truly a Sharetribe expert and was able to go above and beyond to ensure my project was executed at the highest level while also being extremely efficient and fast. He quickly understands what you’re looking to accomplish and always asks the right questions while presenting different technical approaches we could take for the project. He was a thought partner with me during the project and I truly cannot thank him enough. I needed someone who would be able to quickly jump in to help me work on a prototype I was planning to present and he went above and beyond to make sure everything was great for the meeting. He also helped me understand the power of Sharetribe Flex and the fact that almost any idea is possible with custom code, it’s just about picking the best approach to do it. I 100% highly recommend working with Jay! He’s an awesome freelancer and I’m excited to work with him again on future projects!!",
+    //   img: testimonialPicture,
+    //   clientname: "Fatima",
+    //   clientaddress: "USA",
+    //   commaimage: commaimage,
+    // },
   ];
 
   const testimonialslide = {
@@ -331,6 +337,7 @@ const IndexPage = ({ data }) => {
                   "MEAN/MERN Stack Development",
                   "Sharetribe Web Development",
                   "JAM Stack Development",
+                  "Digital Marketing | SEO | PPC",
                   "Flutter App Development",
                   "Angular Development",
                 ]}
@@ -382,10 +389,10 @@ const IndexPage = ({ data }) => {
               <span className="line">&nbsp;</span>
             </div>
             <p>
-              iCode Labs Solutions is a leading digital solutions provider
-              specializing in Web & Custom Software Development, Mobile App
-              Development (iOS & Android), Marketplace Development, UI/UX
-              Design, Sharetribe Flex, and Digital Marketing services.
+              iCode Labs is a leading digital solutions provider specializing in
+              Web & Custom Software Development, Mobile App Development (iOS &
+              Android), Marketplace Development, UI/UX Design, Sharetribe Flex,
+              and Digital Marketing services.
             </p>
             <p>
               Our team of skilled professionals is dedicated to delivering
@@ -394,6 +401,7 @@ const IndexPage = ({ data }) => {
               and growth, we understand the challenges small businesses face and
               offer tailored solutions to help them succeed in the online
               marketplace.
+              <a href="/aboutus">Continue Reading...</a>
             </p>
           </div>
           <div className="company-images">
@@ -734,7 +742,7 @@ const IndexPage = ({ data }) => {
                 </div>
                 <div className="input-wrap">
                   <textarea
-                    placeholder="Write a message here"
+                    placeholder="What's your Project about?"
                     rows={5}
                     name="message"
                     value={message}

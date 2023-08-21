@@ -16,31 +16,52 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 export default function ContactPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const [errors, setErrors] = useState({});
   const handleSubmit = (e) => {
     e.preventDefault();
+    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
+
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
     const contactData = {
       data: {
-        Name: formData.get("name"),
-        Email: formData.get("email"),
-        Message: formData.get("message"),
+        name: name,
+        email: email,
+        Message: message,
         MobileNo: phoneNumber,
-        Title: formData.get("title"),
+        Title: title,
       },
     };
     console.log(contactData, "contactData");
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get(
-          "message"
-        )}&phoneNumber=${formData.get("phoneNumber")}
-        &title=${formData.get("title")}`
+        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}
+        &email=${email}&message=${message}
+        &phoneNumber=${phoneNumber}
+        &title=${title}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -56,8 +77,13 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-    setPhoneNumber("+91");
-    e.target.reset();
+    // Clear the form
+    setName("");
+    setEmail("");
+    setPhoneNumber("");
+    setMessage("");
+    setTitle("");
+    setErrors({});
   };
 
   useEffect(() => {
@@ -100,7 +126,11 @@ export default function ContactPage() {
                         type="text"
                         className="contact-input"
                         name="name"
+                        onChange={(e) => setName(e.target.value)}
                       />
+                      {errors.name && (
+                        <p className="error-message">{errors.name}</p>
+                      )}
                     </div>
                     <div className="form-main-group">
                       <label>Your Email</label>
@@ -108,7 +138,11 @@ export default function ContactPage() {
                         type="text"
                         className="contact-input"
                         name="email"
+                        onChange={(e) => setEmail(e.target.value)}
                       />
+                      {errors.email && (
+                        <p className="error-message">{errors.email}</p>
+                      )}
                     </div>
                   </div>
                   <div className="form-row-box">
