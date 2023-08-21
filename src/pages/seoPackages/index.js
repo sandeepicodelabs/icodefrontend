@@ -46,7 +46,12 @@ export default function Seo() {
                 <tr>
                   <th>Packages Price</th>
                   <th>
-                    Essential USD 299/m <br />
+                    <div className="pricePlan">
+                      <h3>Essential</h3>
+                      <h2>
+                        <sup>USD</sup> 299/m{" "}
+                      </h2>
+                    </div>
                     <div className="getQuoteBtnSec">
                       <Button className="getQuoteBtn" onClick={toggle}>
                         <span className="rippleEffect">&nbsp;</span> Get a Quote
@@ -54,7 +59,12 @@ export default function Seo() {
                     </div>
                   </th>
                   <th>
-                    Advanced USD 699/m <br />
+                    <div className="pricePlan">
+                      <h3>Advanced</h3>
+                      <h2>
+                        <sup>USD</sup> 699/m{" "}
+                      </h2>
+                    </div>
                     <div className="getQuoteBtnSec">
                       <Button className="getQuoteBtn" onClick={toggle}>
                         <span className="rippleEffect">&nbsp;</span> Get a Quote
@@ -62,7 +72,12 @@ export default function Seo() {
                     </div>
                   </th>
                   <th>
-                    Millennial USD 1399/m <br />
+                    <div className="pricePlan">
+                      <h3>Millennial</h3>
+                      <h2>
+                        <sup>USD</sup> 1399/m{" "}
+                      </h2>
+                    </div>
                     <div className="getQuoteBtnSec">
                       <Button className="getQuoteBtn" onClick={toggle}>
                         <span className="rippleEffect">&nbsp;</span> Get a Quote
