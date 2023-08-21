@@ -39,21 +39,18 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 export default function Service({ data, pageContext }) {
+  const [phoneNumber, setPhoneNumber] = useState("+91");
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   useEffect(() => {
     setTimeout(function () {
       setModal(true);
     }, 10000);
-  
+
     typeof window !== "undefined" && window.scrollTo(0, 0);
-  }, []);
-
-  const [phoneNumber, setPhoneNumber] = useState("+91");
-
+  }, []); 
   const handleOnChange = (value) => {
-    // Handle the value change
-    // console.log("New phone number:", value);
+    // Handle the value change 
     setPhoneNumber(value);
   };
 
@@ -68,7 +65,7 @@ export default function Service({ data, pageContext }) {
 
   const particlesLoaded = (container) => {
     // console.log(container);
-  }; 
+  };
 
   // for enquiry form
   const handleSubmit = (e) => {
@@ -205,9 +202,9 @@ export default function Service({ data, pageContext }) {
                     <span className="rippleEffect">&nbsp;</span> Get Started
                   </Button>
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "innovative-digital-marketing"
-                  ) ? (
+                    window.location.href.includes(
+                      "innovative-digital-marketing"
+                    ) ? (
                     <Button className="freeConsult" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Free Website
                       Analysis
@@ -260,13 +257,13 @@ export default function Service({ data, pageContext }) {
                         value={phoneNumber}
                         onChange={setPhoneNumber}
                         name="phoneNumber"
-                      />  
+                      />
                     </div>
 
                     {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "innovative-digital-marketing"
-                    ) ? (
+                      window.location.href.includes(
+                        "innovative-digital-marketing"
+                      ) ? (
                       <div className="input-wrap">
                         <InputBox
                           type="text"
