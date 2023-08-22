@@ -4,31 +4,16 @@
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-});
-// const sgMail = require('@sendgrid/mail');
-// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
+}); 
 const strapiConfig = {
   apiURL: "https://icodelabsbackend-qr8y.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [
-    //"article",
-    // "company-logo",
-    // "experiences-processe",
-    //"technology-partner",
-    "expert-technologie",
-    //"expertise",
-    "process",
-    //"ourapproache",
-    // "technology",
-    // "jointeche",
-    //"project-list",
-    //"service",
+  collectionTypes: [ 
+    "expert-technologie", 
+    "process", 
     "component-skillset",
     "component-skilltool",
-    "contact-us",
-    // "service-detail",
-
+    "contact-us",  
     {
       singularName: "project-list",
       queryParams: {
@@ -40,10 +25,7 @@ const strapiConfig = {
           },
         },
       },
-    },
-
-    
-
+    }, 
 
     {
       singularName: "service-detail",
@@ -198,10 +180,7 @@ module.exports = {
       color: '#333333',
       in_head: false
     }
-  },
-
-
-
+  }, 
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
@@ -214,16 +193,7 @@ module.exports = {
       options: {
         ...strapiConfig,
       },
-    },
-
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     // The unique name for each instance
-    //     name: `images`,
-    //     // Path to the directory
-    //     path: `${__dirname}/src/assets/images`,
-    //   },
-    // },
+    }, 
+     
   ],
 };

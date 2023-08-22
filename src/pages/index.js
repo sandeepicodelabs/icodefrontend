@@ -27,17 +27,17 @@ import contactimg from "../assets/images/contact-img.png";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-import Lumela from "../assets/images/portfolio/Lumela.png";
-import Branded from "../assets/images/portfolio/Branded.png";
-//import Buus from "../assets/images/portfolio/Buus.png";
-//import EquipmentNow from "../assets/images/portfolio/EquipmentNow.png";
-import GridBid from "../assets/images/portfolio/GridBid.png";
-import kojo from "../assets/images/portfolio/kojo.png";
-import Mesahat from "../assets/images/portfolio/Mesahat.png";
-import ShopRove from "../assets/images/portfolio/ShopRove.png";
-import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
-//import Taxable from "../assets/images/portfolio/Taxable.png";
-import VendorTree from "../assets/images/portfolio/VendorTree.png";
+// import Lumela from "../assets/images/portfolio/Lumela.png";
+// import Branded from "../assets/images/portfolio/Branded.png";
+// //import Buus from "../assets/images/portfolio/Buus.png";
+// //import EquipmentNow from "../assets/images/portfolio/EquipmentNow.png";
+// import GridBid from "../assets/images/portfolio/GridBid.png";
+// import kojo from "../assets/images/portfolio/kojo.png";
+// import Mesahat from "../assets/images/portfolio/Mesahat.png";
+// import ShopRove from "../assets/images/portfolio/ShopRove.png";
+// import SpaceFoundry from "../assets/images/portfolio/SpaceFoundry.png";
+// //import Taxable from "../assets/images/portfolio/Taxable.png";
+// import VendorTree from "../assets/images/portfolio/VendorTree.png";
 //latest project
 import briller from "../assets/images/portfolioslider/brillr.png";
 import Buus from "../assets/images/portfolioslider/Buus.png";
@@ -52,7 +52,8 @@ import thebillets from "../assets/images/portfolioslider/thebillets.png";
 import "./style.scss";
 import ReactTyped from "react-typed";
 import Popup from "../components/Popup/Modal"; 
-import SEO from "../components/Seo/SEO"
+import Head from "../components/Head/Head";
+ 
  
   
 
@@ -308,6 +309,7 @@ const IndexPage = ({ data }) => {
 
       <Header />
       <Popup /> 
+      <Head/>
       <section className="heroSection">
         <div className="cover-background">
           <div className="contentWidth">
@@ -858,8 +860,19 @@ export const query = graphql`
 
 
 
-export const Head = () => {
-  return (
-    <SEO title="Web & Mobile App Development | Custom Software Development Company"  description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing." />
-  );
-};
+// export const Head = () => {
+//   return (
+//     <SEO
+//       title="Web & Mobile App Development | Custom Software Development Company"
+//       description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing."
+//     />
+//   );
+// };
+
+
+
+// export const Head = () => {
+//   return (
+//     <SEO title="Web & Mobile App Development | Custom Software Development Company"  description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing." />
+//   );
+// };

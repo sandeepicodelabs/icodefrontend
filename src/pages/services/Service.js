@@ -531,8 +531,4 @@ export const query = graphql`
 //   );
 //  };
 
-// export const Head = () => {
-//   return (
-//     // <SEO title={}  description={}/>
-//   )
-// }
+ 
