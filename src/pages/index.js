@@ -304,7 +304,7 @@ const IndexPage = ({ data }) => {
     ],
   };
   return (
-    <Layout>
+   
     <div className="pageWrapper">
     
       <Header />
@@ -773,7 +773,7 @@ const IndexPage = ({ data }) => {
 
       <Footer />
     </div>
-    </Layout>
+   
   );
 };
 

@@ -6,7 +6,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 }); 
 const strapiConfig = {
-  apiURL: "https://icodelabsbackend-qr8y.onrender.com/",
+  apiURL: "http://127.0.0.1:1337",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [ 
     "expert-technologie", 
@@ -40,6 +40,9 @@ const strapiConfig = {
             populate: "*"
           },
           Metadescription:{
+            populate:"*"
+          },
+          Keyword:{
             populate:"*"
           },
           Titleservice: {
@@ -182,6 +185,15 @@ module.exports = {
     }
   }, 
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-07H9GTQ06L"],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

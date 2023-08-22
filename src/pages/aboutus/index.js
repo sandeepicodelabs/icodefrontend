@@ -12,6 +12,7 @@ import relationship from "../../assets/images/relationship.svg";
 import delivery from "../../assets/images/target.svg";
 import Popup from "../../components/Popup/Modal";
 import Layout from "../Layout";
+import AboutSeo from "../../components/AboutSeo/AboutSeo";
 
 export default function Aboutus() {
   useEffect(()=>{
@@ -20,6 +21,7 @@ export default function Aboutus() {
   return (
     <Layout>
     <>
+    <AboutSeo/>
       <Header />
       <Popup/>
       <section className="service-hero-section">
