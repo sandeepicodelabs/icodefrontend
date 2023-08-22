@@ -84,7 +84,9 @@ exports.createPages = async ({ graphql, actions }) => {
         service,
       },
     })
-  }) 
+  })  
+
+   
   technologies.forEach((technology, index) => {
     createPage({
       path: `/trendingtechologies/${technology.node.Slug}`,

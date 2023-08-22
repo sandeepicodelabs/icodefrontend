@@ -1,0 +1,19 @@
+import React from 'react'
+import { SEO } from '../Seo/SEO' 
+
+
+const Servicehead=(props)=> {
+    const {detail} = props
+    //console.log('detail', detail)
+    const  HeaderContent =detail || {}; 
+  return (
+    <> 
+     <SEO title={HeaderContent?.node?.Metatitle} description={HeaderContent?.node?.Metadescription} />
+    </>
+  )
+}
+
+
+export default Servicehead
+
+ 
