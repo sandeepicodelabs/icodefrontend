@@ -28,7 +28,6 @@ export default function Seo() {
     setPhoneNumber(value);
   };
 
-
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,11 +43,11 @@ export default function Seo() {
         MobileNo: phoneNumber,
         Title: formData.get("title"),
         Url: formData.get("url"),
-        Packages:formData.get("package")
+        Packages: formData.get("package"),
       },
     };
     console.log(contactData, "contactData");
-    
+
     // Make the POST request to your Strapi backend
     axios
       .get(
@@ -56,7 +55,9 @@ export default function Seo() {
           "name"
         )}&email=${formData.get("email")}&message=${formData.get(
           "message"
-        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get("url")}&lname=${formData.get("package")}&lname=${formData.get("package")}`
+        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get(
+          "url"
+        )}&lname=${formData.get("package")}&lname=${formData.get("package")}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -76,18 +77,16 @@ export default function Seo() {
     e.target.reset();
   };
 
-
-
-
   return (
- 
     <>
       <Header />
-     
       <section className="service-hero-section">
         <div className="contentWidth">
           <div className="service-hero-content">
-            <h1>Affordable SEO Packages For All Enterprises To Boost Business Traffic & Revenue</h1>
+            <h1>
+              Affordable SEO Packages For All Enterprises To Boost Business
+              Traffic & Revenue
+            </h1>
             <p>Skyrocket your sales with customisable SEO packages</p>
           </div>
         </div>
@@ -1015,9 +1014,9 @@ export default function Seo() {
         </div>
       </section>{" "}
       {modal && (
-        <Modal  modalClassName="getQuoteModal" isOpen={modal} toggle={toggle}>
+        <Modal modalClassName="getQuoteModal" isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}></ModalHeader>
-          
+
           <ModalBody>
             <div className="quoteLeftSec">
               <h3>NEED AN ANSWER NOW?</h3>
@@ -1040,11 +1039,13 @@ export default function Seo() {
                 </li> */}
                 <li>
                   <IconCheckmark />
-                20+ Successful SEO Campaigns Delivered
+                  20+ Successful SEO Campaigns Delivered
                 </li>
               </ul>
-               <div className="accreditedSec">
-                <img src={seopopup} alt="st logo"/>
+              <div className="accreditedSec">
+                <div className="accreditedImg">
+                  <img src={seopopup} alt="st logo" />
+                </div>
                 {/* <h2>Accredited By</h2>
                 <ul class="partner_list">
                   <li>
@@ -1072,7 +1073,7 @@ export default function Seo() {
                     />
                   </li>
                 </ul> */}
-              </div> 
+              </div>
             </div>
             <div className="quoteRightSec">
               <Form className="contact-right" onSubmit={handleSubmit}>
@@ -1137,7 +1138,7 @@ export default function Seo() {
                         <option value="Essential">Essential</option>
                         <option value="Advanced">Advanced</option>
                         <option value="Millennial">Millennial</option>
-                        <option value="Customize">Customize Package</option> 
+                        <option value="Customize">Customize Package</option>
                       </select>
                     </div>
                   </div>
@@ -1168,6 +1169,5 @@ export default function Seo() {
       )}
       <Footer />
     </>
-    
   );
 }
