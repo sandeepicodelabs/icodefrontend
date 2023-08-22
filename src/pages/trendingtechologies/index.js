@@ -25,7 +25,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
   });
  // console.log(technology, "---technology");
   return (
-    <Layout>
+ 
     <div className="outer-trading-box">
       <Header />
       <section className="service-hero-section">
@@ -146,7 +146,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
       </div>
       <Footer />
     </div>
-    </Layout>
+    
   );
 }
 

@@ -59,7 +59,7 @@ export default function ContactPage() {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${name}
+        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}
         &email=${email}&message=${message}
         &phoneNumber=${phoneNumber}
         &title=${title}`
@@ -67,7 +67,7 @@ export default function ContactPage() {
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
         );
       })

@@ -98,7 +98,7 @@ export default function Service({ data, pageContext }) {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend.onrender.com/api/sendingemails?name=${formData.get(
+        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${formData.get(
           "name"
         )}&email=${formData.get("email")}&message=${formData.get(
           "message"
@@ -109,7 +109,7 @@ export default function Service({ data, pageContext }) {
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
         return axios.post(
-          "https://icodelabsbackend.onrender.com/api/contact-uses",
+          "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
         );
       })
@@ -243,7 +243,7 @@ export default function Service({ data, pageContext }) {
 
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>For Your Business!</ModalHeader>
+              <ModalHeader toggle={toggle}>Contact Now to Craft Digital Excellence!</ModalHeader>
               <ModalBody>
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">
