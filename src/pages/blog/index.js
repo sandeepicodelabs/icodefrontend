@@ -161,7 +161,7 @@ export default function Blog({ data, pageContext }) {
                     type="button"
                     buttonname="next"
                     onClick={() => {
-                      console.log("khusxa");
+                      //console.log("khusxa");
                       setPage(pageNum + 1);
                     }}
                     className={`next  ${

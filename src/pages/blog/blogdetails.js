@@ -132,11 +132,11 @@ export default function BlogPage({ data, pageContext }) {
     );
   });
 
-  const article = posts?.find((item) => {
+  const article = posts && posts?.find((item) => {
     return item?.node?.Slug === pageContext.article?.node?.Slug;
   });
   // console.log("all data", filteredData);
-  // console.log("posts", posts);
+   console.log("article", article);
   return (
     
     <div>
@@ -298,7 +298,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 6, skip: 0, sort: { Title: DESC }) {
+    allStrapiArticle(limit: 12, skip: 0, sort: { Title: DESC }) {
       edges {
         node {
           Title
