@@ -17,6 +17,7 @@ import bigInt from "big-integer";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Popup from "../../components/Popup/Modal";
+import Layout from "../Layout";
 
 
 export default function Blog({ data, pageContext }) {
@@ -112,6 +113,7 @@ export default function Blog({ data, pageContext }) {
       : filteredData;
 
   return (
+    <Layout>
     <>
       <section className="blog-box">
         <Header />
@@ -260,6 +262,7 @@ export default function Blog({ data, pageContext }) {
 
       <Footer />
     </>
+    </Layout>
   );
 }
 

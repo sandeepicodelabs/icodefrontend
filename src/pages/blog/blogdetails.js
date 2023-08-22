@@ -22,6 +22,7 @@ import bigInt from "big-integer";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Popup from "../../components/Popup/Modal";
+import Layout from "../Layout";
 
 const settings = {
   dots: false,
@@ -137,6 +138,7 @@ export default function BlogPage({ data, pageContext }) {
   // console.log("all data", filteredData);
   // console.log("posts", posts);
   return (
+    <Layout>
     <div>
       <section className="blog-detail-box">
         <Header />
@@ -290,6 +292,7 @@ export default function BlogPage({ data, pageContext }) {
       </section>
       <Footer />
     </div>
+    </Layout>
   );
 }
 

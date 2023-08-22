@@ -53,9 +53,9 @@ import "./style.scss";
 import ReactTyped from "react-typed";
 import Popup from "../components/Popup/Modal"; 
 import Head from "../components/Head/Head";
+import Layout from "./Layout";
  
  
-  
 
 const IndexPage = ({ data }) => {
       
@@ -304,9 +304,9 @@ const IndexPage = ({ data }) => {
     ],
   };
   return (
+    <Layout>
     <div className="pageWrapper">
-      {/* <SEO metatitle={"Web & Mobile App Development | Custom Software Development Company"}  metadescription={"iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing."}/> */}
-
+    
       <Header />
       <Popup /> 
       <Head/>
@@ -773,6 +773,7 @@ const IndexPage = ({ data }) => {
 
       <Footer />
     </div>
+    </Layout>
   );
 };
 
@@ -858,21 +859,4 @@ export const query = graphql`
   }
 `;
 
-
-
-// export const Head = () => {
-//   return (
-//     <SEO
-//       title="Web & Mobile App Development | Custom Software Development Company"
-//       description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing."
-//     />
-//   );
-// };
-
-
-
-// export const Head = () => {
-//   return (
-//     <SEO title="Web & Mobile App Development | Custom Software Development Company"  description="iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing." />
-//   );
-// };
+ 

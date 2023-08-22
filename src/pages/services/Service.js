@@ -38,6 +38,7 @@ import InputBox from "../../components/input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Servicehead from "../../components/ServiceHead/Servicehead";
+import Layout from "../Layout";
 
 
 
@@ -123,6 +124,7 @@ export default function Service({ data, pageContext }) {
   };
   //console.log("mobile", phoneNumber)
   return (
+    <Layout>
     <>
       <div className="project-list-page">
         <Header />
@@ -421,6 +423,7 @@ export default function Service({ data, pageContext }) {
         <Footer />
       </div>
     </>
+    </Layout>
   );
 }
 

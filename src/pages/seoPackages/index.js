@@ -11,6 +11,7 @@ import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import IconGreenCheck from "../../components/IconGreenCheck/IconGreenCheck";
 import IconRedCross from "../../components/IconRedCross/IconRedCross";
 import seopopup from "../../assets/images/SEO/seo-services-agency.png";
+import Layout from "../Layout";
  
 
 export default function Seo() {
@@ -28,6 +29,7 @@ export default function Seo() {
   };
 
   return (
+    <Layout>
     <>
       <Header />
      
@@ -1114,5 +1116,6 @@ export default function Seo() {
       )}
       <Footer />
     </>
+    </Layout>
   );
 }
