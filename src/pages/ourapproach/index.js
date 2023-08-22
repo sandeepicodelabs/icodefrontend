@@ -13,6 +13,7 @@ import tabslidesix from "../../assets/images/tabslide6.png";
 import ExploreAnalyze from "../../exploreanalyze";
 import EstimateCard from "../../components/Cards/estimatecard";
 import Footer from "../../components/Footer/Footer";
+import Layout from "../Layout";
 
 export default function OurApproach() {
   const sliderRef = useRef();
@@ -110,6 +111,7 @@ export default function OurApproach() {
   };
 
   return (
+    <Layout>
     <>
       <div className="work-approach-wrap">
         <Header />
@@ -204,5 +206,6 @@ export default function OurApproach() {
         </div>
       </div>
     </>
+    </Layout>
   );
 }

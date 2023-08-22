@@ -11,12 +11,14 @@ import pioneerSolution from "../../assets/images/pioneer-solution.svg";
 import relationship from "../../assets/images/relationship.svg";
 import delivery from "../../assets/images/target.svg";
 import Popup from "../../components/Popup/Modal";
+import Layout from "../Layout";
 
 export default function Aboutus() {
   useEffect(()=>{
     typeof window!="undefined" && window.scrollTo(0,0);
     },[]);
   return (
+    <Layout>
     <>
       <Header />
       <Popup/>
@@ -209,5 +211,6 @@ export default function Aboutus() {
       </section>
       <Footer />
     </>
+    </Layout>
   );
 }

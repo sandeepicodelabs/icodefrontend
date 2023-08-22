@@ -14,6 +14,7 @@ import { Link } from "gatsby";
 import axios from "axios";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import Layout from "../Layout";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -105,6 +106,8 @@ export default function ContactPage() {
   }, []);
 
   return (
+    <Layout>
+    <>
     <section className="contact-us-page">
       <Header />
       <HeaderBar currentpage="Contact Us" pagetitle="Contact Us" />
@@ -242,5 +245,7 @@ export default function ContactPage() {
       <div id="st_google_map" className="st_map_st_contact_page" />
       <Footer />
     </section>
+    </>
+    </Layout>
   );
 }
