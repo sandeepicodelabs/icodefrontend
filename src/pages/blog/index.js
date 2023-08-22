@@ -113,7 +113,7 @@ export default function Blog({ data, pageContext }) {
       : filteredData;
 
   return (
-    <Layout>
+   
     <>
       <section className="blog-box">
         <Header />
@@ -262,7 +262,7 @@ export default function Blog({ data, pageContext }) {
 
       <Footer />
     </>
-    </Layout>
+     
   );
 }
 

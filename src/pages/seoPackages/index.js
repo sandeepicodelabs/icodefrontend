@@ -29,7 +29,7 @@ export default function Seo() {
   };
 
   return (
-    <Layout>
+ 
     <>
       <Header />
      
@@ -1116,6 +1116,6 @@ export default function Seo() {
       )}
       <Footer />
     </>
-    </Layout>
+    
   );
 }

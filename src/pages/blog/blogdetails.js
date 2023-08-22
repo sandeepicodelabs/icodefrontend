@@ -138,7 +138,7 @@ export default function BlogPage({ data, pageContext }) {
   // console.log("all data", filteredData);
   // console.log("posts", posts);
   return (
-    <Layout>
+    
     <div>
       <section className="blog-detail-box">
         <Header />
@@ -292,7 +292,7 @@ export default function BlogPage({ data, pageContext }) {
       </section>
       <Footer />
     </div>
-    </Layout>
+     
   );
 }
 

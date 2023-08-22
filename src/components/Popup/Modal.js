@@ -154,22 +154,8 @@ function Popup({data,pageContext}) {
                         value={phoneNumber}
                         onChange={setPhoneNumber}
                         name="phoneNumber"
-                      />
-
-                      {/* <PhoneInput
-                        disabled={false} // Set to true if you want to disable the input
-                        containerClass="phone-input-container" // Customize the container's CSS class
-                        countryCode="+91" // Default country code
-                        onChange={handleOnChange} // Callback when the value changes
-                        placeholder="Enter phone number" // Placeholder text
-                        name="phoneNumber"
-                      /> */}
-                      {/* <InputBox
-                        type="text"
-                        placeholder={"Mobile No"}
-                        className="contact-inputs" 
-                        name="mobileno"
-                      /> */}
+                      /> 
+                      
                     </div>
 
                     {typeof window !== "undefined" &&

@@ -106,7 +106,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <Layout>
+     
     <>
     <section className="contact-us-page">
       <Header />
@@ -246,6 +246,6 @@ export default function ContactPage() {
       <Footer />
     </section>
     </>
-    </Layout>
+     
   );
 }

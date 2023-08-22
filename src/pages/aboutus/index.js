@@ -19,7 +19,7 @@ export default function Aboutus() {
     typeof window!="undefined" && window.scrollTo(0,0);
     },[]);
   return (
-    <Layout>
+   
     <>
     <AboutSeo/>
       <Header />
@@ -213,6 +213,6 @@ export default function Aboutus() {
       </section>
       <Footer />
     </>
-    </Layout>
+  
   );
 }

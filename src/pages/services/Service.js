@@ -46,6 +46,7 @@ import Layout from "../Layout";
 
 
 export default function Service({ data, pageContext }) {
+  console.log("data",data)
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -124,7 +125,7 @@ export default function Service({ data, pageContext }) {
   };
   //console.log("mobile", phoneNumber)
   return (
-    <Layout>
+ 
     <>
       <div className="project-list-page">
         <Header />
@@ -423,7 +424,7 @@ export default function Service({ data, pageContext }) {
         <Footer />
       </div>
     </>
-    </Layout>
+ 
   );
 }
 
@@ -436,7 +437,7 @@ export const query = graphql`
           TitleMain
           Title
           Metatitle
-          Metadescription
+          Metadescription 
           TopImage {
             url
           }

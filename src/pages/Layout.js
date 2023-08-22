@@ -2,7 +2,7 @@
  
  export default function Layout() {
    return (
-    <head>
+    <>
   {/* ...other meta tags */}
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-07H9GTQ06L"></script>
   <script>
@@ -13,7 +13,7 @@
       gtag('config', 'G-07H9GTQ06L');
     `}
   </script>
-</head>
+</>
    )
  }
  
