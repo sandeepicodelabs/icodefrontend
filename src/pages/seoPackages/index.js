@@ -12,7 +12,7 @@ import IconGreenCheck from "../../components/IconGreenCheck/IconGreenCheck";
 import IconRedCross from "../../components/IconRedCross/IconRedCross";
 import seopopup from "../../assets/images/SEO/seo-services-agency.png";
 import Layout from "../Layout";
- 
+import axios from "axios";
 
 export default function Seo() {
   const [modal, setModal] = useState(false);
@@ -27,6 +27,57 @@ export default function Seo() {
     // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
+
+
+  // for enquiry form
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Get the form data from the event target
+    const formData = new FormData(e.target);
+    console.log(formData, "formData");
+    const contactData = {
+      data: {
+        Name: formData.get("name"),
+        LName: formData.get("lname"),
+        Email: formData.get("email"),
+        Message: formData.get("message"),
+        MobileNo: phoneNumber,
+        Title: formData.get("title"),
+        Url: formData.get("url"),
+        Packages:formData.get("package")
+      },
+    };
+    console.log(contactData, "contactData");
+    
+    // Make the POST request to your Strapi backend
+    axios
+      .get(
+        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${formData.get(
+          "name"
+        )}&email=${formData.get("email")}&message=${formData.get(
+          "message"
+        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get("url")}&lname=${formData.get("package")}&lname=${formData.get("package")}`
+      )
+      .then(async (response) => {
+        console.log("Form data sent successfully:", response);
+        return axios.post(
+          "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
+          contactData
+        );
+      })
+      .then((response2) => {
+        console.log(response2, "response2");
+      })
+      .catch((error) => {
+        console.log("Error sending form data:", error);
+        // Optionally, you can show an error message here or handle the error gracefully
+      });
+    setPhoneNumber("+91");
+    e.target.reset();
+  };
+
+
+
 
   return (
  
@@ -964,8 +1015,9 @@ export default function Seo() {
         </div>
       </section>{" "}
       {modal && (
-        <Modal modalClassName="getQuoteModal" isOpen={modal} toggle={toggle}>
+        <Modal  modalClassName="getQuoteModal" isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}></ModalHeader>
+          
           <ModalBody>
             <div className="quoteLeftSec">
               <h3>NEED AN ANSWER NOW?</h3>
@@ -981,14 +1033,14 @@ export default function Seo() {
                 </li>
                 <li>
                   <IconCheckmark />
-                  5+ Internationally Certified SEO Experts
+                  10+ Internationally Certified SEO Experts
                 </li>
                 {/* <li>
                   <IconCheckmark />5 Million + Keywords Optimized
                 </li> */}
                 <li>
                   <IconCheckmark />
-                5+ Successful SEO Campaigns Delivered
+                20+ Successful SEO Campaigns Delivered
                 </li>
               </ul>
                <div className="accreditedSec">
@@ -1023,7 +1075,7 @@ export default function Seo() {
               </div> 
             </div>
             <div className="quoteRightSec">
-              <Form className="contact-right">
+              <Form className="contact-right" onSubmit={handleSubmit}>
                 <div className="formHeader">
                   <h1>Get a free SEO Audit</h1>
                   <p>
@@ -1043,9 +1095,9 @@ export default function Seo() {
                     <InputBox
                       label="Last Name"
                       type="text"
-                      placeholder={"Name"}
+                      placeholder={"Last Name"}
                       className="contact-inputs"
-                      name="name"
+                      name="lname"
                     />
                   </div>
                   <div className="input-wrap halfWidth">
@@ -1073,7 +1125,7 @@ export default function Seo() {
                       type="text"
                       placeholder=""
                       className="contact-inputs"
-                      name="company"
+                      name="url"
                     />{" "}
                   </div>
                   <div className="input-wrap">
@@ -1082,10 +1134,10 @@ export default function Seo() {
                         Package you are interested in: *
                       </label>
                       <select name="package" id="package">
-                        <option value="1">Essential</option>
-                        <option value="1">Advanced</option>
-                        <option value="1">Millennial</option>
-                        <option value="1">Customize Package</option> 
+                        <option value="Essential">Essential</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Millennial">Millennial</option>
+                        <option value="Customize">Customize Package</option> 
                       </select>
                     </div>
                   </div>
@@ -1093,7 +1145,7 @@ export default function Seo() {
                     <div className="form-box">
                       <label htmlFor="package">How Can We Help You? *</label>
                       <textarea
-                        name="help"
+                        name="message"
                         id="help"
                         cols="30"
                         rows="10"

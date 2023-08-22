@@ -116,7 +116,7 @@ function Popup({data,pageContext}) {
     <div>
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>For Your Business!</ModalHeader>
+              <ModalHeader toggle={toggle}>Contact Now to Craft Digital Excellence!</ModalHeader>
               <ModalBody>
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">
