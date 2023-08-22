@@ -22,7 +22,7 @@ export default function ExpertiseCard({ data, props, pageContext }) {
   const technology = technologycard.find((item) => {
     return item.node.Slug === pageContext?.technology?.node?.Slug;
   });
-  console.log(technology, "---technology");
+ // console.log(technology, "---technology");
   return (
     <div className="outer-trading-box">
       <Header />
@@ -162,6 +162,11 @@ export const query = graphql`
           Slug
           Valuetitle
           Metatitle
+          Metadescription {
+            data {
+              Metadescription
+            }
+          }
           Promotext
           Toolstitle
           Description {
