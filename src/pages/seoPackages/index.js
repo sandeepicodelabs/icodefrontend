@@ -614,7 +614,11 @@ export default function Seo() {
                     <strong>Video Creation and Sharing</strong>
                   </td>
                   <td>
-                    <IconGreenCheck /> (only sharing)
+                    <span
+                      style={{ display: "inline-flex", alignItems: "center" }}
+                    >
+                      <IconGreenCheck /> (only sharing)
+                    </span>
                   </td>
                   <td>
                     <IconGreenCheck />
