@@ -111,7 +111,7 @@ export default function OurApproach() {
   };
 
   return (
-    <Layout>
+     
     <>
       <div className="work-approach-wrap">
         <Header />
@@ -206,6 +206,6 @@ export default function OurApproach() {
         </div>
       </div>
     </>
-    </Layout>
+     
   );
 }
