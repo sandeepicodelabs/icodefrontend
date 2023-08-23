@@ -46,7 +46,7 @@ import Layout from "../Layout";
 
 
 export default function Service({ data, pageContext }) {
-  console.log("data",data)
+  //console.log("data",data)
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -219,11 +219,10 @@ export default function Service({ data, pageContext }) {
                   </Button>
                   {typeof window !== "undefined" &&
                     window.location.href.includes(
-                      "innovative-digital-marketing"
+                      "digital-marketing-seo-services-company"
                     ) ? (
                     <Button className="freeConsult" onClick={toggle}>
-                      <span className="rippleEffect">&nbsp;</span> Free Website
-                      Analysis
+                      <span className="rippleEffect">&nbsp;</span> Free Website Analysis
                     </Button>
                   ) : (
                     " "
@@ -278,7 +277,7 @@ export default function Service({ data, pageContext }) {
 
                     {typeof window !== "undefined" &&
                       window.location.href.includes(
-                        "innovative-digital-marketing"
+                        "digital-marketing-seo-services-company"
                       ) ? (
                       <div className="input-wrap">
                         <InputBox
