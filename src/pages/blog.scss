@@ -815,3 +815,23 @@
     }
   }
 }
+.goBack {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: $text-color;
+  text-decoration: none;
+  & > svg {
+    margin-right: 10px;
+  }
+  &:hover {
+    color: $base-color;
+    cursor: pointer;
+    & > svg {
+      & path {
+        fill: $base-color;
+      }
+    }
+  }
+}

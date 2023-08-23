@@ -14,7 +14,7 @@ import commaimage from "../../assets/images/comma.png";
 import userImg from "../../assets/images/user.png";
 import Emailicon from "../../assets/images/email.png";
 import messageimg from "../../assets/images/message.png";
-import linkicon from "../../assets/images/link.png"
+import linkicon from "../../assets/images/link.png";
 
 import {
   Button,
@@ -40,11 +40,6 @@ import "react-phone-input-2/lib/style.css";
 import Servicehead from "../../components/ServiceHead/Servicehead";
 import Layout from "../Layout";
 
-
-
-
-
-
 export default function Service({ data, pageContext }) {
   //console.log("data",data)
   const [phoneNumber, setPhoneNumber] = useState("+91");
@@ -53,13 +48,12 @@ export default function Service({ data, pageContext }) {
   useEffect(() => {
     setTimeout(function () {
       setModal(true);
-    }, 10000); 
-
+    }, 10000);
 
     typeof window !== "undefined" && window.scrollTo(0, 0);
-  }, []); 
+  }, []);
   const handleOnChange = (value) => {
-    // Handle the value change 
+    // Handle the value change
     setPhoneNumber(value);
   };
 
@@ -75,8 +69,6 @@ export default function Service({ data, pageContext }) {
   const particlesLoaded = (container) => {
     // console.log(container);
   };
-
-
 
   // for enquiry form
   const handleSubmit = (e) => {
@@ -125,14 +117,11 @@ export default function Service({ data, pageContext }) {
   };
   //console.log("mobile", phoneNumber)
   return (
- 
     <>
       <div className="project-list-page">
         <Header />
-        <Servicehead
-        detail={detail}
-        />
-       
+        <Servicehead detail={detail} />
+
         <div className="project-wrap-box">
           <section className="service-header">
             {/* <div className="particles" id="particles-js">
@@ -215,23 +204,28 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? null :<Button className="getQuote" onClick={toggle}>
-                    <span className="rippleEffect">&nbsp;</span> Get Started
-                  </Button>}
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? null : (
+                    <Button className="getQuote" onClick={toggle}>
+                      <span className="rippleEffect">&nbsp;</span> Get Started
+                    </Button>
+                  )}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? <Button className="getQuote" href="/seoPackages">
-                    <span className="rippleEffect">&nbsp;</span> Seo Package
-                  </Button> :null} 
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
+                    <a className="getQuote" href="/seoPackages">
+                      <span className="rippleEffect">&nbsp;</span> Seo Package
+                    </a>
+                  ) : null}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
-                    <Button className="freeConsult" onClick={toggle}>
-                      <span className="rippleEffect">&nbsp;</span> Free Website Analysis
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
+                    <Button className="freeConsult getQuote" onClick={toggle}>
+                      <span className="rippleEffect">&nbsp;</span> Free Website
+                      Analysis
                     </Button>
                   ) : (
                     " "
@@ -251,7 +245,9 @@ export default function Service({ data, pageContext }) {
 
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>Contact Now to Craft Digital Excellence!</ModalHeader>
+              <ModalHeader toggle={toggle}>
+                Contact Now to Craft Digital Excellence!
+              </ModalHeader>
               <ModalBody>
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">
@@ -285,9 +281,9 @@ export default function Service({ data, pageContext }) {
                     </div>
 
                     {typeof window !== "undefined" &&
-                      window.location.href.includes(
-                        "digital-marketing-seo-services-company"
-                      ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                       <div className="input-wrap">
                         <InputBox
                           type="text"
@@ -432,7 +428,6 @@ export default function Service({ data, pageContext }) {
         <Footer />
       </div>
     </>
- 
   );
 }
 
@@ -445,7 +440,7 @@ export const query = graphql`
           TitleMain
           Title
           Metatitle
-          Metadescription 
+          Metadescription
           Keyword
           TopImage {
             url
@@ -533,6 +528,3 @@ export const query = graphql`
     }
   }
 `;
-
- 
- 

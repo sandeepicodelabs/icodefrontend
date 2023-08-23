@@ -509,12 +509,15 @@
               margin-bottom: 14px;
               .button-box {
                 margin-top: 14px;
+                text-align: center;
                 & > button {
-                  width: 100%;
+                  width: auto;
+                  margin: 0 auto;
                   background-color: $white-color;
                   color: $base-color;
                   border: solid 1px $white-color;
                   transition: $transition;
+                  line-height: 100%;
                   &:hover,
                   &:focus {
                     transition: $transition;
