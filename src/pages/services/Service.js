@@ -52,25 +52,25 @@ export default function Service({ data, pageContext }) {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [message, setMessage] = useState("");
-  const [title, setTitle] = useState(""); 
-  const [url,setUrl]=useState("");
-  const [errors, setErrors] = useState({}); 
+  const [title, setTitle] = useState("");
+  const [url, setUrl] = useState("");
+  const [errors, setErrors] = useState({});
   const [modal, setModal] = useState(false);
 
-  
-   
-  
-    
+
+
+
+
   const toggle = () => setModal(!modal);
   useEffect(() => {
     // setTimeout(function () {
     //   setModal(true);
     // }, 10000);  
     typeof window !== "undefined" && window.scrollTo(0, 0);
-  }, []); 
+  }, []);
 
-// Handle the value change 
-  const handleOnChange = (value) => { 
+  // Handle the value change 
+  const handleOnChange = (value) => {
     setPhoneNumber(value);
   };
 
@@ -88,25 +88,27 @@ export default function Service({ data, pageContext }) {
   };
 
 
-  const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces 
-  const newErrors = {};
-  if (name.trim() === "") {
-    newErrors.name = "Name is required";
-  } else if (!namePattern.test(name)) {
-    newErrors.name = "Please enter a valid name with alphabetic characters.";
-  }
 
-  if (email.trim() === "") {
-    newErrors.email = "Please enter email address";
-  }
-
-  if (Object.keys(newErrors).length > 0) {
-    setErrors(newErrors);
-    return;
-  }
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces 
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
@@ -116,21 +118,16 @@ export default function Service({ data, pageContext }) {
         email: email,
         Message: message,
         MobileNo: phoneNumber,
-        Title: title, 
-        Url:url
+        Title: title,
+        Url: url
       },
     };
     console.log(contactData, "contactData");
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get(
-          "message"
-        )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get(
-          "url"
-        )}`
+        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}
+        &phoneNumber=${phoneNumber}&url=${url}`
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
@@ -146,26 +143,25 @@ export default function Service({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-   // Clear the form
-   setName("");
-   setEmail("");
-   setPhoneNumber("");
-   setMessage("");
-   setTitle("");
-   setUrl("");
-   setErrors({});
-    e.target.reset();
+    // Clear the form
+    setName("");
+    setEmail("");
+    setPhoneNumber("");
+    setMessage("");
+    setTitle("");
+    setUrl("");
+    setErrors({});
+    
   };
   //console.log("mobile", phoneNumber)
   return (
- 
+
     <>
       <div className="project-list-page">
         <Header />
         <Servicehead
-        detail={detail}
-        />
-        <Popup/>
+          detail={detail}/>
+        <Popup />
         <div className="project-wrap-box">
           <section className="service-header">
             {/* <div className="particles" id="particles-js">
@@ -250,7 +246,7 @@ export default function Service({ data, pageContext }) {
                   {typeof window !== "undefined" &&
                     window.location.href.includes(
                       "digital-marketing-seo-services-company"
-                    ) ? null :<Button className="getQuote" onClick={toggle}>
+                    ) ? null : <Button className="getQuote" onClick={toggle}>
                     <span className="rippleEffect">&nbsp;</span> Get Started
                   </Button>}
                   {typeof window !== "undefined" &&
@@ -258,8 +254,8 @@ export default function Service({ data, pageContext }) {
                       "digital-marketing-seo-services-company"
                     ) ? <Button className="getQuote" href="/seoPackages">
                     <span className="rippleEffect">&nbsp;</span> Seo Package
-                  </Button> :null}
-                  
+                  </Button> : null}
+
                   {typeof window !== "undefined" &&
                     window.location.href.includes(
                       "digital-marketing-seo-services-company"
@@ -466,7 +462,7 @@ export default function Service({ data, pageContext }) {
         <Footer />
       </div>
     </>
- 
+
   );
 }
 
@@ -568,5 +564,4 @@ export const query = graphql`
   }
 `;
 
- 
- 
+
