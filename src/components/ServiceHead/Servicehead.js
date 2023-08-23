@@ -8,7 +8,8 @@ const Servicehead=(props)=> {
     const  HeaderContent =detail || {}; 
   return (
     <> 
-     <SEO title={HeaderContent && HeaderContent?.node?.Metatitle} description={HeaderContent && HeaderContent?.node?.Metadescription} />
+     <SEO title={HeaderContent && HeaderContent?.node?.Metatitle} description={HeaderContent && HeaderContent?.node?.Metadescription}
+     keyword={HeaderContent && HeaderContent?.node?.Keyword} />
     </>
   )
 }

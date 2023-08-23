@@ -222,7 +222,7 @@ export default function BlogPage({ data, pageContext }) {
                 <div className="most-polular">
                   <h1>Most popular</h1>
                   <div className="popular-wrap-box">
-                    {filteredData.map((item, i) => (
+                    {filteredData.slice(0, 6).map((item, i) => (
                       <div className="popular-list">
                         <Link to={"/blog/" + item?.node?.Slug}>
                           <MostPopularCard
@@ -298,7 +298,7 @@ export default function BlogPage({ data, pageContext }) {
 
 export const query = graphql`
   query MyQuery {
-    allStrapiArticle(limit: 12, skip: 0, sort: { Title: DESC }) {
+    allStrapiArticle(limit: 100, skip: 0, sort: { Title: DESC }) {
       edges {
         node {
           Title

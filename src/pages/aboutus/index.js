@@ -40,11 +40,11 @@ export default function Aboutus() {
         <div className="contentWidth">
           <div className="company-description">
             <div className="sectionHeading">
-              <h2>About iCode Labs</h2>
+              <h2>About Icodelabs</h2>
               <span className="line">&nbsp;</span>
             </div>
             <p>
-              iCode Labs  is a leading digital solutions provider
+              Icodelabs  is a leading digital solutions provider
               specializing in Web & Custom Software Development, Mobile App
               Development (iOS & Android), Marketplace Development, UI/UX
               Design, Sharetribe Flex, and Digital Marketing services.
@@ -133,7 +133,7 @@ export default function Aboutus() {
               <span className="line">&nbsp;</span>
             </div>
             <p className="choose-description">
-              At iCode Laps, our foundation is built by passionate individuals
+              At Icodelabs, our foundation is built by passionate individuals
               who are both dreamers and doers. Guided by a core set of values,
               everything we accomplish is a testament to the dedication and
               commitment of our exceptional team. Here are our core values that

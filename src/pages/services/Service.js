@@ -214,9 +214,18 @@ export default function Service({ data, pageContext }) {
                 <h1>{detail && detail?.node?.Title}</h1>
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
-                  <Button className="getQuote" onClick={toggle}>
+                  {typeof window !== "undefined" &&
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? null :<Button className="getQuote" onClick={toggle}>
                     <span className="rippleEffect">&nbsp;</span> Get Started
-                  </Button>
+                  </Button>}
+                  {typeof window !== "undefined" &&
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? <Button className="getQuote" href="/seoPackages">
+                    <span className="rippleEffect">&nbsp;</span> Seo Package
+                  </Button> :null} 
                   {typeof window !== "undefined" &&
                     window.location.href.includes(
                       "digital-marketing-seo-services-company"
@@ -437,6 +446,7 @@ export const query = graphql`
           Title
           Metatitle
           Metadescription 
+          Keyword
           TopImage {
             url
           }

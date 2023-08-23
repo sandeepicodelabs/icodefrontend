@@ -212,6 +212,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Troy Lane",
       clientaddress: "Australia",
+      appname:"Equipment Now",
       commaimage: commaimage,
     },
 
@@ -221,24 +222,27 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Edgar Santiago",
       clientaddress: "Rentalo South America",
+      appname:"Rentalo",
       commaimage: commaimage,
     },
 
     {
       testimonialmessage:
-        "Dhananjay (Jay) Tiwary did an excellent job with our website development project. He delivered the project tasks as expected and on time, and his pricing was very reasonable. He also made suggestions that I found very helpful. I will definitely hire him again when we need front or backend development work done. I highly recommend Jay for web development projects!",
+        "Jay did an excellent job with our website development project. He delivered the project tasks as expected and on time, and his pricing was very reasonable. He also made suggestions that I found very helpful. I will definitely hire him again when we need front or backend development work done. I highly recommend Jay for web development projects!",
       img: testimonialPicture,
       clientname: "Holly Manzano",
       clientaddress: "USA",
+      appname:"Smarthire",
       commaimage: commaimage,
     },
 
     {
       testimonialmessage:
-        "It was an out most pleasure working eith Jay. highly skilled, professional and passionate about what he does. Jay'sprogramming skills has helped our startup come to fruition and I highly recommend him for any project which i believe will be delivered to a high standard",
+        "It was an out most pleasure working eith Jay. highly skilled, professional and passionate about what he does. Jay's programming skills has helped our startup come to fruition and I highly recommend him for any project which i believe will be delivered to a high standard",
       img: testimonialPicture,
       clientname: "William Kwakye",
       clientaddress: "Australia",
+      appname:"Raver Fans",
       commaimage: commaimage,
     },
     {
@@ -247,6 +251,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Olive Shamon",
       clientaddress: "Australia",
+      appname:"Buus",
       commaimage: commaimage,
     },
 
@@ -385,11 +390,11 @@ const IndexPage = ({ data }) => {
         <div className="contentWidth">
           <div className="company-description">
             <div className="sectionHeading">
-              <h2>iCode Labs: Igniting Ideas And Engineering Excellence.</h2>
+              <h2> Icodelabs: Innovative Ideas And Engineering Excellence</h2>
               <span className="line">&nbsp;</span>
             </div>
             <p>
-              iCode Labs is a leading digital solutions provider specializing in
+              Icodelabs is a leading digital solutions provider specializing in
               Web & Custom Software Development, Mobile App Development (iOS &
               Android), Marketplace Development, UI/UX Design, Sharetribe Flex,
               and Digital Marketing services.
@@ -414,7 +419,7 @@ const IndexPage = ({ data }) => {
         <div className="contentWidth why-choose-us landingSec">
           <div className="heading-main">
             <div className="sectionHeading">
-              <h1 className="choose-heading">Why Choose iCode Labs?</h1>
+              <h1 className="choose-heading">Why Choose Icodelabs?</h1>
               <span className="line">&nbsp;</span>
             </div>
             <div className="choose-subheading">
@@ -447,8 +452,7 @@ const IndexPage = ({ data }) => {
             <div className="partner-content">
               <div className="sectionHeading">
                 <h1>
-                  Accelerating Your Business Growth with Cutting-Edge Digital
-                  Solutions
+                  Accelerating Your Business Growth with Cutting-Edge Digital Solutions
                 </h1>
                 <span className="line">&nbsp;</span>
               </div>
@@ -577,6 +581,7 @@ const IndexPage = ({ data }) => {
                     clientname={item.clientname}
                     clientaddress={item.clientaddress}
                     commaimage={item.commaimage}
+                    appname={item.appname}
                   />
                 ))}
               </Slider>
@@ -666,13 +671,13 @@ const IndexPage = ({ data }) => {
                     data-index="10"
                   />
                 </div> */}
-                <div className="work-slider-item">
+                {/* <div className="work-slider-item">
                   <img
                     className="work-item work-item-11"
                     src={thebillets}
                     data-index="11"
                   />
-                </div>
+                </div> */}
               </Slider>
             </div>
             {/* <div className="view-work">

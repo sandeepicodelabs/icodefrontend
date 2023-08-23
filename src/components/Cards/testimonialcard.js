@@ -2,8 +2,7 @@ import React from "react";
 // import "../../assets/css/custom.css";
 
 export default function testimonialcard(props) {
-  const { testimonialmessage, img, clientname, clientaddress, commaimage } =
-    props;
+  const { testimonialmessage, img, clientname, clientaddress, commaimage,appname } =props;
   // console.log("testimonial",props)
   return (
     <>
@@ -14,7 +13,7 @@ export default function testimonialcard(props) {
             <div className="testimonial-detail">
               {/* <img src={img} alt="St Logo" /> */}
               <div className="testimonial-data">
-                <h5>{clientname}</h5>
+                <h5>{clientname}</h5>(CEO-{appname})
                 <p>{clientaddress}</p>
               </div>
             </div>

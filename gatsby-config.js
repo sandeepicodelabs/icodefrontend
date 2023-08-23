@@ -6,7 +6,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 }); 
 const strapiConfig = {
-  apiURL: "https://icodelabsbackend-qr8y.onrender.com/",
+  apiURL:"https://icodelabsbackend-qr8y.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [ 
     "expert-technologie", 
@@ -170,10 +170,7 @@ const strapiConfig = {
     },
   ],
   queryLimit: 1000,
-};
-
- 
-
+}; 
 module.exports = { 
   siteMetadata: {
     title: `Web & Mobile App Development | Custom Software Development Company`,
@@ -183,8 +180,21 @@ module.exports = {
       color: '#333333',
       in_head: false
     }
-  }, 
+  },  
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `iCode Labs`,
+        short_name: `iCode`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#333333`,
+        display: `standalone`,
+        icon: `src/assets/images/cover-code.png`, // Path to your favicon image
+        legacy: true, // Set to true if you want to support legacy browsers
+      },
+    },
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {

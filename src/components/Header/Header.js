@@ -77,11 +77,11 @@ const Header = () => {
                 About Us
               </a>
             </div>{" "}
-            <div className="navlink">
+            {/* <div className="navlink">
               <a onClick={toggle} href="/seoPackages">
                 SEO Packages
               </a>
-            </div>{" "}
+            </div>{" "} */}
             <div className="navlink">
               <a onClick={toggle} href="/contact">
                 Contact Us
