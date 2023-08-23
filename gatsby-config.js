@@ -6,7 +6,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 }); 
 const strapiConfig = {
-  apiURL:"https://icodelabsbackend-qr8y.onrender.com/",
+  apiURL: "http://127.0.0.1:1337",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [ 
     "expert-technologie", 

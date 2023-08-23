@@ -39,6 +39,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Servicehead from "../../components/ServiceHead/Servicehead";
 import Layout from "../Layout";
+import Popup from "../../components/Popup/Modal";
 
 
 
@@ -47,19 +48,29 @@ import Layout from "../Layout";
 
 export default function Service({ data, pageContext }) {
   //console.log("data",data)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [message, setMessage] = useState("");
+  const [title, setTitle] = useState(""); 
+  const [url,setUrl]=useState("");
+  const [errors, setErrors] = useState({}); 
   const [modal, setModal] = useState(false);
+
+  
+   
+  
+    
   const toggle = () => setModal(!modal);
   useEffect(() => {
-    setTimeout(function () {
-      setModal(true);
-    }, 10000); 
-
-
+    // setTimeout(function () {
+    //   setModal(true);
+    // }, 10000);  
     typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []); 
-  const handleOnChange = (value) => {
-    // Handle the value change 
+
+// Handle the value change 
+  const handleOnChange = (value) => { 
     setPhoneNumber(value);
   };
 
@@ -77,7 +88,22 @@ export default function Service({ data, pageContext }) {
   };
 
 
+  const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces 
+  const newErrors = {};
+  if (name.trim() === "") {
+    newErrors.name = "Name is required";
+  } else if (!namePattern.test(name)) {
+    newErrors.name = "Please enter a valid name with alphabetic characters.";
+  }
 
+  if (email.trim() === "") {
+    newErrors.email = "Please enter email address";
+  }
+
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -86,12 +112,12 @@ export default function Service({ data, pageContext }) {
     console.log(formData, "formData");
     const contactData = {
       data: {
-        Name: formData.get("name"),
-        Email: formData.get("email"),
-        Message: formData.get("message"),
+        name: name,
+        email: email,
+        Message: message,
         MobileNo: phoneNumber,
-        Title: formData.get("title"),
-        Url: formData.get("url"),
+        Title: title, 
+        Url:url
       },
     };
     console.log(contactData, "contactData");
@@ -120,7 +146,14 @@ export default function Service({ data, pageContext }) {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-    setPhoneNumber("+91");
+   // Clear the form
+   setName("");
+   setEmail("");
+   setPhoneNumber("");
+   setMessage("");
+   setTitle("");
+   setUrl("");
+   setErrors({});
     e.target.reset();
   };
   //console.log("mobile", phoneNumber)
@@ -132,7 +165,7 @@ export default function Service({ data, pageContext }) {
         <Servicehead
         detail={detail}
         />
-       
+        <Popup/>
         <div className="project-wrap-box">
           <section className="service-header">
             {/* <div className="particles" id="particles-js">
@@ -225,7 +258,8 @@ export default function Service({ data, pageContext }) {
                       "digital-marketing-seo-services-company"
                     ) ? <Button className="getQuote" href="/seoPackages">
                     <span className="rippleEffect">&nbsp;</span> Seo Package
-                  </Button> :null} 
+                  </Button> :null}
+                  
                   {typeof window !== "undefined" &&
                     window.location.href.includes(
                       "digital-marketing-seo-services-company"

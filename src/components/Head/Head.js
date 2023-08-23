@@ -1,5 +1,5 @@
 import React from 'react'
-import { SEO } from '../Seo/SEO'
+import { SEO } from '../Seo/Seo'
  
 
 function Head() { 
