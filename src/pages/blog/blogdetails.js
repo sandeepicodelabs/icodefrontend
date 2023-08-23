@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Chronologyimg from "../../assets/images/Chronology.png";
@@ -23,6 +23,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Popup from "../../components/Popup/Modal";
 import Layout from "../Layout";
+import IconBack from "../../components/IconBack/IconBack";
 
 const settings = {
   dots: false,
@@ -64,9 +65,9 @@ const settings = {
 export default function BlogPage({ data, pageContext }) {
   const [phoneNumber, setPhoneNumber] = useState("+91");
 
-  useEffect(()=>{
-    typeof window!="undefined" && window.scrollTo(0,0);
-    },[]);
+  useEffect(() => {
+    typeof window != "undefined" && window.scrollTo(0, 0);
+  }, []);
 
   const handleOnChange = (value) => {
     // Handle the value change
@@ -132,19 +133,23 @@ export default function BlogPage({ data, pageContext }) {
     );
   });
 
-  const article = posts && posts?.find((item) => {
-    return item?.node?.Slug === pageContext.article?.node?.Slug;
-  });
+  const article =
+    posts &&
+    posts?.find((item) => {
+      return item?.node?.Slug === pageContext.article?.node?.Slug;
+    });
   // console.log("all data", filteredData);
-   console.log("article", article);
+  console.log("article", article);
   return (
-    
     <div>
       <section className="blog-detail-box">
         <Header />
-        
+
         <HeaderBar currentpage="Blog" pagetitle={article?.node?.Title} />
         <div className="cover-full-box contentWidth">
+          <a href="/blog" className="goBack">
+            <IconBack /> Back
+          </a>
           <div className="article-main-box">
             <div className="all-article-wrap">
               <div className="article-list-wrap">
@@ -292,7 +297,6 @@ export default function BlogPage({ data, pageContext }) {
       </section>
       <Footer />
     </div>
-     
   );
 }
 

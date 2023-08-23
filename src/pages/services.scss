@@ -594,21 +594,40 @@
 }
 .getActionBtn {
   margin-top: 30px;
-  & > button {
+
+  .getQuote {
     font-size: 14px;
     line-height: 130%;
     padding: 12px 14px;
     border: solid 1px $base-color;
+    background-color: $base-color;
+    color: $white-color;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 100%;
+    @include xs {
+      width: auto;
+    }
     @include md {
       padding: 12px 24px;
       font-size: 16px;
     }
     cursor: pointer;
     &:not(:last-child) {
-      margin-right: 14px;
+      margin-bottom: 14px;
+      @include xs {
+        margin-right: 14px;
+        margin-bottom: 0px;
+      }
+    }
+    &:hover {
+      border: solid 1px $hover-bg;
+      background-color: $hover-bg;
+      color: $white-color;
     }
     &.freeConsult {
       background-color: $white-color;
