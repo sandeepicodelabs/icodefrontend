@@ -63,9 +63,9 @@ export default function Service({ data, pageContext }) {
 
   const toggle = () => setModal(!modal);
   useEffect(() => {
-    // setTimeout(function () {
-    //   setModal(true);
-    // }, 10000);  
+    setTimeout(function () {
+      setModal(true);
+    }, 10000);  
     typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []);
 
@@ -161,7 +161,7 @@ export default function Service({ data, pageContext }) {
         <Header />
         <Servicehead
           detail={detail}/>
-        <Popup />
+        {/* <Popup /> */}
         <div className="project-wrap-box">
           <section className="service-header">
             {/* <div className="particles" id="particles-js">
