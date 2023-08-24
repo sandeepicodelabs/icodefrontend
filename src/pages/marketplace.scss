@@ -240,7 +240,6 @@
       text-align: center;
       @include md {
         width: 50%;
-        max-width: 100%;
       }
       .image-shape {
         background: #089591;
@@ -258,7 +257,7 @@
         z-index: 0;
         left: -9px;
         @include md {
-          width: 86%;
+          width: 100%;
         }
       }
 
@@ -278,7 +277,7 @@
         z-index: 0;
         left: 13px;
         @include md {
-          width: 76%;
+          width: 100%;
         }
       }
 
