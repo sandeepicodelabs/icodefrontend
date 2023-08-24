@@ -545,6 +545,16 @@ export const query = graphql`
                 EDescription
               }
             }
+
+            FAQ {
+              Question
+              Answer {
+                data {
+                  Answer
+                }
+              }
+            }
+
           }
         }
       }

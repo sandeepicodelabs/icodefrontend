@@ -62,6 +62,12 @@ const strapiConfig = {
               EImage: "*",
             },
           },
+          FAQ:{
+            populate:{
+              Question:"*",
+              Answer:"*",
+            }
+          },
           ExpertiseImage: {
             populate: {
               url: "*",
