@@ -6,7 +6,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 }); 
 const strapiConfig = {
-  apiURL:"https://icodelabsbackend-qr8y.onrender.com/",
+  apiURL: "https://icodelabsbackend-qr8y.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [ 
     "expert-technologie", 
@@ -61,6 +61,12 @@ const strapiConfig = {
               EDescription: "*",
               EImage: "*",
             },
+          },
+          FAQ:{
+            populate:{
+              Question:"*",
+              Answer:"*",
+            }
           },
           ExpertiseImage: {
             populate: {
@@ -207,8 +213,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-sass",
-    `gatsby-plugin-modal-routing`,
+    "gatsby-plugin-sass", 
 
     {
       resolve: "gatsby-source-strapi",

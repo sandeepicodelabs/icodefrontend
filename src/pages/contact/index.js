@@ -23,6 +23,7 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
   const [errors, setErrors] = useState({});
+   
   const handleSubmit = (e) => {
     e.preventDefault();
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
@@ -78,6 +79,7 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      
     // Clear the form
     setName("");
     setEmail("");
@@ -85,6 +87,7 @@ export default function ContactPage() {
     setMessage("");
     setTitle("");
     setErrors({});
+    e.target.reset();
   };
 
   useEffect(() => {
@@ -181,6 +184,7 @@ export default function ContactPage() {
                 <ButtonBox type="submit" buttonname="Send Message" />
               </form>
             </div>
+            
             <div className="getintouch-links">
               <div className="contact-data">
                 <div className="contact-details-right">
