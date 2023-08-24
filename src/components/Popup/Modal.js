@@ -20,7 +20,7 @@ import {
     FormText,
   } from "reactstrap";
   import axios from "axios";
-import ButtonBox from '../button';
+import ButtonBox from '../button'; 
 
 
 function Popup({data,pageContext}) {
@@ -34,6 +34,7 @@ function Popup({data,pageContext}) {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("+91");
     const [message, setMessage] = useState("");
+    const[url,setUrl]=useState("")
     const [errors, setErrors] = useState({});
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);  
@@ -77,17 +78,18 @@ function Popup({data,pageContext}) {
         console.log(formData, "formData");
         const contactData = {
           data: {
-            name: name,
-            email: email,
+            Name: name,
+            Email: email,
             Message: message,
             MobileNo: phoneNumber,
+            Url:url,
           },
         };
         console.log(contactData, "contactData");
         // Make the POST request to your Strapi backend
         axios
           .get(
-            `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}`
+            `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}&url=${url}`
           )
           .then(async (response) => {
             console.log("Form data sent successfully:", response);
@@ -107,9 +109,11 @@ function Popup({data,pageContext}) {
         // Clear the form
         setName("");
         setEmail("");
-        setPhoneNumber("");
+        setPhoneNumber("+91");
         setMessage("");
+        setUrl("");
         setErrors({});
+        e.target.reset();
       };
     
   return (
@@ -160,7 +164,7 @@ function Popup({data,pageContext}) {
 
                     {typeof window !== "undefined" &&
                     window.location.href.includes(
-                      "innovative-digital-marketing"
+                      "digital-marketing-seo-services-company"
                     ) ? (
                       <div className="input-wrap">
                         <InputBox
@@ -168,7 +172,9 @@ function Popup({data,pageContext}) {
                           placeholder={"Website Url"}
                           className="contact-inputs"
                           name="url"
-                          img={Emailicon}
+                          img={linkicon} 
+                          value={url}
+                          onChange={(e) => setUrl(e.target.value)}
                         />
                       </div>
                     ) : (
@@ -177,10 +183,13 @@ function Popup({data,pageContext}) {
                           className="contact-input"
                           rows={10}
                           name="message"
-                          placeholder="What's your Project about?"
+                          placeholder="What's your Project about?" 
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                           
                         />
                         <span className="input-icon">
-                          <img src={messageimg} alt="St Logo" name="message" />
+                          <img src={messageimg} alt="St Logo"/>
                         </span>
                       </div>
                     )}

@@ -102,8 +102,8 @@ const IndexPage = ({ data }) => {
     console.log(formData, "formData");
     const contactData = {
       data: {
-        name: name,
-        email: email,
+        Name: name,
+        Email: email,
         Message: message,
         MobileNo: phoneNumber,
       },

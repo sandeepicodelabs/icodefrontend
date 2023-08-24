@@ -39,15 +39,13 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Servicehead from "../../components/ServiceHead/Servicehead";
 import Layout from "../Layout";
-import Popup from "../../components/Popup/Modal";
-
-
-
-
-
+import Popup from "../../components/Popup/Modal"; 
 
 export default function Service({ data, pageContext }) {
-  //console.log("data",data)
+  const servicedata = data && data?.allStrapiServiceDetail?.edges;
+  const detail = servicedata?.find((item) => {
+    return item?.node?.Slug === pageContext.service?.node?.Slug;
+  });
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
@@ -55,67 +53,58 @@ export default function Service({ data, pageContext }) {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [errors, setErrors] = useState({});
-  const [modal, setModal] = useState(false);
-
-
-
-
-
+  const [modal, setModal] = useState(false); 
   const toggle = () => setModal(!modal);
+
+
   useEffect(() => {
-    setTimeout(function () {
-      setModal(true);
-    }, 10000);  
+    // setTimeout(function () {
+    //   setModal(true);
+    // }, 10000);
     typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []);
 
   // Handle the value change 
   const handleOnChange = (value) => {
     setPhoneNumber(value);
-  };
-
-  const servicedata = data && data?.allStrapiServiceDetail?.edges;
-  const detail = servicedata?.find((item) => {
-    return item?.node?.Slug === pageContext.service?.node?.Slug;
-  });
+  }; 
   const particlesInit = async (main) => {
     // console.log(main);
     await loadFull(main);
   };
-
   const particlesLoaded = (container) => {
     // console.log(container);
   };
 
-
-
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces 
-    const newErrors = {};
-    if (name.trim() === "") {
-      newErrors.name = "Name is required";
-    } else if (!namePattern.test(name)) {
-      newErrors.name = "Please enter a valid name with alphabetic characters.";
-    }
-
-    if (email.trim() === "") {
-      newErrors.email = "Please enter email address";
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+    
+      const newErrors = {}; 
+      if (name.trim() === "") {
+        newErrors.name = "Name is required";
+      } else if (!namePattern.test(name)) {
+        newErrors.name = "Please enter a valid name with alphabetic characters.";
+      }
+      
+      if (email.trim() === "") {
+        newErrors.email = "Please enter email address";
+      }
+      
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors);
+        return;
+        console.log("s")
+      }
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
     const contactData = {
       data: {
-        name: name,
-        email: email,
+        Name: name,
+        Email: email,
         Message: message,
         MobileNo: phoneNumber,
         Title: title,
@@ -151,7 +140,8 @@ export default function Service({ data, pageContext }) {
     setTitle("");
     setUrl("");
     setErrors({});
-    
+    e.target.reset();
+
   };
   //console.log("mobile", phoneNumber)
   return (
@@ -160,8 +150,8 @@ export default function Service({ data, pageContext }) {
       <div className="project-list-page">
         <Header />
         <Servicehead
-          detail={detail}/>
-        {/* <Popup /> */}
+          detail={detail} />
+         {/* <Popup /> */}
         <div className="project-wrap-box">
           <section className="service-header">
             {/* <div className="particles" id="particles-js">
@@ -293,7 +283,11 @@ export default function Service({ data, pageContext }) {
                         className="contact-inputs"
                         name="name"
                         img={userImg}
-                      />
+                        onChange={(e) => setName(e.target.value)}
+                        />
+                        {errors.name && (
+                          <p className="error-message">{errors.name}</p>
+                        )}
                     </div>
                     <div className="input-wrap">
                       <InputBox
@@ -302,7 +296,11 @@ export default function Service({ data, pageContext }) {
                         className="contact-inputs"
                         name="email"
                         img={Emailicon}
-                      />
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+                        {errors.email && (
+                          <p className="error-message">{errors.email}</p>
+                        )}
                     </div>
                     <div className="input-wrap">
                       <PhoneInput
@@ -334,9 +332,11 @@ export default function Service({ data, pageContext }) {
                           rows={10}
                           name="message"
                           placeholder="What's your Project about?"
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
                         />
                         <span className="input-icon">
-                          <img src={messageimg} alt="St Logo" name="message" />
+                          <img src={messageimg} alt="St Logo" />
                         </span>
                       </div>
                     )}
