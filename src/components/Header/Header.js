@@ -77,7 +77,12 @@ const Header = () => {
               <a onClick={toggle} href="/aboutus">
                 About Us
               </a>
-            </div>{" "}
+            </div>
+            <div className="navlink">
+              <a onClick={toggle} href="/marketplace">
+                Marketplace
+              </a>
+            </div>
             {/* <div className="navlink">
               <a onClick={toggle} href="/seoPackages">
                 SEO Packages
