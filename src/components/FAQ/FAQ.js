@@ -1,21 +1,27 @@
 import React from "react";
 import "./faq.scss";
 
-function FAQ() {
+function FAQ(props) {
+  const{Question,Answer}=props;
+  console.log("prp",props)
+
   return (
     <div class="faq-content">
       <div class="faq-head">
         <h1>Frequently Asked Questions</h1>
       </div>
       <div className="faq-accordian-sec">
-        <details className="faq-accordian">
+        <details className="faq-accordian"> 
+      
+
+       
           <summary className="faq-accordian-head">
             How do I create accordion?
-          </summary>
-          <div className="faq-accordian-body">
-            The tags <strong>details</strong> and <strong>summary</strong> have
+           </summary>
+           <div className="faq-accordian-body">
+             The tags <strong>details</strong> and <strong>summary</strong> have
             you covered.
-          </div>
+           </div>  
         </details>
         <details className="faq-accordian">
           <summary className="faq-accordian-head">
