@@ -44,7 +44,10 @@ export default function Marketplace() {
             </h1>
           </div>
           <div className="professional-services">
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg1} alt="service" />
               <h2>Product Service</h2>
               <p>
@@ -52,7 +55,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg2} alt="service" />
               <h2>IT Management</h2>
               <p>
@@ -60,7 +66,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>{" "}
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg3} alt="service" />
               <h2>Cloud Services</h2>
               <p>
@@ -68,7 +77,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>{" "}
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg4} alt="service" />
               <h2>Machine Learning</h2>
               <p>
@@ -76,7 +88,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>{" "}
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg5} alt="service" />
               <h2>Data Center</h2>
               <p>
@@ -84,7 +99,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>{" "}
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg6} alt="service" />
               <h2>Software Renew</h2>
               <p>
@@ -92,7 +110,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>{" "}
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg7} alt="service" />
               <h2>Promote Shop</h2>
               <p>
@@ -100,7 +121,10 @@ export default function Marketplace() {
                 bring unrivaled decades{" "}
               </p>
             </Link>{" "}
-            <Link to="/" className="service-block">
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
               <img src={serviceimg8} alt="service" />
               <h2>Design Review</h2>
               <p>
