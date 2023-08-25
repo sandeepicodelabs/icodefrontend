@@ -245,25 +245,11 @@ export default function Service({ data, pageContext }) {
                       <span className="rippleEffect">&nbsp;</span> Seo Package
                     </a>
                   ) : null}
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? (
-                    <Button className="getQuote" href="/seoPackages">
-                      <span className="rippleEffect">&nbsp;</span> Seo Package
-                    </Button>
-                  ) : null}
-
                   {typeof window !== "undefined" &&
                   window.location.href.includes(
                     "digital-marketing-seo-services-company"
                   ) ? (
                     <Button className="freeConsult getQuote" onClick={toggle}>
-                      <span className="rippleEffect">&nbsp;</span> Free Website
-                      Analysis
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? (
-                    <Button className="freeConsult" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Free Website
                       Analysis
                     </Button>
@@ -272,16 +258,6 @@ export default function Service({ data, pageContext }) {
                   )}
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
               <div className="service-header-image">
                 <div className="imgSec">
                   <img
@@ -290,7 +266,9 @@ export default function Service({ data, pageContext }) {
                   />
                 </div>
               </div>
-            </div>
+              </div> 
+
+
           </section>
 
           {modal && (

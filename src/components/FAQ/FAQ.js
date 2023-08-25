@@ -3,7 +3,7 @@ import "./faq.scss";
 
 export default function FAQ(props) {
   const { question, answer } = props;
-  console.log("prp", question);
+  //console.log("prp", question);
 
   return (
     <details className="faq-accordian">
