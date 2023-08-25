@@ -4,7 +4,7 @@
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-}); 
+});
 const strapiConfig = {
   apiURL:"https://icodelabsbackend-qr8y.onrender.com/",
   accessToken: process.env.STRAPI_TOKEN,
@@ -20,12 +20,12 @@ const strapiConfig = {
         // Populate media and relations
         // Make sure to not specify the fields key so the api always returns the updatedAt
         populate: {
-          Image :{
-            url:"*"
+          Image: {
+            url: "*",
           },
         },
       },
-    }, 
+    },
 
     {
       singularName: "service-detail",
@@ -36,14 +36,14 @@ const strapiConfig = {
           image: "*",
           images: "*",
           TopImage: "*",
-          Metatitle:{
-            populate: "*"
+          Metatitle: {
+            populate: "*",
           },
-          Metadescription:{
-            populate:"*"
+          Metadescription: {
+            populate: "*",
           },
-          Keyword:{
-            populate:"*"
+          Keyword: {
+            populate: "*",
           },
           Titleservice: {
             populate: {
@@ -62,11 +62,11 @@ const strapiConfig = {
               EImage: "*",
             },
           },
-          FAQ:{
-            populate:{
-              Question:"*",
-              Answer:"*",
-            }
+          FAQ: {
+            populate: {
+              Question: "*",
+              Answer: "*",
+            },
           },
           ExpertiseImage: {
             populate: {
@@ -176,17 +176,18 @@ const strapiConfig = {
     },
   ],
   queryLimit: 1000,
-}; 
-module.exports = { 
+};
+module.exports = {
   siteMetadata: {
     title: `Web & Mobile App Development | Custom Software Development Company`,
     siteUrl: "https://icodelabs.com",
-    description: "iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing.",
+    description:
+      "iCode Labs - A top development company offering innovative services like mobile & web app development, marketplace & custom software development, sharetribe flex development, & digital marketing.",
     theme_color: {
-      color: '#333333',
-      in_head: false
-    }
-  },  
+      color: "#333333",
+      in_head: false,
+    },
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
@@ -213,14 +214,13 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-sass", 
+    "gatsby-plugin-sass",
 
     {
       resolve: "gatsby-source-strapi",
       options: {
         ...strapiConfig,
       },
-    }, 
-     
+    },
   ],
 };
