@@ -147,9 +147,9 @@ export default function BlogPage({ data, pageContext }) {
 
         <HeaderBar currentpage="Blog" pagetitle={article?.node?.Title} />
         <div className="cover-full-box contentWidth">
-          <a href="/blog" className="goBack">
+          <Link to="/blog" className="goBack">
             <IconBack /> Back
-          </a>
+          </Link>
           <div className="article-main-box">
             <div className="all-article-wrap">
               <div className="article-list-wrap">

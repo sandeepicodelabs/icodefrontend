@@ -14,8 +14,8 @@ import serviceimg6 from "../../assets/images/software-renew.png";
 import serviceimg7 from "../../assets/images/promote-shop.png";
 import serviceimg8 from "../../assets/images/design-reivew.png";
 import aboutUs from "../../assets/images/aboutus.png";
-
 import Counter from "./counter";
+import { Link } from "gatsby";
 
 export default function Marketplace() {
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function Marketplace() {
     <>
       <Header />
       <Popup />
+
       <section className="marketplace-header">
         <div className="contentWidth">
           <p>EMPOWER YOUR BUSINESS</p>
@@ -44,70 +45,70 @@ export default function Marketplace() {
             </h1>
           </div>
           <div className="professional-services">
-            <div className="service-block">
+            <Link to="/" className="service-block">
               <img src={serviceimg1} alt="service" />
               <h2>Product Service</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>
+            <Link to="/" className="service-block">
               <img src={serviceimg2} alt="service" />
               <h2>IT Management</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>{" "}
+            <Link to="/" className="service-block">
               <img src={serviceimg3} alt="service" />
               <h2>Cloud Services</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>{" "}
+            <Link to="/" className="service-block">
               <img src={serviceimg4} alt="service" />
               <h2>Machine Learning</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>{" "}
+            <Link to="/" className="service-block">
               <img src={serviceimg5} alt="service" />
               <h2>Data Center</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>{" "}
+            <Link to="/" className="service-block">
               <img src={serviceimg6} alt="service" />
               <h2>Software Renew</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>{" "}
+            <Link to="/" className="service-block">
               <img src={serviceimg7} alt="service" />
               <h2>Promote Shop</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>{" "}
-            <div className="service-block">
+            </Link>{" "}
+            <Link to="/" className="service-block">
               <img src={serviceimg8} alt="service" />
               <h2>Design Review</h2>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
