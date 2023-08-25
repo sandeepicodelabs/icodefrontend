@@ -225,30 +225,30 @@ export default function Service({ data, pageContext }) {
               />
             </div> */}
             <div className="contentWidth">
-            <div className="service-header-content">
+              <div className="service-header-content">
                 <h1>{detail && detail?.node?.Title}</h1>
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? null : (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? null : (
                     <Button className="getQuote" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Get Started
                     </Button>
                   )}
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                     <a className="getQuote" href="/seoPackages">
                       <span className="rippleEffect">&nbsp;</span> Seo Package
                     </a>
                   ) : null}
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                     <Button className="freeConsult getQuote" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Free Website
                       Analysis
@@ -266,7 +266,7 @@ export default function Service({ data, pageContext }) {
                   />
                 </div>
               </div>
-              </div> 
+            </div>
 
 
           </section>
@@ -317,9 +317,9 @@ export default function Service({ data, pageContext }) {
                     </div>
 
                     {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
+                      window.location.href.includes(
+                        "digital-marketing-seo-services-company"
+                      ) ? (
                       <div className="input-wrap">
                         <InputBox
                           type="text"
@@ -459,24 +459,35 @@ export default function Service({ data, pageContext }) {
               </div>
             </section>
           </div>
+
           <section className="faq-section">
-            <div className="contentWidth">
-              <div class="faq-content">
-                <div class="faq-head">
-                  <h1>Frequently Asked Questions</h1>
+
+
+            {detail && detail?.node.FAQ.length ?
+              <div className="contentWidth">
+                <div class="faq-content">
+                  <div class="faq-head">
+                    <h1>Frequently Asked Questions</h1>
+                  </div>
+                  <div className="faq-accordian-sec">
+                    {detail &&
+                      detail?.node.FAQ.map((item, i) => (
+                        // console.log("item",item)
+                        <FAQ
+                          question={item?.Question}
+                          answer={item?.Answer.data.Answer}
+                        />
+
+                      ))}
+                  </div>
                 </div>
-                <div className="faq-accordian-sec">
-                  {detail &&
-                    detail?.node.FAQ.map((item, i) => (
-                      // console.log("item",item)
-                      <FAQ
-                        question={item?.Question}
-                        answer={item?.Answer.data.Answer}
-                      />
-                    ))}{" "}
-                </div>
-              </div>
-            </div>
+              </div> : null
+            }
+
+
+
+
+
           </section>
         </div>
         <Footer />
