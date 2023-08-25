@@ -15,10 +15,13 @@ import serviceimg7 from "../../assets/images/promote-shop.png";
 import serviceimg8 from "../../assets/images/design-reivew.png";
 import aboutUs from "../../assets/images/aboutus.png";
 
+import Counter from "./counter";
+
 export default function Marketplace() {
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <Header />
@@ -157,20 +160,16 @@ export default function Marketplace() {
       <section className="counterSection">
         <div className="contentWidth">
           <div className="counterblock">
-            <h2>820 +</h2>
-            <p>Active Clients</p>
+            <Counter number={820} title="Active Clients" />
           </div>
           <div className="counterblock">
-            <h2>520 +</h2>
-            <p>Projects Done</p>
+            <Counter number={520} title="Projects Done" />
           </div>
           <div className="counterblock">
-            <h2>100 +</h2>
-            <p>Ready Projects</p>
+            <Counter number={100} title="Ready Projects" />
           </div>
           <div className="counterblock">
-            <h2>90 k</h2>
-            <p>Happy Clients</p>
+            <Counter number={90} title="Happy Clients" />
           </div>
         </div>
       </section>

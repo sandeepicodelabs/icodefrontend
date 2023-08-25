@@ -201,7 +201,7 @@
         }
         p {
           color: $black-color;
-          font-size: 16px;
+          font-size: 15px;
           font-weight: 400;
           line-height: 130%;
           margin: 0;
@@ -297,7 +297,7 @@
       }
       p {
         color: $white-color;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         line-height: 130%;
         margin: 0 0 10px 0;
@@ -312,7 +312,7 @@
       .aboutIcodelabs {
         margin-top: 20px;
         p {
-          font-size: 16px;
+          font-size: 15px;
           color: $white-color;
           font-weight: 400;
           line-height: 150%;
@@ -406,6 +406,22 @@
       border-radius: 8px;
       width: 100%;
       box-shadow: $box-shadow;
+      .number {
+        span {
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 140%;
+          color: $base-color;
+          display: inline-block;
+          margin: 0;
+          @include lg {
+            font-size: 38px;
+          }
+          @include xl {
+            font-size: 48px;
+          }
+        }
+      }
       h2 {
         font-size: 28px;
         font-weight: 700;
