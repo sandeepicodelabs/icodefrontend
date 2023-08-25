@@ -51,30 +51,30 @@ export default function Marketplace() {
               <img src={serviceimg1} alt="service" />
               <h1>Product Service</h1>
               <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
+              We’ve been a nearly strategic thought leader for five we are
+                bring unrivaled decades
+             {" "}
               </p>
             </Link>
             <Link
-              to="/marketplace/marketplaceDetail/"
+              to="/marketplace/Ecommerce/"
               className="service-block"
             >
               <img src={serviceimg2} alt="service" />
-              <h2>IT Management</h2>
+              <h2>E-Commerce Management</h2>
               <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
+              Create e-commerce content, such as product descriptions/reviews, buying guides, blog posts, etc.
+           {" "}
               </p>
             </Link>{" "}
             <Link
-              to="/marketplace/marketplaceDetail/"
+              to="/marketplace/resort/"
               className="service-block"
             >
               <img src={serviceimg3} alt="service" />
-              <h2>Cloud Services</h2>
+              <h2>Restaurant</h2>
               <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
+              Our recent survey discovered that 77% of diners tried a restaurant based on its social media content. While that sounds promising…{" "}
               </p>
             </Link>{" "}
             <Link
