@@ -5,17 +5,10 @@ import "../marketplace.scss";
 import Popup from "../../components/Popup/Modal";
 import ButtonBox from "../../components/button";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
-import serviceimg1 from "../../assets/images/product-service.png";
-import serviceimg2 from "../../assets/images/IT-management.png";
-import serviceimg3 from "../../assets/images/cloud-services.png";
-import serviceimg4 from "../../assets/images/machine-learning.png";
-import serviceimg5 from "../../assets/images/data-center.png";
-import serviceimg6 from "../../assets/images/software-renew.png";
-import serviceimg7 from "../../assets/images/promote-shop.png";
-import serviceimg8 from "../../assets/images/design-reivew.png";
 import aboutUs from "../../assets/images/aboutus.png";
 import Counter from "./counter";
 import { Link } from "gatsby";
+import Icons from "../../components/Icons/Icons";
 
 export default function Marketplace() {
   useEffect(() => {
@@ -48,89 +41,148 @@ export default function Marketplace() {
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg1} alt="service" />
-              <h2>Product Service</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="onDemand" />
+              <h2>On demand</h2>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg2} alt="service" />
-              <h2>IT Management</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="restaurant" />
+              <h2>Restaurant</h2>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg3} alt="service" />
-              <h2>Cloud Services</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="realEstate" />
+              <h2>Real Estate</h2>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg4} alt="service" />
-              <h2>Machine Learning</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="healthcare" />
+              <h2>Healthcare</h2>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg5} alt="service" />
-              <h2>Data Center</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="ecommerce" />
+              <h2>Ecommerce</h2>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg6} alt="service" />
-              <h2>Software Renew</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="education" />
+              <h2>Education</h2>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg7} alt="service" />
-              <h2>Promote Shop</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="socialNetworking" />
+              <h2>Social Networking</h2>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
               className="service-block"
             >
-              <img src={serviceimg8} alt="service" />
-              <h2>Design Review</h2>
-              <p>
-                We’ve been a nearly strategic thought leader for five we are
-                bring unrivaled decades{" "}
-              </p>
+              <Icons name="saas" />
+              <h2>SaaS</h2>
+            </Link>{" "}
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="news" />
+              <h2>News</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="entertainment" />
+              <h2>Entertainment</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="gameApp" />
+              <h2>Game App</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="logistics" />
+              <h2>Logistics</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="travel" />
+              <h2>Travel</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="finance" />
+              <h2>Finance</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="aviation" />
+              <h2>Aviation</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="eScooter" />
+              <h2>eScooter</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="politics" />
+              <h2>Politics</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="agriculture" />
+              <h2>Agriculture</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="events" />
+              <h2>Events</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="wellness" />
+              <h2>Wellness</h2>
+            </Link>
+            <Link
+              to="/marketplace/marketplaceDetail/"
+              className="service-block"
+            >
+              <Icons name="EV" />
+              <h2>EV</h2>
             </Link>
           </div>
         </div>

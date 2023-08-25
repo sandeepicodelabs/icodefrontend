@@ -164,16 +164,17 @@
     }
     .professional-services {
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 14px;
       @include sm {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 24px;
       }
       @include lg {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
       @include xl {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
       }
       .service-block {
         width: 100%;
@@ -181,24 +182,41 @@
         background-color: $white-color;
         box-shadow: $box-shadow;
         border: solid 1px $border-color;
-        padding: 24px;
+        padding: 14px;
         border-radius: 8px;
         transition: $transition;
+        text-align: center;
+        display: inline-block;
+        @include sm {
+          padding: 24px;
+        }
         &:hover {
           box-shadow: $box-shadow-large;
           transition: $transition;
         }
         img {
           max-width: 100%;
-          width: 60px;
+          width: 40px;
           margin-bottom: 10px;
+          @include sm {
+            width: 40px;
+          }
+          @include md {
+            width: 60px;
+          }
         }
         h2 {
           color: $black-color;
-          font-size: 18px;
-          font-weight: 600;
+          font-size: 15px;
+          font-weight: 500;
           line-height: 120%;
           margin: 0 0 8px 0;
+          @include sm {
+            font-size: 16px;
+          }
+          @include md {
+            font-size: 18px;
+          }
         }
         p {
           color: $black-color;
