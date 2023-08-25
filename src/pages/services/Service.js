@@ -463,17 +463,16 @@ export default function Service({ data, pageContext }) {
               <div class="faq-content">
                 <div class="faq-head">
                   <h1>Frequently Asked Questions</h1>
-
-                  <div className="faq-accordian-sec">
-                    {detail &&
-                      detail?.node.FAQ.map((item, i) => (
-                        // console.log("item",item)
-                        <FAQ
-                          question={item?.Question}
-                          answer={item?.Answer.data.Answer}
-                        />
-                      ))}{" "}
-                  </div>
+                </div>
+                <div className="faq-accordian-sec">
+                  {detail &&
+                    detail?.node.FAQ.map((item, i) => (
+                      // console.log("item",item)
+                      <FAQ
+                        question={item?.Question}
+                        answer={item?.Answer.data.Answer}
+                      />
+                    ))}{" "}
                 </div>
               </div>
             </div>
