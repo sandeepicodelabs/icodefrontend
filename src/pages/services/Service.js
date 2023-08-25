@@ -456,7 +456,14 @@ export default function Service({ data, pageContext }) {
             </section>
           </div>
           <section className="faq-section">
-            <div className="contentWidth">{/* <FAQ /> */}</div>
+            <div className="contentWidth">
+            {detail && Array.isArray(detail) && detail.map((item, i) => { 
+                 console.log("item",item)
+              //  <FAQ
+              //   question={item?.Question}
+              //  /> 
+            })}
+               </div>
           </section>
         </div>
         <Footer />
@@ -544,17 +551,16 @@ export const query = graphql`
               data {
                 EDescription
               }
-            }
+            } 
 
-            FAQ {
-              Question
-              Answer {
-                data {
-                  Answer
-                }
+          }
+          FAQ {
+            Question
+            Answer {
+              data {
+                Answer
               }
             }
-
           }
         }
       }
