@@ -14,7 +14,7 @@ import commaimage from "../../assets/images/comma.png";
 import userImg from "../../assets/images/user.png";
 import Emailicon from "../../assets/images/email.png";
 import messageimg from "../../assets/images/message.png";
-import linkicon from "../../assets/images/link.png"
+import linkicon from "../../assets/images/link.png";
 
 import {
   Button,
@@ -39,7 +39,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Servicehead from "../../components/ServiceHead/Servicehead";
 import Layout from "../Layout";
-import Popup from "../../components/Popup/Modal"; 
+import Popup from "../../components/Popup/Modal";
 
 export default function Service({ data, pageContext }) {
   const servicedata = data && data?.allStrapiServiceDetail?.edges;
@@ -53,9 +53,8 @@ export default function Service({ data, pageContext }) {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [errors, setErrors] = useState({});
-  const [modal, setModal] = useState(false); 
+  const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
-
 
   useEffect(() => {
     // setTimeout(function () {
@@ -64,10 +63,10 @@ export default function Service({ data, pageContext }) {
     typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []);
 
-  // Handle the value change 
+  // Handle the value change
   const handleOnChange = (value) => {
     setPhoneNumber(value);
-  }; 
+  };
   const particlesInit = async (main) => {
     // console.log(main);
     await loadFull(main);
@@ -79,25 +78,25 @@ export default function Service({ data, pageContext }) {
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces 
-    
-      const newErrors = {}; 
-      if (name.trim() === "") {
-        newErrors.name = "Name is required";
-      } else if (!namePattern.test(name)) {
-        newErrors.name = "Please enter a valid name with alphabetic characters.";
-      }
-      
-      if (email.trim() === "") {
-        newErrors.email = "Please enter email address";
-      }
-      
-      if (Object.keys(newErrors).length > 0) {
-        setErrors(newErrors);
-        return;
-        console.log("s")
-      }
+
+    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
+
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+      console.log("s");
+    }
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
@@ -108,7 +107,7 @@ export default function Service({ data, pageContext }) {
         Message: message,
         MobileNo: phoneNumber,
         Title: title,
-        Url: url
+        Url: url,
       },
     };
     console.log(contactData, "contactData");
@@ -141,17 +140,14 @@ export default function Service({ data, pageContext }) {
     setUrl("");
     setErrors({});
     e.target.reset();
-
   };
   //console.log("mobile", phoneNumber)
   return (
-
     <>
       <div className="project-list-page">
         <Header />
-        <Servicehead
-          detail={detail} />
-         {/* <Popup /> */}
+        <Servicehead detail={detail} />
+        {/* <Popup /> */}
         <div className="project-wrap-box">
           <section className="service-header">
             {/* <div className="particles" id="particles-js">
@@ -234,24 +230,29 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? null : <Button className="getQuote" onClick={toggle}>
-                    <span className="rippleEffect">&nbsp;</span> Get Started
-                  </Button>}
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? null : (
+                    <Button className="getQuote" onClick={toggle}>
+                      <span className="rippleEffect">&nbsp;</span> Get Started
+                    </Button>
+                  )}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? <Button className="getQuote" href="/seoPackages">
-                    <span className="rippleEffect">&nbsp;</span> Seo Package
-                  </Button> : null}
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
+                    <Button className="getQuote" href="/seoPackages">
+                      <span className="rippleEffect">&nbsp;</span> Seo Package
+                    </Button>
+                  ) : null}
 
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
                     <Button className="freeConsult" onClick={toggle}>
-                      <span className="rippleEffect">&nbsp;</span> Free Website Analysis
+                      <span className="rippleEffect">&nbsp;</span> Free Website
+                      Analysis
                     </Button>
                   ) : (
                     " "
@@ -271,7 +272,9 @@ export default function Service({ data, pageContext }) {
 
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>Contact Now to Craft Digital Excellence!</ModalHeader>
+              <ModalHeader toggle={toggle}>
+                Contact Now to Craft Digital Excellence!
+              </ModalHeader>
               <ModalBody>
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">
@@ -284,10 +287,10 @@ export default function Service({ data, pageContext }) {
                         name="name"
                         img={userImg}
                         onChange={(e) => setName(e.target.value)}
-                        />
-                        {errors.name && (
-                          <p className="error-message">{errors.name}</p>
-                        )}
+                      />
+                      {errors.name && (
+                        <p className="error-message">{errors.name}</p>
+                      )}
                     </div>
                     <div className="input-wrap">
                       <InputBox
@@ -297,10 +300,10 @@ export default function Service({ data, pageContext }) {
                         name="email"
                         img={Emailicon}
                         onChange={(e) => setEmail(e.target.value)}
-                        />
-                        {errors.email && (
-                          <p className="error-message">{errors.email}</p>
-                        )}
+                      />
+                      {errors.email && (
+                        <p className="error-message">{errors.email}</p>
+                      )}
                     </div>
                     <div className="input-wrap">
                       <PhoneInput
@@ -313,9 +316,9 @@ export default function Service({ data, pageContext }) {
                     </div>
 
                     {typeof window !== "undefined" &&
-                      window.location.href.includes(
-                        "digital-marketing-seo-services-company"
-                      ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                       <div className="input-wrap">
                         <InputBox
                           type="text"
@@ -457,20 +460,28 @@ export default function Service({ data, pageContext }) {
           </div>
           <section className="faq-section">
             <div className="contentWidth">
-            {detail &&  detail?.node.FAQ.map((item, i) =>(
-                // console.log("item",item)
-                <FAQ
-                 question={item?.Question}
-                 answer={item?.Answer.data.Answer}
-                /> 
-            ))}
-               </div>
+              <div class="faq-content">
+                <div class="faq-head">
+                  <h1>Frequently Asked Questions</h1>
+
+                  <div className="faq-accordian-sec">
+                    {detail &&
+                      detail?.node.FAQ.map((item, i) => (
+                        // console.log("item",item)
+                        <FAQ
+                          question={item?.Question}
+                          answer={item?.Answer.data.Answer}
+                        />
+                      ))}{" "}
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
         <Footer />
       </div>
     </>
-
   );
 }
 
@@ -483,7 +494,7 @@ export const query = graphql`
           TitleMain
           Title
           Metatitle
-          Metadescription 
+          Metadescription
           Keyword
           TopImage {
             url
@@ -552,8 +563,7 @@ export const query = graphql`
               data {
                 EDescription
               }
-            } 
-
+            }
           }
           FAQ {
             Question
@@ -580,5 +590,3 @@ export const query = graphql`
     }
   }
 `;
-
-

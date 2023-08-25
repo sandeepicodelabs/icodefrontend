@@ -26,7 +26,6 @@ export default function Marketplace() {
     <>
       <Header />
       <Popup />
-
       <section className="marketplace-header">
         <div className="contentWidth">
           <p>EMPOWER YOUR BUSINESS</p>
