@@ -457,12 +457,13 @@ export default function Service({ data, pageContext }) {
           </div>
           <section className="faq-section">
             <div className="contentWidth">
-            {detail && Array.isArray(detail) && detail.map((item, i) => { 
-                 console.log("item",item)
-              //  <FAQ
-              //   question={item?.Question}
-              //  /> 
-            })}
+            {detail &&  detail?.node.FAQ.map((item, i) =>(
+                // console.log("item",item)
+                <FAQ
+                 question={item?.Question}
+                 answer={item?.Answer.data.Answer}
+                /> 
+            ))}
                </div>
           </section>
         </div>
