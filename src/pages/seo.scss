@@ -603,3 +603,9 @@
     }
   }
 }
+
+.error-message {
+  color: $fail-color;
+  font-size: 14px;
+  margin-top: 3px;
+}

@@ -12,6 +12,7 @@ export default function InputBox(props) {
     demo,
     name,
     onChange,
+    errorMsg,
   } = props;
   //console.log("demo",demo)
   //const isClient = typeof window !== 'undefined';
@@ -32,6 +33,7 @@ export default function InputBox(props) {
           <img src={img} alt="St Logo" />
         </span>
       ) : null}
+      {errorMsg && <p className="error-message">{errorMsg}</p>}
     </div>
   );
 }

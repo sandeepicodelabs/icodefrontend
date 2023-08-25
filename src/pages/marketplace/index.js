@@ -37,10 +37,7 @@ export default function Marketplace() {
             </h1>
           </div>
           <div className="professional-services">
-            <Link
-              to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+            <Link to="/marketplace/onDemand" className="service-block">
               <Icons name="onDemand" />
               <h2>On demand</h2>
             </Link>
