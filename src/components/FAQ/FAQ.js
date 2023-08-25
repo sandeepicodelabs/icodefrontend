@@ -1,9 +1,9 @@
 import React from "react";
 import "./faq.scss";
 
-function FAQ(props) {
+export default function FAQ(props) {
   const{question,answer}=props;
-  console.log("prp",question)
+  //console.log("prp",question)
 
   return (
     <div class="faq-content">

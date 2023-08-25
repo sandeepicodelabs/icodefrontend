@@ -149,8 +149,7 @@ export default function Service({ data, pageContext }) {
     <>
       <div className="project-list-page">
         <Header />
-        <Servicehead
-          detail={detail} />
+        <Servicehead  detail={detail} />
          {/* <Popup /> */}
         <div className="project-wrap-box">
           <section className="service-header">
@@ -229,29 +228,33 @@ export default function Service({ data, pageContext }) {
               />
             </div> */}
             <div className="contentWidth">
-              <div className="service-header-content">
+            <div className="service-header-content">
                 <h1>{detail && detail?.node?.Title}</h1>
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? null : <Button className="getQuote" onClick={toggle}>
-                    <span className="rippleEffect">&nbsp;</span> Get Started
-                  </Button>}
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? null : (
+                    <Button className="getQuote" onClick={toggle}>
+                      <span className="rippleEffect">&nbsp;</span> Get Started
+                    </Button>
+                  )}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? <Button className="getQuote" href="/seoPackages">
-                    <span className="rippleEffect">&nbsp;</span> Seo Package
-                  </Button> : null}
-
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
+                    <a className="getQuote" href="/seoPackages">
+                      <span className="rippleEffect">&nbsp;</span> Seo Package
+                    </a>
+                  ) : null}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
-                    <Button className="freeConsult" onClick={toggle}>
-                      <span className="rippleEffect">&nbsp;</span> Free Website Analysis
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
+                    <Button className="freeConsult getQuote" onClick={toggle}>
+                      <span className="rippleEffect">&nbsp;</span> Free Website
+                      Analysis
                     </Button>
                   ) : (
                     " "
@@ -457,13 +460,14 @@ export default function Service({ data, pageContext }) {
           </div>
           <section className="faq-section">
             <div className="contentWidth">
-            {detail &&  detail?.node.FAQ.map((item, i) =>(
-                // console.log("item",item)
-                <FAQ
-                 question={item?.Question}
-                 answer={item?.Answer.data.Answer}
-                /> 
-            ))}
+            {detail &&
+              detail?.node?.FAQ.map((item, i) => (
+          <FAQ
+            key={i}
+            question={item?.Question}
+            answer={item?.Answer?.data?.Answer}
+          />
+        ))}
                </div>
           </section>
         </div>

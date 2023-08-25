@@ -9,7 +9,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const data = useStaticQuery(graphql`
     query {
-      allStrapiServiceDetail {
+      allStrapiServiceDetail (sort: {TId: ASC}) {
         edges {
           node {
             Slug

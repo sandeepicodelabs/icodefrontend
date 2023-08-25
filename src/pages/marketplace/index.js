@@ -45,15 +45,15 @@ export default function Marketplace() {
             </h1>
           </div>
           <div className="professional-services">
-            <Link to="/" className="service-block">
+            <Link to="/marketplace/marketplaceDetail/" className="service-block">
               <img src={serviceimg1} alt="service" />
-              <h2>Product Service</h2>
+              <h1>Product Service</h1>
               <p>
                 We’ve been a nearly strategic thought leader for five we are
                 bring unrivaled decades{" "}
               </p>
             </Link>
-            <Link to="/" className="service-block">
+            <Link to="/marketplace/marketplaceDetail/" className="service-block">
               <img src={serviceimg2} alt="service" />
               <h2>IT Management</h2>
               <p>

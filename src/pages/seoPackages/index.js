@@ -14,31 +14,58 @@ import seopopup from "../../assets/images/SEO/seo-services-agency.png";
 import Layout from "../Layout";
 import axios from "axios";
 
-export default function Seo() {
+export default function Seo() { 
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [errors, setErrors] = useState({});
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+
+
+
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
   }, []);
-  const [phoneNumber, setPhoneNumber] = useState("+91");
 
   const handleOnChange = (value) => {
-    // Handle the value change
-    // console.log("New phone number:", value);
+    // Handle the value change 
     setPhoneNumber(value);
   };
 
   // for enquiry form
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
+    const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces  
+    const newErrors = {}; 
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name";
+    }
+    
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+      console.log("s")
+    }
+
+
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
     const contactData = {
       data: {
-        Name: formData.get("name"),
-        LName: formData.get("lname"),
-        Email: formData.get("email"),
+        Name: name,
+        Email: email,
+        LName: formData.get("lname"), 
         Message: formData.get("message"),
         MobileNo: phoneNumber,
         Title: formData.get("title"),
@@ -51,9 +78,7 @@ export default function Seo() {
     // Make the POST request to your Strapi backend
     axios
       .get(
-        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${formData.get(
-          "name"
-        )}&email=${formData.get("email")}&message=${formData.get(
+        `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${formData.get(
           "message"
         )}&phoneNumber=${formData.get("phoneNumber")}&url=${formData.get(
           "url"
@@ -73,7 +98,10 @@ export default function Seo() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
+      setName("");
+    setEmail("");
     setPhoneNumber("+91");
+    setErrors({});
     e.target.reset();
   };
 
@@ -1096,7 +1124,11 @@ export default function Seo() {
                       placeholder={""}
                       className="contact-inputs"
                       name="name"
-                    />{" "}
+                      onChange={(e) => setName(e.target.value)}
+                      />
+                      {errors.name && (
+                        <p className="error-message">{errors.name}</p>
+                      )}
                     <InputBox
                       label="Last Name"
                       type="text"
@@ -1112,7 +1144,11 @@ export default function Seo() {
                       placeholder=""
                       className="contact-inputs"
                       name="email"
-                    />{" "}
+                      onChange={(e) => setEmail(e.target.value)}
+                      />
+                      {errors.email && (
+                        <p className="error-message">{errors.email}</p>
+                      )}
                     <div className="form-box">
                       <label htmlFor="phone">What's Your Phone?"</label>
                       <PhoneInput
@@ -1139,6 +1175,7 @@ export default function Seo() {
                         Package you are interested in: *
                       </label>
                       <select name="package" id="package">
+                        <option value="">--Select Package--</option>
                         <option value="Essential">Essential</option>
                         <option value="Advanced">Advanced</option>
                         <option value="Millennial">Millennial</option>
