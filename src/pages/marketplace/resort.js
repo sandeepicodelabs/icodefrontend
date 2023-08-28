@@ -12,52 +12,21 @@ function Resort() {
 
             <Header />
             <Popup />
-            <section className="marketplaceDetailsPage">
+            <section className="marketplace-header">
                 <div className="contentWidth">
-                    <div className="imgSec">
+                    {/* <div className="imgSec">
                         <img src={emarketplaceDetailsimg} alt="image" />
-                    </div>
+                    </div> */}
                     <div className="contentSec">
-                        <h1>Restaurant</h1>
+                        <h1>Restaurant App Development Services</h1>
                         <p>
-                            Building the best restaurant website doesn’t have to be a time-consuming or difficult task.
-                            In many cases, there are simple things you can build into your website to share the most important information with your frequent and potential guests, especially as a way to direct customer traffic to online ordering.
-
+                        Serving the restaurant industry stakeholders a combination of efficient ordering, on-time delivery and hassle free payment.
 
                         </p>
-                        <ul>
-                            <li>
-                                <IconCheckmark />
-                                A way to make reservations
+                        </div>
+                        </div>
 
-                            </li>
-                            <li>
-                                <IconCheckmark />
-                                The basics: contact info, hours, location
-                            </li>
-                            <li>
-                                <IconCheckmark />
-                                An up to date menu
-                            </li>{" "}
-                            <li>
-                                <IconCheckmark />
-                                The restaurant’s social media accounts
-                            </li>
-                        </ul>
-                        <h2>How to make a restaurant website</h2>
-                        <p>
-                            Building a restaurant website isn’t difficult. To create a restaurant website, you’ll need to use a website platform like Squarespace, Wix, or depending on the skill level of your website builder, the more advanced WordPress or HubSpot. The best restaurant website builders will walk you through purchasing and setting up your domain name, and you’ll easily be able to add the key parts of a restaurant website to your site.
-
-                            Create an account with a website creation platform like Squarespace, Wix, or WordPress.
-
-                            Purchase and set up your domain name (URL).
-
-                            Design and add content to your website.
-
-                            Promote your website.
-                        </p>
-                    </div>
-                </div>
+                     
             </section>
             <section className="counterSection">
         <div className="contentWidth">

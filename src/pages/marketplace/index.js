@@ -41,11 +41,11 @@ export default function Marketplace() {
               <Icons name="onDemand" />
               <h2>On demand</h2>
             </Link>
-            <Link to="/marketplace/Ecommerce/" className="service-block">
+            <Link to="/marketplace/resort/" className="service-block">
               <Icons name="restaurant" />
               <h2>Restaurant</h2>
             </Link>{" "}
-            <Link to="/marketplace/resort/" className="service-block">
+            <Link to="/marketplace/marketplaceDetail/" className="service-block">
               <Icons name="realEstate" />
               <h2>Real Estate</h2>
             </Link>{" "}
@@ -57,7 +57,7 @@ export default function Marketplace() {
               <h2>Healthcare</h2>
             </Link>{" "}
             <Link
-              to="/marketplace/marketplaceDetail/"
+              to="/marketplace/Ecommerce/"
               className="service-block"
             >
               <Icons name="ecommerce" />
