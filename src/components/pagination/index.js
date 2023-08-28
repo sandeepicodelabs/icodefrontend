@@ -1,5 +1,5 @@
-import React from 'react';  
-import { Link } from "gatsby"; 
+import React from "react";
+import { Link } from "gatsby";
 import "./pagination.scss";
 import paginationNext from "../../assets/images/pagination-next-icon.png";
 import paginationprev from "../../assets/images/pagination-prev-icon.png";
@@ -10,7 +10,7 @@ export default function PaginationBox(props) {
   return (
     <>
       <div className="pagination-box">
-        <div class="pagination">
+        <div className="pagination">
           <a href="/blog" className="page-navigate-icon">
             <img src={paginationprev} alt="St Logo" />
           </a>
@@ -18,7 +18,7 @@ export default function PaginationBox(props) {
           <a href="/blog" className="pagination-count">
             1
           </a>
-          <a href="/blog" class="pagination-count active">
+          <a href="/blog" className="pagination-count active">
             2
           </a>
           <a href="../blog" className="page-navigate-icon">
@@ -30,11 +30,6 @@ export default function PaginationBox(props) {
     </>
   );
 }
-
-
-
-
-
 
 // const PaginationBox = ({ numPages, currentPage }) => {
 //   console.log("numPages",numPages,currentPage)
@@ -55,20 +50,19 @@ export default function PaginationBox(props) {
 
 // export default PaginationBox;
 
-  //   <>
-  //   <div className="pagination-box">
-  //     <div class="pagination">
-  //       <a href="/blog" className="page-navigate-icon">
-  //         <img src={paginationprev} alt="St Logo" />
-  //       </a>
-      
-  //       <a href="/blog" className="pagination-count">1</a> 
-  //       <a href="/blog" class="pagination-count active">2</a>
-  //       <a href="../blog" className="page-navigate-icon">
-  //         <img src={paginationNext} alt="St Logo" />
-  //       </a>
-  //         {/* <Blog articles={data.articles.edges} pageContext={pageContext} /> */}
-  //     </div>
-  //   </div>
-  // </>
- 
+//   <>
+//   <div className="pagination-box">
+//     <div className="pagination">
+//       <a href="/blog" className="page-navigate-icon">
+//         <img src={paginationprev} alt="St Logo" />
+//       </a>
+
+//       <a href="/blog" className="pagination-count">1</a>
+//       <a href="/blog" className="pagination-count active">2</a>
+//       <a href="../blog" className="page-navigate-icon">
+//         <img src={paginationNext} alt="St Logo" />
+//       </a>
+//         {/* <Blog articles={data.articles.edges} pageContext={pageContext} /> */}
+//     </div>
+//   </div>
+// </>

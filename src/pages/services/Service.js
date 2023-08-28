@@ -230,25 +230,25 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? null : (
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? null : (
                     <Button className="getQuote" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Get Started
                     </Button>
                   )}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
                     <a className="getQuote" href="/seoPackages">
                       <span className="rippleEffect">&nbsp;</span> Seo Package
                     </a>
                   ) : null}
                   {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
+                  window.location.href.includes(
+                    "digital-marketing-seo-services-company"
+                  ) ? (
                     <Button className="freeConsult getQuote" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Free Website
                       Analysis
@@ -267,8 +267,6 @@ export default function Service({ data, pageContext }) {
                 </div>
               </div>
             </div>
-
-
           </section>
 
           {modal && (
@@ -317,9 +315,9 @@ export default function Service({ data, pageContext }) {
                     </div>
 
                     {typeof window !== "undefined" &&
-                      window.location.href.includes(
-                        "digital-marketing-seo-services-company"
-                      ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                       <div className="input-wrap">
                         <InputBox
                           type="text"
@@ -460,6 +458,8 @@ export default function Service({ data, pageContext }) {
             </section>
           </div>
 
+          <section className="faq-section">
+            {detail && detail?.node.FAQ.length ? (
           <section className="faq-section"> 
             {detail && detail?.node.FAQ.length ?
               <div className="contentWidth">
@@ -475,17 +475,11 @@ export default function Service({ data, pageContext }) {
                           question={item?.Question}
                           answer={item?.Answer.data.Answer}
                         />
-
                       ))}
                   </div>
                 </div>
-              </div> : null
-            }
-
-
-
-
-
+              </div>
+            ) : null}
           </section>
         </div>
         <Footer />

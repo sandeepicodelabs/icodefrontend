@@ -567,10 +567,9 @@
         width: 100%;
         @include md {
           grid-template-columns: repeat(2, 1fr);
-          margin-top: 80px;
+          margin-top: 90px;
           grid-row-gap: 80px;
           grid-column-gap: 48px;
-          margin-top: 60px;
         }
         .featureBlock {
           background: $white-color;

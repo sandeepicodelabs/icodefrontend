@@ -1073,33 +1073,6 @@ export default function Seo() {
                 <div className="accreditedImg">
                   <img src={seopopup} alt="st logo" />
                 </div>
-                {/* <h2>Accredited By</h2>
-                <ul class="partner_list">
-                  <li>
-                    <img
-                      src="https://www.pagetraffic.in/wp-content/uploads/2022/04/google-partner-withshadow.png"
-                      alt="google-partner"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      src="https://www.pagetraffic.in/wp-content/uploads/2022/03/bbb-logo-with-rating.png"
-                      alt="bbb-logo"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      src="https://www.pagetraffic.in/wp-content/uploads/2022/03/clutch-full-logo-1.png"
-                      alt="clutch-full-logo"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      src="https://www.pagetraffic.in/wp-content/uploads/2022/04/red-herring-asia.png"
-                      alt="red-herring-asia"
-                    />
-                  </li>
-                </ul> */}
               </div>
             </div>
             <div className="quoteRightSec">
