@@ -67,7 +67,7 @@ html {
 }
 body {
   font-family: $font-family !important;
-
+  -webkit-tap-highlight-color: transparent;
   /* A non-standard feature: https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
