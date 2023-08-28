@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import marketplaceDetailsimg from "../../assets/images/tabslide1.png";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import Footer from "../../components/Footer/Footer";

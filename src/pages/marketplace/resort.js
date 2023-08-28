@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import restaurant from "../../assets/images/restaurant-order.png";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import Footer from "../../components/Footer/Footer";
@@ -8,11 +8,14 @@ import Counter from "./counter";
 import Icons from "../../components/Icons/Icons";
 import ButtonBox from "../../components/button";
 import { Link } from "gatsby";
-import "../marketplace.scss";  
- 
+import "../marketplace.scss";
+
 function Resort() {
+    useEffect(() => {
+        typeof window != "undefined" && window.scrollTo(0, 0);
+      }, []);
     return (
-        <> 
+        <>
             <Header />
             <Popup />
             <section className="marketplace-header">
@@ -490,8 +493,37 @@ function Resort() {
             </section>
             <section>
                 <div className="imgSec">
-                    <img src={restaurant} alt="image" />  
+                    <img src={restaurant} alt="image" />
                 </div>
+            </section>
+            <section>
+                <h1>Frequently asked questions</h1>
+                <details className="faq-accordian">
+                    <summary className="faq-accordian-head">What are some food business startup ideas for the restaurant industry?</summary>
+                    <div className="faq-accordian-body">Some of the popular food business startup ideas are:
+                        Food truck apps
+                        Cloud kitchen apps
+                        Quick service restaurant apps
+                        Pop-up restaurant apps
+                        Leftover food supply apps
+                        Food planner app</div>
+                </details>
+                <details className="faq-accordian">
+                    <summary className="faq-accordian-head">How much does it cost to create a food delivery app?</summary>
+                    <div className="faq-accordian-body">
+                        Depending on the features you are looking to add in your on-demand food delivery mobile app and the resources that it would require to get your app transformed from its ideal stage to the launch phase, the cost of developing a food-delivery app would come out to somewhere around $30,000 to $40,000 or more. For a more accurate estimation, you can reach out to our experts.</div>
+                </details>
+                <details className="faq-accordian">
+                    <summary className="faq-accordian-head">How to select the best eCommerce application development services company for your project?</summary>
+                    <div className="faq-accordian-body">To select the best eCommerce application development services company, one should check the shortlisted company’s portfolio, its testimonials, and its ratings on various platforms such as Clutch. Upon satisfactory evaluation of all of the above,
+                        one could be in a position to select the best eCommerce app development company.</div>
+                </details>
+                <details className="faq-accordian">
+                    <summary className="faq-accordian-head">How long does it take to develop an app for a restaurant?</summary>
+                    <div className="faq-accordian-body">It's nearly impossible to accurately tell the time period until the initial release is ready to enter the market. Even if you have a clear idea of what your restaurant app will do and whom it will entertain, there are various other factors such as development platform, restaurant app complexity, restaurant mobile app features, target audience, development team size etc. that directly impact those timeline.
+
+                    </div>
+                </details>
             </section>
             <section className="counterSection">
                 <div className="contentWidth">
@@ -508,9 +540,7 @@ function Resort() {
                         <Counter number={90} title="Happy Clients" />
                     </div>
                 </div>
-            </section>
-
-
+            </section> 
             <Footer />
         </>
     );

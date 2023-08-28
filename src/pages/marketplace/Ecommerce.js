@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import emarketplaceDetailsimg from "../../assets/images/e-commerce-image3.png";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import Footer from "../../components/Footer/Footer";
@@ -10,7 +10,11 @@ import ButtonBox from "../../components/button";
 import Counter from "./counter";
 import "../../components/FAQ/faq.scss"  
 
-function marketplaceDetail() {
+function Ecommerce() {
+  useEffect(() => {
+    typeof window != "undefined" && window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Header />
@@ -240,6 +244,7 @@ function marketplaceDetail() {
         </div>
       </section>
       <section>
+        <h1>Frequently asked questions</h1>
         <details className="faq-accordian">
           <summary className="faq-accordian-head">How much does it cost to develop an eCommerce app?</summary>
           <div className="faq-accordian-body">Although it’s difficult to provide an estimate but on an average, the cost of developing an eCommerce app ranges between $50,000 to $150,000 depending on its overall complexity related to features, functionalities, and tech stack used.
@@ -281,4 +286,4 @@ function marketplaceDetail() {
   );
 }
 
-export default marketplaceDetail;
+export default Ecommerce;
