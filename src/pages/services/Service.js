@@ -460,8 +460,6 @@ export default function Service({ data, pageContext }) {
 
           <section className="faq-section">
             {detail && detail?.node.FAQ.length ? (
-          <section className="faq-section"> 
-            {detail && detail?.node.FAQ.length ?
               <div className="contentWidth">
                 <div class="faq-content">
                   <div class="faq-head">
