@@ -1,5 +1,5 @@
 import React from "react";
-import restaurant from "../../assets/images/black-resot.png";
+import restaurant from "../../assets/images/restaurant-order.png";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
@@ -9,8 +9,7 @@ import Icons from "../../components/Icons/Icons";
 import ButtonBox from "../../components/button";
 import { Link } from "gatsby";
 import "../marketplace.scss";  
-
-
+ 
 function Resort() {
     return (
         <> 
@@ -491,7 +490,7 @@ function Resort() {
             </section>
             <section>
                 <div className="imgSec">
-                    <img src={restaurant} alt="image" /> 
+                    <img src={restaurant} alt="image" />  
                 </div>
             </section>
             <section className="counterSection">
