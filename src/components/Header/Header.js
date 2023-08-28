@@ -80,7 +80,7 @@ const Header = () => {
             </div>
             <div className="navlink">
               <a onClick={toggle} href="/marketplace">
-                Marketplace
+                Industries
               </a>
             </div>
             {/* <div className="navlink">

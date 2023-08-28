@@ -138,7 +138,7 @@ export default function Marketplace() {
               className="service-block"
             >
               <Icons name="eScooter" />
-              <h2>eScooter</h2>
+              <h2>Enviorment</h2>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
