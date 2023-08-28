@@ -4,6 +4,7 @@ import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Popup from "../../components/Popup/Modal";
+import Counter from "./counter";
 
 function Resort() {
     return (
@@ -58,6 +59,22 @@ function Resort() {
                     </div>
                 </div>
             </section>
+            <section className="counterSection">
+        <div className="contentWidth">
+          <div className="counterblock">
+            <Counter number={820} title="Active Clients" />
+          </div>
+          <div className="counterblock">
+            <Counter number={520} title="Projects Done" />
+          </div>
+          <div className="counterblock">
+            <Counter number={100} title="Ready Projects" />
+          </div>
+          <div className="counterblock">
+            <Counter number={90} title="Happy Clients" />
+          </div>
+        </div>
+      </section>
             <Footer />
         </>
     );
