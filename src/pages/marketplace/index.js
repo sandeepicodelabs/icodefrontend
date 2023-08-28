@@ -40,84 +40,111 @@ export default function Marketplace() {
             <Link to="/marketplace/onDemand" className="service-block">
               <Icons name="onDemand" />
               <h2>On demand</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link to="/marketplace/resort/" className="service-block">
               <Icons name="restaurant" />
               <h2>Restaurant</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
             <Link to="/marketplace/marketplaceDetail/" className="service-block">
               <Icons name="realEstate" />
               <h2>Real Estate</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
-            <Link
-              to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+            <Link to="/marketplace/marketplaceDetail/"
+              className="service-block">
               <Icons name="healthcare" />
               <h2>Healthcare</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
             <Link
               to="/marketplace/Ecommerce/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="ecommerce" />
               <h2>Ecommerce</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="education" />
               <h2>Education</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="socialNetworking" />
-              <h2>Social Networking</h2>
+              <h2> Networking</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="saas" />
               <h2>SaaS</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>{" "}
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="news" />
               <h2>News</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="entertainment" />
               <h2>Entertainment</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="gameApp" />
               <h2>Game App</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="logistics" />
               <h2>Logistics</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
-              to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              to="/marketplace/marketplaceDetail/"   className="service-block" >
               <Icons name="travel" />
               <h2>Travel</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
@@ -125,55 +152,72 @@ export default function Marketplace() {
             >
               <Icons name="finance" />
               <h2>Finance</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="aviation" />
               <h2>Aviation</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="eScooter" />
               <h2>Enviorment</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="politics" />
               <h2>Politics</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="agriculture" />
               <h2>Agriculture</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="events" />
               <h2>Events</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="wellness" />
               <h2>Wellness</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
             <Link
               to="/marketplace/marketplaceDetail/"
-              className="service-block"
-            >
+              className="service-block">
               <Icons name="EV" />
               <h2>EV</h2>
+              <div className="next-arrow">
+              <Icons name="nextarrowicon" />
+              </div>
             </Link>
           </div>
         </div>

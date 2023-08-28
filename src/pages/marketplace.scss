@@ -196,6 +196,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 14px;
+      
       @include sm {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 24px;
@@ -205,6 +206,8 @@
       }
       @include xl {
         grid-template-columns: repeat(5, 1fr);
+
+      
       }
       .service-block {
         width: 100%;
@@ -217,6 +220,7 @@
         transition: $transition;
         text-align: center;
         display: inline-block;
+        position:relative;
         @include sm {
           padding: 24px;
         }
@@ -248,6 +252,16 @@
           font-weight: 400;
           line-height: 130%;
           margin: 0;
+        }
+        & .next-arrow {
+          position: absolute;
+          bottom: 15px;
+          right: 57px;
+
+         svg {
+          width: 20px;
+          height: 20px;
+         }
         }
       }
     }

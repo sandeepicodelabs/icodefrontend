@@ -132,8 +132,7 @@ function marketplaceDetail() {
               commerce app development solutions
             </h3>
 
-            <div className="solutionSec">
-
+            <div className="solutionSec">  
               <div className="features">
                 <div className="featureBlock">
                   <span className="icon">

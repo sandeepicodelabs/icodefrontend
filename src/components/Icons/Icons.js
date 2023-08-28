@@ -1925,6 +1925,9 @@ const icons = {
       />
     </svg>
   ),
+  nextarrowicon: (
+    <svg width="16px" height="16px" viewBox="0 0 20.48 20.48" class="icon" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M15.095 9.6H3.2a0.64 0.64 0 1 0 0 1.28h11.895l-4.668 4.667a0.64 0.64 0 0 0 0.906 0.906l5.76 -5.76a0.64 0.64 0 0 0 0 -0.906l-5.76 -5.76a0.64 0.64 0 1 0 -0.906 0.906L15.095 9.6z"/></svg>
+  ),
   disabledAddIcon: (
     <svg
       width="24"
