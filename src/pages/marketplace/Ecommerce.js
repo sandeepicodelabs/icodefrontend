@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import emarketplaceDetailsimg from "../../assets/images/e-commerce-image3.png";
 import IconCheckmark from "../../components/IconCheckmark/IconCheckmark";
 import Footer from "../../components/Footer/Footer";
@@ -8,12 +8,34 @@ import { Link } from "gatsby";
 import Icons from "../../components/Icons/Icons";
 import ButtonBox from "../../components/button";
 import Counter from "./counter";
-import "../../components/FAQ/faq.scss"  
+import "../../components/FAQ/faq.scss"
+import FAQ from "../../components/FAQ/FAQ";
 
 function Ecommerce() {
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
   }, []);
+
+
+  const faqs = [
+    {
+      question: "How much does it cost to develop an eCommerce app? ",
+      answer: "Although it’s difficult to provide an estimate but on an average, the cost of developing an eCommerce app ranges between $50,000 to $150,000 depending on its overall complexity related to features, functionalities, and tech stack used. Get in touch with our team of experts to get an exact estimate for your eCommerce app development project"
+    },
+    {
+      question: "How does Appinventiv build eCommerce mobile apps? ",
+      answer: "We have a well-defined process for building eCommerce mobile apps that starts with research and market analysis followed by ideation and design process. Upon successful completion of these steps, we move on to building the app. After thoroughly testing the app from various standpoints,we deploy the app on stores and update the app based on the feedback."
+    },
+    {
+      question: "How to select the best eCommerce application company for your project? ",
+      answer: "To select the best eCommerce application development services company, one should check the shortlisted company’s portfolio, its testimonials, and its ratings on various platforms such as Clutch. Upon satisfactory evaluation of all of the above,one could be in a position to select the best eCommerce app development company."
+    },
+    {
+      question: "what kind of eCommerce projects has Appinventiv done?",
+      answer: "We have worked with major eCommerce brands from Adidas to Edamama. We have worked with companies of all sizes and have extensive expertise in delivering top-quality eCommerce solutions."
+    }
+
+  ]
 
   return (
     <>
@@ -136,7 +158,7 @@ function Ecommerce() {
               commerce app development solutions
             </h3>
 
-            <div className="solutionSec">  
+            <div className="solutionSec">
               <div className="features">
                 <div className="featureBlock">
                   <span className="icon">
@@ -206,33 +228,33 @@ function Ecommerce() {
             </p>
             <div className="join-expertise">
               <div className="join-our-team">
-                <h3>AI/ML</h3>
-                <p style={{ color: "black" }}>Being the foremost eCommerce mobile app development company, we build advanced AI/ML algorithms that automate processes and offer analytics, insights,
+                <h3 className="ecommerce-heading">AI/ML</h3>
+                <p className="ecommerce-description">Being the foremost eCommerce mobile app development company, we build advanced AI/ML algorithms that automate processes and offer analytics, insights,
                   and visibility into customer behavior from a single dashboard.
                 </p>
               </div>
               <div className="join-our-team">
-                <h3>Blockchain</h3>
-                <p style={{ color: "black" }}>Having privacy and security built into the framework, blockchain offers capabilities to build systems that are inherently secure,
+                <h3 className="ecommerce-heading">Blockchain</h3>
+                <p className="ecommerce-description">Having privacy and security built into the framework, blockchain offers capabilities to build systems that are inherently secure,
                   public, and decentralized offering the control back in the hands of the users.
                 </p>
               </div>
               <div className="join-our-team">
-                <h3>Metaverse</h3>
-                <p style={{ color: "black" }}>As a top-rated eCommerce mobile app development company
+                <h3 className="ecommerce-heading">Metaverse</h3>
+                <p className="ecommerce-description">As a top-rated eCommerce mobile app development company
                   we develop immersive metaverse 3d spaces as part of our services and elevate the experience for your users manifold.
                 </p>
               </div>
 
               <div className="join-our-team">
-                <h3>Data analytics</h3>
-                <p style={{ color: "black" }}>We provide advanced data analytics services offering immense value to your eCommerce business.
+                <h3 className="ecommerce-heading">Data analytics</h3>
+                <p className="ecommerce-description">We provide advanced data analytics services offering immense value to your eCommerce business.
                   We develop prediction engines based on customers’ shopping data and other features enabled by advanced analytics.
                 </p>
               </div>
               <div className="join-our-team">
-                <h3>Cloud computing</h3>
-                <p style={{ color: "black" }}>Since the days of on-prem servers are over, we offer top-of-the-line cloud services including cloud migration, optimization,
+                <h3 className="ecommerce-heading">Cloud computing</h3>
+                <p className="ecommerce-description">Since the days of on-prem servers are over, we offer top-of-the-line cloud services including cloud migration, optimization,
                   and cloud-managed services to offer immense value to your data storage requirements.
                 </p>
               </div>
@@ -243,28 +265,41 @@ function Ecommerce() {
 
         </div>
       </section>
-      <section>
-        <h1>Frequently asked questions</h1>
-        <details className="faq-accordian">
-          <summary className="faq-accordian-head">How much does it cost to develop an eCommerce app?</summary>
-          <div className="faq-accordian-body">Although it’s difficult to provide an estimate but on an average, the cost of developing an eCommerce app ranges between $50,000 to $150,000 depending on its overall complexity related to features, functionalities, and tech stack used.
-                                     Get in touch with our team of experts to get an exact estimate for your eCommerce app development project.</div>
-        </details>
-        <details className="faq-accordian">
-          <summary className="faq-accordian-head">How does Appinventiv build eCommerce mobile apps?</summary>
-          <div className="faq-accordian-body">
-               We have a well-defined process for building eCommerce mobile apps that starts with research and market analysis followed by ideation and design process. Upon successful completion of these steps, we move on to building the app. After thoroughly testing the app from various standpoints, 
-               we deploy the app on stores and update the app based on the feedback.</div>
-        </details>
-        <details className="faq-accordian">
-          <summary className="faq-accordian-head">How to select the best eCommerce application development services company for your project?</summary>
-          <div className="faq-accordian-body">To select the best eCommerce application development services company, one should check the shortlisted company’s portfolio, its testimonials, and its ratings on various platforms such as Clutch. Upon satisfactory evaluation of all of the above,
-           one could be in a position to select the best eCommerce app development company.</div>
-        </details>
-        <details className="faq-accordian">
-          <summary className="faq-accordian-head">As a mobile shopping app development company what kind of eCommerce projects has Appinventiv done?</summary>
-          <div className="faq-accordian-body">We have worked with major eCommerce brands from Adidas to Edamama. We have worked with companies of all sizes and have extensive expertise in delivering top-quality eCommerce solutions.</div>
-        </details>
+      <section className="faq-content-width">
+        <div class="faq-content">
+          <h1 className="faq-top">Frequently asked questions</h1>
+          <div className="faq-accordian-sec">
+
+            {faqs.map((item, i) => (
+              <FAQ
+                question={item.question}
+                answer={item.answer}
+              />
+            ))}
+
+
+            {/* <details className="faq-accordian">
+            <summary className="faq-accordian-head">How much does it cost to develop an eCommerce app?</summary>
+            <div className="faq-accordian-body">Although it’s difficult to provide an estimate but on an average, the cost of developing an eCommerce app ranges between $50,000 to $150,000 depending on its overall complexity related to features, functionalities, and tech stack used.
+              Get in touch with our team of experts to get an exact estimate for your eCommerce app development project.</div>
+          </details>
+          <details className="faq-accordian">
+            <summary className="faq-accordian-head">How does Appinventiv build eCommerce mobile apps?</summary>
+            <div className="faq-accordian-body">
+              We have a well-defined process for building eCommerce mobile apps that starts with research and market analysis followed by ideation and design process. Upon successful completion of these steps, we move on to building the app. After thoroughly testing the app from various standpoints,
+              we deploy the app on stores and update the app based on the feedback.</div>
+          </details>
+          <details className="faq-accordian">
+            <summary className="faq-accordian-head">How to select the best eCommerce application development services company for your project?</summary>
+            <div className="faq-accordian-body">To select the best eCommerce application development services company, one should check the shortlisted company’s portfolio, its testimonials, and its ratings on various platforms such as Clutch. Upon satisfactory evaluation of all of the above,
+              one could be in a position to select the best eCommerce app development company.</div>
+          </details>
+          <details className="faq-accordian">
+            <summary className="faq-accordian-head">As a mobile shopping app development company what kind of eCommerce projects has Appinventiv done?</summary>
+            <div className="faq-accordian-body">We have worked with major eCommerce brands from Adidas to Edamama. We have worked with companies of all sizes and have extensive expertise in delivering top-quality eCommerce solutions.</div>
+          </details> */}
+          </div>
+        </div>
       </section>
 
       <section className="counterSection">
