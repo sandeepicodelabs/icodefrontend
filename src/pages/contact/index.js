@@ -109,6 +109,15 @@ export default function ContactPage() {
       zoom: 15,
     });
 
+  // Create a custom marker with a label
+  const customMarker = document.createElement("div");
+  customMarker.className = "custom-marker";
+  customMarker.innerText = "Icodelabs Pvt. Ltd.";
+  new mapboxgl.Marker(customMarker)
+    .setLngLat([76.6862, 30.71])
+    .addTo(map);
+
+
     // Optional: Add markers or any other map-related customization
     new mapboxgl.Marker().setLngLat([76.6862, 30.71]).addTo(map);
     // Cleanup the map instance when the component unmounts
@@ -264,7 +273,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        <div id="st_google_map" className="st_map_st_contact_page" />
+        <div id="st_google_map" className="st_map_st_contact_page" style={{ color: 'red' }} />
         <Footer />
       </section>
     </>
