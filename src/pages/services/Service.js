@@ -15,7 +15,6 @@ import userImg from "../../assets/images/user.png";
 import Emailicon from "../../assets/images/email.png";
 import messageimg from "../../assets/images/message.png";
 import linkicon from "../../assets/images/link.png";
-
 import {
   Button,
   Form,
@@ -23,14 +22,9 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
 } from "reactstrap";
 import axios from "axios";
 import bigInt from "big-integer";
-
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import "./Modal.css";
@@ -38,7 +32,6 @@ import InputBox from "../../components/input";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Servicehead from "../../components/ServiceHead/Servicehead";
-import Layout from "../Layout";
 import Popup from "../../components/Popup/Modal";
 
 export default function Service({ data, pageContext }) {
@@ -55,11 +48,12 @@ export default function Service({ data, pageContext }) {
   const [errors, setErrors] = useState({});
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
-    // setTimeout(function () {
+    //  setTimeout(function () {
     //   setModal(true);
-    // }, 10000);
+    // }, 2000);
     typeof window !== "undefined" && window.scrollTo(0, 0);
   }, []);
 
@@ -119,6 +113,7 @@ export default function Service({ data, pageContext }) {
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
+        setShowSuccessPopup(true); // Show success popup
         return axios.post(
           "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
@@ -230,25 +225,25 @@ export default function Service({ data, pageContext }) {
                 <p>{detail && detail?.node?.Description?.data?.Description}</p>
                 <div className="getActionBtn">
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? null : (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? null : (
                     <Button className="getQuote" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Get Started
                     </Button>
                   )}
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                     <a className="getQuote" href="/seoPackages">
                       <span className="rippleEffect">&nbsp;</span> Seo Package
                     </a>
                   ) : null}
                   {typeof window !== "undefined" &&
-                  window.location.href.includes(
-                    "digital-marketing-seo-services-company"
-                  ) ? (
+                    window.location.href.includes(
+                      "digital-marketing-seo-services-company"
+                    ) ? (
                     <Button className="freeConsult getQuote" onClick={toggle}>
                       <span className="rippleEffect">&nbsp;</span> Free Website
                       Analysis
@@ -268,6 +263,16 @@ export default function Service({ data, pageContext }) {
               </div>
             </div>
           </section>
+
+          {showSuccessPopup && (
+            <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+              <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+              <ModalBody>
+                Form Submit Successfully.Thanks!
+              </ModalBody>
+            </Modal>
+          )}
+
 
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
@@ -315,9 +320,9 @@ export default function Service({ data, pageContext }) {
                     </div>
 
                     {typeof window !== "undefined" &&
-                    window.location.href.includes(
-                      "digital-marketing-seo-services-company"
-                    ) ? (
+                      window.location.href.includes(
+                        "digital-marketing-seo-services-company"
+                      ) ? (
                       <div className="input-wrap">
                         <InputBox
                           type="text"

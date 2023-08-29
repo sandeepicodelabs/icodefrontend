@@ -51,15 +51,27 @@ import thebillets from "../assets/images/portfolioslider/thebillets.png";
 
 import "./style.scss";
 import ReactTyped from "react-typed";
-import Popup from "../components/Popup/Modal"; 
+import Popup from "../components/Popup/Modal";
 import Head from "../components/Head/Head";
 import Layout from "./Layout";
- 
- 
+import {
+  Button,
+  Form,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+} from "reactstrap";
+
+
 
 const IndexPage = ({ data }) => {
-      
-  
+
+
   const companylogo = data?.allStrapiCompanyLogo?.edges;
   const choosecard = data?.allStrapiExperiencesProcesse?.nodes;
   const technologyPartners = data?.allStrapiTechnologyPartner?.edges;
@@ -72,13 +84,14 @@ const IndexPage = ({ data }) => {
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
 
     const newErrors = {};
@@ -117,6 +130,8 @@ const IndexPage = ({ data }) => {
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
+        setShowSuccessPopup(true); // Show success popup
+
         return axios.post(
           "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
@@ -204,7 +219,7 @@ const IndexPage = ({ data }) => {
     ],
   };
 
-  const testimonialCard = [ 
+  const testimonialCard = [
 
     {
       testimonialmessage:
@@ -212,7 +227,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Troy Lane",
       clientaddress: "Australia",
-      appname:"Equipment Now",
+      appname: "Equipment Now",
       commaimage: commaimage,
     },
 
@@ -222,7 +237,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Edgar Santiago",
       clientaddress: "Rentalo South America",
-      appname:"Rentalo",
+      appname: "Rentalo",
       commaimage: commaimage,
     },
 
@@ -232,7 +247,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Holly Manzano",
       clientaddress: "USA",
-      appname:"Smarthire",
+      appname: "Smarthire",
       commaimage: commaimage,
     },
 
@@ -242,7 +257,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "William Kwakye",
       clientaddress: "Australia",
-      appname:"Raver Fans",
+      appname: "Raver Fans",
       commaimage: commaimage,
     },
     {
@@ -251,7 +266,7 @@ const IndexPage = ({ data }) => {
       img: testimonialPicture,
       clientname: "Olive Shamon",
       clientaddress: "Australia",
-      appname:"Buus",
+      appname: "Buus",
       commaimage: commaimage,
     },
 
@@ -309,12 +324,13 @@ const IndexPage = ({ data }) => {
     ],
   };
   return (
-   
+
     <div className="pageWrapper">
-    
+
       <Header />
-      <Popup /> 
-      <Head/>
+      <Popup />
+      <Head />
+
       <section className="heroSection">
         <div className="cover-background">
           <div className="contentWidth">
@@ -706,6 +722,16 @@ const IndexPage = ({ data }) => {
                 <img src={contactimg} alt="contact image" />
               </div>
             </div>
+
+            {showSuccessPopup && (
+              <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+                <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+                <ModalBody>
+                  Form Submit Successfully.Thanks!
+                </ModalBody>
+              </Modal>
+            )}
+
             <form className="contact-right" onSubmit={handleSubmit}>
               <div className="contact-form">
                 <div className="input-wrap">
@@ -778,7 +804,7 @@ const IndexPage = ({ data }) => {
 
       <Footer />
     </div>
-   
+
   );
 };
 
@@ -864,4 +890,3 @@ export const query = graphql`
   }
 `;
 
- 

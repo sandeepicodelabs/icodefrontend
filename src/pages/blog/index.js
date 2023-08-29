@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import HeaderBar from "../../components/headerbar";
 import Footer from "../../components/Footer/Footer";
@@ -17,25 +17,27 @@ import bigInt from "big-integer";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import Popup from "../../components/Popup/Modal";
-import Layout from "../Layout";
+
+import { Button, Form, Modal, ModalBody, ModalHeader } from "reactstrap";
 
 
 export default function Blog({ data, pageContext }) {
   const { allStrapiArticle } = data;
   const [page, setPage] = useState(1);
-  const { pageInfo } = allStrapiArticle; 
+  const { pageInfo } = allStrapiArticle;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
 
-  useEffect(()=>{
-    typeof window!="undefined" && window.scrollTo(0,0);
-    },[]);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  useEffect(() => {
+    typeof window != "undefined" && window.scrollTo(0, 0);
+  }, []);
   const handleOnChange = (value) => {
-    // Handle the value change
-   // console.log("New phone number:", value);
+    // Handle the value change 
     setPhoneNumber(value);
   };
 
@@ -57,27 +59,27 @@ export default function Blog({ data, pageContext }) {
       validContent.toLowerCase().includes(query?.toLowerCase())
     );
   });
- 
+
   // for enquiry form
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces  
-    const newErrors = {}; 
-      if (name.trim() === "") {
-        newErrors.name = "Name is required";
-      } else if (!namePattern.test(name)) {
-        newErrors.name = "Please enter a valid name with alphabetic characters.";
-      }
-      
-      if (email.trim() === "") {
-        newErrors.email = "Please enter email address";
-      }
-      
-      if (Object.keys(newErrors).length > 0) {
-        setErrors(newErrors);
-        return;
-        console.log("s")
-      }
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+      console.log("s")
+    }
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
@@ -86,8 +88,8 @@ export default function Blog({ data, pageContext }) {
         Name: name,
         Email: email,
         Message: message,
-        MobileNo: phoneNumber, 
-        
+        MobileNo: phoneNumber,
+
       },
     };
     console.log(contactData, "contactData");
@@ -99,6 +101,7 @@ export default function Blog({ data, pageContext }) {
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
+        setShowSuccessPopup(true); // Show success popup
         return axios.post(
           "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
@@ -115,7 +118,7 @@ export default function Blog({ data, pageContext }) {
     setName("");
     setEmail("");
     setPhoneNumber("");
-    setMessage(""); 
+    setMessage("");
     setErrors({});
     e.target.reset();
 
@@ -132,16 +135,16 @@ export default function Blog({ data, pageContext }) {
   filteredData =
     filteredData.length > size
       ? filteredData.filter(
-          (lt, index) => index >= startIndex && index <= endIndex
-        )
+        (lt, index) => index >= startIndex && index <= endIndex
+      )
       : filteredData;
 
   return (
-   
+
     <>
       <section className="blog-box">
         <Header />
-        
+
         <HeaderBar currentpage="Blog" pagetitle="Blog" />
         <div className="cover-full-box contentWidth">
           <div className="article-main-box">
@@ -188,14 +191,13 @@ export default function Blog({ data, pageContext }) {
                       //console.log("khusxa");
                       setPage(pageNum + 1);
                     }}
-                    className={`next  ${
-                      endIndex < posts.length - 1 ? "active" : null
-                    }`}
+                    className={`next  ${endIndex < posts.length - 1 ? "active" : null
+                      }`}
                   >
                     Next
                   </button>
 
-                  
+
                 </div>
               </div>
               <div className="most-popular-article">
@@ -222,13 +224,22 @@ export default function Blog({ data, pageContext }) {
                               key={i}
                               profilename={item?.node?.Author}
                               postdate={item?.node?.createdAt}
-                              //blogdescription={item.node?.Title}
+                            //blogdescription={item.node?.Title}
                             />
                           </Link>
                         </div>
                       ))}
                   </div>
                 </div>
+
+                {showSuccessPopup && (
+                  <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+                    <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+                    <ModalBody>
+                      Form Submit Successfully.Thanks!
+                    </ModalBody>
+                  </Modal>
+                )}
                 <div className="blog-detail-sidebar-subscribe">
                   {/* <SubscribeCard /> */}
                   <form className="contact-right" onSubmit={handleSubmit}>
@@ -242,10 +253,10 @@ export default function Blog({ data, pageContext }) {
                           img={userImg}
                           name="name"
                           onChange={(e) => setName(e.target.value)}
-                          />
-                          {errors.name && (
-                            <p className="error-message">{errors.name}</p>
-                          )}
+                        />
+                        {errors.name && (
+                          <p className="error-message">{errors.name}</p>
+                        )}
                       </div>
                       <div className="input-wrap">
                         <InputBox
@@ -255,18 +266,18 @@ export default function Blog({ data, pageContext }) {
                           img={Emailicon}
                           name="email"
                           onChange={(e) => setEmail(e.target.value)}
-                          />
-                          {errors.email && (
-                            <p className="error-message">{errors.email}</p>
-                          )}
+                        />
+                        {errors.email && (
+                          <p className="error-message">{errors.email}</p>
+                        )}
                       </div>
                       <div className="input-wrap">
-                      <PhoneInput 
-                        placeholder="Enter phone number"
-                        countryCode="+91"
-                        value={phoneNumber}
-                        onChange={setPhoneNumber}
-                        name="phoneNumber" 
+                        <PhoneInput
+                          placeholder="Enter phone number"
+                          countryCode="+91"
+                          value={phoneNumber}
+                          onChange={setPhoneNumber}
+                          name="phoneNumber"
                         />
                       </div>
                       <div className="input-wrap">
@@ -276,7 +287,7 @@ export default function Blog({ data, pageContext }) {
                           name="message"
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}>
-                      </textarea>
+                        </textarea>
                         <span className="input-icon">
                           <img src={messageimg} alt="St Logo" name="message" />
                         </span>
@@ -296,7 +307,7 @@ export default function Blog({ data, pageContext }) {
 
       <Footer />
     </>
-     
+
   );
 }
 

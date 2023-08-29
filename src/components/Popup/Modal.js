@@ -130,7 +130,7 @@ function Popup({data,pageContext}) {
         <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
           <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
           <ModalBody>
-            Form Submit Successfully.
+            Form Submit Successfully.Thanks!
           </ModalBody>
         </Modal>
       )}

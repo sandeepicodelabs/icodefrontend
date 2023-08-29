@@ -14,7 +14,12 @@ import { Link } from "gatsby";
 import axios from "axios";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import Layout from "../Layout";
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -23,7 +28,8 @@ export default function ContactPage() {
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");
   const [errors, setErrors] = useState({});
-   
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces
@@ -67,6 +73,7 @@ export default function ContactPage() {
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
+        setShowSuccessPopup(true); // Show success popup
         return axios.post(
           "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
@@ -79,7 +86,7 @@ export default function ContactPage() {
         console.log("Error sending form data:", error);
         // Optionally, you can show an error message here or handle the error gracefully
       });
-      
+
     // Clear the form
     setName("");
     setEmail("");
@@ -109,147 +116,158 @@ export default function ContactPage() {
   }, []);
 
   return (
-     
-    <>
-    <section className="contact-us-page">
-      <Header />
-      <HeaderBar currentpage="Contact Us" pagetitle="Contact Us" />
-      <div className="getintouch-box">
-        <div className="contentWidth">
-          <div className="getbox-form">
-            <div className="getintouch-form">
-              <h1 className="gettouch-heading">Got a project in mind?</h1>
-              <p className="gettouch-subheading">
-                Send your enquiry and will get back to you within one business
-                day
-              </p>
-              <form onSubmit={handleSubmit}>
-                <div className="form-box-input">
-                  <div className="form-row-box">
-                    <div className="form-main-group">
-                      <label>Your Name</label>
-                      <input
-                        type="text"
-                        className="contact-input"
-                        name="name"
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                      {errors.name && (
-                        <p className="error-message">{errors.name}</p>
-                      )}
-                    </div>
-                    <div className="form-main-group">
-                      <label>Your Email</label>
-                      <input
-                        type="text"
-                        className="contact-input"
-                        name="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                      {errors.email && (
-                        <p className="error-message">{errors.email}</p>
-                      )}
-                    </div>
-                  </div>
-                  <div className="form-row-box">
-                    <div className="form-main-group">
-                      <label>Skype Id</label>
-                      <input
-                        type="text"
-                        className="contact-input"
-                        name="title"
-                      />
-                    </div>
-                    <div className="form-main-group">
-                      <label>Mobile No.</label>
-                      <PhoneInput
-                        placeholder="Enter phone number"
-                        countryCode="+91"
-                        value={phoneNumber}
-                        onChange={setPhoneNumber}
-                        name="phoneNumber"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="form-main-group">
-                    <label>Your Message</label>
-                    <textarea
-                      className="contact-input"
-                      rows={10}
-                      name="message"
-                    />
+    <>
+
+      {showSuccessPopup && (
+        <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+          <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+          <ModalBody>
+            Form Submit Successfully.Thanks!
+          </ModalBody>
+        </Modal>
+      )}
+
+
+      <section className="contact-us-page">
+        <Header />
+        <HeaderBar currentpage="Contact Us" pagetitle="Contact Us" />
+        <div className="getintouch-box">
+          <div className="contentWidth">
+            <div className="getbox-form">
+              <div className="getintouch-form">
+                <h1 className="gettouch-heading">Got a project in mind?</h1>
+                <p className="gettouch-subheading">
+                  Send your enquiry and will get back to you within one business
+                  day
+                </p>
+                <form onSubmit={handleSubmit}>
+                  <div className="form-box-input">
+                    <div className="form-row-box">
+                      <div className="form-main-group">
+                        <label>Your Name</label>
+                        <input
+                          type="text"
+                          className="contact-input"
+                          name="name"
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                        {errors.name && (
+                          <p className="error-message">{errors.name}</p>
+                        )}
+                      </div>
+                      <div className="form-main-group">
+                        <label>Your Email</label>
+                        <input
+                          type="text"
+                          className="contact-input"
+                          name="email"
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                        {errors.email && (
+                          <p className="error-message">{errors.email}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="form-row-box">
+                      <div className="form-main-group">
+                        <label>Skype Id</label>
+                        <input
+                          type="text"
+                          className="contact-input"
+                          name="title"
+                        />
+                      </div>
+                      <div className="form-main-group">
+                        <label>Mobile No.</label>
+                        <PhoneInput
+                          placeholder="Enter phone number"
+                          countryCode="+91"
+                          value={phoneNumber}
+                          onChange={setPhoneNumber}
+                          name="phoneNumber"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-main-group">
+                      <label>Your Message</label>
+                      <textarea
+                        className="contact-input"
+                        rows={10}
+                        name="message"
+                      />
+                    </div>
                   </div>
-                </div>
-                <ButtonBox type="submit" buttonname="Send Message" />
-              </form>
-            </div>
-            
-            <div className="getintouch-links">
-              <div className="contact-data">
-                <div className="contact-details-right">
-                  <div className="contact-social-details">
-                    <div className="contact-heading">Get in touch with us</div>
-                    <ul>
-                      <li>
-                        <div className="contact-social-icon">
-                          <img src={contactLocation} alt="st logo" />
-                        </div>
-                        <span>
-                          D-176, Phase 8B, Industrial Area, Sector 74, Sahibzada
-                          Ajit Singh Nagar, Punjab 160055
-                        </span>
-                      </li>
-                      <li>
-                        <div className="contact-social-icon">
-                          <img src={contactEmail} alt="st logo" />
-                        </div>
-                        <span>hello@icodelabs.co</span>
-                      </li>
-                      <li>
-                        <div className="contact-social-icon">
-                          <img src={contactMeet} alt="st logo" />
-                        </div>
-                        <span>
-                          <a href="https://calendly.com/jaytiwary">
-                            Schedule a call
-                          </a>
-                        </span>
-                      </li>
-                      <li>
-                        <div className="contact-social-icon">
-                          <img src={contactSkype} alt="st logo" />
-                        </div>
-                        <span>
-                          <p>
-                            <Link to="skype:live:jaytiwary_4?call">
-                              Skype call
-                            </Link>
-                          </p>
-                        </span>
-                      </li>
-                      <li>
-                        <div className="contact-social-icon">
-                          <img src={contactSlack} alt="st logo" />
-                        </div>
-                        <span>
-                          <a href="https://icodesoftwarelabs.slack.com">
-                            Slack us
-                          </a>
-                        </span>
-                      </li>
-                    </ul>
+                  <ButtonBox type="submit" buttonname="Send Message" />
+                </form>
+              </div>
+
+              <div className="getintouch-links">
+                <div className="contact-data">
+                  <div className="contact-details-right">
+                    <div className="contact-social-details">
+                      <div className="contact-heading">Get in touch with us</div>
+                      <ul>
+                        <li>
+                          <div className="contact-social-icon">
+                            <img src={contactLocation} alt="st logo" />
+                          </div>
+                          <span>
+                            D-176, Phase 8B, Industrial Area, Sector 74, Sahibzada
+                            Ajit Singh Nagar, Punjab 160055
+                          </span>
+                        </li>
+                        <li>
+                          <div className="contact-social-icon">
+                            <img src={contactEmail} alt="st logo" />
+                          </div>
+                          <span>hello@icodelabs.co</span>
+                        </li>
+                        <li>
+                          <div className="contact-social-icon">
+                            <img src={contactMeet} alt="st logo" />
+                          </div>
+                          <span>
+                            <a href="https://calendly.com/jaytiwary">
+                              Schedule a call
+                            </a>
+                          </span>
+                        </li>
+                        <li>
+                          <div className="contact-social-icon">
+                            <img src={contactSkype} alt="st logo" />
+                          </div>
+                          <span>
+                            <p>
+                              <Link to="skype:live:jaytiwary_4?call">
+                                Skype call
+                              </Link>
+                            </p>
+                          </span>
+                        </li>
+                        <li>
+                          <div className="contact-social-icon">
+                            <img src={contactSlack} alt="st logo" />
+                          </div>
+                          <span>
+                            <a href="https://icodesoftwarelabs.slack.com">
+                              Slack us
+                            </a>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div id="st_google_map" className="st_map_st_contact_page" />
-      <Footer />
-    </section>
+        <div id="st_google_map" className="st_map_st_contact_page" />
+        <Footer />
+      </section>
     </>
-     
+
   );
 }

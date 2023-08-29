@@ -21,6 +21,7 @@ export default function Seo() {
   const [errors, setErrors] = useState({});
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
@@ -81,6 +82,7 @@ export default function Seo() {
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
+        setShowSuccessPopup(true); // Show success popup
         return axios.post(
           "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
@@ -1040,6 +1042,16 @@ export default function Seo() {
           </div>
         </div>
       </section>{" "}
+
+      {showSuccessPopup && (
+        <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+          <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+          <ModalBody>
+            Form Submit Successfully.Thanks!
+          </ModalBody>
+        </Modal>
+      )} 
+
       {modal && (
         <Modal modalClassName="getQuoteModal" isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}></ModalHeader>

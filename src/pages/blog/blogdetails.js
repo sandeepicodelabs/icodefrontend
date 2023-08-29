@@ -21,8 +21,8 @@ import axios from "axios";
 import bigInt from "big-integer";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import Popup from "../../components/Popup/Modal";
-import Layout from "../Layout";
+import Popup from "../../components/Popup/Modal"; 
+import { Button, Form, Modal, ModalBody, ModalHeader } from "reactstrap";
 import IconBack from "../../components/IconBack/IconBack";
 
 const settings = {
@@ -68,6 +68,7 @@ export default function BlogPage({ data, pageContext }) {
   const [phoneNumber, setPhoneNumber] = useState("+91");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
     typeof window != "undefined" && window.scrollTo(0, 0);
@@ -78,27 +79,27 @@ export default function BlogPage({ data, pageContext }) {
     // console.log("New phone number:", value);
     setPhoneNumber(value);
   };
- 
+
   // for enquiry form
   const handleSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const namePattern = /^[A-Za-z\s]+$/; // Regular expression for alphabetic characters and spaces  
-    const newErrors = {}; 
-      if (name.trim() === "") {
-        newErrors.name = "Name is required";
-      } else if (!namePattern.test(name)) {
-        newErrors.name = "Please enter a valid name with alphabetic characters.";
-      }
-      
-      if (email.trim() === "") {
-        newErrors.email = "Please enter email address";
-      }
-      
-      if (Object.keys(newErrors).length > 0) {
-        setErrors(newErrors);
-        return;
-        console.log("s")
-      }
+    const newErrors = {};
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    } else if (!namePattern.test(name)) {
+      newErrors.name = "Please enter a valid name with alphabetic characters.";
+    }
+
+    if (email.trim() === "") {
+      newErrors.email = "Please enter email address";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+      console.log("s")
+    }
     // Get the form data from the event target
     const formData = new FormData(e.target);
     console.log(formData, "formData");
@@ -107,8 +108,8 @@ export default function BlogPage({ data, pageContext }) {
         Name: name,
         Email: email,
         Message: message,
-        MobileNo: phoneNumber, 
-        
+        MobileNo: phoneNumber,
+
       },
     };
     console.log(contactData, "contactData");
@@ -120,6 +121,7 @@ export default function BlogPage({ data, pageContext }) {
       )
       .then(async (response) => {
         console.log("Form data sent successfully:", response);
+        setShowSuccessPopup(true); // Show success popup
         return axios.post(
           "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
           contactData
@@ -136,7 +138,7 @@ export default function BlogPage({ data, pageContext }) {
     setName("");
     setEmail("");
     setPhoneNumber("");
-    setMessage(""); 
+    setMessage("");
     setErrors({});
     e.target.reset();
 
@@ -237,7 +239,7 @@ export default function BlogPage({ data, pageContext }) {
                                     postedname={item?.node?.Author}
                                     postdate={item.node?.createdAt}
                                     cardtitle={item.node?.Title}
-                                    //cardprofile={item.node?.user.profileimage?.publicURL}
+                                  //cardprofile={item.node?.user.profileimage?.publicURL}
                                   />
                                 </Link>
                               );
@@ -267,6 +269,14 @@ export default function BlogPage({ data, pageContext }) {
                     ))}
                   </div>
                 </div>
+                {showSuccessPopup && (
+                  <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+                    <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+                    <ModalBody>
+                      Form Submit Successfully.Thanks!
+                    </ModalBody>
+                  </Modal>
+                )}
                 <div className="blog-detail-sidebar-subscribe">
                   {/* <SubscribeCard /> */}
                   <form className="contact-right" onSubmit={handleSubmit}>
@@ -280,10 +290,10 @@ export default function BlogPage({ data, pageContext }) {
                           img={userImg}
                           name="name"
                           onChange={(e) => setName(e.target.value)}
-                          />
-                          {errors.name && (
-                            <p className="error-message">{errors.name}</p>
-                          )}
+                        />
+                        {errors.name && (
+                          <p className="error-message">{errors.name}</p>
+                        )}
                       </div>
                       <div className="input-wrap">
                         <InputBox
@@ -293,10 +303,10 @@ export default function BlogPage({ data, pageContext }) {
                           img={Emailicon}
                           name="email"
                           onChange={(e) => setEmail(e.target.value)}
-                          />
-                          {errors.email && (
-                            <p className="error-message">{errors.email}</p>
-                          )}
+                        />
+                        {errors.email && (
+                          <p className="error-message">{errors.email}</p>
+                        )}
                       </div>
                       <div className="input-wrap">
                         <PhoneInput
