@@ -105,7 +105,7 @@ export default function ContactPage() {
     const map = new mapboxgl.Map({
       container: "st_google_map",
       style: "mapbox://styles/mapbox/streets-v11", // Replace with the desired map style URL
-      center: [76.6862, 30.71], // Longitude, Latitude
+      center: [76.6862, 30.7100], // Longitude, Latitude
       zoom: 15,
     });
 
@@ -114,12 +114,12 @@ export default function ContactPage() {
   customMarker.className = "custom-marker";
   customMarker.innerText = "Icodelabs Pvt. Ltd.";
   new mapboxgl.Marker(customMarker)
-    .setLngLat([76.6862, 30.71])
+    .setLngLat([76.6862, 30.7100])
     .addTo(map);
 
 
     // Optional: Add markers or any other map-related customization
-    new mapboxgl.Marker().setLngLat([76.6862, 30.71]).addTo(map);
+    new mapboxgl.Marker().setLngLat([76.6862, 30.7100]).addTo(map);
     // Cleanup the map instance when the component unmounts
     return () => map.remove();
   }, []);
