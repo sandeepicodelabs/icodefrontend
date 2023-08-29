@@ -67,7 +67,7 @@ export default function Marketplace() {
               </div>
             </Link>{" "}
             <Link
-              to="/marketplace/Ecommerce/"
+              to="/marketplace/ecommerce/"
               className="service-block">
               <Icons name="ecommerce" />
               <h2>Ecommerce</h2>
@@ -76,7 +76,7 @@ export default function Marketplace() {
               </div>
             </Link>{" "}
             <Link
-              to="/marketplace/marketplaceDetail/"
+              to="/marketplace/education/"
               className="service-block">
               <Icons name="education" />
               <h2>Education</h2>

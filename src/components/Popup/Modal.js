@@ -34,11 +34,12 @@ function Popup({data,pageContext}) {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("+91");
     const [message, setMessage] = useState("");
-    const[url,setUrl]=useState("")
+    const[url,setUrl]=useState("");
+    const[title,setTitle]=useState("");
     const [errors, setErrors] = useState({});
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);  
-
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false); 
 
     useEffect(() => {
       setTimeout(function () {
@@ -83,20 +84,24 @@ function Popup({data,pageContext}) {
             Message: message,
             MobileNo: phoneNumber,
             Url:url,
+            Title:title,
           },
         };
         console.log(contactData, "contactData");
         // Make the POST request to your Strapi backend
         axios
           .get(
-            `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}&url=${url}`
+            `https://icodelabsbackend-qr8y.onrender.com/api/sendingemails?name=${name}&email=${email}&message=${message}&phoneNumber=${phoneNumber}&url=${url}&title=${title}`
           )
           .then(async (response) => {
             console.log("Form data sent successfully:", response);
+            setShowSuccessPopup(true); // Show success popup
+
             return axios.post(
               "https://icodelabsbackend-qr8y.onrender.com/api/contact-uses",
               contactData
             );
+            
           })
           .then((response2) => {
             console.log(response2, "response2");
@@ -116,12 +121,24 @@ function Popup({data,pageContext}) {
         e.target.reset();
       };
     
+ 
+             
+        
   return (
     <div>
+      {showSuccessPopup && (
+        <Modal isOpen={showSuccessPopup} toggle={() => setShowSuccessPopup(false)}>
+          <ModalHeader toggle={() => setShowSuccessPopup(false)}>Success!</ModalHeader>
+          <ModalBody>
+            Form Submit Successfully.
+          </ModalBody>
+        </Modal>
+      )}
           {modal && (
             <Modal isOpen={modal} toggle={toggle}>
               <ModalHeader toggle={toggle}>Contact Now to Craft Digital Excellence!</ModalHeader>
               <ModalBody>
+          
                 <Form className="contact-right" onSubmit={handleSubmit}>
                   <div className="contact-form">
                     {/* <h1>Let’s Build Your Dream App!</h1> */}
@@ -203,9 +220,10 @@ function Popup({data,pageContext}) {
                     </div>
                   </div>
                   <div className="send-button">
-                    <ButtonBox type="submit" buttonname="Submit" />
+                    <ButtonBox type="submit" buttonname="Submit"   />
                   </div>
                 </Form>
+       
               </ModalBody>
             </Modal>
           )}
