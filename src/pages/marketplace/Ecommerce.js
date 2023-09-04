@@ -226,33 +226,53 @@ function Ecommerce() {
               clients while maximizing the business prospect of their app or product.
               These advanced technologies have propelled us to become the preferred custom eCommerce software development company.
             </p>
-            <div className="join-expertise">
-              <div className="join-our-team">
+            <div className="join-expertises">
+              <div className="join-our-teams">
+                <span className="icon">
+                  {" "}
+                  <Icons name="aiicon" />
+                </span>
                 <h3 className="ecommerce-heading">AI/ML</h3>
                 <p className="ecommerce-description">Being the foremost eCommerce mobile app development company, we build advanced AI/ML algorithms that automate processes and offer analytics, insights,
                   and visibility into customer behavior from a single dashboard.
                 </p>
               </div>
-              <div className="join-our-team">
+              <div className="join-our-teams">
+                <span className="icon">
+                  {" "}
+                  <Icons name="blockchain" />
+                </span>
                 <h3 className="ecommerce-heading">Blockchain</h3>
                 <p className="ecommerce-description">Having privacy and security built into the framework, blockchain offers capabilities to build systems that are inherently secure,
                   public, and decentralized offering the control back in the hands of the users.
                 </p>
               </div>
-              <div className="join-our-team">
+              <div className="join-our-teams">
+                <span className="icon">
+                  {" "}
+                  <Icons name="metaverse" />
+                </span>
                 <h3 className="ecommerce-heading">Metaverse</h3>
                 <p className="ecommerce-description">As a top-rated eCommerce mobile app development company
                   we develop immersive metaverse 3d spaces as part of our services and elevate the experience for your users manifold.
                 </p>
               </div>
 
-              <div className="join-our-team">
+              <div className="join-our-teams">
+                <span className="icon">
+                  {" "}
+                  <Icons name="analysis" />
+                </span>
                 <h3 className="ecommerce-heading">Data analytics</h3>
                 <p className="ecommerce-description">We provide advanced data analytics services offering immense value to your eCommerce business.
                   We develop prediction engines based on customers’ shopping data and other features enabled by advanced analytics.
                 </p>
               </div>
-              <div className="join-our-team">
+              <div className="join-our-teams">
+                <span className="icon">
+                  {" "}
+                  <Icons name="cloud" />
+                </span>
                 <h3 className="ecommerce-heading">Cloud computing</h3>
                 <p className="ecommerce-description">Since the days of on-prem servers are over, we offer top-of-the-line cloud services including cloud migration, optimization,
                   and cloud-managed services to offer immense value to your data storage requirements.

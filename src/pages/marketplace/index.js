@@ -32,7 +32,6 @@ export default function Marketplace() {
             <p>WHO WE ARE</p>
             <h1>
               We deal with the aspects of
-              <br />
               professional IT Services
             </h1>
           </div>

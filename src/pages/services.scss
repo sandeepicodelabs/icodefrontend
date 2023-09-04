@@ -301,6 +301,13 @@
     color: #000 !important;
     width: 100%;
     max-width: 100% !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 14px;
+    line-height: 150% !important;
+    margin-bottom: 0;
+    text-align: justify;
+    letter-spacing: normal !important;
   }
 
   .ecommerce-heading {
@@ -308,7 +315,7 @@
   }
 
   .choose-description {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
   }
 }
 
@@ -785,5 +792,85 @@
   & .faq-top {
     text-align: center;
     margin-bottom: 30px;
+  }
+
+}
+
+.custom-question-class {
+  padding-right: 50px;
+}
+
+.join-expertises {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  // overflow-x: auto;
+  width: 100%;
+  row-gap: 60px;
+  // scroll-snap-type: x mandatory;
+
+  @include md {
+    display: grid;
+    flex-wrap: wrap;
+    grid-column-gap: 24px;
+    grid-row-gap: 80px;
+    grid-template-columns: repeat(2, 1fr);
+    overflow-x: visible;
+  }
+
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include xl {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .join-our-teams {
+    width: 100%;
+    min-width: calc(100% / 1);
+    margin-right: 24px;
+    scroll-snap-align: start;
+    background: #fff;
+    padding: 60px 24px 24px;
+    box-shadow: 0px 0px 15px rgba(0, 91, 88, 0.3);
+    border-radius: 10px;
+    position: relative;
+
+    @include md {
+      margin-right: 0px;
+      min-width: auto;
+      width: 100%;
+    }
+
+    .icon {
+      position: absolute;
+      top: -50px;
+      left: 24px;
+      background-color: #005B58;
+      padding: 14px;
+      border-radius: 100px;
+      border: 3px solid #fff;
+    }
+  }
+
+  .ecommerce-heading {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 135%;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #000;
+  }
+
+  .ecommerce-details {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 50%;
+    margin-bottom: 0;
+    color: #000;
+    text-align: justify;
   }
 }

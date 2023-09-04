@@ -7,7 +7,7 @@ export default function FAQ(props) {
 
   return (
     <details className="faq-accordian">
-      <summary className="faq-accordian-head">{question}</summary>
+      <summary className="faq-accordian-head"><div>{question}</div></summary>
       <div className="faq-accordian-body">{answer}</div>
     </details>
   );
